@@ -1,0 +1,58 @@
+<div
+    class="table-responsive-lg m-5"
+>
+    <table
+        class="table table-striped-columns table-hover table-borderless table-primary align-middle"
+    >
+        <thead class="table-light">
+            <caption class="display-4 text-success mb-4">
+                Store
+            </caption>
+            <tr>
+                <th>Products</th>
+                <th>Disponibles</th>
+                <th>Precio</th>
+                <th>Detalles</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          @for (product of productList; track $index) {
+            <tr class="table-secondary">
+              <td  cope="row">{{product.name}}</td>
+              <td [ngClass]="{'red-color': product.cantidad < 40}">{{product.cantidad}}</td>
+              <td>{{product.precio | currency}} </td>
+              <td class="d-flex justify-content-end "><a
+                [routerLink]="['/products', product.id]"
+                class="btn btn-primary "
+                role="button"
+                >
+                Info
+              </a >
+              </td>
+          </tr>
+          }
+            <tr **ngFor="let product of products" class="table-secondary">
+                <th cope="row">{{product.id}}</th>
+                <td >{{product.name}}</td>
+                <td>{{product.cantidad}}</td>
+                <td>{{product.precio | currency}} </td>
+                <td class="d-flex justify-content-end "><a
+                  [routerLink]="['/products', product.id]"
+                  class="btn btn-primary "
+                  role="button"
+                  >
+                  Info
+                </a >
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</div>
+
+
+<div class="position-absolute fecha">
+  {{fecha | date }}
+</div>

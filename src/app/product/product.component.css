@@ -1,0 +1,9 @@
+.fecha{
+  display: flex;
+  justify-content: end;
+  width: 95% ;
+}
+
+.red-color{
+ color: brown;
+}
