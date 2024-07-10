@@ -1,0 +1,132 @@
+<div class="contenedor">
+ <div class="container ">
+  <form [formGroup]="formularioConct" (ngSubmit)="enviar()">
+    <fieldset class="row">
+      <legend
+        class="col-form-legend col-4 text-secondary display-4 text"
+      >
+        Auth User
+      </legend>
+
+    </fieldset>
+    <div class="mb-3 d-flex row">
+      <label
+        for="inputName"
+        class="col-4 col-form-label"
+        ><span class=" d-flex justify-content-end fw-bold">Name :</span></label
+      >
+      <div
+        class="col-5"
+      >
+      <input
+      type="text"
+      class="form-control "
+      name="inputName"
+      id="inputName"
+      placeholder="Name"
+     formControlName="name"
+     [ngClass]="{'is-invalid': hasErrors('name','required') }"
+      />
+      <div class="text-danger" *ngIf="hasErrors('name','required')">Please choose a username</div>
+
+      </div>
+
+    </div>
+    <div class="mb-3 d-flex row">
+      <label
+        for="inputName"
+        class="col-4 col-form-label"
+        ><span class=" d-flex justify-content-end fw-bold">Email :</span></label
+      >
+      <div
+        class="col-5"
+      >
+      <input
+      type="text"
+      class="form-control "
+      name="inputName"
+      id="inputName"
+      placeholder="Email"
+    formControlName="email"
+    [ngClass]="{'is-invalid': hasErrors('name','email') }"
+    [ngClass]="{'is-invalid': hasErrors('name','required') }"
+    />
+    <div class="text-danger" *ngIf="hasErrors('email','email')">Email invelid</div>
+    <div class="text-danger" *ngIf="hasErrors('email','required')">Please Email required</div>
+      </div>
+
+    </div><div class="mb-3 d-flex row">
+      <label
+        for="inputName"
+        class="col-4 col-form-label"
+        ><span class=" d-flex justify-content-end fw-bold">Password :</span></label
+      >
+      <div
+        class="col-5"
+      >
+      <input
+      type="password"
+      class="form-control "
+      name="inputName"
+      id="inputName"
+      placeholder="Password"
+     formControlName="password"
+     [ngClass]="{'is-invalid': hasErrors('name','required') }"
+    />
+    <div class="text-danger" *ngIf="hasErrors( 'password','required')">Please password required</div>
+      </div>
+
+    </div><div class="mb-3 d-flex row">
+      <label
+        for="inputName"
+        class="col-4 col-form-label"
+        ><span class=" d-flex justify-content-end fw-bold">Iphone :</span></label
+      >
+      <div
+        class="col-5"
+      >
+      <input
+      type="text"
+      class="form-control"
+      name="inputName"
+      id="inputName"
+      placeholder="Iphone"
+      formControlName="iphone"
+      [ngClass]="{'is-invalid': hasErrors('name','required') }"
+    />
+    <div class="text-danger"  *ngIf="hasErrors('iphone','required')">Please number required</div>
+      </div>
+
+    </div>
+
+ <div class="w-100 d-flex justify-content-center align-items-center flex-column ">
+
+    <div
+      class="alert m-5 col-5"
+      role="alert"
+    >
+      <h4 class="alert-heading">Alert Heading</h4>
+      <p>Alert Content</p>
+      <hr />
+      <p class="mb-0">Alert Description</p>
+    </div>
+
+ </div>
+
+
+
+    <div class="mb-3 d-flex lg-circle row">
+      <div class="offset-sm-4 d-flex gap-4 justify-content-center  col-sm-8">
+        <button type="submit" class="btn btn-primary">
+          Log In
+        </button>
+        <button type="button" class="btn btn-primary">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </form>
+ </div>
+
+</div>
+
