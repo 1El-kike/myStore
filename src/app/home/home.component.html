@@ -10,11 +10,16 @@
       <div class="LogIn">
           <p>Plis Login on the next page <b class="text-green-400 "><a  routerLink="/user" class="text-teal-500 cursor-pointer" >Touch here</a></b></p>
 
+        </div>
+       </div>
       </div>
-      </div>
-      </div>
-    <hr>
+     <hr>
     <div>
-
-    </div>
+  </div>
 </div>
+
+@for (item of todus; track $index) {
+
+  <div class="col-end-6">{{item.title}}</div>
+
+}

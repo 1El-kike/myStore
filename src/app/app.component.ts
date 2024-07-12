@@ -12,12 +12,14 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     HomeComponent,
     ProductComponent,
     ProductDetailComponent,
-    RouterModule 
+    RouterModule,
+
+
     ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  
+
 
 }
