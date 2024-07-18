@@ -3,6 +3,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     ProductComponent,
     ProductDetailComponent,
     RouterModule,
-
+    NgClass
 
     ],
   templateUrl: './app.component.html',
@@ -21,6 +22,11 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 })
 export class AppComponent {
 
-  title: string = 'Store'
+  title: string = 'Store';
+  menuOption = '';
+
+  onOption(option: string){
+this.menuOption =option;
+  }
 
 }

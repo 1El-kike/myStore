@@ -18,24 +18,32 @@
     </div>
     <p class="logo text-secondary text-5xl font-extrabold absolute sm:absolute ml-52 mb-12 sm:ml-52 md:m-0 lg:m-0 sm:mb-14 md:relative lg:relative "> {{title}}</p>
     </div>
-  <div class="flex flex-nowrap  md:w-full lg:w-full m-auto sm:flex-row md:flex-row lg:flex-row justify-around overflow-x-auto p-2 gap-9">
-    @for (item of datosLocales; track $index) {
-      <div class="min-w-[300px] w-96">
-      <div class="card text-star  bg-slate-400 p-10 sm:p-0 md:p-0 lg:p-0">
-        <img class="card-img-top  text-slate-900 text-3xl font-bold" src="{{image}}" alt="{{$index}}" />
-        <div class="card-body ">
-          <h4 class="card-title pt-2 ps-2">Title</h4>
-          <p class="card-text">{{item}}</p>
-          <button (click)="eliminarlist($index)" class="btn btn-danger ">Delete</button>
+  <div class="flex flex-nowrap md:w-full lg:w-full sm:flex-row md:flex-row lg:flex-row overflow-x-auto  gap-9">
+    @for (item of datos; track $index) {
+    <div class="max-w-[580px] ">
+
+      <div class="card mb-3 bg-gradient-to-bl bg-slate-500 from-slate-200  w-[560px]">
+        <div class="row g-0">
+          <div class="col-md-5">
+            <img src={{item.urlImg}} class="h-full bg-gradient-to-r from-transparent bg-slate-500 opacity-85 rounded-start" alt="...">
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <h5 class=" text-green-500">{{item.title}}</h5>
+              <p class="card-text">{{item.description}}</p>
+              <p class="card-text"><small class="text-muted">Quantity available : {{item.cantidad}}</small></p>
+              <div class="w-full flex justify-end">
+
+                <button (click)="eliminarlist($index)" class="btn btn-outline-success ">Open</button>
+              </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 
     }
   </div>
-
-
-
 </div>
 </div>
 

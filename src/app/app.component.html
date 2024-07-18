@@ -17,13 +17,13 @@
     <div class="navbar-collapse" id="collapsibleNavId">
       <ul class="navbar-nav me-auto mt-2 mt-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink=""
+          <a class="nav-link " [ngClass]="{active: menuOption === 'home'}" (click)="onOption('home')" aria-current="page" routerLink=""
             >Home
            </a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="products" >Products</a>
+          <a class="nav-link" routerLink="products" [ngClass]="{active: menuOption === 'product'}" (click)="onOption('product')" >Products</a>
         </li>
         <li class="nav-item dropdown">
           <a

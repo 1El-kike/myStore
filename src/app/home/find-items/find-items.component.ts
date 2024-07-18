@@ -1,6 +1,7 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { LocalstoreService } from '../../services/localstore.service';
 import { FormsModule } from '@angular/forms';
+import { DatosLocales } from '../../models/localDatos.moduls';
 
 @Component({
   selector: 'app-find-items',
@@ -13,6 +14,8 @@ export class FindItemsComponent implements OnInit{
 
   @Input() image?: string = ''
   @Input() title : string = ''
+
+datos = DatosLocales;
 
   datosnew:string = ''
   elementFind:string = ''
