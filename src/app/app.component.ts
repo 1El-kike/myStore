@@ -21,5 +21,6 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 })
 export class AppComponent {
 
+  title: string = 'Store'
 
 }

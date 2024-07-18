@@ -1,0 +1,41 @@
+<div class="relative  h-full ">
+
+  <img src={{image}} alt="Fondo" class="absolute inset-0 opacity-5 w-full h-full object-cover"/>
+    <div class="relative  w-full h-full bg-gradient-to-br from-yellow-300 bg-red-800  "></div>
+  <div class="container z-20">
+    <div class="m-5 flex flex-col sm:flex-col  lg:flex-row md:flex-row xl:gap-28 md:gap-6 sm:gap-2 z-20 justify-around  w-full">
+    <div class="flex gap-1">
+      <p class="logo text-secondary text-5xl z-30  font-extrabold "> {{title}}</p>
+      <small class="relative"></small>
+      <small><i class="fas fa-icon"></i></small>
+    </div>
+    <div class="input-group justify-center flex">
+      <span class="input-group-text h-8 sm:h-8 md:h-14 lg:h-14">
+        <i class="fa-solid fa-bell">Find</i>
+      </span>
+      <input type="text" title="find" [(ngModel)]="datosnew" class="text-4xl sm:w-5 form-control h-8 sm:h-8 md:h-14 lg:h-14 bg-white z-20 p-2 rounded-e-md"/>
+      <button (click)="agregarlist()" class="btn btn-primary h-8 sm:h-8 md:h-14 lg:h-14">More</button>
+    </div>
+    <p class="logo text-secondary text-5xl font-extrabold absolute sm:absolute ml-52 mb-12 sm:ml-52 md:m-0 lg:m-0 sm:mb-14 md:relative lg:relative "> {{title}}</p>
+    </div>
+  <div class="flex flex-nowrap  md:w-full lg:w-full m-auto sm:flex-row md:flex-row lg:flex-row justify-around overflow-x-auto p-2 gap-9">
+    @for (item of datosLocales; track $index) {
+      <div class="min-w-[300px] w-96">
+      <div class="card text-star  bg-slate-400 p-10 sm:p-0 md:p-0 lg:p-0">
+        <img class="card-img-top  text-slate-900 text-3xl font-bold" src="{{image}}" alt="{{$index}}" />
+        <div class="card-body ">
+          <h4 class="card-title pt-2 ps-2">Title</h4>
+          <p class="card-text">{{item}}</p>
+          <button (click)="eliminarlist($index)" class="btn btn-danger ">Delete</button>
+        </div>
+      </div>
+    </div>
+
+    }
+  </div>
+
+
+
+</div>
+</div>
+

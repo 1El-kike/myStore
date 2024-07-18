@@ -4,8 +4,8 @@
     <div class="absolute inset-0 bg-gradient-to-br  via-yellow-300 from-transparent  "></div>
     <div class="z-10 mt-4">
       <div class="flex">
-        <h1 class="text-8xl font-bold text-gray-700">Welcome</h1>
-        <span class=" text-4xl text-red-400"><p>Audit<span class="font-bold text-5xl text-blue-500">X</span></p></span>
+        <h1 class="lg:text-8xl md:text-7xl sm:text-6xl text-5xl font-bold text-gray-700">Welcome</h1>
+        <span class=" text-xl lg:text-4xl md:text-3xl sm:text-2xl text-red-400"><p>Audit<span class="font-bold   lg:text-5xl md:text-4xl sm:text-3xl text-2xl text-blue-500">X</span></p></span>
       </div>
       <div class="LogIn">
           <p>Plis Login on the next page <b class="text-green-400 "><a  routerLink="/user" class="text-teal-500 cursor-pointer" >Touch here</a></b></p>
@@ -16,10 +16,7 @@
      <hr>
     <div>
   </div>
+  <app-find-items image={{image}} title="Stores"/>
 </div>
 
-@for (item of todus; track $index) {
 
-  <div class="col-end-6">{{item.title}}</div>
-
-}
