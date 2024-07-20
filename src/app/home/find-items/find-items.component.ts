@@ -2,11 +2,12 @@ import { Component, inject, Input, OnInit } from '@angular/core';
 import { LocalstoreService } from '../../services/localstore.service';
 import { FormsModule } from '@angular/forms';
 import { DatosLocales } from '../../models/localDatos.moduls';
+import { HomeSecondoryComponent } from '../home-secondory/home-secondory.component';
 
 @Component({
   selector: 'app-find-items',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,HomeSecondoryComponent],
   templateUrl: './find-items.component.html',
   styleUrl: './find-items.component.css'
 })

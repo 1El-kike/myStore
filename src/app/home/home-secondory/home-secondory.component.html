@@ -1,0 +1,67 @@
+<div class="grid grid-cols-9 mt-5">
+  <div class="col-span-9 sm:gap-4 md:gap-4 gap-4 lg:gap-0 sm:col-span-9 md:col-span-9 lg:col-span-2 p-3 grid overflow-x-auto grid-cols-subgrid">
+    <div class="col-span-2 flex flex-col gap-3 w-full justify-around sm:justify-start  ">
+      <p class="text-2xl text-slate-600"><b>Sort by</b></p>
+    @for (item of tolbar; track $index) {
+      <div class="flex justify-between w-full">
+        <label><i class="fas fa-user"></i>{{item.item}}</label>
+        <input title="Distance" class="z-30 form-check-input" type="radio"/>
+      </div>
+    }
+    <div class="flex gap-2">
+      <input title="Distance" class="z-30 form-check-input" type="checkbox"/>
+      <p>Only open establishments</p>
+    </div>
+    </div>
+    <div class=" z-30 col-span-3 sm:col-span-3 overflow-hidden md:col-span-3 lg:col-span-2 sm:min-h-72 lg:min-h-full" id="accordionExample1">
+      <div class="accordion-item z-30">
+        <h2 class="accordion-header text-2xl z-30" id="headingOne1">
+          <button
+          class="accordion-button "
+          type="button"
+          >
+            <span class="text-2xl font-bold text-slate-600">Range</span>
+          </button>
+        </h2>
+        <div
+          id="collapseOne1"
+          class=""
+        >
+          <div class="accordion-body">
+            <div class="z-30">
+              <input title="range" [(ngModel)]="selectedValue" type="range" min="0" max="900" class="slider w-full h-2 bg-blue-500 rounded-lg cursor-pointer" (change)="onRangeChange($event)">
+              <div class="flex w-full justify-between space-x-2">
+                @for (option of options; track $index) {
+                  <button  [class.active]="$index === selectedOptionIndex" (click)="selectOption($index)" class="px-2 py-1 border rounded-3xl border-gray-400 ">{{ option }}</button>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="acordion  mt-0 sm:mt-1 md:mt-2 lg:mt-4 border overflow-x-auto lg:max-h-full max-h-48 grid grid-cols-subgrid col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-2 rounded-2xl">
+      <div class="acordion-header  grid grid-cols-subgrid col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-2  ">
+        <h4 class="acordion-item bg-sky-100 grid grid-cols-subgrid col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-2 ">
+          <button class="lg:mt-6 ms-8 md:mt-3 sm:mt-2  mt-1   acordion-category">Categories</button>
+        </h4>
+        @defer () {
+          <div class="acordion-body items-center grid grid-cols-subgrid  col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-2 mt-4 sm:mt-1 md:mt-1 lg:mt-4 p-3">
+             @for (item of category; track $index) {
+               <div class="grid grid-cols-2">
+                 <div class="flex items-center gap-2 ">
+                   <input class="mb-4" title="category"  type="radio" value={{item.status}} />
+                   <p class="h-8 xs:text-xs sm:text-xs lg:text-md ">{{item.categories}}</p>
+                 </div>
+               </div>
+             }
+           </div>
+
+        }
+      </div>
+    </div>
+  </div>
+  <div class="col-span-9 sm:col-span-9 md:col-span-9 lg:col-span-7 ">
+      <app-stores/>
+  </div>
+</div>

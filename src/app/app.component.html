@@ -2,7 +2,12 @@
   class="navbar navbar-expand-sm navbar-light bg-gradient-to-br from-yellow-500 bg-yellow-300 bg-light"
 >
   <div class="container">
-    <a class="navbar-brand" href="#">{{title}}</a>
+    <a class="navbar-brand" href="#">
+      <span class="flex items-center">
+        <img class="w-9 h-9" src="/store.png" alt="Mi ícono">
+        <span> {{title}}</span>
+      </span>
+    </a>
     <button
       class="navbar-toggler d-lg-none"
       type="button"
@@ -18,25 +23,40 @@
       <ul class="navbar-nav me-auto mt-2 mt-lg-0">
         <li class="nav-item">
           <a class="nav-link " [ngClass]="{active: menuOption === 'home'}" (click)="onOption('home')" aria-current="page" routerLink=""
-            >Home
+            >
+            <span class="flex items-center">
+              <img class="w-9 h-9" src="/icons8-casa-96.png" alt="Mi ícono">
+              <span>Home</span>
+            </span>
            </a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="products" [ngClass]="{active: menuOption === 'product'}" (click)="onOption('product')" >Products</a>
+          <a class="nav-link" routerLink="products" [ngClass]="{active: menuOption === 'product'}" (click)="onOption('product')" >
+            <span class="flex items-center">
+              <img class="w-9 h-9" src="/product.png" alt="Mi ícono">
+              <span>Products</span>
+            </span>
+
+          </a>
         </li>
         <li class="nav-item dropdown">
           <a
-            class="nav-link dropdown-toggle"
+            class="nav-link dropdown-toggle after:absolute after:-end-2 after: after:top-7"
             href="#"
             id="dropdownId"
             data-bs-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
-            >Tools</a
+            >
+            <span class="flex items-center">
+              <img class="w-9 h-9" src="/tools.png" alt="Mi ícono">
+              <span>Tools</span>
+            </span>
+            </a
           >
           <div
-            class="dropdown-menu"
+            class="dropdown-menu bg-yellow-200"
             aria-labelledby="dropdownId"
           >
             <a class="dropdown-item" href="#" routerLink="/todus"

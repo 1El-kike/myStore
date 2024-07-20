@@ -1,0 +1,15 @@
+<div class="flex h-full w-full justify-center">
+  <div class="columns-2 gap-8">
+    @for (item of datos; track $index) {
+
+      <div class="card cursor-pointer ">
+        <img src={{item.url}} class="card-img h-96 " alt="Imagen no encontrada">
+        <div class="card-img-overlay bg-gradient-to-b from-white flex flex-col justify-center bg-black opacity-75">
+          <h5 class="text-green-900  text-2xl font-black">{{item.name}}</h5>
+          <p class="card-text ">{{item.description}}</p>
+          <p class="card-text"><small>Price : {{item.precio}}</small></p>
+        </div>
+      </div>
+    }
+  </div>
+</div>
