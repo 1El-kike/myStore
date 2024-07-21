@@ -1,19 +1,23 @@
-<div class="grid grid-cols-9 mt-5">
-  <div class="col-span-9 sm:gap-4 md:gap-4 gap-4 lg:gap-0 sm:col-span-9 md:col-span-9 lg:col-span-2 p-3 grid overflow-x-auto grid-cols-subgrid">
-    <div class="col-span-2 flex flex-col gap-3 w-full justify-around sm:justify-start  ">
+@defer () {
+
+<div class="grid grid-cols-9 mt-5 overflow-y-auto">
+  <div class="col-span-9 max-h-[1200px] sm:gap-4 md:gap-4 gap-4 lg:gap-0 sm:col-span-9 md:col-span-9 lg:col-span-2 p-3 grid grid-cols-subgrid">
+    <div class="col-span-5 sm:col-span-4 md:col-span-5 lg:col-span-2 flex flex-col gap-3 w-full justify-around sm:justify-start  ">
       <p class="text-2xl text-slate-600"><b>Sort by</b></p>
-    @for (item of tolbar; track $index) {
-      <div class="flex justify-between w-full">
-        <label><i class="fas fa-user"></i>{{item.item}}</label>
-        <input title="Distance" class="z-30 form-check-input" type="radio"/>
-      </div>
-    }
+      <form class="flex flex-col gap-3" [formGroup]="miFormulario">
+    @for (item of toolbar; track $index) {
+        <div class="flex justify-between w-full">
+          <label><i class="fas fa-user"></i>{{item.item}}</label>
+          <input title="Distance" [formControlName]="item.item"  (change)="toggleCheck(item.item)" class="z-30 form-check-input" type="checkbox"/>
+        </div>
+      }
+    </form>
     <div class="flex gap-2">
       <input title="Distance" class="z-30 form-check-input" type="checkbox"/>
       <p>Only open establishments</p>
     </div>
     </div>
-    <div class=" z-30 col-span-3 sm:col-span-3 overflow-hidden md:col-span-3 lg:col-span-2 sm:min-h-72 lg:min-h-full" id="accordionExample1">
+    <div class=" z-30 col-span-3 sm:col-span-4 overflow-hidden md:col-span-3 lg:col-span-2 sm:min-h-72 lg:min-h-full" id="accordionExample1">
       <div class="accordion-item z-30">
         <h2 class="accordion-header text-2xl z-30" id="headingOne1">
           <button
@@ -40,17 +44,17 @@
         </div>
       </div>
     </div>
-    <div class="acordion  mt-0 sm:mt-1 md:mt-2 lg:mt-4 border overflow-x-auto lg:max-h-full max-h-48 grid grid-cols-subgrid col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-2 rounded-2xl">
-      <div class="acordion-header  grid grid-cols-subgrid col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-2  ">
-        <h4 class="acordion-item bg-sky-100 grid grid-cols-subgrid col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-2 ">
-          <button class="lg:mt-6 ms-8 md:mt-3 sm:mt-2  mt-1   acordion-category">Categories</button>
+    <div class="mt-4 sm:min-h-[240px] sm:mt-1 border flex flex-wrap lg:max-h-full max-h-78  grid-cols-subgrid col-span-9 sm:col-span-9 md:col-span-9 lg:col-span-2 rounded-2xl">
+      <div class=" ">
+        <h4 class="bg-sky-200 rounded-lg ">
+          <button class="lg:mt-6 ms-8 md:mt-3 sm:mt-2  mt-1">Categories</button>
         </h4>
         @defer () {
-          <div class="acordion-body items-center grid grid-cols-subgrid  col-span-4 sm:col-span-4 md:col-span-4 lg:col-span-2 mt-4 sm:mt-1 md:mt-1 lg:mt-4 p-3">
+          <div class=" w-full justify-center flex flex-wrap gap-6 ">
              @for (item of category; track $index) {
-               <div class="grid grid-cols-2">
-                 <div class="flex items-center gap-2 ">
-                   <input class="mb-4" title="category"  type="radio" value={{item.status}} />
+               <div class="w-20  my-0 h-2/6">
+                 <div class="flex items-start gap-2 ">
+                   <input class="z-30 form-check-input" title="category" (change)="toggleCheckCategory(item.categories)"  type="radio" value={{item.status}} />
                    <p class="h-8 xs:text-xs sm:text-xs lg:text-md ">{{item.categories}}</p>
                  </div>
                </div>
@@ -65,3 +69,4 @@
       <app-stores/>
   </div>
 </div>
+}
