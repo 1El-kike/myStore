@@ -1,4 +1,7 @@
 <div class="contenedor">
+  <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]" aria-hidden="true">
+    <div class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ddee48] to-[#e76508] opacity-30 sm:left-[calc(90%-40rem)] sm:w-[102.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+  </div>
  <div class="container ">
   <form [formGroup]="formularioConct" (ngSubmit)="enviar()">
     <fieldset class="row">
@@ -7,7 +10,6 @@
       >
         Auth User
       </legend>
-
     </fieldset>
     <div class="mb-3 d-flex row">
       <label
@@ -102,26 +104,22 @@
  <div class="w-100 d-flex justify-content-center align-items-center flex-column ">
 
     <div
-      class="alert m-5 col-5"
+      class="alert m-1 col-5"
       role="alert"
     >
-      <h4 class="alert-heading">Alert Heading</h4>
-      <p>Alert Content</p>
+      <h4 class="alert-heading font-bold" >{{alert}}</h4>
+      <p class="text-slate-700">{{content}}</p>
       <hr />
-      <p class="mb-0">Alert Description</p>
+      <p class="mb-0">{{description}}</p>
     </div>
-
  </div>
-
-
-
     <div class="mb-3 d-flex lg-circle row">
       <div class="offset-sm-4 d-flex gap-4 justify-content-center  col-sm-8">
         <button type="submit" class="btn btn-primary">
           Log In
         </button>
         <button type="button" class="btn btn-primary">
-          Cancelar
+          Sign up
         </button>
       </div>
     </div>

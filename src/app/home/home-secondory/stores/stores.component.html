@@ -2,14 +2,14 @@
 
     @for (item of datos; track $index) {
 
-      <div class="card shadow-custom shadow-stone-500 w-[320px] h-[280px] cursor-pointer ">
+      <a [routerLink]="['/store', item.id]" role="button"  class="card shadow-custom shadow-stone-500 w-[320px] h-[280px] hover:opacity-75 cursor-pointer ">
         <img src="{{item.url}}" class="card-img h-[289px] w-full " alt="Imagen no encontrada">
-        <div class="card-img-overlay bg-gradient-to-t from-slate-400 flex flex-col justify-end  opacity-95">
+        <div class="card-img-overlay bg-gradient-to-t from-yellow-200 flex flex-col justify-end  opacity-95">
           <h5 class="text-green-900  text-2xl font-black">{{item.name}}</h5>
           <p class="card-text ">{{item.description}}</p>
           <p class="card-text"><small>Last updated {{item.adress}} mins ago</small></p>
         </div>
-      </div>
+      </a>
     }
 
 </div>

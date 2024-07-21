@@ -14,9 +14,11 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
   templateUrl: './auth-user.component.html',
   styleUrl: './auth-user.component.css'
 })
-
-
 export class AuthUserComponent {
+
+  alert = 'Market'
+  content = 'Thank you for using WepApp, to start log in or sign up'
+  description = 'By logging in or registering you agree to our Terms and Conditions'
 
   //La otra version de formulario
   formularioConct : FormGroup
@@ -25,11 +27,12 @@ export class AuthUserComponent {
     this.formularioConct = this._form.group({
       name:['',Validators.required],
       email:['',[Validators.required,Validators.email] ],
-      password:['',Validators.required],
+      password:['',[Validators.required,Validators.minLength(15)]],
       iphone:['',Validators.required]
 
     })
   }
+
 
 
 enviar =()=>{
@@ -37,9 +40,7 @@ enviar =()=>{
  }
 
 hasErrors =(controlName:string, errorType :string)=>{
-
   return this.formularioConct.get(controlName)?.hasError(errorType) && this.formularioConct.get(controlName)?.touched
-
 }
 
 

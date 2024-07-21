@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product, productList } from '../product/product.mock';
+import { Product, productList } from '../store/product/product.mock';
 import { CurrencyPipe, NgIf, NgStyle } from '@angular/common';
 
 @Component({

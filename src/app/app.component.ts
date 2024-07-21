@@ -1,9 +1,10 @@
 import { Component, EventEmitter } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { ProductComponent } from './product/product.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductComponent } from './store/product/product.component';
+import { ProductDetailComponent } from '../app/store/product-detail/product-detail.component';
 import { NgClass } from '@angular/common';
+import { MenuComponent } from './menu/menu.component';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +15,8 @@ import { NgClass } from '@angular/common';
     ProductComponent,
     ProductDetailComponent,
     RouterModule,
-    NgClass
-
+    NgClass,
+    MenuComponent
     ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
