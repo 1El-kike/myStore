@@ -20,38 +20,19 @@ export class HomeSecondoryComponent implements OnInit{
   selectedOptionIndex = 0;
   category:Category[] = []
   isOpen = false;
-  miCheckbox = false;
+  miCheckbox?:boolean;
   toolbar:any[] = [
     { item: 'Distance', check: false, ico: 'none' },
     { item: 'Ratings', check: false, ico: 'none' }
   ];
 
-  miFormulario: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-    this.miFormulario = this.fb.group({
-      checkbox1:[false],
-      checkbox2:[false]
-    });
-  /*   this.toolbar.forEach(item => {
-      const control = new FormControl(item.check);
-      this.miFormulario.setControl(item.item, control);
-    }); */
+
+  toggleCheck(item: any): void {
+    //this.miFormulario.value.setValue(!this.miFormulario.value);
+   console.log(this.toolbar)
   }
 
-  /* profileForn = new FormGroup({
-    checkbox: new FormControl(false),
-    checkbox2: new FormControl(false),
-  }) */
-
-  toggleCheck(item: string): void {
-   /*  this.miFormulario.value.setValue(!this.miFormulario.value); */
-   console.log(this.miFormulario.value)
-  }
-
-  toggleCheckCategory(item: string): void {
-    this.miFormulario.controls[item].setValue(!this.miFormulario.controls[item].value);
-  }
 
   onRangeChange(event: any): void {
     const value = event.target.value;
