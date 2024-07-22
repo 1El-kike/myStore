@@ -1,5 +1,5 @@
+<p class="text-slate-600 font-bold text-4xl my-4 mx-4 ">Stores all</p>
 <div class="flex flex-wrap gap-3 h-full w-full justify-center">
-
     @for (item of datos; track $index) {
 
       <a [routerLink]="['/store', item.id]" role="button"  class="card shadow-custom shadow-stone-500 w-[320px] h-[280px] hover:opacity-75 cursor-pointer ">

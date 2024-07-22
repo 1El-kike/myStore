@@ -2,7 +2,7 @@
   <nav class="mx-auto flex max-w-7xl items-center justify-between py-3 px-6 lg:px-8" aria-label="Global">
 
     <div class="flex lg:flex-1">
-      <a href="#" class="-m-1.5 p-1.5">
+      <a  routerLink="" class="-m-1.5 p-1.5">
         <span class="sr-only"><span> {{title}}</span></span>
         <img class="h-12 top-3 w-auto absolute" src="/store.png" alt="">
       </a>
@@ -49,8 +49,8 @@
                 </svg>
               </div>
               <div class="flex-auto">
-                <a href="#" [routerLink]="['/products']"   class="block font-semibold text-gray-900">
-                  Analytics
+                <a href="#" [routerLink]="['/store']"   class="block font-semibold text-gray-900">
+                  All Stores
                   <span class="absolute inset-0"></span>
                 </a>
                 <p class="mt-1 text-gray-600">Get a better understanding of your traffic</p>
@@ -63,8 +63,8 @@
                 </svg>
               </div>
               <div class="flex-auto">
-                <a href="#" [routerLink]="['/todus']"  class="block font-semibold text-gray-900">
-                  Engagement
+                <a href="#" [routerLink]="['/products']"  class="block font-semibold text-gray-900">
+                  All Products
                   <span class="absolute inset-0"></span>
                 </a>
                 <p class="mt-1 text-gray-600">Speak directly to your customers</p>

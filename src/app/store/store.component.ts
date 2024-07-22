@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './store.component.css'
 })
 export class StoreComponent {
-
+  bgImage = 'url("/mercocaribe.jpg")';
 }

@@ -3,11 +3,12 @@ import { LocalstoreService } from '../../services/localstore.service';
 import { FormsModule } from '@angular/forms';
 import { DatosLocales } from '../../models/localDatos.moduls';
 import { HomeSecondoryComponent } from '../home-secondory/home-secondory.component';
+import { MenuLateralComponent } from "./menu-lateral/menu-lateral.component";
 
 @Component({
   selector: 'app-find-items',
   standalone: true,
-  imports: [FormsModule,HomeSecondoryComponent],
+  imports: [FormsModule, HomeSecondoryComponent, MenuLateralComponent],
   templateUrl: './find-items.component.html',
   styleUrl: './find-items.component.css'
 })
@@ -18,11 +19,11 @@ export class FindItemsComponent implements OnInit{
 
 datos = DatosLocales;
 
-  datosnew:string = ''
-  elementFind:string = ''
-  valor:string[] = ['']
-
-  datosLocales:string[] = []
+  datosnew:string = '';
+  elementFind:string = '';
+  valor:string[] = [''];
+  isOpenMenu = false;
+  datosLocales:string[] = [];
 
   private _servisLocalStore = inject(LocalstoreService)
 
@@ -38,6 +39,9 @@ datos = DatosLocales;
     this.datosLocales = this._servisLocalStore.getList()
   }
 
+  toggleMenulateral(){
+    this.isOpenMenu = !this.isOpenMenu;
+  }
 
   ngOnInit(): void {
     this.datosLocales = this._servisLocalStore.getList();

@@ -2,21 +2,61 @@
 
   <img src={{image}} alt="Fondo" class="absolute inset-0 opacity-5 w-full h-full object-cover"/>
     <div class="relative  w-full h-full bg-gradient-to-br from-yellow-300 bg-red-800  "></div>
-  <div class="container z-20">
-    <div class="m-5 flex flex-col sm:flex-col  lg:flex-row md:flex-row xl:gap-28 md:gap-6 sm:gap-2 z-20 justify-around  w-full">
+  <div class="container  z-20">
+    <div class="my-5 flex flex-col sm:flex-col  lg:flex-row md:flex-row xl:gap-28 md:gap-6 sm:gap-2 z-20 justify-around  w-full">
     <div class="flex gap-1">
       <p class="logo text-secondary text-5xl z-30  font-extrabold "> {{title}}</p>
       <small class="relative"></small>
       <small><i class="fas fa-icon"></i></small>
     </div>
-    <div class="input-group justify-center flex">
+    <div class="input-group  mx-4 flex">
       <span class="input-group-text h-8 sm:h-8 md:h-14 lg:h-14">
         <i class="fa-solid fa-bell">Find</i>
       </span>
-      <input type="text" title="find" [(ngModel)]="datosnew" class="text-4xl sm:w-5 form-control h-8 sm:h-8 md:h-14 lg:h-14 bg-white z-20 p-2 rounded-e-md"/>
+      <input type="text" title="find" [(ngModel)]="datosnew" class="text-4xl max-w-[14rem] sm:max-w-full md:max-w-full lg:max-w-full sm:w-5 form-control w-[30px] h-8 sm:h-8 md:h-14 lg:h-14 bg-white z-20 p-2 rounded-e-md"/>
       <button (click)="agregarlist()" class="btn btn-primary h-8 sm:h-8 md:h-14 lg:h-14">More</button>
     </div>
-    <p class="logo text-secondary text-5xl font-extrabold absolute sm:absolute ml-52 mb-12 sm:ml-52 md:m-0 lg:m-0 sm:mb-14 md:relative lg:relative "> {{title}}</p>
+    <div class="logo flex  w-[7rem] sm:w-[10rem] md:w-[12rem] lg:w-[16rem]    items-center justify-between text-secondary text-5xl font-extrabold absolute sm:absolute ml-52 mb-12 sm:ml-52 md:m-0 lg:m-0 sm:mb-14 md:relative lg:relative ">
+      <div class="dropdown open">
+        <button
+
+          type="button"
+          id="triggerId"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+        <img src="/tools.png" class="w-8 h-6 my-2" alt="..." />
+        </button>
+        <div class="dropdown-menu" aria-labelledby="triggerId">
+          <button class="dropdown-item" href="#">Action</button>
+          <button class="dropdown-item" href="#">
+            Disabled action
+          </button>
+        </div>
+      </div>
+      <div class="dropdown open">
+        <button
+          type="button"
+          id="triggerId"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+        <img src="/tools.png" class="w-8 h-6 my-2" alt="..." />
+        </button>
+        <div class="dropdown-menu" aria-labelledby="triggerId">
+          <button class="dropdown-item" href="#">Action</button>
+          <button class="dropdown-item" href="#">
+            Disabled action
+          </button>
+        </div>
+      </div>
+      <button (click)="toggleMenulateral()" role="button" class="cursor-pointer">
+        <img src="/carrito.png" class="w-8 h-6 my-2" alt="..."/>
+      </button>
+    </div>
+    <app-menu-lateral [isOpenMenu]="isOpenMenu" />
     </div>
   <div class="flex flex-nowrap md:w-full lg:w-full sm:flex-row md:flex-row lg:flex-row overflow-x-auto  gap-9">
     @for (item of datos; track $index) {
