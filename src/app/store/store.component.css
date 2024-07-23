@@ -1,0 +1,12 @@
+.image {
+  background-color: #e2e2e2;
+  -webkit-clip-path: ellipse(70% 50% at 50% 30%);
+  clip-path: ellipse(70% 50% at 50% 30%);
+  display: flex;
+  height: 300px;
+  position: relative;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: var(--posicionFondo);
+}
