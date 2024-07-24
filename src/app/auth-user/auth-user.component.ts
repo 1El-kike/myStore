@@ -1,6 +1,7 @@
 import { NgClass, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FondoComponent } from "../fondo/fondo.component";
 
 @Component({
   selector: 'app-auth-user',
@@ -9,8 +10,9 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
     FormsModule,
     ReactiveFormsModule,
     NgIf,
-    NgClass
-  ],
+    NgClass,
+
+],
   templateUrl: './auth-user.component.html',
   styleUrl: './auth-user.component.css'
 })

@@ -14,7 +14,7 @@
         <i class="fa-solid fa-bell">Find</i>
       </span>
       <input type="text" title="find" [(ngModel)]="datosnew" class="text-4xl max-w-[14rem] sm:max-w-full md:max-w-full lg:max-w-full sm:w-5 form-control w-[30px] h-8 sm:h-8 md:h-14 lg:h-14 bg-white z-20 p-2 rounded-e-md"/>
-      <button (click)="agregarlist()" class="btn btn-primary h-8 sm:h-8 md:h-14 lg:h-14">More</button>
+      <button (click)="agregarlist()" class="btn btn-primary h-8 sm:h-8 md:h-14 lg:h-14"><i class="pi pi-search" style="font-size: 2rem"></i></button>
     </div>
     <div class="logo flex  w-[7rem] sm:w-[10rem] md:w-[12rem] lg:w-[16rem]    items-center justify-between text-secondary text-5xl font-extrabold absolute sm:absolute ml-52 mb-12 sm:ml-52 md:m-0 lg:m-0 sm:mb-14 md:relative lg:relative ">
       <div class="dropdown open">
@@ -26,7 +26,7 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-        <img src="/tools.png" class="w-8 h-6 my-2" alt="..." />
+        <i class="pi pi-cog" style="font-size: 2rem"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="triggerId">
           <button class="dropdown-item" href="#">Action</button>
@@ -43,7 +43,7 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-        <img src="/tools.png" class="w-8 h-6 my-2" alt="..." />
+        <i class="pi pi-user" style="font-size: 2rem"></i>
         </button>
         <div class="dropdown-menu" aria-labelledby="triggerId">
           <button class="dropdown-item" href="#">Action</button>
@@ -53,7 +53,7 @@
         </div>
       </div>
       <button (click)="toggleMenulateral()" role="button" class="cursor-pointer">
-        <img src="/carrito.png" class="w-8 h-6 my-2" alt="..."/>
+        <i class="pi pi-cart-minus" style="font-size: 2rem"></i>
       </button>
     </div>
     <app-menu-lateral [isOpenMenu]="isOpenMenu" />

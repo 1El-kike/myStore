@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Store, StoreList } from '../models/localDatos.moduls';
+import { FondoComponent } from "../fondo/fondo.component";
 
 @Component({
   selector: 'app-store',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, FondoComponent],
   templateUrl: './store.component.html',
   styleUrl: './store.component.css'
 })

@@ -6,6 +6,7 @@ import { ProductDetailComponent } from '../app/store/product-detail/product-deta
 import { NgClass } from '@angular/common';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
+import { FondoComponent } from "./fondo/fondo.component";
 
 @Component({
   selector: 'app-root',
@@ -18,8 +19,10 @@ import { FooterComponent } from './footer/footer.component';
     RouterModule,
     NgClass,
     MenuComponent,
-    FooterComponent
-    ],
+    FooterComponent,
+    FondoComponent,
+    FondoComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
