@@ -2,7 +2,6 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Store, StoreList } from '../models/localDatos.moduls';
 import { FondoComponent } from "../fondo/fondo.component";
-
 @Component({
   selector: 'app-store',
   standalone: true,
@@ -17,7 +16,6 @@ export class StoreComponent implements OnInit {
   productList:Store[] = StoreList;
   loading : boolean = true;
   data?:Store;
-
   private _router = inject(ActivatedRoute)
 
   addproduct(){

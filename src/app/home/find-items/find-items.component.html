@@ -1,5 +1,4 @@
 <div class="relative  h-full ">
-
   <img src={{image}} alt="Fondo" class="absolute inset-0 -z-10 opacity-5 w-full h-full object-cover"/>
     <div class="relative  w-full h-full bg-gradient-to-br from-yellow-300 bg-red-800  "></div>
   <div class="container  z-20">
@@ -58,32 +57,76 @@
     </div>
     <app-menu-lateral [isOpenMenu]="isOpenMenu" />
     </div>
-  <div class="flex flex-nowrap md:w-full lg:w-full sm:flex-row md:flex-row lg:flex-row overflow-x-auto  gap-9">
-    @for (item of datos; track $index) {
-    <div class="max-w-[580px] ">
+    <p class="my-3 text-2xl font-bold text-slate-700">Favorite product</p>
+    <div class="flex flex-nowrap md:w-full lg:w-full sm:flex-row md:flex-row lg:flex-row overflow-x-auto gap-9">
+      @for (item of datos; track $index) {
+      <div class="max-w-[580px] ">
 
-      <div class="card mb-3 bg-gradient-to-bl bg-slate-500 from-slate-200  w-[560px]">
-        <div class="row g-0">
-          <div class="col-md-5">
-            <img src={{item.urlImg}} class="h-full bg-gradient-to-r from-transparent bg-slate-500 opacity-85 rounded-start" alt="...">
-          </div>
-          <div class="col-md-7">
-            <div class="card-body">
-              <h5 class=" text-green-500">{{item.title}}</h5>
-              <p class="card-text">{{item.description}}</p>
-              <p class="card-text"><small class="text-muted">Quantity available : {{item.cantidad}}</small></p>
-              <div class="w-full flex justify-end">
+        <div class="card mb-3 bg-gradient-to-bl bg-slate-500 from-slate-200  w-[560px]">
+          <div class="row g-0">
+            <div class="col-md-5">
+              <img src={{item.urlImg}} class="h-full bg-gradient-to-r from-transparent bg-slate-500 opacity-85 rounded-start" alt="...">
+            </div>
+            <div class="col-md-7">
+              <div class="card-body">
+                <h5 class=" text-green-500">{{item.title}}</h5>
+                <p class="card-text">{{item.description}}</p>
+                <p class="card-text"><small class="text-muted">Quantity available : {{item.cantidad}}</small></p>
+                <div class="w-full flex justify-end">
 
-                <button (click)="eliminarlist($index)" class="btn btn-outline-success ">Open</button>
-              </div>
+                  <button (click)="eliminarlist($index)" class="btn btn-outline-success ">Open</button>
+                </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-    }
-  </div>
+      }
+    </div>
+    <p class="my-3 text-2xl font-bold text-slate-700">New products</p>
+    <p-carousel
+    [value]="products"
+    [numVisible]="3"
+    [numScroll]="3"
+    [circular]="true"
+    [responsiveOptions]="responsiveOptions"
+    autoplayInterval="5000">
+        <ng-template let-product pTemplate="item">
+          <div class="flex justify-center">
+
+          <div class="border-1 w-72 h-96 bg-gradient-to-b from-white via-slate-50 to-slate-200 rounded-3xl  surface-border border-round m-2 p-3">
+                    <div class="mb-3">
+                        <div class="relative mx-auto">
+                            <img
+                                src="{{ product.image }}"
+                                [alt]="product.name"
+                                class="w-full border-round" />
+                            <p-tag
+                                [value]="product.inventoryStatus"
+                                [severity]="getSeverity(product.inventoryStatus)"
+                                class="absolute"
+                                [ngStyle]="{ 'left.px': 5, 'top.px': 5 }" />
+                        </div>
+                    </div>
+                    <div class="mb-3 font-medium">
+                        {{ product.name }}
+                    </div>
+                    <div class="flex justify-content-between align-items-center">
+                    <div class="mt-0 font-semibold text-xl">
+                        {{ '$' + product.price }}
+                    </div>
+                        <span>
+                            <p-button icon="pi pi-heart" severity="secondary" [outlined]="true" />
+                            <p-button icon="pi pi-shopping-cart" styleClass="ml-2" />
+                        </span>
+                    </div>
+                </div>
+          </div>
+
+        </ng-template>
+  </p-carousel>
+
 
   <app-home-secondory/>
 

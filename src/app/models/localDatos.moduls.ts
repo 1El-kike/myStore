@@ -106,26 +106,375 @@ export const StoreList:Store[]= [
       image:"/tienda982.jpg",
       start:'4.3',
        product:[
-      {id:1,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
-      {id:2,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
-      {id:3,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
-      {id:4,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
-      {id:5,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
-      {id:6,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
-      {id:7,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
-      {id:8,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
-      {id:9,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
-      {id:10,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
-      {id:11,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
-      {id:12,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
-      {id:13,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
-      {id:14,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
-      {id:15,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
-      {id:16,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
-      {id:17,name:"champu",loading:false,img:"/tools",description:'blabla',price:'34,56',added:false,comprado:false},
+        {id:1,name:"Oil",loading:false,img:"/products/aceite.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+        {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab  lbalvablabllblbalb alblbalalblba llablalbassdasdsa dsdsfdsfs dfsdfeferifj',price:'34,56',added:false,comprado:false},
+        {id:3,name:"Chicken broth",loading:false,img:"/products/caldito_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+        {id:4,name:"Puppies",loading:false,img:"/products/perros_calientes.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+        {id:5,name:"Rice",loading:false,img:"/products/arroz.png",description:'blabla',price:'34,56',added:false,comprado:false},
+        {id:6,name:"Ham",loading:false,img:"/products/jamon.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+        {id:7,name:"Chicken",loading:false,img:"/products/paquete_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+        {id:8,name:"Meat",loading:false,img:"/products/carne4.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+        {id:9,name:"Hash",loading:false,img:"/products/picadillo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+        {id:10,name:"Tomato Puree",loading:false,img:"/products/pure_tomate.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+        {id:11,name:"Spaghetti",loading:false,img:"/products/espaguetis.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+        {id:12,name:"Milk",loading:false,img:"/products/milk.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+        {id:13,name:"Nutella",loading:false,img:"/products/nutella.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+        {id:14,name:"Shampoo",loading:false,img:"/products/shampoo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+        {id:15,name:"Conditioner",loading:false,img:"/products/conditioner.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+        {id:16,name:"Bath soap",loading:false,img:"/products/jabon.jpg",description:'blabla',price:'34,56',added:false,comprado:false}
 
     ]
   },
+  {
+    id:3,
+    namestore:"MercoCaribe",
+    image:"/mercocaribe2.jpg",
+    start:'4.3',
+     product:[
+      {id:1,name:"Oil",loading:false,img:"/products/aceite.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+      {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab  lbalvablabllblbalb alblbalalblba llablalbassdasdsa dsdsfdsfs dfsdfeferifj',price:'34,56',added:false,comprado:false},
+      {id:3,name:"Chicken broth",loading:false,img:"/products/caldito_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+      {id:4,name:"Puppies",loading:false,img:"/products/perros_calientes.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+      {id:5,name:"Rice",loading:false,img:"/products/arroz.png",description:'blabla',price:'34,56',added:false,comprado:false},
+      {id:6,name:"Ham",loading:false,img:"/products/jamon.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+      {id:7,name:"Chicken",loading:false,img:"/products/paquete_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+      {id:8,name:"Meat",loading:false,img:"/products/carne4.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+      {id:9,name:"Hash",loading:false,img:"/products/picadillo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+      {id:10,name:"Tomato Puree",loading:false,img:"/products/pure_tomate.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+      {id:11,name:"Spaghetti",loading:false,img:"/products/espaguetis.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+      {id:12,name:"Milk",loading:false,img:"/products/milk.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+      {id:13,name:"Nutella",loading:false,img:"/products/nutella.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+      {id:14,name:"Shampoo",loading:false,img:"/products/shampoo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+      {id:15,name:"Conditioner",loading:false,img:"/products/conditioner.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+      {id:16,name:"Bath soap",loading:false,img:"/products/jabon.jpg",description:'blabla',price:'34,56',added:false,comprado:false}
+
+  ]
+},
+{
+  id:4,
+  namestore:"Jardines de 5ta",
+  image:"/jardines5ta2.jpg",
+  start:'4.3',
+   product:[
+    {id:1,name:"Oil",loading:false,img:"/products/aceite.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab  lbalvablabllblbalb alblbalalblba llablalbassdasdsa dsdsfdsfs dfsdfeferifj',price:'34,56',added:false,comprado:false},
+    {id:3,name:"Chicken broth",loading:false,img:"/products/caldito_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:4,name:"Puppies",loading:false,img:"/products/perros_calientes.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:5,name:"Rice",loading:false,img:"/products/arroz.png",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:6,name:"Ham",loading:false,img:"/products/jamon.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:7,name:"Chicken",loading:false,img:"/products/paquete_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:8,name:"Meat",loading:false,img:"/products/carne4.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:9,name:"Hash",loading:false,img:"/products/picadillo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:10,name:"Tomato Puree",loading:false,img:"/products/pure_tomate.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:11,name:"Spaghetti",loading:false,img:"/products/espaguetis.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:12,name:"Milk",loading:false,img:"/products/milk.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:13,name:"Nutella",loading:false,img:"/products/nutella.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:14,name:"Shampoo",loading:false,img:"/products/shampoo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:15,name:"Conditioner",loading:false,img:"/products/conditioner.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:16,name:"Bath soap",loading:false,img:"/products/jabon.jpg",description:'blabla',price:'34,56',added:false,comprado:false}
+
+]
+},
+{
+  id:5,
+  namestore:"Tienda 98",
+  image:"/tienda982.jpg",
+  start:'4.3',
+   product:[
+    {id:1,name:"Oil",loading:false,img:"/products/aceite.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab  lbalvablabllblbalb alblbalalblba llablalbassdasdsa dsdsfdsfs dfsdfeferifj',price:'34,56',added:false,comprado:false},
+    {id:3,name:"Chicken broth",loading:false,img:"/products/caldito_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:4,name:"Puppies",loading:false,img:"/products/perros_calientes.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:5,name:"Rice",loading:false,img:"/products/arroz.png",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:6,name:"Ham",loading:false,img:"/products/jamon.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:7,name:"Chicken",loading:false,img:"/products/paquete_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:8,name:"Meat",loading:false,img:"/products/carne4.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:9,name:"Hash",loading:false,img:"/products/picadillo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:10,name:"Tomato Puree",loading:false,img:"/products/pure_tomate.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:11,name:"Spaghetti",loading:false,img:"/products/espaguetis.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:12,name:"Milk",loading:false,img:"/products/milk.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:13,name:"Nutella",loading:false,img:"/products/nutella.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:14,name:"Shampoo",loading:false,img:"/products/shampoo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:15,name:"Conditioner",loading:false,img:"/products/conditioner.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:16,name:"Bath soap",loading:false,img:"/products/jabon.jpg",description:'blabla',price:'34,56',added:false,comprado:false}
+
+]
+},
+{
+  id:6,
+  namestore:"Tienda 98",
+  image:"/tienda982.jpg",
+  start:'4.3',
+   product:[
+    {id:1,name:"Oil",loading:false,img:"/products/aceite.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab  lbalvablabllblbalb alblbalalblba llablalbassdasdsa dsdsfdsfs dfsdfeferifj',price:'34,56',added:false,comprado:false},
+    {id:3,name:"Chicken broth",loading:false,img:"/products/caldito_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:4,name:"Puppies",loading:false,img:"/products/perros_calientes.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:5,name:"Rice",loading:false,img:"/products/arroz.png",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:6,name:"Ham",loading:false,img:"/products/jamon.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:7,name:"Chicken",loading:false,img:"/products/paquete_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:8,name:"Meat",loading:false,img:"/products/carne4.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:9,name:"Hash",loading:false,img:"/products/picadillo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:10,name:"Tomato Puree",loading:false,img:"/products/pure_tomate.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:11,name:"Spaghetti",loading:false,img:"/products/espaguetis.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:12,name:"Milk",loading:false,img:"/products/milk.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:13,name:"Nutella",loading:false,img:"/products/nutella.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:14,name:"Shampoo",loading:false,img:"/products/shampoo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:15,name:"Conditioner",loading:false,img:"/products/conditioner.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:16,name:"Bath soap",loading:false,img:"/products/jabon.jpg",description:'blabla',price:'34,56',added:false,comprado:false}
+
+]
+},
+{
+  id:7,
+  namestore:"Tienda 98",
+  image:"/tienda982.jpg",
+  start:'4.3',
+   product:[
+    {id:1,name:"Oil",loading:false,img:"/products/aceite.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab  lbalvablabllblbalb alblbalalblba llablalbassdasdsa dsdsfdsfs dfsdfeferifj',price:'34,56',added:false,comprado:false},
+    {id:3,name:"Chicken broth",loading:false,img:"/products/caldito_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:4,name:"Puppies",loading:false,img:"/products/perros_calientes.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:5,name:"Rice",loading:false,img:"/products/arroz.png",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:6,name:"Ham",loading:false,img:"/products/jamon.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:7,name:"Chicken",loading:false,img:"/products/paquete_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:8,name:"Meat",loading:false,img:"/products/carne4.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:9,name:"Hash",loading:false,img:"/products/picadillo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:10,name:"Tomato Puree",loading:false,img:"/products/pure_tomate.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:11,name:"Spaghetti",loading:false,img:"/products/espaguetis.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:12,name:"Milk",loading:false,img:"/products/milk.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:13,name:"Nutella",loading:false,img:"/products/nutella.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:14,name:"Shampoo",loading:false,img:"/products/shampoo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:15,name:"Conditioner",loading:false,img:"/products/conditioner.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:16,name:"Bath soap",loading:false,img:"/products/jabon.jpg",description:'blabla',price:'34,56',added:false,comprado:false}
+
+]
+},
+{
+  id:8,
+  namestore:"Tienda 98",
+  image:"/tienda982.jpg",
+  start:'4.3',
+   product:[
+    {id:1,name:"Oil",loading:false,img:"/products/aceite.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab  lbalvablabllblbalb alblbalalblba llablalbassdasdsa dsdsfdsfs dfsdfeferifj',price:'34,56',added:false,comprado:false},
+    {id:3,name:"Chicken broth",loading:false,img:"/products/caldito_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:4,name:"Puppies",loading:false,img:"/products/perros_calientes.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:5,name:"Rice",loading:false,img:"/products/arroz.png",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:6,name:"Ham",loading:false,img:"/products/jamon.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:7,name:"Chicken",loading:false,img:"/products/paquete_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:8,name:"Meat",loading:false,img:"/products/carne4.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:9,name:"Hash",loading:false,img:"/products/picadillo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:10,name:"Tomato Puree",loading:false,img:"/products/pure_tomate.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:11,name:"Spaghetti",loading:false,img:"/products/espaguetis.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:12,name:"Milk",loading:false,img:"/products/milk.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:13,name:"Nutella",loading:false,img:"/products/nutella.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:14,name:"Shampoo",loading:false,img:"/products/shampoo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:15,name:"Conditioner",loading:false,img:"/products/conditioner.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:16,name:"Bath soap",loading:false,img:"/products/jabon.jpg",description:'blabla',price:'34,56',added:false,comprado:false}
+
+]
+},
+{
+  id:9,
+  namestore:"Tienda 98",
+  image:"/tienda982.jpg",
+  start:'4.3',
+   product:[
+    {id:1,name:"Oil",loading:false,img:"/products/aceite.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab  lbalvablabllblbalb alblbalalblba llablalbassdasdsa dsdsfdsfs dfsdfeferifj',price:'34,56',added:false,comprado:false},
+    {id:3,name:"Chicken broth",loading:false,img:"/products/caldito_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:4,name:"Puppies",loading:false,img:"/products/perros_calientes.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:5,name:"Rice",loading:false,img:"/products/arroz.png",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:6,name:"Ham",loading:false,img:"/products/jamon.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:7,name:"Chicken",loading:false,img:"/products/paquete_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:8,name:"Meat",loading:false,img:"/products/carne4.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:9,name:"Hash",loading:false,img:"/products/picadillo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:10,name:"Tomato Puree",loading:false,img:"/products/pure_tomate.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:11,name:"Spaghetti",loading:false,img:"/products/espaguetis.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:12,name:"Milk",loading:false,img:"/products/milk.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:13,name:"Nutella",loading:false,img:"/products/nutella.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:14,name:"Shampoo",loading:false,img:"/products/shampoo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:15,name:"Conditioner",loading:false,img:"/products/conditioner.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:16,name:"Bath soap",loading:false,img:"/products/jabon.jpg",description:'blabla',price:'34,56',added:false,comprado:false}
+
+]
+},
+{
+  id:10,
+  namestore:"Tienda 98",
+  image:"/tienda982.jpg",
+  start:'4.3',
+   product:[
+    {id:1,name:"Oil",loading:false,img:"/products/aceite.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab  lbalvablabllblbalb alblbalalblba llablalbassdasdsa dsdsfdsfs dfsdfeferifj',price:'34,56',added:false,comprado:false},
+    {id:3,name:"Chicken broth",loading:false,img:"/products/caldito_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:4,name:"Puppies",loading:false,img:"/products/perros_calientes.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:5,name:"Rice",loading:false,img:"/products/arroz.png",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:6,name:"Ham",loading:false,img:"/products/jamon.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:7,name:"Chicken",loading:false,img:"/products/paquete_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:8,name:"Meat",loading:false,img:"/products/carne4.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:9,name:"Hash",loading:false,img:"/products/picadillo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:10,name:"Tomato Puree",loading:false,img:"/products/pure_tomate.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:11,name:"Spaghetti",loading:false,img:"/products/espaguetis.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:12,name:"Milk",loading:false,img:"/products/milk.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:13,name:"Nutella",loading:false,img:"/products/nutella.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:14,name:"Shampoo",loading:false,img:"/products/shampoo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:15,name:"Conditioner",loading:false,img:"/products/conditioner.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:16,name:"Bath soap",loading:false,img:"/products/jabon.jpg",description:'blabla',price:'34,56',added:false,comprado:false}
+
+]
+},
+{
+  id:11,
+  namestore:"Tienda 98",
+  image:"/tienda982.jpg",
+  start:'4.3',
+   product:[
+    {id:1,name:"Oil",loading:false,img:"/products/aceite.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab  lbalvablabllblbalb alblbalalblba llablalbassdasdsa dsdsfdsfs dfsdfeferifj',price:'34,56',added:false,comprado:false},
+    {id:3,name:"Chicken broth",loading:false,img:"/products/caldito_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:4,name:"Puppies",loading:false,img:"/products/perros_calientes.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:5,name:"Rice",loading:false,img:"/products/arroz.png",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:6,name:"Ham",loading:false,img:"/products/jamon.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:7,name:"Chicken",loading:false,img:"/products/paquete_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:8,name:"Meat",loading:false,img:"/products/carne4.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:9,name:"Hash",loading:false,img:"/products/picadillo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:10,name:"Tomato Puree",loading:false,img:"/products/pure_tomate.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:11,name:"Spaghetti",loading:false,img:"/products/espaguetis.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:12,name:"Milk",loading:false,img:"/products/milk.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:13,name:"Nutella",loading:false,img:"/products/nutella.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:14,name:"Shampoo",loading:false,img:"/products/shampoo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:15,name:"Conditioner",loading:false,img:"/products/conditioner.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:16,name:"Bath soap",loading:false,img:"/products/jabon.jpg",description:'blabla',price:'34,56',added:false,comprado:false}
+
+]
+},
+{
+  id:12,
+  namestore:"Tienda 98",
+  image:"/tienda982.jpg",
+  start:'4.3',
+   product:[
+    {id:1,name:"Oil",loading:false,img:"/products/aceite.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab  lbalvablabllblbalb alblbalalblba llablalbassdasdsa dsdsfdsfs dfsdfeferifj',price:'34,56',added:false,comprado:false},
+    {id:3,name:"Chicken broth",loading:false,img:"/products/caldito_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:4,name:"Puppies",loading:false,img:"/products/perros_calientes.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:5,name:"Rice",loading:false,img:"/products/arroz.png",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:6,name:"Ham",loading:false,img:"/products/jamon.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:7,name:"Chicken",loading:false,img:"/products/paquete_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:8,name:"Meat",loading:false,img:"/products/carne4.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:9,name:"Hash",loading:false,img:"/products/picadillo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:10,name:"Tomato Puree",loading:false,img:"/products/pure_tomate.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:11,name:"Spaghetti",loading:false,img:"/products/espaguetis.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:12,name:"Milk",loading:false,img:"/products/milk.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:13,name:"Nutella",loading:false,img:"/products/nutella.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:14,name:"Shampoo",loading:false,img:"/products/shampoo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:15,name:"Conditioner",loading:false,img:"/products/conditioner.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:16,name:"Bath soap",loading:false,img:"/products/jabon.jpg",description:'blabla',price:'34,56',added:false,comprado:false}
+
+]
+},
+{
+  id:13,
+  namestore:"Tienda 98",
+  image:"/tienda982.jpg",
+  start:'4.3',
+   product:[
+    {id:1,name:"Oil",loading:false,img:"/products/aceite.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab  lbalvablabllblbalb alblbalalblba llablalbassdasdsa dsdsfdsfs dfsdfeferifj',price:'34,56',added:false,comprado:false},
+    {id:3,name:"Chicken broth",loading:false,img:"/products/caldito_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:4,name:"Puppies",loading:false,img:"/products/perros_calientes.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:5,name:"Rice",loading:false,img:"/products/arroz.png",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:6,name:"Ham",loading:false,img:"/products/jamon.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:7,name:"Chicken",loading:false,img:"/products/paquete_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:8,name:"Meat",loading:false,img:"/products/carne4.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:9,name:"Hash",loading:false,img:"/products/picadillo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:10,name:"Tomato Puree",loading:false,img:"/products/pure_tomate.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:11,name:"Spaghetti",loading:false,img:"/products/espaguetis.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:12,name:"Milk",loading:false,img:"/products/milk.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:13,name:"Nutella",loading:false,img:"/products/nutella.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:14,name:"Shampoo",loading:false,img:"/products/shampoo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:15,name:"Conditioner",loading:false,img:"/products/conditioner.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:16,name:"Bath soap",loading:false,img:"/products/jabon.jpg",description:'blabla',price:'34,56',added:false,comprado:false}
+
+]
+},
+{
+  id:14,
+  namestore:"Tienda 98",
+  image:"/tienda982.jpg",
+  start:'4.3',
+   product:[
+    {id:1,name:"Oil",loading:false,img:"/products/aceite.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab  lbalvablabllblbalb alblbalalblba llablalbassdasdsa dsdsfdsfs dfsdfeferifj',price:'34,56',added:false,comprado:false},
+    {id:3,name:"Chicken broth",loading:false,img:"/products/caldito_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:4,name:"Puppies",loading:false,img:"/products/perros_calientes.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:5,name:"Rice",loading:false,img:"/products/arroz.png",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:6,name:"Ham",loading:false,img:"/products/jamon.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:7,name:"Chicken",loading:false,img:"/products/paquete_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:8,name:"Meat",loading:false,img:"/products/carne4.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:9,name:"Hash",loading:false,img:"/products/picadillo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:10,name:"Tomato Puree",loading:false,img:"/products/pure_tomate.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:11,name:"Spaghetti",loading:false,img:"/products/espaguetis.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:12,name:"Milk",loading:false,img:"/products/milk.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:13,name:"Nutella",loading:false,img:"/products/nutella.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:14,name:"Shampoo",loading:false,img:"/products/shampoo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:15,name:"Conditioner",loading:false,img:"/products/conditioner.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:16,name:"Bath soap",loading:false,img:"/products/jabon.jpg",description:'blabla',price:'34,56',added:false,comprado:false}
+
+]
+},
+{
+  id:15,
+  namestore:"Tienda 98",
+  image:"/tienda982.jpg",
+  start:'4.3',
+   product:[
+    {id:1,name:"Oil",loading:false,img:"/products/aceite.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab  lbalvablabllblbalb alblbalalblba llablalbassdasdsa dsdsfdsfs dfsdfeferifj',price:'34,56',added:false,comprado:false},
+    {id:3,name:"Chicken broth",loading:false,img:"/products/caldito_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:4,name:"Puppies",loading:false,img:"/products/perros_calientes.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:5,name:"Rice",loading:false,img:"/products/arroz.png",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:6,name:"Ham",loading:false,img:"/products/jamon.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:7,name:"Chicken",loading:false,img:"/products/paquete_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:8,name:"Meat",loading:false,img:"/products/carne4.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:9,name:"Hash",loading:false,img:"/products/picadillo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:10,name:"Tomato Puree",loading:false,img:"/products/pure_tomate.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:11,name:"Spaghetti",loading:false,img:"/products/espaguetis.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:12,name:"Milk",loading:false,img:"/products/milk.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:13,name:"Nutella",loading:false,img:"/products/nutella.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:14,name:"Shampoo",loading:false,img:"/products/shampoo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:15,name:"Conditioner",loading:false,img:"/products/conditioner.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:16,name:"Bath soap",loading:false,img:"/products/jabon.jpg",description:'blabla',price:'34,56',added:false,comprado:false}
+
+]
+},
+{
+  id:16,
+  namestore:"Tienda 98",
+  image:"/tienda982.jpg",
+  start:'4.3',
+   product:[
+    {id:1,name:"Oil",loading:false,img:"/products/aceite.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab  lbalvablabllblbalb alblbalalblba llablalbassdasdsa dsdsfdsfs dfsdfeferifj',price:'34,56',added:false,comprado:false},
+    {id:3,name:"Chicken broth",loading:false,img:"/products/caldito_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:4,name:"Puppies",loading:false,img:"/products/perros_calientes.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:5,name:"Rice",loading:false,img:"/products/arroz.png",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:6,name:"Ham",loading:false,img:"/products/jamon.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:7,name:"Chicken",loading:false,img:"/products/paquete_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:8,name:"Meat",loading:false,img:"/products/carne4.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:9,name:"Hash",loading:false,img:"/products/picadillo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:10,name:"Tomato Puree",loading:false,img:"/products/pure_tomate.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:11,name:"Spaghetti",loading:false,img:"/products/espaguetis.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:12,name:"Milk",loading:false,img:"/products/milk.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:13,name:"Nutella",loading:false,img:"/products/nutella.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:14,name:"Shampoo",loading:false,img:"/products/shampoo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:15,name:"Conditioner",loading:false,img:"/products/conditioner.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
+    {id:16,name:"Bath soap",loading:false,img:"/products/jabon.jpg",description:'blabla',price:'34,56',added:false,comprado:false}
+
+]
+},
 ]
 
 export const ProductListnew : ProductList[] = [
