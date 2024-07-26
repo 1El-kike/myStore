@@ -1,7 +1,7 @@
 import { CurrencyPipe, DatePipe, NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { productList } from './product.mock';
+import { productList } from '../../models/localDatos.moduls';
 
 @Component({
   selector: 'app-product',

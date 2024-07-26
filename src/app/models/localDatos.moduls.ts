@@ -1,4 +1,3 @@
-import { Product } from './../store/product/product.mock';
 export interface Datos{
   id:number,
   title:string
@@ -6,13 +5,11 @@ export interface Datos{
   cantidad:number,
   urlImg:string,
 }
-
 export interface Category {
   id:number,
   categories:string,
   status:boolean
 }
-
 export const DatosCategories:Category[] = [
   {id:0,categories:"Cubana",status:false},
   {id:1,categories:"China",status:false},
@@ -75,7 +72,6 @@ price:string,
 added:boolean,
 comprado:boolean
  }
-
 export const StoreList:Store[]= [
     {
       id:1,namestore:"Tienda de 5ta y 96",
@@ -476,7 +472,6 @@ export const StoreList:Store[]= [
 ]
 },
 ]
-
 export const ProductListnew : ProductList[] = [
   {id:1,description:'',name:"Tienda de 5ta y 96",star:37,adress:"Playa",url:'/tienda5tay96.jpg'},
   {id:2,description:'Caldito de Pollo yupyyyy',name:"Tienda 98",star:5.0,adress:"Playa",url:'/tienda98.jpg'},
@@ -500,8 +495,6 @@ export const ProductListnew : ProductList[] = [
   {id:5,description:'Arroz que nunca ay ven y compra',name:"Cris Cris",star:201,adress:"Habana", url : "/criscris.jpg" },
   {id:11,description:'Arroz que nunca ay ven y compra',name:"Paúl & Shark Boutique",star:201,adress:"Habana", url : "/Paúl_& _S_Boutique.jpg" },
 ]
-
-
 export interface ProductList  {
 
   id?: number  | string;
@@ -513,3 +506,28 @@ export interface ProductList  {
 
 }
 
+export const productList : Product[] = [
+  {id:1,image:[{valor1:'/public/products/aceite.jpg',valor2:'/public/products/aceite2.jpg',valor3:'/public/products/aceite3.jpg',valor4:''}] ,description:'Aceite Hecho en casa',name:"Aceite",cantidad:37,precio:1.20,url:'/aceitefavorite.jpg'},
+  {id:2,image:[{valor1:'/public/products/caldito_pollo.jpg',valor2:'/public/products/caldito_pollo2jpg.png',valor3:'/public/products/caldito_pollo3.jpg',valor4:'' }] ,description:'Caldito de Pollo yupyyyy',name:"Caldito de Pollo",cantidad:67,precio:0.25,url:'https://chedrauimx.vtexassets.com/arquivos/ids/31843343-800-auto?v=638556637112230000&width=800&height=auto&aspect=true'},
+  {id:3,image:[{valor1:'/public/products/detergente.jpg',valor2:'/public/products/detergente.2jpg.webp',valor3:'/public/products/detergente.3jpg.jpg',valor4:'/public/products/detergente4.jpg'}] ,description:'Para Limpiar la ropa y que quede como nueva',name:"Detergente",cantidad:146,precio:0.85,url:'/products/detergente.2jpg.webp' },
+  {id:4,image:[{valor1:'/public/products/perros_calientes.jpg',valor2:'/public/products/perros_calientes2.jpg.webp',valor3:'/public/products/perros_calientes3.jpg' ,valor4:''}],description:'perritos calientes y frios listo para difrutar no te lo pierdas',name:"Perrito",cantidad:124,precio:1.32, url:'/products/perros_calientes2.jpg.webp' },
+  {id:5,image:[{valor1:'/public/products/arroz.png',valor2:'/public/products/arroz2.jpg',valor3:'/public/products/arroz3.jpg',valor4:''}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
+]
+export interface Product  {
+
+  id?: number  | string;
+  image?:Image[];
+  description:string;
+  name?: string;
+  cantidad: number ;
+  precio?: number;
+  url?: string
+
+}
+
+export interface Image {
+  valor1:string;
+  valor2:string;
+  valor3:string;
+  valor4:string;
+}
