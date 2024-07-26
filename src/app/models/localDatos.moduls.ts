@@ -53,6 +53,34 @@ export const DatosLocales:Datos[] =
     cantidad:348,
     urlImg:'https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg'
   },
+  {
+    id:3,
+    title:"Rice",
+    description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
+    cantidad:348,
+    urlImg:'https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg'
+  },
+  {
+    id:3,
+    title:"Rice",
+    description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
+    cantidad:348,
+    urlImg:'https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg'
+  },
+  {
+    id:3,
+    title:"Rice",
+    description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
+    cantidad:348,
+    urlImg:'https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg'
+  },
+  {
+    id:3,
+    title:"Rice",
+    description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
+    cantidad:348,
+    urlImg:'https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg'
+  },
 
 ]
  export interface Store{

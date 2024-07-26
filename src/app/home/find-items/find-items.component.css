@@ -1,0 +1,19 @@
+.animate{
+  animation: myscroll 2s ease-in-out both ;
+  animation-timeline: view(y 9);
+  animation-range: 0 80px;
+
+}
+
+@keyframes myscroll {
+  from{
+    opacity: 0;
+    background-color: aqua;
+    transform: translateX(-20px);
+  }
+  to{
+    opacity: 1;
+    background-color: blueviolet;
+    transform: translateX(0);
+  }
+}
