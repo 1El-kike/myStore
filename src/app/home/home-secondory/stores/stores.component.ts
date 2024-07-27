@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Datos, DatosLocales, ProductList, ProductListnew } from '../../../models/localDatos.moduls';
+import { Component, Input, OnInit } from '@angular/core';
+import {  ProductList, ProductListnew } from '../../../models/localDatos.moduls';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -12,9 +12,18 @@ import { RouterLink } from '@angular/router';
 export class StoresComponent implements OnInit {
 
   datos:ProductList[] = ProductListnew;
+  @Input() stores?: any[];
+  newdatos?:any
+
 
 
 ngOnInit(): void {
+
+if(this.stores == undefined){
+  this.stores = ProductListnew
+}
+
+console.log(this.newdatos)
 
 }
 }

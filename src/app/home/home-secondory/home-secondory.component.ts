@@ -1,7 +1,7 @@
 import { NgClass } from '@angular/common';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import {  FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Category, DatosCategories } from '../../models/localDatos.moduls';
+import { Component, OnInit,  } from '@angular/core';
+import {   FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Category, DatosCategories, ProductList, ProductListnew } from '../../models/localDatos.moduls';
 import { StoresComponent } from "./stores/stores.component";
 
 @Component({
@@ -13,7 +13,7 @@ import { StoresComponent } from "./stores/stores.component";
 })
 export class HomeSecondoryComponent implements OnInit{
 
-  @Output() rangeChangeEvent = new EventEmitter<number>();
+  //@Output() rangeChangeEvent = new EventEmitter<number>();
 
   options = ['$0', '$288', '$576', '$864'];
   selectedValue = 0;
@@ -25,8 +25,18 @@ export class HomeSecondoryComponent implements OnInit{
     { item: 'Distance', check: false, ico: 'none' },
     { item: 'Ratings', check: false, ico: 'none' }
   ];
+  statusStore:boolean = false
+  datos:ProductList[] = ProductListnew;
+  newDatos?:any
 
-
+  //para el estado de las tiendas si estan abiertas o cerradas
+  isStatusStore=()=>{
+   if (this.statusStore) {
+    this.newDatos = this.datos.filter(elem => elem.open )
+   } else {
+    this.newDatos = this.datos
+   }
+  }
 
   toggleCheck(item: any): void {
     //this.miFormulario.value.setValue(!this.miFormulario.value);
@@ -51,6 +61,7 @@ export class HomeSecondoryComponent implements OnInit{
 
   ngOnInit(): void {
    this.category = DatosCategories
+   this.newDatos = ProductListnew
   }
 
 

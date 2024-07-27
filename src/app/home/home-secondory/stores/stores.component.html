@@ -1,13 +1,19 @@
 <p class="text-slate-600 font-bold  text-4xl my-4 mx-4 ">Stores all</p>
 <div class="flex flex-wrap gap-3 my-16 w-full justify-center">
-    @for (item of datos; track $index) {
+    @for (item of stores; track $index) {
 
       <a [routerLink]="['/store', item.id]" role="button"  class="card animate shadow-custom shadow-stone-500 w-[320px] h-[280px] hover:opacity-75 cursor-pointer ">
         <img src="{{item.url}}" class="card-img h-[289px] w-full " alt="Imagen no encontrada">
         <div class="card-img-overlay bg-gradient-to-t from-yellow-200 flex flex-col justify-end  opacity-95">
           <h5 class="text-green-900  text-2xl font-black">{{item.name}}</h5>
-          <p class="card-text ">{{item.description}}</p>
-          <p class="card-text"><small>Last updated {{item.adress}} mins ago</small></p>
+          <div class="flex justify-between" >
+            <p class="card-text"><small> {{item.star}} <i class="pi pi-star-fill text-amber-400"></i></small></p>
+            @if (item.open) {
+              <p class="text-green-400 " >OPEN</p>
+            } @else {
+              <p class="text-red-500"> CLOSED</p>
+            }
+          </div>
         </div>
       </a>
     }

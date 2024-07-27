@@ -13,7 +13,7 @@
       }
     </form>
     <div class="flex gap-2">
-      <input title="Distance" name=""  class="z-30 form-check-input" type="checkbox"/>
+      <input title="status" (change)="isStatusStore()" name="" [(ngModel)]="statusStore"  class="z-30 form-check-input" type="checkbox"/>
       <p>Only open establishments</p>
     </div>
     </div>
@@ -66,7 +66,7 @@
     </div>
   </div>
   <div class="col-span-9 sm:col-span-9 md:col-span-9 lg:col-span-7 ">
-      <app-stores/>
+      <app-stores [stores]= "newDatos"/>
   </div>
 </div>
 }

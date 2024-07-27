@@ -501,36 +501,36 @@ export const StoreList:Store[]= [
 },
 ]
 export const ProductListnew : ProductList[] = [
-  {id:1,description:'',name:"Tienda de 5ta y 96",star:37,adress:"Playa",url:'/tienda5tay96.jpg'},
-  {id:2,description:'Caldito de Pollo yupyyyy',name:"Tienda 98",star:5.0,adress:"Playa",url:'/tienda98.jpg'},
-  {id:3,description:'Para Limpiar la ropa y que quede como nueva',name:"MercoCaribe",star:146,adress:"Playa",url:'/mercocaribe.jpg' },
-  {id:4,description:'perritos calientes y frios listo para difrutar no te lo pierdas',name:"Jardines de 5ta",star:124,adress:"Playa", url:'/jardines5ta.jpg' },
-  {id:5,description:'Arroz que nunca ay ven y compra',name:"Centro Comercial Palco",star:201,adress:"Playa", url : "palco/palco1.jpg" },
-  {id:6,description:'Arroz que nunca ay ven y compra',name:"Mercado Único Cuatro Camino",star:201,adress:"Playa", url : "/mercado4camino/Mercado4camino.jpg" },
-  {id:7,description:'Arroz que nunca ay ven y compra',name:"Pedregal",star:201,adress:"Playa", url : "/Pedregal/pedregal.jpg" },
-  {id:8,description:'Arroz que nunca ay ven y compra',name:"Carlos III",star:201,adress:"Lisa", url : "/carlosIII.jpg" },
-  {id:9,description:'Arroz que nunca ay ven y compra',name:"Almacenes Ultra",star:201,adress:"La Habana", url : "almacenesultra.jpg" },
-  {id:10,description:'Arroz que nunca ay ven y compra',name:"Tienda de Gremiio",star:201,adress:"Vedado", url : "/gremio/gremio.jpg" },
-  {id:5,description:'Arroz que nunca ay ven y compra',name:"Regalitos MIAU",star:201,adress:"Vedado", url : "/Miau/regalito.jpg" },
-  {id:5,description:'Arroz que nunca ay ven y compra',name:"Konbini",star:201,adress:"Vedado", url : "/Konbini/konbini.jpg" },
-  {id:5,description:'Arroz que nunca ay ven y compra',name:"CBM",star:201,adress:"Habana", url : "CBM.jpg" },
-  {id:5,description:'Arroz que nunca ay ven y compra',name:"Élite Boutique",star:201,adress:"Marianado", url : "eliteBoutique.jpg" },
-  {id:5,description:'Arroz que nunca ay ven y compra',name:"Tienda Roselló",star:201,adress:"Vedado", url : "rosello.jpg" },
-  {id:5,description:'Arroz que nunca ay ven y compra',name:"Tienda Cimex",star:201,adress:"Vedado", url : "/cimex.jpg" },
-  {id:5,description:'Arroz que nunca ay ven y compra',name:"LINDA HABANA Salon",star:201,adress:"Habana", url : "LINDAHABANASalon.jpg" },
-  {id:5,description:'Arroz que nunca ay ven y compra',name:"Centro Comercial Altahabana",star:201,adress:"Altahabana", url : "CentroComercialAltahabana.jpg" },
-  {id:5,description:'Arroz que nunca ay ven y compra',name:"Mango",star:201,adress:"Habana", url : "/mango.jpg" },
-  {id:5,description:'Arroz que nunca ay ven y compra',name:"Cris Cris",star:201,adress:"Habana", url : "/criscris.jpg" },
-  {id:11,description:'Arroz que nunca ay ven y compra',name:"Paúl & Shark Boutique",star:201,adress:"Habana", url : "/Paúl_& _S_Boutique.jpg" },
+  {id:1,name:"Tienda de 5ta y 96",star:3.7,adress:"Playa",url:'/tienda5tay96.jpg', open:false},
+  {id:2,name:"Tienda 98",star:4.0,adress:"Playa",url:'/tienda98.jpg',open:true },
+  {id:3,name:"MercoCaribe",star:4.6,adress:"Playa",url:'/mercocaribe.jpg',open:true },
+  {id:4,name:"Jardines de 5ta",star:4.4,adress:"Playa", url:'/jardines5ta.jpg' ,open:true},
+  {id:5,name:"Centro Comercial Palco",star:4.7,adress:"Playa", url : "palco/palco1.jpg",open:true },
+  {id:6,name:"Mercado Único Cuatro Camino",star:4.2,adress:"Playa", url : "/mercado4camino/Mercado4camino.jpg",open:false },
+  {id:7,name:"Pedregal",star:4.1,adress:"Playa", url : "/Pedregal/pedregal.jpg",open:false },
+  {id:8,name:"Carlos III",star:4.6,adress:"Lisa", url : "/carlosIII.jpg" ,open:true},
+  {id:9,name:"Almacenes Ultra",star:4.5,adress:"La Habana", url : "almacenesultra.jpg" ,open:false},
+  {id:10,name:"Tienda de Gremiio",star:3.8,adress:"Vedado", url : "/gremio/gremio.jpg",open:true },
+  {id:5,name:"Regalitos MIAU",star:3.9,adress:"Vedado", url : "/Miau/regalito.jpg" ,open:true},
+  {id:5,name:"Konbini",star:4.4,adress:"Vedado", url : "/Konbini/konbini.jpg" ,open:false},
+  {id:5,name:"CBM",star:4.2,adress:"Habana", url : "CBM.jpg",open:false },
+  {id:5,name:"Élite Boutique",star:4.1,adress:"Marianado", url : "eliteBoutique.jpg",open:true },
+  {id:5,name:"Tienda Roselló",star:4.8,adress:"Vedado", url : "rosello.jpg" ,open:true},
+  {id:5,name:"Tienda Cimex",star:4.3,adress:"Vedado", url : "/cimex.jpg",open:true },
+  {id:5,name:"LINDA HABANA Salon",star:4.5,adress:"Habana", url : "LINDAHABANASalon.jpg",open:false },
+  {id:5,name:"Centro Comercial Altahabana",star:4.2,adress:"Altahabana", url : "CentroComercialAltahabana.jpg",open:true },
+  {id:5,name:"Mango",star:4.7,adress:"Habana", url : "/mango.jpg" ,open:true},
+  {id:5,name:"Cris Cris",star:4.3,adress:"Habana", url : "/criscris.jpg",open:true },
+  {id:11,name:"Paúl & Shark Boutique",star:4.5,adress:"Habana", url : "/Paúl_& _S_Boutique.jpg",open:false },
 ]
 export interface ProductList  {
 
   id?: number  | string;
-  description:string;
   name?: string;
   star: number ;
   adress?: string;
   url?: string
+  open?:boolean;
 
 }
 
