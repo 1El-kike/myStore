@@ -1,7 +1,7 @@
 .animate{
   animation-name: myscroll;
   animation-duration: 2s;
-  animation-timing-function: ease;
+  animation-timing-function: linear;
   animation-delay: 200ms;
   animation-range: 0 300px;
   animation-timeline: view()
