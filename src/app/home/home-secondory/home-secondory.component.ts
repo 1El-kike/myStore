@@ -22,12 +22,23 @@ export class HomeSecondoryComponent implements OnInit{
   isOpen = false;
   miCheckbox?:boolean;
   toolbar:any[] = [
-    { item: 'Distance', check: false, ico: 'none' },
-    { item: 'Ratings', check: false, ico: 'none' }
+    { item: 'Distance', check: false, ico: 'pi-chart-scatter' },
+    { item: 'Ratings', check: false, ico: 'pi-chart-line' }
   ];
   statusStore:boolean = false
   datos:ProductList[] = ProductListnew;
-  newDatos?:any
+  newDatos?:ProductList[]
+
+//para el estado de el Rating y ordenar por nivel
+isRating = ()=>{
+  if (this.toolbar[1].check) {
+     this.newDatos = this.newDatos?.sort((a,b)=> b.star - a.star)
+  } else {
+    this.newDatos = [...ProductListnew]
+    console.log(this.newDatos)
+
+  }
+}
 
   //para el estado de las tiendas si estan abiertas o cerradas
   isStatusStore=()=>{
@@ -40,7 +51,6 @@ export class HomeSecondoryComponent implements OnInit{
 
   toggleCheck(item: any): void {
     //this.miFormulario.value.setValue(!this.miFormulario.value);
-   console.log(this.toolbar)
   }
 
 

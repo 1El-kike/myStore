@@ -34,52 +34,52 @@ export const DatosLocales:Datos[] =
   [
     {
     id:1,
-    title:"Aceite",
+    title:"Oil",
     description:'Fabricado y distribuido por : MercaSID S.A., Av.Maximo Gómez #182,Samto Domingo,Rep.Dom.',
     cantidad:34,
-    urlImg:'https://media.istockphoto.com/id/493652014/es/foto/botella-de-aceite-de-oliva.jpg?s=612x612&w=0&k=20&c=sP8GuGOD-o3_fPyirvPJeN3MTffFsZmIl7_H06EnzzY='
+    urlImg:'/products/aceite2.jpg'
   },
   {
     id:2,
-    title:"Detergente",
+    title:"Detergent",
     description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
     cantidad:23,
-    urlImg:'https://plazavea.vteximg.com.br/arquivos/ids/14673251-512-512/20112023.jpg'
+    urlImg:'/products/detergente4.jpg'
   },
   {
-    id:3,
+    id:5,
     title:"Rice",
     description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
     cantidad:348,
     urlImg:'https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg'
   },
   {
-    id:3,
-    title:"Rice",
+    id:12,
+    title:"Milk",
     description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
     cantidad:348,
-    urlImg:'https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg'
+    urlImg:'/products/milk.jpg'
   },
   {
-    id:3,
-    title:"Rice",
+    id:4,
+    title:"Puppies",
     description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
     cantidad:348,
-    urlImg:'https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg'
+    urlImg:'/products/perros_calientes.jpg'
   },
   {
-    id:3,
-    title:"Rice",
+    id:8,
+    title:"Chicken",
     description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
     cantidad:348,
-    urlImg:'https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg'
+    urlImg:'/products/carne2.jpg'
   },
   {
-    id:3,
-    title:"Rice",
+    id:11,
+    title:"Spaghetti",
     description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
     cantidad:348,
-    urlImg:'https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg'
+    urlImg:'/products/espaguetis.jpg'
   },
 
 ]
@@ -107,7 +107,7 @@ export const StoreList:Store[]= [
       start:'4,5',
       product:[
         {id:1,name:"Oil",loading:false,img:"/products/aceite.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
-        {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab  lbalvablabllblbalb alblbalalblba llablalbassdasdsa dsdsfdsfs dfsdfeferifj',price:'34,56',added:false,comprado:false},
+        {id:2,name:"Detergent",loading:false,img:"/products/detergente.jpg",description:'blablab s dfsdfeferifj',price:'34,56',added:false,comprado:false},
         {id:3,name:"Chicken broth",loading:false,img:"/products/caldito_pollo.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
         {id:4,name:"Puppies",loading:false,img:"/products/perros_calientes.jpg",description:'blabla',price:'34,56',added:false,comprado:false},
         {id:5,name:"Rice",loading:false,img:"/products/arroz.png",description:'blabla',price:'34,56',added:false,comprado:false},
@@ -548,9 +548,9 @@ export const productList : Product[] = [
   {id:11,image:[{valor1:'/products/espaguetis.jpg',valor2:'/products/espaguetis2.jpg',valor3:'/products/espaguetis3.jpg',valor4:'/products/espaguetis4.jpg'}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
   {id:12,image:[{valor1:'/products/milk2.jpg',valor2:'/products/milk.jpg',valor3:'/products/milk4.jpg',valor4:'/products/milk3.jpg'}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
   {id:13,image:[{valor1:'/products/nutella3.jpg',valor2:'/products/nutella.jpg',valor3:'/products/nutella2.jpg',valor4:'/products/nutella4.jpg'}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
-  {id:14,image:[{valor1:'/products/arroz.png',valor2:'/products/arroz2.jpg',valor3:'/products/arroz3.jpg',valor4:'/products/arroz4.png'}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
-  {id:15,image:[{valor1:'/products/arroz.png',valor2:'/products/arroz2.jpg',valor3:'/products/arroz3.jpg',valor4:'/products/arroz4.png'}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
-  {id:16,image:[{valor1:'/products/arroz.png',valor2:'/products/arroz2.jpg',valor3:'/products/arroz3.jpg',valor4:'/products/arroz4.png'}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
+  {id:14,image:[{valor1:'/products/shampoo.jpg',valor2:'/products/shampoo.jpg',valor3:'/products/shampoo.jpg',valor4:'/products/shampoo.jpg'}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
+  {id:15,image:[{valor1:'/products/conditioner.jpg',valor2:'/products/conditioner.jpg',valor3:'/products/conditioner.jpg',valor4:'/products/conditioner.jpg'}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
+  {id:16,image:[{valor1:'/products/jabon.jpg',valor2:'/products/jabon.jpg',valor3:'/products/jabon.jpg',valor4:'/products/jabon.jpg'}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
 
 ]
 
