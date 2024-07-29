@@ -74,9 +74,6 @@ datos = DatosLocales;
 
   private _servisLocalStore = inject(LocalstoreService)
 
-  showSuccess() {
-    this._messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
-}
   //añadir al carrito de compra
   addbuy(id:number,name:string,price:number,num:number,img:string,tipo:string){
 
@@ -92,10 +89,10 @@ datos = DatosLocales;
       };
       this._servisLocalStore.agregarList(this.datosnew);
       this.datosLocales = this._servisLocalStore.getList();
-      this._messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
+      this._messageService.add({ severity: 'success', summary: 'Success', detail: 'Added purchase of ' + name });
       }
       else{
-      this._messageService.add({ severity: 'error', summary: 'Error', detail: 'Message Error' });
+      this._messageService.add({ severity: 'warn', summary: 'Warn', detail: `Purchase is of ${name} already added `});
 
       }
 
