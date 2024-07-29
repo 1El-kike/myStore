@@ -20,15 +20,28 @@
         <div class="space-y-2 py-6">
           <div class="-mx-3">
             <p>Montefreddo</p>
-            <div class="flex flex-col">
-              @for (item of [1,2,3]; track $index) {
-
+            <div class="flex gap-3 justify-start items-start flex-col">
+              <!-- Carrito de compra -->
+              @for (item of datosBuy; track $index) {
+                <div class="flex  gap-5 justify-start items-start">
+                  <img [src]="item.img" alt="Loading..." title="" class="h-10 shadow-md shadow-slate-500 w-10 rounded-lg"/>
+                  <div class=" mt-0 -space-y-1 items-start flex flex-col w-14 m-0 justify-start ">
+                    <p class="mb-0 font-semibold text-ml">{{item.name}}</p>
+                    <p class="mb-0 font-semibold items-center flex text-sm text-slate-500"> <i class="pi pi-heart" ></i>{{item.tipo}}</p>
+                  </div>
+                  <p class=" m-0 -space-y-3 text-sm">{{item.precio | currency}} cup</p>
+                  <div class="flex">
+                    <button class="border bg-slate-900 text-white hover:bg-slate-600 m-0 px-2 rounded-s-xl" (click)="restarList(item.id)" >-</button>
+                    <button class="border bg-slate-900 text-white hover:bg-slate-600  m-0 px-2" (click)="eliminarlist(item.id)" >Borrar</button>
+                    <button class="border bg-slate-900 text-white hover:bg-slate-600  m-0 px-2 rounded-e-xl"  >+</button>
+                  </div>
+                </div>
               }
             </div>
             <hr/>
             <div class="flex w-full justify-between">
                 <p>Total items</p>
-                <p>{{0 | currency}}</p>
+                <p>{{total | currency}}</p>
             </div>
       </div>
     </div>

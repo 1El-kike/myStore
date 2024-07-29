@@ -1,5 +1,5 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
-import { LocalstoreService } from '../../services/localstore.service';
+import { List, LocalstoreService } from '../../services/localstore.service';
 import { FormsModule } from '@angular/forms';
 import { DatosLocales } from '../../models/localDatos.moduls';
 import { HomeSecondoryComponent } from '../home-secondory/home-secondory.component';
@@ -9,13 +9,18 @@ import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
 import { NgClass } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
+import { RippleModule } from 'primeng/ripple';
+
 @Component({
   selector: 'app-find-items',
   standalone: true,
   imports: [FormsModule, RouterLink,
     HomeSecondoryComponent,TagModule,
     NgClass,ButtonModule,MenuLateralComponent,
-    CarouselModule],
+    CarouselModule,ToastModule, ButtonModule, RippleModule],
+  providers: [MessageService],
   templateUrl: './find-items.component.html',
   styleUrl: './find-items.component.css'
 })
@@ -26,21 +31,24 @@ export class FindItemsComponent implements OnInit{
 
 datos = DatosLocales;
 
-  datosnew:string = '';
+  datosnew?:List
   elementFind:string = '';
   valor:string[] = [''];
   isOpenMenu = false;
-  datosLocales:string[] = [];
+  datosLocales:List[] = [];
   products = [
-    { id:0,image: '/products/nutella4.jpg', name: 'Nutella', price: 3500, inventoryStatus: 'In Stock', status:false , icon: "pi-heart" },
-    { id:1,image: '/products/pure_tomate.jpg', name: 'Tomato Pure', price: 900, inventoryStatus: 'Out of Stock' , status:false, icon: "pi-heart" },
-    { id:2,image: '/products/pollo4.jpg', name: 'Meat', price: 3100, inventoryStatus: 'Out of Stock' , status:false, icon: "pi-heart"},
-    { id:3,image: '/products/jamon.jpg', name: 'Ham', price: 2050, inventoryStatus: 'In Stock' , status:false, icon: "pi-heart"},
-    { id:4,image: '/products/jabon.jpg', name: 'Bath Soap', price: 250, inventoryStatus: 'Out of Stock' , status:false, icon: "pi-heart"},
-    { id:5,image: '/products/caldito_pollo2jpg.png', name: 'Producto 2', price: 500, inventoryStatus: 'Out of Stock' , status:false, icon: "pi-heart"},
+    { id: 0 ,id_product:13,image: '/products/nutella4.jpg', name: 'Nutella', price: 3500, inventoryStatus: 'In Stock', status:false ,cantidad:0, icon: "pi-heart",tipo:"Food" },
+    {  id: 1 ,id_product:10,image: '/products/pure_tomate.jpg', name: 'Tomato Pure', price: 900, inventoryStatus: 'Out of Stock' , cantidad:0,status:false, icon: "pi-heart",tipo:"Food" },
+    {  id: 2 ,id_product:7,image: '/products/pollo4.jpg', name: 'Meat', price: 3100, inventoryStatus: 'Out of Stock' , status:false, cantidad:0,icon: "pi-heart",tipo:"Food" },
+    { id: 3,id_product:6,image: '/products/jamon.jpg', name: 'Ham', price: 2050, inventoryStatus: 'In Stock' , status:false,cantidad:0, icon: "pi-heart",tipo:"Food" },
+    {  id: 4 ,id_product:16,image: '/products/jabon.jpg', name: 'Bath Soap', price: 250, inventoryStatus: 'Out of Stock' , status:false,cantidad:0, icon: "pi-heart",tipo:"Food" },
+    {  id: 5 ,id_product:3,image: '/products/caldito_pollo2jpg.png', name: 'Chicken broth', price: 500, inventoryStatus: 'Out of Stock' ,cantidad:0, status:false, icon: "pi-heart",tipo:"Food" },
 
-    // más productos aquí
+
   ];
+
+
+
 
   getSeverity(status:string) {
     return status === 'In Stock' ? 'success' : 'danger';
@@ -62,8 +70,41 @@ datos = DatosLocales;
       numScroll: 1
     }
   ];
+  private _messageService = inject (MessageService)
 
+  private _servisLocalStore = inject(LocalstoreService)
 
+  showSuccess() {
+    this._messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
+}
+  //añadir al carrito de compra
+  addbuy(id:number,name:string,price:number,num:number,img:string,tipo:string){
+
+    const existingData = this.datosLocales.find(data => data.id === id);
+    if (!existingData && (this.datosLocales.length === 0 || !this.datosLocales.some(data => data.id === id))) {
+      this.datosnew = {
+        id: id,
+        name: name,
+        precio: price,
+        cantidad: num,
+        img: img,
+        tipo: tipo
+      };
+      this._servisLocalStore.agregarList(this.datosnew);
+      this.datosLocales = this._servisLocalStore.getList();
+      this._messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
+      }
+      else{
+      this._messageService.add({ severity: 'error', summary: 'Error', detail: 'Message Error' });
+
+      }
+
+  }
+  //eliminar lista de compra de carrito
+  eliminarlist=(index :number)=>{
+    this._servisLocalStore.eliminarList(index);
+    this.datosLocales = this._servisLocalStore.getList()
+  }
 
   // cambiar el icono de heart y guardar en favoritos
   changleproperty(status:boolean, index:number ){
@@ -79,19 +120,8 @@ datos = DatosLocales;
     }
     console.log(this.products[index])
   }
-  private _servisLocalStore = inject(LocalstoreService)
 
-  agregarlist=()=>{
- this._servisLocalStore.agregarList(this.datosnew);
- this.datosnew ='';
- this.datosLocales =  this._servisLocalStore.getList();
 
-  }
-
-  eliminarlist=(index :number)=>{
-    this._servisLocalStore.eliminarList(index);
-    this.datosLocales = this._servisLocalStore.getList()
-  }
 
   toggleMenulateral(){
     this.isOpenMenu = !this.isOpenMenu;
@@ -99,6 +129,7 @@ datos = DatosLocales;
 
   ngOnInit(): void {
     this.datosLocales = this._servisLocalStore.getList();
+    console.log(this.datosLocales)
   }
 
 }

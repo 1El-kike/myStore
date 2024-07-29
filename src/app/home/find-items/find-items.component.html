@@ -13,7 +13,7 @@
         <i class="fa-solid fa-bell">Find</i>
       </span>
       <input type="text" title="find" [(ngModel)]="datosnew" class="text-4xl max-w-[14rem] sm:max-w-full md:max-w-full lg:max-w-full sm:w-5 form-control w-[30px] h-8 sm:h-8 md:h-14 lg:h-14 bg-white z-20 p-2 rounded-e-md"/>
-      <button (click)="agregarlist()" class="btn btn-primary h-8 sm:h-8 md:h-14 lg:h-14"><i class="pi pi-search" style="font-size: 2rem"></i></button>
+      <button class="btn btn-primary h-8 sm:h-8 md:h-14 lg:h-14"><i class="pi pi-search" style="font-size: 2rem"></i></button>
     </div>
     <div class="logo flex  w-[7rem] sm:w-[10rem] md:w-[12rem] lg:w-[16rem]    items-center justify-between text-secondary text-5xl font-extrabold absolute sm:absolute ml-52 mb-12 sm:ml-52 md:m-0 lg:m-0 sm:mb-14 md:relative lg:relative ">
       <div class="dropdown open">
@@ -73,10 +73,11 @@
                 <h5 class=" text-green-500">{{item.title}}</h5>
                 <p class="card-text">{{item.description}}</p>
                 <p class="card-text"><small class="text-muted">Quantity available : {{item.cantidad}}</small></p>
-                <div class="w-full flex gap-1 justify-end">
 
-                  <button (click)="eliminarlist($index)" class="btn btn-outline-success "><i class="pi pi-shopping-cart"></i></button>
-                  <button (click)="eliminarlist($index)" [routerLink]="['/products',item.id]"  class="btn btn-outline-success "><i class="pi pi-plus"></i></button>
+
+                <div class="w-full flex gap-1 justify-end">
+                  <button  (click)="addbuy(item.id ,item.title,item.price,item.cantidad,item.urlImg,item.tipo)" class="btn btn-outline-success active:scale-125 "><i class="pi pi-shopping-cart"></i></button>
+                  <button  [routerLink]="['/products',item.id]"  class="btn btn-outline-success "><i class="pi pi-plus"></i></button>
                 </div>
             </div>
           </div>
@@ -121,7 +122,7 @@
                     </div>
                         <span>
                             <p-button icon="pi {{product.icon}}" [ngClass]="{'text-red-600': product.status}" (click)="changleproperty(product.status, product.id)" class="" severity="secondary" [outlined]="true" />
-                            <p-button icon="pi pi-shopping-cart" styleClass="ml-2 " />
+                            <p-button icon="pi pi-shopping-cart"  (click)="addbuy(product.id_product ,product.name,product.price,product.cantidad,product.image,product.tipo)" styleClass="ml-2 " />
                         </span>
                     </div>
                 </div>
