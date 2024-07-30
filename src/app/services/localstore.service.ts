@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { favorite } from '../home/find-items/find-items.component';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,9 @@ import { BehaviorSubject } from 'rxjs';
 
 
 export class LocalstoreService {
+
+ListaFavorite:favorite[] = []
+ private ListaLocalfavorite = "lista_favorita"
 
  // private Localstorekey = 'lista_compra';
 
@@ -41,6 +45,39 @@ export class LocalstoreService {
     this._listaSubject.next(filteredLists);
   }
 
+
+/*   setFavorite(element :favorite[],index:number){
+    const lists = this.getFavorite()
+    if (lists.length < element.length) {
+      lists.filter((item:favorite) => item.id !== index);
+      localStorage.setItem(this.ListaLocalfavorite,JSON.stringify(lists))
+    } else {
+      lists.push(element);
+      localStorage.setItem(this.ListaLocalfavorite,JSON.stringify(lists))
+    }
+
+  } */
+  setFavorite(favorites: favorite[], productId: number) {
+    const existingFavorites = JSON.parse(localStorage.getItem(this.ListaLocalfavorite) || '[]');
+
+    // Verifica si el producto ya está en la lista de favoritos
+    const isProductInList = favorites.some(fav => fav.id === productId);
+
+    if (!isProductInList) {
+      // Si el producto no está en la lista, lo agregamos
+      favorites.push({ id: productId, ...existingFavorites.find((fav:any) => fav.id === productId) });
+    } else {
+      // Si el producto está en la lista, lo eliminamos
+      favorites = favorites.filter(fav => fav.id !== productId);
+    }
+
+    localStorage.setItem(this.ListaLocalfavorite, JSON.stringify(favorites));
+  }
+
+
+getFavorite (){
+  return JSON.parse(localStorage.getItem(this.ListaLocalfavorite) as string ) || []
+  }
 
 }
 

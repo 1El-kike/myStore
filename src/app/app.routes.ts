@@ -6,6 +6,7 @@ import { AuthUserComponent } from './auth-user/auth-user.component';
 import { TodusComponent } from './todus/todus.component';
 import { StoreComponent } from './store/store.component';
 import { StoresComponent } from './home/home-secondory/stores/stores.component';
+import { FavoritProductsComponent } from './favorit-products/favorit-products.component';
 
 
 export const routes: Routes = [
@@ -16,5 +17,6 @@ export const routes: Routes = [
     { path:'store/:storeid', component: StoreComponent },
     { path:'user', component: AuthUserComponent },
     { path:'todus', component: TodusComponent },
+    { path:'favorite', component: FavoritProductsComponent },
     /* {path:'**', redirectTo:'', pathMatch:'full' } */
 ];

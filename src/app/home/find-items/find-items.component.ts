@@ -46,6 +46,7 @@ datos = DatosLocales;
 
 
   ];
+  listaFavorite :favorite[] = [];
 
 
 
@@ -89,10 +90,10 @@ datos = DatosLocales;
       };
       this._servisLocalStore.agregarList(this.datosnew);
       this.datosLocales = this._servisLocalStore.getList();
-      this._messageService.add({ severity: 'success', summary: 'Success', detail: 'Added purchase of ' + name });
+      this._messageService.add({ severity: 'success', summary: 'Good', detail: 'Added purchase of ' + name });
       }
       else{
-      this._messageService.add({ severity: 'warn', summary: 'Warn', detail: `Purchase is of ${name} already added `});
+      this._messageService.add({ severity: 'warn', summary: 'Warning', detail: `Purchase is of ${name} already added `});
 
       }
 
@@ -103,20 +104,25 @@ datos = DatosLocales;
     this.datosLocales = this._servisLocalStore.getList()
   }
 
-  // cambiar el icono de heart y guardar en favoritos
-  changleproperty(status:boolean, index:number ){
-    var data = status
-    data = !data
-    if (data){
-      this.products[index].icon = "pi-heart-fill"
-      this.products[index].status = true
-    } else{
-      this.products[index].icon= "pi-heart"
-      this.products[index].status = false
 
+    changleproperty(status: boolean, productIndex: number) {
+      let product = this.products[productIndex];
+      product.icon = status ? "pi-heart" : " pi-heart-fill";
+
+      if (status) {
+        this.listaFavorite.push(product);
+        product.status = false;
+      } else {
+        this._messageService.add({ severity: 'success', summary: 'Favorite', detail: 'Added purchase of ' + product.name });
+        this.listaFavorite = this.listaFavorite.filter(item => item.id !== product.id);
+        product.status = true;
+      }
+
+      console.log(this.listaFavorite);
+
+      this._servisLocalStore.setFavorite(this.listaFavorite, productIndex);
     }
-    console.log(this.products[index])
-  }
+
 
 
 
@@ -126,7 +132,19 @@ datos = DatosLocales;
 
   ngOnInit(): void {
     this.datosLocales = this._servisLocalStore.getList();
-    console.log(this.datosLocales)
   }
 
+}
+
+export interface favorite {
+  id: number;
+  id_product: number;
+  image: string;
+  name: string;
+  price: number;
+  inventoryStatus: string;
+  status: boolean;
+  cantidad: number;
+  icon: string;
+  tipo: string;
 }
