@@ -34,6 +34,17 @@ ListaFavorite:favorite[] = []
     this._listaSubject.next(currentLista);
   }
 
+  addmoreProduct(index:number){
+    const lists = [...this._listaSubject.value]
+    lists.find(ele => ele.id = index ? ele.cantidad = ele.cantidad + 1 : ele.cantidad = ele.cantidad )
+    this._listaSubject.next(lists)
+  }
+  delitmoreProduct(index:number){
+    const lists = [...this._listaSubject.value]
+    lists.find(ele => ele.id = index ? ele.cantidad = ele.cantidad - 1 : ele.cantidad = ele.cantidad )
+    this._listaSubject.next(lists)
+  }
+
   eliminarList (index:number){
    // const lists =this.getList();
     const currentLista = [...this._listaSubject.value];

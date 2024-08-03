@@ -39,7 +39,7 @@ export const DatosLocales:Datos[] =
     title:"Oil",
     description:'Fabricado y distribuido por : MercaSID S.A., Av.Maximo Gómez #182,Samto Domingo,Rep.Dom.',
     price:950,
-    cantidad:0,
+    cantidad:1,
     urlImg:'/products/aceite2.jpg',
     tipo:"Food"
   },
@@ -48,7 +48,7 @@ export const DatosLocales:Datos[] =
     title:"Detergent",
     description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
     price:250,
-    cantidad:0,
+    cantidad:1,
     urlImg:'/products/detergente4.jpg',
     tipo:"Food"
   },
@@ -57,7 +57,7 @@ export const DatosLocales:Datos[] =
     title:"Rice",
     description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
     price:200,
-    cantidad:348,
+    cantidad:1,
     urlImg:'https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg',
     tipo:"Food"
   },
@@ -66,7 +66,7 @@ export const DatosLocales:Datos[] =
     title:"Milk",
     description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
     price:1020,
-    cantidad:0,
+    cantidad:1,
     urlImg:'/products/milk.jpg',
     tipo:"Food"
   },
@@ -75,7 +75,7 @@ export const DatosLocales:Datos[] =
     title:"Puppies",
     description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
     price:1.20,
-    cantidad:0,
+    cantidad:1,
     urlImg:'/products/perros_calientes.jpg',
     tipo:"Food"
   },
@@ -84,7 +84,7 @@ export const DatosLocales:Datos[] =
     title:"Chicken",
     description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
     price:3100,
-    cantidad:0,
+    cantidad:1,
     urlImg:'/products/carne2.jpg',
     tipo:"Food"
   },
@@ -93,7 +93,7 @@ export const DatosLocales:Datos[] =
     title:"Spaghetti",
     description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
     price:220,
-    cantidad:0,
+    cantidad:1,
     urlImg:'/products/espaguetis.jpg',
     tipo:"Food"
   },

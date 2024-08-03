@@ -29,7 +29,6 @@ export class StoreComponent implements OnInit {
         this.data = this.productList.find(element => element.id == params['storeid'])
         this.loading = false;
         this.bgImage = `url("${this.data?.image}")`
-        console.log(this.bgImage)
       },)
 }
 
