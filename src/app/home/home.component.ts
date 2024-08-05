@@ -15,7 +15,7 @@ import { FindItemsComponent } from "./find-items/find-items.component";
 })
 export class HomeComponent implements OnInit {
 
-  image: string = 'https://media.istockphoto.com/id/1625128632/es/foto/alimentos-para-alergias-m%C3%A1s-comunes-inyectados-desde-arriba.jpg?b=1&s=612x612&w=0&k=20&c=mmeXXobAcSzDCGPK7glMGUpWWLyik3t-xrke528hTpA=';
+  image: string = '/fondo.jpg';
   todus: Todos[] = [];
   constructor(){}
 

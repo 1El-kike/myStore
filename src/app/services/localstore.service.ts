@@ -36,12 +36,16 @@ ListaFavorite:favorite[] = []
 
   addmoreProduct(index:number){
     const lists = [...this._listaSubject.value]
-    lists.find(ele => ele.id = index ? ele.cantidad = ele.cantidad + 1 : ele.cantidad = ele.cantidad )
-    this._listaSubject.next(lists)
+    lists.forEach( (ele)=>{
+      ele.id == index ? ele.cantidad = ele.cantidad + 1 : ele.cantidad = ele.cantidad
+    })
+   this._listaSubject.next(lists)
   }
   delitmoreProduct(index:number){
     const lists = [...this._listaSubject.value]
-    lists.find(ele => ele.id = index ? ele.cantidad = ele.cantidad - 1 : ele.cantidad = ele.cantidad )
+    lists.forEach( (ele)=>{
+      ele.id == index ? ele.cantidad = ele.cantidad - 1 : ele.cantidad = ele.cantidad
+    })
     this._listaSubject.next(lists)
   }
 

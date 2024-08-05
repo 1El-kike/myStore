@@ -1,7 +1,7 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { List, LocalstoreService } from '../../services/localstore.service';
 import { FormsModule } from '@angular/forms';
-import { DatosLocales } from '../../models/localDatos.moduls';
+import { Carrito, DatosLocales, products } from '../../models/localDatos.moduls';
 import { HomeSecondoryComponent } from '../home-secondory/home-secondory.component';
 import { MenuLateralComponent } from "./menu-lateral/menu-lateral.component";
 import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
@@ -36,16 +36,7 @@ datos = DatosLocales;
   valor:string[] = [''];
   isOpenMenu = false;
   datosLocales:List[] = [];
-  products = [
-    { id: 0 ,id_product:13,image: '/products/nutella4.jpg', name: 'Nutella', price: 3500, inventoryStatus: 'In Stock', status:false ,cantidad:1, icon: "pi-heart",tipo:"Food" },
-    {  id: 1 ,id_product:10,image: '/products/pure_tomate.jpg', name: 'Tomato Pure', price: 900, inventoryStatus: 'Out of Stock' , cantidad:1,status:false, icon: "pi-heart",tipo:"Food" },
-    {  id: 2 ,id_product:7,image: '/products/pollo4.jpg', name: 'Meat', price: 3100, inventoryStatus: 'Out of Stock' , status:false, cantidad:1,icon: "pi-heart",tipo:"Food" },
-    { id: 3,id_product:6,image: '/products/jamon.jpg', name: 'Ham', price: 2050, inventoryStatus: 'In Stock' , status:false,cantidad:1, icon: "pi-heart",tipo:"Food" },
-    {  id: 4 ,id_product:16,image: '/products/jabon.jpg', name: 'Bath Soap', price: 250, inventoryStatus: 'Out of Stock' , status:false,cantidad:1, icon: "pi-heart",tipo:"Food" },
-    {  id: 5 ,id_product:3,image: '/products/caldito_pollo2jpg.png', name: 'Chicken broth', price: 500, inventoryStatus: 'Out of Stock' ,cantidad:1, status:false, icon: "pi-heart",tipo:"Food" },
-
-
-  ];
+  products:Carrito[] = products
   listaFavorite :favorite[] = [];
 
 

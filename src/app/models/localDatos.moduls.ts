@@ -58,7 +58,7 @@ export const DatosLocales:Datos[] =
     description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
     price:200,
     cantidad:1,
-    urlImg:'https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg',
+    urlImg:'/products/arroz4.png',
     tipo:"Food"
   },
   {
@@ -74,7 +74,7 @@ export const DatosLocales:Datos[] =
     id:4,
     title:"Puppies",
     description:'This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.',
-    price:1.20,
+    price:120,
     cantidad:1,
     urlImg:'/products/perros_calientes.jpg',
     tipo:"Food"
@@ -587,4 +587,27 @@ export interface Image {
   valor2:string;
   valor3:string;
   valor4:string;
+}
+
+export const products:Carrito[] = [
+  { id: 0 ,id_product:13,image: '/products/nutella4.jpg', name: 'Nutella', price: 3500, inventoryStatus: 'In Stock', status:false ,cantidad:1, icon: "pi-heart",tipo:"Food" },
+  {  id: 1 ,id_product:10,image: '/products/pure_tomate.jpg', name: 'Tomato Pure', price: 900, inventoryStatus: 'Out of Stock' , cantidad:1,status:false, icon: "pi-heart",tipo:"Food" },
+  {  id: 2 ,id_product:7,image: '/products/pollo4.jpg', name: 'Meat', price: 3100, inventoryStatus: 'Out of Stock' , status:false, cantidad:1,icon: "pi-heart",tipo:"Food" },
+  { id: 3,id_product:6,image: '/products/jamon.jpg', name: 'Ham', price: 2050, inventoryStatus: 'In Stock' , status:false,cantidad:1, icon: "pi-heart",tipo:"Food" },
+  {  id: 4 ,id_product:16,image: '/products/jabon.jpg', name: 'Bath Soap', price: 250, inventoryStatus: 'Out of Stock' , status:false,cantidad:1, icon: "pi-heart",tipo:"Food" },
+  {  id: 5 ,id_product:3,image: '/products/caldito_pollo2jpg.png', name: 'Chicken broth', price: 500, inventoryStatus: 'Out of Stock' ,cantidad:1, status:false, icon: "pi-heart",tipo:"Food" },
+
+];
+
+export interface Carrito {
+  id:number,
+  id_product:number,
+  image:string,
+  name:string,
+  price:number,
+  inventoryStatus:string,
+  status:boolean,
+  cantidad:number,
+  icon:string,
+  tipo:string
 }

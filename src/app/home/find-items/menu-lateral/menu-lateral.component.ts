@@ -22,7 +22,7 @@ import { RouterLink } from '@angular/router';
 })
 export class MenuLateralComponent implements OnInit {
   @Input() isOpenMenu?:boolean ;
- total:any = 0
+ total:number = 0
   datosBuy:List[] = []
 
  private _servisLocalStore = inject(LocalstoreService)
@@ -38,21 +38,30 @@ this._servisLocalStore
   }
 
   eliminarlist=(index :number)=>{
-    console.log(index)
     this._servisLocalStore.eliminarList(index);
     this.datosBuy = this._servisLocalStore.getList();
 
   }
   addproduct(index:number){
-    console.log(index)
+
   this._servisLocalStore.addmoreProduct(index);
   this.datosBuy = this._servisLocalStore.getList();
+  this.datosBuy.forEach((ele) => {
+    if (ele.id === index) {
+      this.total += ele.precio;
+    }
+  });
+
   }
   delitproduct(index: number){
-    console.log(index)
     this._servisLocalStore.delitmoreProduct(index);
     this.datosBuy = this._servisLocalStore.getList();
-    console.log(this.datosBuy)
+    this.datosBuy.forEach((ele) => {
+      if (ele.id === index) {
+        this.total -= ele.precio;
+      }
+    });
+
   }
 
   ngOnInit(): void {
@@ -67,7 +76,6 @@ this._servisLocalStore
         return acumulador + precioActual.precio;
       }, 0);
     });
-    console.log(this.datosBuy)
 
   }
 }
