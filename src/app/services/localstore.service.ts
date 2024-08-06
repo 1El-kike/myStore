@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { favorite } from '../home/find-items/find-items.component';
-
+import { map, scan } from 'rxjs/operators'
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +16,8 @@ ListaFavorite:favorite[] = []
  // private Localstorekey = 'lista_compra';
 
   private _listaSubject = new BehaviorSubject<List[]>([]);
+  private _totalPriceSubject = new BehaviorSubject<number>(0);
+  public _totalPrice$ = this._totalPriceSubject.asObservable();
 
   lista$ = this._listaSubject.asObservable();
 
@@ -32,21 +34,32 @@ ListaFavorite:favorite[] = []
     currentLista.push(list);
     //localStorage.setItem(this.Localstorekey,JSON.stringify(lists))
     this._listaSubject.next(currentLista);
+    const total = this._listaSubject.value.reduce((acc,next) => acc + next.precio ,0);
+    this._totalPriceSubject.next(total)
   }
 
   addmoreProduct(index:number){
     const lists = [...this._listaSubject.value]
     lists.forEach( (ele)=>{
       ele.id == index ? ele.cantidad = ele.cantidad + 1 : ele.cantidad = ele.cantidad
-    })
-   this._listaSubject.next(lists)
+      })
+     const newTotal = lists.reduce((acc, next) => acc + next.precio * next.cantidad, 0);
+     this._totalPriceSubject.next(newTotal);
+     this._listaSubject.next(lists)
   }
+
   delitmoreProduct(index:number){
     const lists = [...this._listaSubject.value]
-    lists.forEach( (ele)=>{
-      ele.id == index ? ele.cantidad = ele.cantidad - 1 : ele.cantidad = ele.cantidad
-    })
-    this._listaSubject.next(lists)
+    lists.forEach((ele) => {
+      if (ele.id == index) {
+        if (ele.cantidad > 1) {
+          ele.cantidad = ele.cantidad - 1;
+        }
+      }
+    });
+  const newTotal = lists.reduce((acc, next) => acc + next.precio * next.cantidad, 0);
+  this._totalPriceSubject.next(newTotal);
+  this._listaSubject.next(lists);
   }
 
   eliminarList (index:number){
