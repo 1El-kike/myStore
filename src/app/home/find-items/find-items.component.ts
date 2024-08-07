@@ -1,7 +1,7 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { List, LocalstoreService } from '../../services/localstore.service';
 import { FormsModule } from '@angular/forms';
-import { Carrito, DatosLocales, products } from '../../models/localDatos.moduls';
+import { allelemnt, Carrito, DatosLocales, productList, ProductListnew, products } from '../../models/localDatos.moduls';
 import { HomeSecondoryComponent } from '../home-secondory/home-secondory.component';
 import { MenuLateralComponent } from "./menu-lateral/menu-lateral.component";
 import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
@@ -12,12 +12,14 @@ import { RouterLink } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { RippleModule } from 'primeng/ripple';
+import { SearchElementComponent } from './search-element/search-element.component';
 
 @Component({
   selector: 'app-find-items',
   standalone: true,
   imports: [FormsModule, RouterLink,
     HomeSecondoryComponent,TagModule,
+    SearchElementComponent,
     NgClass,ButtonModule,MenuLateralComponent,
     CarouselModule,ToastModule, ButtonModule, RippleModule],
   providers: [MessageService],
@@ -31,7 +33,10 @@ export class FindItemsComponent implements OnInit{
 
 datos = DatosLocales;
 
-  datosnew?:List
+  searchElement = "";
+  productsfind:any[] = [];
+  valorfind :any[] | null=[];
+  datosnew?:List;
   elementFind:string = '';
   valor:string[] = [''];
   isOpenMenu = false;
@@ -39,8 +44,19 @@ datos = DatosLocales;
   products:Carrito[] = products
   listaFavorite :favorite[] = [];
 
-
-
+  //Para buscar los elementos tanto productos como tienda
+  filterProducts() {
+    this.productsfind = allelemnt;
+    if (this.searchElement.trim()) {
+      this.productsfind = this.productsfind.filter(product =>
+     product.name.toLowerCase().includes(this.searchElement.toLowerCase())
+     ? this.valorfind = product : null
+      );
+    } else {
+      // Si el término de búsqueda está vacío, muestra todos los productos
+      this.valorfind = null // Copia la lista original para evitar referencias mutables
+    }
+  }
 
   getSeverity(status:string) {
     return status === 'In Stock' ? 'success' : 'danger';
@@ -63,7 +79,6 @@ datos = DatosLocales;
     }
   ];
   private _messageService = inject (MessageService)
-
   private _servisLocalStore = inject(LocalstoreService)
 
   //añadir al carrito de compra
@@ -85,16 +100,13 @@ datos = DatosLocales;
       }
       else{
       this._messageService.add({ severity: 'warn', summary: 'Warning', detail: `Purchase is of ${name} already added `});
-
       }
-
   }
   //eliminar lista de compra de carrito
   eliminarlist=(index :number)=>{
     this._servisLocalStore.eliminarList(index);
     this.datosLocales = this._servisLocalStore.getList()
   }
-
 
     changleproperty(status: boolean, productIndex: number) {
       let product = this.products[productIndex];
@@ -108,14 +120,8 @@ datos = DatosLocales;
         this.listaFavorite = this.listaFavorite.filter(item => item.id !== product.id);
         product.status = true;
       }
-
-      console.log(this.listaFavorite);
-
-      this._servisLocalStore.setFavorite(this.listaFavorite, productIndex);
+       this._servisLocalStore.setFavorite(this.listaFavorite, productIndex);
     }
-
-
-
 
   toggleMenulateral(){
     this.isOpenMenu = !this.isOpenMenu;

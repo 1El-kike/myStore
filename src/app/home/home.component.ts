@@ -1,5 +1,5 @@
-import { ClienteApiService, Todos } from './../cliente-api.service';
-import { Component, Input, OnInit } from '@angular/core';
+import {  Todos } from './../cliente-api.service';
+import { Component,  OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FindItemsComponent } from "./find-items/find-items.component";
 

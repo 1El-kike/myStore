@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { favorite } from '../home/find-items/find-items.component';
-import { map, scan } from 'rxjs/operators'
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +17,6 @@ ListaFavorite:favorite[] = []
   private _listaSubject = new BehaviorSubject<List[]>([]);
   private _totalPriceSubject = new BehaviorSubject<number>(0);
   public _totalPrice$ = this._totalPriceSubject.asObservable();
-
   lista$ = this._listaSubject.asObservable();
 
 
@@ -26,6 +24,7 @@ ListaFavorite:favorite[] = []
     // return JSON.parse(localStorage.getItem(this.Localstorekey) as string ) || []
     return this._listaSubject.value;
   }
+
 
   agregarList(list:List){
     //const lists  = this.getList();
@@ -73,18 +72,6 @@ ListaFavorite:favorite[] = []
     this._listaSubject.next(filteredLists);
   }
 
-
-/*   setFavorite(element :favorite[],index:number){
-    const lists = this.getFavorite()
-    if (lists.length < element.length) {
-      lists.filter((item:favorite) => item.id !== index);
-      localStorage.setItem(this.ListaLocalfavorite,JSON.stringify(lists))
-    } else {
-      lists.push(element);
-      localStorage.setItem(this.ListaLocalfavorite,JSON.stringify(lists))
-    }
-
-  } */
   setFavorite(favorites: favorite[], productId: number) {
     const existingFavorites = JSON.parse(localStorage.getItem(this.ListaLocalfavorite) || '[]');
 
@@ -102,8 +89,7 @@ ListaFavorite:favorite[] = []
     localStorage.setItem(this.ListaLocalfavorite, JSON.stringify(favorites));
   }
 
-
-getFavorite (){
+  getFavorite (){
   return JSON.parse(localStorage.getItem(this.ListaLocalfavorite) as string ) || []
   }
 

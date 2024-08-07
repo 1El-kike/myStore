@@ -1,17 +1,3 @@
-export interface Datos{
-  id:number,
-  title:string
-  description:string,
-  price:number,
-  cantidad:number,
-  urlImg:string,
-  tipo:string
-}
-export interface Category {
-  id:number,
-  categories:string,
-  status:boolean
-}
 export const DatosCategories:Category[] = [
   {id:0,categories:"Cubana",status:false},
   {id:1,categories:"China",status:false},
@@ -99,23 +85,7 @@ export const DatosLocales:Datos[] =
   },
 
 ]
- export interface Store{
-  id:number,
-  namestore:string,
-  start:string,
-  image:string,
-  product:productStore[],
- }
- export interface productStore{
-id:number,
-name:string
-loading:boolean,
-img:string,
-description:string,
-price:string,
-added:boolean,
-comprado:boolean
- }
+
 export const StoreList:Store[]= [
     {
       id:1,namestore:"Tienda de 5ta y 96",
@@ -539,16 +509,7 @@ export const ProductListnew : ProductList[] = [
   {id:5,name:"Cris Cris",star:4.3,adress:"Habana", url : "/criscris.jpg",open:true },
   {id:11,name:"Paúl & Shark Boutique",star:4.5,adress:"Habana", url : "/Paúl_& _S_Boutique.jpg",open:false },
 ]
-export interface ProductList  {
 
-  id?: number  | string;
-  name?: string;
-  star: number ;
-  adress?: string;
-  url?: string
-  open?:boolean;
-
-}
 
 export const productList : Product[] = [
   {id:1,image:[{valor1:'/products/aceite.jpg',valor2:'/products/aceite2.jpg',valor3:'/products/aceite3.jpg',valor4:'/products/aceite.jpg'}] ,description:'Aceite Hecho en casa',name:"Aceite",cantidad:37,precio:1.20,url:'/aceitefavorite.jpg'},
@@ -563,31 +524,14 @@ export const productList : Product[] = [
   {id:10,image:[{valor1:'/products/pure_tomate.jpg',valor2:'/products/pure_tomate2.jpg',valor3:'/products/pure_tomate3.jpg',valor4:'/products/pure_tomate4.jpg'}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
   {id:11,image:[{valor1:'/products/espaguetis.jpg',valor2:'/products/espaguetis2.jpg',valor3:'/products/espaguetis3.jpg',valor4:'/products/espaguetis4.jpg'}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
   {id:12,image:[{valor1:'/products/milk2.jpg',valor2:'/products/milk.jpg',valor3:'/products/milk4.jpg',valor4:'/products/milk3.jpg'}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
-  {id:13,image:[{valor1:'/products/nutella3.jpg',valor2:'/products/nutella.jpg',valor3:'/products/nutella2.jpg',valor4:'/products/nutella4.jpg'}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
-  {id:14,image:[{valor1:'/products/shampoo.jpg',valor2:'/products/shampoo.jpg',valor3:'/products/shampoo.jpg',valor4:'/products/shampoo.jpg'}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
-  {id:15,image:[{valor1:'/products/conditioner.jpg',valor2:'/products/conditioner.jpg',valor3:'/products/conditioner.jpg',valor4:'/products/conditioner.jpg'}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
+  {id:13,image:[{valor1:'/products/nutella3.jpg',valor2:'/products/nutella.jpg',valor3:'/products/nutella2.jpg',valor4:'/products/nutella4.jpg'}] ,description:'Arroz que nunca ay ven y compra',name:"Nutella",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
+  {id:14,image:[{valor1:'/products/shampoo.jpg',valor2:'/products/shampoo.jpg',valor3:'/products/shampoo.jpg',valor4:'/products/shampoo.jpg'}] ,description:'Arroz que nunca ay ven y compra',name:"Shampoo",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
+  {id:15,image:[{valor1:'/products/conditioner.jpg',valor2:'/products/conditioner.jpg',valor3:'/products/conditioner.jpg',valor4:'/products/conditioner.jpg'}] ,description:'Arroz que nunca ay ven y compra',name:"Acondicionador",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
   {id:16,image:[{valor1:'/products/jabon.jpg',valor2:'/products/jabon.jpg',valor3:'/products/jabon.jpg',valor4:'/products/jabon.jpg'}] ,description:'Arroz que nunca ay ven y compra',name:"Arroz",cantidad:201,precio:1.00, url : "https://img.envioscuba.com/Img_Data/500x500/b0d5ed4d-efb6-431e-a1dc-0dc4b81c8bc4.jpg" },
 
 ]
 
-export interface Product  {
 
-  id?: number  | string;
-  image?:Image[];
-  description:string;
-  name?: string;
-  cantidad: number ;
-  precio?: number;
-  url?: string
-
-}
-
-export interface Image {
-  valor1:string;
-  valor2:string;
-  valor3:string;
-  valor4:string;
-}
 
 export const products:Carrito[] = [
   { id: 0 ,id_product:13,image: '/products/nutella4.jpg', name: 'Nutella', price: 3500, inventoryStatus: 'In Stock', status:false ,cantidad:1, icon: "pi-heart",tipo:"Food" },
@@ -598,6 +542,30 @@ export const products:Carrito[] = [
   {  id: 5 ,id_product:3,image: '/products/caldito_pollo2jpg.png', name: 'Chicken broth', price: 500, inventoryStatus: 'Out of Stock' ,cantidad:1, status:false, icon: "pi-heart",tipo:"Food" },
 
 ];
+
+export const allelemnt :AllElement[]= [
+  {id:0,code:"sdasw2s", name:"Nutella", description:"",image:'/products/nutella4.jpg',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"3edad", name:"Tomato Pure", description:"",image:'/products/pure_tomate.jpg',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"asd3", name:"Meat", description:"",image:'/products/pollo4.jpg',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"asdasd", name:"Ham", description:"",image:'/products/jamon.jpg',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"asd3sad", name:"Bath Soap", description:"",image:'/products/jabon.jpg',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"asdas", name:"Chicken broth", description:"",image:'/products/caldito_pollo2jpg.png',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"asdasd", name:"Acondicionador", description:"",image:'/products/conditioner.jpg',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"asd3dasd", name:"Shampoo", description:"",image:'/products/shampoo.jpg',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"asdasd", name:"", description:"",image:'',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"asdasd", name:"", description:"",image:'',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"asdasd", name:"", description:"",image:'',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"dscdss", name:"", description:"",image:'',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"tgrth", name:"", description:"",image:'',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"k[kvd", name:"", description:"",image:'',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"4v0ff4", name:"", description:"",image:'',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"kf84jg8", name:"", description:"",image:'',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"nj6d3", name:"", description:"",image:'',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"kv74n", name:"", description:"",image:'',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"lp29f8", name:"", description:"",image:'',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"bvdr4", name:"", description:"",image:'',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+  {id:1,code:"mllfr7", name:"", description:"",image:'',price:1200,category:'',quantity:23,inventoryStatus:'', rating:4.2},
+]
 
 export interface Carrito {
   id:number,
@@ -610,4 +578,79 @@ export interface Carrito {
   cantidad:number,
   icon:string,
   tipo:string
+}
+
+
+export interface AllElement{
+ id:number,
+ code: string,
+ name: string,
+ description: string,
+ image: string,
+ price: number,
+ category: string,
+ quantity: number,
+ inventoryStatus: string,
+ rating: number
+}
+
+export interface Datos{
+  id:number,
+  title:string
+  description:string,
+  price:number,
+  cantidad:number,
+  urlImg:string,
+  tipo:string
+}
+export interface Category {
+  id:number,
+  categories:string,
+  status:boolean
+}
+
+export interface Product  {
+
+  id?: number  | string;
+  image?:Image[];
+  description:string;
+  name?: string;
+  cantidad: number ;
+  precio?: number;
+  url?: string
+
+}
+export interface ProductList  {
+
+  id?: number  | string;
+  name?: string;
+  star: number ;
+  adress?: string;
+  url?: string
+  open?:boolean;
+
+}
+export interface Store{
+  id:number,
+  namestore:string,
+  start:string,
+  image:string,
+  product:productStore[],
+ }
+ export interface productStore{
+id:number,
+name:string
+loading:boolean,
+img:string,
+description:string,
+price:string,
+added:boolean,
+comprado:boolean
+ }
+
+export interface Image {
+  valor1:string;
+  valor2:string;
+  valor3:string;
+  valor4:string;
 }
