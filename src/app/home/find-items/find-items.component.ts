@@ -1,7 +1,7 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { List, LocalstoreService } from '../../services/localstore.service';
 import { FormsModule } from '@angular/forms';
-import { allelemnt, Carrito, DatosLocales, productList, ProductListnew, products } from '../../models/localDatos.moduls';
+import { AllElement, allelemnt, Carrito, DatosLocales, productList, ProductListnew, products } from '../../models/localDatos.moduls';
 import { HomeSecondoryComponent } from '../home-secondory/home-secondory.component';
 import { MenuLateralComponent } from "./menu-lateral/menu-lateral.component";
 import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
@@ -34,8 +34,8 @@ export class FindItemsComponent implements OnInit{
 datos = DatosLocales;
 
   searchElement = "";
-  productsfind:any[] = [];
-  valorfind :any[] | null=[];
+  productsfind:AllElement[] = [];
+  valorfind :AllElement[] = [];
   datosnew?:List;
   elementFind:string = '';
   valor:string[] = [''];
@@ -47,14 +47,17 @@ datos = DatosLocales;
   //Para buscar los elementos tanto productos como tienda
   filterProducts() {
     this.productsfind = allelemnt;
-    if (this.searchElement.trim()) {
-      this.productsfind = this.productsfind.filter(product =>
-     product.name.toLowerCase().includes(this.searchElement.toLowerCase())
-     ? this.valorfind = product : null
+    let filteredProducts:AllElement[] = [];
+    if (this.searchElement.trim().length > 0) {
+      filteredProducts = this.productsfind.filter(product =>
+        product.name.toLowerCase().includes(this.searchElement.toLowerCase())
       );
-    } else {
-      // Si el término de búsqueda está vacío, muestra todos los productos
-      this.valorfind = null // Copia la lista original para evitar referencias mutables
+    }
+    if (filteredProducts.length > 0 || this.searchElement !== "") {
+      this.valorfind = filteredProducts;
+    }
+    else {
+      this.valorfind = [];
     }
   }
 
