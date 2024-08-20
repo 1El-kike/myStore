@@ -1,7 +1,7 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { List, LocalstoreService } from '../../services/localstore.service';
 import { FormsModule } from '@angular/forms';
-import { AllElement, allelemnt, Carrito, DatosLocales, productList, ProductListnew, products } from '../../models/localDatos.moduls';
+import { AllElement, allelemnt, Carrito, DatosLocales, products } from '../../models/localDatos.moduls';
 import { HomeSecondoryComponent } from '../home-secondory/home-secondory.component';
 import { MenuLateralComponent } from "./menu-lateral/menu-lateral.component";
 import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
@@ -13,6 +13,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { RippleModule } from 'primeng/ripple';
 import { SearchElementComponent } from './search-element/search-element.component';
+import { ApiHomeService } from '../../services/api-home.service';
 
 @Component({
   selector: 'app-find-items',
@@ -33,16 +34,25 @@ export class FindItemsComponent implements OnInit{
 
 datos = DatosLocales;
 
+//Datos
+  //valor del input de busqueda
   searchElement = "";
+  //elementos de busquedas inicial
   productsfind:AllElement[] = [];
+  //elementos de busqueda resultado
   valorfind :AllElement[] = [];
+  //datos carrito de compra
   datosnew?:List;
   elementFind:string = '';
   valor:string[] = [''];
+  //abrir menu de compra
   isOpenMenu = false;
   datosLocales:List[] = [];
   products:Carrito[] = products
+  //datos de los productos que se van agregar a favoritos
   listaFavorite :favorite[] = [];
+  //datos de la Api de la lista de Productos Nuevos
+  datosApi :any[]= []
 
   //Para buscar los elementos tanto productos como tienda
   filterProducts() {
@@ -83,6 +93,7 @@ datos = DatosLocales;
   ];
   private _messageService = inject (MessageService)
   private _servisLocalStore = inject(LocalstoreService)
+  private _API = inject(ApiHomeService)
 
   //añadir al carrito de compra
   addbuy(id:number,name:string,price:number,num:number,img:string,tipo:string){
@@ -110,20 +121,33 @@ datos = DatosLocales;
     this._servisLocalStore.eliminarList(index);
     this.datosLocales = this._servisLocalStore.getList()
   }
-
+    //cambiar estado y color del icono agregar a la lista de favoritos
     changleproperty(status: boolean, productIndex: number) {
-      let product = this.products[productIndex];
-      product.icon = status ? "pi-heart" : " pi-heart-fill";
-
+      let product = this.datosApi[productIndex - 1];
+      let data = {
+        id: product.id,
+        status:product.status = !status,
+         icon:product.icon = status ? "pi-heart" : " pi-heart-fill"
+      }
       if (status) {
         this.listaFavorite.push(product);
-        product.status = false;
+        this._API.updateNewProduct('newProduct/update',data).subscribe(
+          (response)=> {
+            this.listaFavorite.push(response)
+            },
+          (error) => {console.error(error)}
+        )
       } else {
+        this._API.updateNewProduct('newProduct/update',data).subscribe(
+          (response)=> {
+            this.listaFavorite = this.listaFavorite.filter(item => item.id !== response.id);
+            },
+          (error) => { console.error(error)}
+        )
         this._messageService.add({ severity: 'success', summary: 'Favorite', detail: 'Added purchase of ' + product.name });
-        this.listaFavorite = this.listaFavorite.filter(item => item.id !== product.id);
-        product.status = true;
       }
        this._servisLocalStore.setFavorite(this.listaFavorite, productIndex);
+       console.log(this.listaFavorite)
     }
 
   toggleMenulateral(){
@@ -132,6 +156,9 @@ datos = DatosLocales;
 
   ngOnInit(): void {
     this.datosLocales = this._servisLocalStore.getList();
+    this._API.getAllnewProduct('newProduct').subscribe(data => {
+      this.datosApi = data
+    })
   }
 
 }
