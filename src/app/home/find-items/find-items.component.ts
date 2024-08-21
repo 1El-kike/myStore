@@ -99,6 +99,7 @@ export class FindItemsComponent implements OnInit{
   //eliminar usuario
   delituser(){
     this._servisLocalStore.delitUser()
+    location.reload();
   }
 
   //añadir al carrito de compra

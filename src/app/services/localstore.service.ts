@@ -5,36 +5,49 @@ import { favorite } from '../home/find-items/find-items.component';
   providedIn: 'root'
 })
 
-
-
 export class LocalstoreService {
 
-ListaFavorite:favorite[] = []
-
+ ListaFavorite:favorite[] = []
 
  private ListaLocalfavorite = "lista_favorita"
 
 
  // datos de usuario
- private _user = new BehaviorSubject<List[]>([]);
- user$ = this._user.asObservable();
+ //private _user = new BehaviorSubject<List[]>([]);
+ //user$ = this._user.asObservable();
+ private user = 'user';
 
 //obtener datos de usuario
 getUser = () => {
-  return this._user.value;
+  //return this._user.value;
+  return JSON.parse(localStorage.getItem(this.user) as string ) || []
 }
+
 //guardar datos de usuario
 setUser = (users:any) => {
-  const user = this._user.value;
+  const user  = this.getList();
+  if (!user) {
+    console.log(user)
+  }
+  else{
+    console.log(user)
+  }
+   user.push(users);
+   localStorage.setItem(this.user,JSON.stringify(user))
+ /*  const user = this._user.value;
   user.push(users);
-  this._user.next(user);
+  this._user.next(user); */
 }
 
 //eliminar usuario
 delitUser = () => {
-  const user = this._user.value;
-  const filteredusers = user.filter(item => item.id !== item.id);
-  this._user.next(filteredusers);
+  //const user = this._user.value;
+  //const filteredusers = user.filter(item => item.id !== item.id);
+ // this._user.next(filteredusers);
+ const user =this.getList();
+  user.splice(1,1);
+  //const filteredLists = lists.filter(item => item.id !== index);
+  localStorage.setItem(this.user,JSON.stringify(user));
 }
 
 

@@ -37,7 +37,6 @@ export class HomeComponent implements OnInit {
     if (this.user.length == 0) {
       this.user = null
     }
-    console.log(this.user)
   }
 
 }
