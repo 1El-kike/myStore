@@ -1,7 +1,7 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { List, LocalstoreService } from '../../services/localstore.service';
 import { FormsModule } from '@angular/forms';
-import { AllElement, allelemnt, Carrito, DatosLocales, products } from '../../models/localDatos.moduls';
+import { AllElement, allelemnt,  DatosLocales } from '../../models/localDatos.moduls';
 import { HomeSecondoryComponent } from '../home-secondory/home-secondory.component';
 import { MenuLateralComponent } from "./menu-lateral/menu-lateral.component";
 import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
@@ -32,9 +32,10 @@ export class FindItemsComponent implements OnInit{
   @Input() image?: string = ''
   @Input() title : string = ''
 
-datos = DatosLocales;
 
-//Datos
+  //Datos
+  //Lista de productos favoritos
+  favoriteProduct?:any;
   //valor del input de busqueda
   searchElement = "";
   //elementos de busquedas inicial
@@ -47,9 +48,9 @@ datos = DatosLocales;
   valor:string[] = [''];
   //abrir menu de compra
   isOpenMenu = false;
+  //lista de Productos mas vendidos - Productos favoritos
   datosLocales:List[] = [];
-  products:Carrito[] = products
-  //datos de los productos que se van agregar a favoritos
+  //datos de los productos que se van agregar a mis favoritos
   listaFavorite :favorite[] = [];
   //datos de la Api de la lista de Productos Nuevos
   datosApi :any[]= []
@@ -94,6 +95,11 @@ datos = DatosLocales;
   private _messageService = inject (MessageService)
   private _servisLocalStore = inject(LocalstoreService)
   private _API = inject(ApiHomeService)
+
+  //eliminar usuario
+  delituser(){
+    this._servisLocalStore.delitUser()
+  }
 
   //añadir al carrito de compra
   addbuy(id:number,name:string,price:number,num:number,img:string,tipo:string){
@@ -156,6 +162,9 @@ datos = DatosLocales;
 
   ngOnInit(): void {
     this.datosLocales = this._servisLocalStore.getList();
+   this._API.getAllFavoriteProduct('favoriteProduct').subscribe( data => {
+    this.favoriteProduct = data
+   });
     this._API.getAllnewProduct('newProduct').subscribe(data => {
       this.datosApi = data
     })

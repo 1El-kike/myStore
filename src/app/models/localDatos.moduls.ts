@@ -654,3 +654,10 @@ export interface Image {
   valor3:string;
   valor4:string;
 }
+
+//datos de usuarios
+export interface User {
+name:string,
+iphone:string,
+
+}

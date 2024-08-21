@@ -7,10 +7,29 @@
         <h1 class="lg:text-8xl md:text-7xl sm:text-6xl text-5xl font-bold text-gray-700">Market</h1>
         <span class=" text-xl lg:text-4xl md:text-3xl sm:text-2xl text-red-400"><p>Web<span class="font-bold   lg:text-5xl md:text-4xl sm:text-3xl text-2xl text-blue-500">X</span></p></span>
       </div>
-      <div class="LogIn">
-          <p class="text-white">Plis Login on the next page <b class="text-green-400 "><a  routerLink="/user" class="text-blue-600 hover:bg-gradient-to-b hover:from-transparent hover:to-blue-400 bg-gradient-to-b from-transparent to-blue-200 cursor-pointer" >Touch here</a></b></p>
+      @if (user) {
+        <div class="user">
+          <div class="card flex flex-row justify-end align-items-center gap-2 bg-transparent flex-wrap">
+            <p class="text-3xl text-violet-900 font-bold">Welcome to site web </p>
+            <p-chip
+                label="{{user[0][0].name}}"
+                class=""
+                image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
+                alt="Avatar image" />
+                <div class="bg-slate-50 py-1 px-2 rounded-3xl" >
+                  <i class="pi pi-bell text-2xl" pBadge value="2"></i>
+                </div>
 
+             </div>
+            <div class="card flex justify-content-center">
+          </div>
         </div>
+      }
+      @else{
+        <div class="LogIn">
+            <p class="text-white">Plis Login on the next page <b class="text-green-400 "><a  routerLink="/user" class="text-blue-600 hover:bg-gradient-to-b hover:from-transparent hover:to-blue-400 bg-gradient-to-b from-transparent to-blue-200 cursor-pointer" >Touch here</a></b></p>
+          </div>
+      }
        </div>
       </div>
      <hr>

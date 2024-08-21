@@ -1,0 +1,167 @@
+[
+
+ [
+  {
+    "id":1,
+    "title":"Oil",
+    "description":"Fabricado y distribuido por : MercaSID S.A., Av.Maximo Gómez #182,Samto Domingo,Rep.Dom.",
+    "price":950,
+    "cantidad":1,
+    "tipo": "Food",
+    "status": false,
+    "icon": "pi-heart",
+    "id_product": 1,
+    "urlImg":"/products/aceite2.jpg"
+
+  },
+  {
+    "id":2,
+    "title":"Detergent",
+    "description":"Detergente Multiusos más limpio y colores más vivos Dirección: Zona A4, ZED Mariel, Artemisa, Cuba Peso",
+    "price":250,
+    "cantidad":1,
+    "tipo":"Food",
+    "status": false,
+    "icon": "pi-heart",
+    "id_product": 2,
+    "urlImg":"/products/detergente4.jpg"
+  },
+  {
+    "id":3,
+    "title":"Rice",
+    "description":".",
+    "price":200,
+    "cantidad":1,
+    "tipo":"Food",
+    "status": false,
+    "icon": "pi-heart",
+    "id_product": 5,
+    "urlImg":"/products/arroz4.png"
+  },
+  {
+    "id":4,
+    "title":"Milk",
+    "description":"This is a wider card with supporting text below as a natuittle bit longer.",
+    "price":1020,
+    "cantidad":1,
+    "tipo":"Food",
+    "status": false,
+    "icon": "pi-heart",
+    "id_product": 12,
+    "urlImg":"/products/milk.jpg"
+  },
+  {
+    "id":5,
+    "title":"Puppies",
+    "description":"This in to additional content. This content is a little bit longer.",
+    "price":120,
+    "cantidad":1,
+    "status": false,
+    "icon": "pi-heart",
+    "id_product": 4,
+    "urlImg":"/products/perros_calientes.jpg",
+    "tipo":"Food"
+  },
+  {
+    "id":6,
+    "title":"Chicken",
+    "description":"sdasdas",
+    "price":3100,
+    "cantidad":1,
+    "status": false,
+    "icon": "pi-heart",
+    "id_product": 8,
+    "urlImg":"/products/carne2.jpg",
+    "tipo":"Food"
+  },
+  {
+    "id":11,
+    "title":"Spaghetti",
+    "description":"asdsad",
+    "price":220,
+    "cantidad":1,
+    "status": false,
+    "icon": "pi-heart",
+    "id_product": 3,
+    "urlImg":"/products/espaguetis.jpg",
+    "tipo":"Food"
+  }
+ ],
+
+
+
+
+
+ [
+  {
+     "id": 0 ,
+     "id_product":13,
+     "image": "/products/nutella4.jpg",
+      "name": "Nutella",
+      "price": 3500,
+      "inventoryStatus": "In Stock",
+      "status":false ,
+      "cantidad":1,
+      "icon": "pi-heart",
+      "tipo":"Food"
+    },
+  {
+     "id": 1 ,
+     "id_product":10,
+     "image": "/products/pure_tomate.jpg",
+     "name": "Tomato Pure",
+     "price": 900,
+     "inventoryStatus": "Out of Stock",
+     "cantidad":1,
+     "status":false,
+      "icon": "pi-heart",
+      "tipo":"Food"
+     },
+  {
+     "id": 2 ,
+     "id_product":7,
+     "image": "/products/pollo4.jpg",
+      "name": "Meat",
+       "price": 3100,
+        "inventoryStatus": "Out of Stock" ,
+         "status":false,
+          "cantidad":1,
+          "icon": "pi-heart",
+          "tipo":"Food"
+        },
+  { "id": 3,
+  "id_product":6,
+  "image": "/products/jamon.jpg",
+   "name": "Ham",
+    "price": 2050,
+     "inventoryStatus": "In Stock" ,
+      "status":false,
+      "cantidad":1,
+       "icon": "pi-heart",
+       "tipo":"Food"
+      },
+  {
+    "id": 4 ,
+    "id_product":16,
+    "image": "/products/jabon.jpg",
+     "name":"Bath Soap",
+      "price": 250,
+       "inventoryStatus": "Out of Stock" ,
+        "status":false,
+        "cantidad":1,
+         "icon": "pi-heart",
+         "tipo":"Food"
+         },
+  {
+    "id": 5 ,
+    "id_product":3,
+    "image": "/products/caldito_pollo2jpg.png",
+    "name": "Chicken broth", "price": 500,
+    "inventoryStatus": "Out of Stock" ,
+    "cantidad":1,
+    "status":false,
+    "icon": "pi-heart",
+    "tipo":"Food"
+   }
+ ]
+]

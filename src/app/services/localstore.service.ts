@@ -10,9 +10,33 @@ import { favorite } from '../home/find-items/find-items.component';
 export class LocalstoreService {
 
 ListaFavorite:favorite[] = []
+
+
  private ListaLocalfavorite = "lista_favorita"
 
- // private Localstorekey = 'lista_compra';
+
+ // datos de usuario
+ private _user = new BehaviorSubject<List[]>([]);
+ user$ = this._user.asObservable();
+
+//obtener datos de usuario
+getUser = () => {
+  return this._user.value;
+}
+//guardar datos de usuario
+setUser = (users:any) => {
+  const user = this._user.value;
+  user.push(users);
+  this._user.next(user);
+}
+
+//eliminar usuario
+delitUser = () => {
+  const user = this._user.value;
+  const filteredusers = user.filter(item => item.id !== item.id);
+  this._user.next(filteredusers);
+}
+
 
   private _listaSubject = new BehaviorSubject<List[]>([]);
   private _totalPriceSubject = new BehaviorSubject<number>(0);
@@ -21,55 +45,51 @@ ListaFavorite:favorite[] = []
 
 
   getList():List[]{
-    // return JSON.parse(localStorage.getItem(this.Localstorekey) as string ) || []
     return this._listaSubject.value;
   }
 
 
   agregarList(list:List){
-    //const lists  = this.getList();
     const currentLista = [...this._listaSubject.value];
-   // lists.push(list);
     currentLista.push(list);
-    //localStorage.setItem(this.Localstorekey,JSON.stringify(lists))
     this._listaSubject.next(currentLista);
     const total = this._listaSubject.value.reduce((acc,next) => acc + next.precio ,0);
     this._totalPriceSubject.next(total)
   }
 
   addmoreProduct(index:number){
-    const lists = [...this._listaSubject.value]
-    lists.forEach( (ele)=>{
+    const users = [...this._listaSubject.value]
+    users.forEach( (ele)=>{
       ele.id == index ? ele.cantidad = ele.cantidad + 1 : ele.cantidad = ele.cantidad
       })
-     const newTotal = lists.reduce((acc, next) => acc + next.precio * next.cantidad, 0);
+     const newTotal = users.reduce((acc, next) => acc + next.precio * next.cantidad, 0);
      this._totalPriceSubject.next(newTotal);
-     this._listaSubject.next(lists)
+     this._listaSubject.next(users)
   }
 
   delitmoreProduct(index:number){
-    const lists = [...this._listaSubject.value]
-    lists.forEach((ele) => {
+    const users = [...this._listaSubject.value]
+    users.forEach((ele) => {
       if (ele.id == index) {
         if (ele.cantidad > 1) {
           ele.cantidad = ele.cantidad - 1;
         }
       }
     });
-  const newTotal = lists.reduce((acc, next) => acc + next.precio * next.cantidad, 0);
+  const newTotal = users.reduce((acc, next) => acc + next.precio * next.cantidad, 0);
   this._totalPriceSubject.next(newTotal);
-  this._listaSubject.next(lists);
+  this._listaSubject.next(users);
   }
 
   eliminarList (index:number){
-   // const lists =this.getList();
+   // const users =this.getList();
     const currentLista = [...this._listaSubject.value];
-    //lists.splice(index,1);
-    //const filteredLists = lists.filter(item => item.id !== index);
-    const filteredLists = currentLista.filter(item => item.id !== index);
+    //users.splice(index,1);
+    //const filteredusers = users.filter(item => item.id !== index);
+    const filteredusers = currentLista.filter(item => item.id !== index);
    // currentLista.splice(index, 1);
-   // localStorage.setItem(this.Localstorekey,JSON.stringify(filteredLists));
-    this._listaSubject.next(filteredLists);
+   // localStorage.setItem(this.Localstorekey,JSON.stringify(filteredusers));
+    this._listaSubject.next(filteredusers);
   }
 
   setFavorite(favorites: favorite[], productId: number) {
