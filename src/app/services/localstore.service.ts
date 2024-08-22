@@ -13,13 +13,24 @@ export class LocalstoreService {
 
 
  // datos de usuario
- //private _user = new BehaviorSubject<List[]>([]);
- //user$ = this._user.asObservable();
  private user = 'user';
+//datos de token
+ private _tokenKey  = 'token';
+
+ setToken(token: string): void {
+  localStorage.setItem(this._tokenKey, token);
+}
+
+getToken(): string | null {
+  return localStorage.getItem(this._tokenKey);
+}
+
+removeToken(): void {
+  localStorage.removeItem(this._tokenKey);
+}
 
 //obtener datos de usuario
 getUser = () => {
-  //return this._user.value;
   return JSON.parse(localStorage.getItem(this.user) as string ) || []
 }
 

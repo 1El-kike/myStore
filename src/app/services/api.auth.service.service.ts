@@ -14,4 +14,7 @@ export class ApiAuthServiceService {
   public registre =  (endpoint: string,data:any ): Observable<any> => {
     return this._http.post(`${this.urlhttpBase}/${endpoint}`, data)
   }
+  public logIn =  (endpoint: string,data:any ): Observable<any> => {
+    return this._http.post(`${this.urlhttpBase}/${endpoint}`, data)
+  }
 }

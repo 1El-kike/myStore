@@ -7,7 +7,7 @@ import { MenuLateralComponent } from "./menu-lateral/menu-lateral.component";
 import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
-import { NgClass } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
@@ -21,7 +21,7 @@ import { ApiHomeService } from '../../services/api-home.service';
   imports: [FormsModule, RouterLink,
     HomeSecondoryComponent,TagModule,
     SearchElementComponent,
-    NgClass,ButtonModule,MenuLateralComponent,
+    NgIf,NgClass,ButtonModule,MenuLateralComponent,
     CarouselModule,ToastModule, ButtonModule, RippleModule],
   providers: [MessageService],
   templateUrl: './find-items.component.html',
@@ -32,7 +32,8 @@ export class FindItemsComponent implements OnInit{
   @Input() image?: string = ''
   @Input() title : string = ''
 
-
+  //Datos de usuario
+   user:string | any = '' ;
   //Datos
   //Lista de productos favoritos
   favoriteProduct?:any;
@@ -99,6 +100,7 @@ export class FindItemsComponent implements OnInit{
   //eliminar usuario
   delituser(){
     this._servisLocalStore.delitUser()
+    this._servisLocalStore.removeToken()
     location.reload();
   }
 
@@ -163,6 +165,10 @@ export class FindItemsComponent implements OnInit{
 
   ngOnInit(): void {
     this.datosLocales = this._servisLocalStore.getList();
+    this.user = this._servisLocalStore.getUser();
+    if (this.user.length == 0) {
+      this.user = null
+    }
    this._API.getAllFavoriteProduct('favoriteProduct').subscribe( data => {
     this.favoriteProduct = data
    });

@@ -57,9 +57,17 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="triggerId">
           <button class="dropdown-item" href="#">Action</button>
-          <button (click)="delituser()" class="dropdown-item" href="#">
-            Log out
-          </button>
+          @if (user == null){
+            <button routerLink="/user/logIn" class="dropdown-item">
+              Log In
+            </button>
+          }@else  {
+
+            <button (click)="delituser()" class="dropdown-item" href="#">
+              Log out
+            </button>
+          }
+
         </div>
       </div>
       <button (click)="toggleMenulateral()" role="button" class="cursor-pointer">
