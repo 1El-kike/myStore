@@ -141,7 +141,7 @@
                         {{ '$' + product.price + " cup"}}
                     </div>
                         <span>
-                            <p-button icon="pi {{product.icon}}" [ngClass]="{'text-red-600': product.status}" (click)="changleproperty(product.status, product.id)" class="" severity="secondary" [outlined]="true" />
+                            <p-button icon="pi {{product.icon}}" [ngClass]="{'text-red-600': product.status }" (click)="changleproperty(product.status, product.id)" class="" severity="secondary" [outlined]="true" />
                             <p-button icon="pi pi-shopping-cart"  (click)="addbuy(product.id_product ,product.name,product.price,product.cantidad,product.image,product.tipo)" styleClass="ml-2 " />
                         </span>
                     </div>

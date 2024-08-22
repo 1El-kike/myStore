@@ -14,6 +14,7 @@ import { MessageService } from 'primeng/api';
 import { RippleModule } from 'primeng/ripple';
 import { SearchElementComponent } from './search-element/search-element.component';
 import { ApiHomeService } from '../../services/api-home.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-find-items',
@@ -54,8 +55,11 @@ export class FindItemsComponent implements OnInit{
   //datos de los productos que se van agregar a mis favoritos
   listaFavorite :favorite[] = [];
   //datos de la Api de la lista de Productos Nuevos
-  datosApi :any[]= []
-
+  datosApi :any[]= [];
+  //mensaje de error
+  messageError:any =[];
+  //Para activae el error
+  statusmessage:boolean = false
   //Para buscar los elementos tanto productos como tienda
   filterProducts() {
     this.productsfind = allelemnt;
@@ -76,6 +80,8 @@ export class FindItemsComponent implements OnInit{
   getSeverity(status:string) {
     return status === 'In Stock' ? 'success' : 'danger';
   }
+
+  //ajuste de el componente de new Productos
   responsiveOptions: CarouselResponsiveOptions[] = [
     {
       breakpoint: '1024px',
@@ -99,9 +105,14 @@ export class FindItemsComponent implements OnInit{
 
   //eliminar usuario
   delituser(){
-    this._servisLocalStore.delitUser()
-    this._servisLocalStore.removeToken()
-    location.reload();
+    Promise.all([
+      this._servisLocalStore.delitUser(),
+      this._servisLocalStore.removeToken()
+    ]).then(() => {
+      location.reload();
+    }).catch((error) => {
+      console.error('Error al eliminar usuario y token:', error);
+    });
   }
 
   //añadir al carrito de compra
@@ -130,33 +141,41 @@ export class FindItemsComponent implements OnInit{
     this._servisLocalStore.eliminarList(index);
     this.datosLocales = this._servisLocalStore.getList()
   }
-    //cambiar estado y color del icono agregar a la lista de favoritos
+    //cambiar estado y color del icono, agregar a la lista de favoritos
     changleproperty(status: boolean, productIndex: number) {
       let product = this.datosApi[productIndex - 1];
-      let data = {
-        id: product.id,
-        status:product.status = !status,
-         icon:product.icon = status ? "pi-heart" : " pi-heart-fill"
+      if (this.user == null) {
+        console.log("error no tiene cuenta");
+        this._messageService.add({ severity: 'error', summary: 'Favorite', detail: 'Your need start autenticate ' });
+        return
+      }else {
+        let data = { id: product.id,status:product.status = !status, icon:product.icon = status ? "pi-heart" : " pi-heart-fill"};
+        if (status) {
+          console.log("si se envia");
+          this.listaFavorite.push(product);
+          (this._API.updateNewProduct('newProduct/update',data) as Observable<any>).subscribe(
+            (response)=> {
+              this.listaFavorite.push(response)
+              this.statusmessage = false;
+              },
+            (error) => {
+                this.messageError = error.error.error
+                this.statusmessage = true;
+            }
+          )
+        } else {
+          (this._API.updateNewProduct('newProduct/update',data) as Observable<any>).subscribe(
+            (response)=> {
+              this.listaFavorite = this.listaFavorite.filter(item => item.id !== response.id);
+              },
+            (error) => {
+              this.messageError = error.error.error
+              }
+          )
+          this._messageService.add({ severity: 'success', summary: 'Favorite', detail: 'Added purchase of ' + product.name });
+          this._servisLocalStore.setFavorite(this.listaFavorite, productIndex);
+        }
       }
-      if (status) {
-        this.listaFavorite.push(product);
-        this._API.updateNewProduct('newProduct/update',data).subscribe(
-          (response)=> {
-            this.listaFavorite.push(response)
-            },
-          (error) => {console.error(error)}
-        )
-      } else {
-        this._API.updateNewProduct('newProduct/update',data).subscribe(
-          (response)=> {
-            this.listaFavorite = this.listaFavorite.filter(item => item.id !== response.id);
-            },
-          (error) => { console.error(error)}
-        )
-        this._messageService.add({ severity: 'success', summary: 'Favorite', detail: 'Added purchase of ' + product.name });
-      }
-       this._servisLocalStore.setFavorite(this.listaFavorite, productIndex);
-       console.log(this.listaFavorite)
     }
 
   toggleMenulateral(){

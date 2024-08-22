@@ -37,28 +37,14 @@ getUser = () => {
 //guardar datos de usuario
 setUser = (users:any) => {
   const user  = this.getList();
-  if (!user) {
-    console.log(user)
-  }
-  else{
-    console.log(user)
-  }
    user.push(users);
    localStorage.setItem(this.user,JSON.stringify(user))
- /*  const user = this._user.value;
-  user.push(users);
-  this._user.next(user); */
+
 }
 
 //eliminar usuario
 delitUser = () => {
-  //const user = this._user.value;
-  //const filteredusers = user.filter(item => item.id !== item.id);
- // this._user.next(filteredusers);
- const user =this.getList();
-  user.splice(1,1);
-  //const filteredLists = lists.filter(item => item.id !== index);
-  localStorage.setItem(this.user,JSON.stringify(user));
+  localStorage.removeItem(this.user);
 }
 
 
