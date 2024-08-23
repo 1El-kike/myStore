@@ -69,7 +69,8 @@
               "buildTarget": "myAppWithAngular:build:production"
             },
             "development": {
-              "buildTarget": "myAppWithAngular:build:development"
+              "buildTarget": "myAppWithAngular:build:development",
+              "port":4400
             }
           },
           "defaultConfiguration": "development"

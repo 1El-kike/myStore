@@ -73,6 +73,7 @@ enviar =()=>{
     this.mostrarerror = false
   }
   const userData =  this.formularioConct.value;
+  console.log(userData)
   this._API.registre('auth/register',userData).subscribe(data =>{
      this.token = data.token;
      this.post_User = data.userclient;
