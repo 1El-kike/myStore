@@ -1,20 +1,42 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { favorite } from '../home/find-items/find-items.component';
 import { LocalstoreService } from '../services/localstore.service';
+import { ApiHomeService } from '../services/api-home.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-favorit-products',
   standalone: true,
   imports: [],
   templateUrl: './favorit-products.component.html',
-  styleUrl: './favorit-products.component.css'
+  styleUrl: './favorit-products.component.css',
 })
 export class FavoritProductsComponent implements OnInit {
-  datos:favorite[]=[]
+  datos: favorite[] = [];
+  //datos de usuario
+  user?: any;
 
-  private _localStore = inject(LocalstoreService)
+  private _API = inject(ApiHomeService);
+  private _servisLocalStore = inject(LocalstoreService);
 
   ngOnInit(): void {
-this.datos = this._localStore.getFavorite()
+    this.user = this._servisLocalStore.getUser();
+    console.log(`mylistProductFavorite/${this.user[0][0].id}`);
+    if (this.user.length == 0) {
+      this.user = null;
+    } else {
+      (
+        this._API.getMyfavoriteProduct(
+          `mylistProductFavorite/${this.user[0][0].id}`
+        ) as Observable<any>
+      ).subscribe(
+        (data) => {
+          this.datos = data;
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    }
   }
 }

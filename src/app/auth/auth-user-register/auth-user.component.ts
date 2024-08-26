@@ -40,8 +40,6 @@ export class AuthUserComponent {
   post_User: any = [];
   //Aqui se guardaran los datos de el usuario una ves se registre
   user: any = [];
-  //token de usuario
-  token: string = '';
   //La otra version de formulario
   formularioConct: FormGroup;
   mostrarerror: boolean = false;
@@ -76,9 +74,9 @@ export class AuthUserComponent {
     console.log(userData);
     this._API.registre('auth/register', userData).subscribe(
       (data) => {
-        this.token = data.token;
         this.post_User = data.userclient;
         this._localStore.setUser(this.post_User);
+        this._localStore.setToken(data.token);
         this.formularioConct.reset();
         this.mostrarerror = false;
         this._router.navigate(['/']);
