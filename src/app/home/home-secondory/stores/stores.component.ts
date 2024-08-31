@@ -1,29 +1,31 @@
-import { Component, Input, OnInit } from '@angular/core';
-import {  ProductList, ProductListnew } from '../../../models/localDatos.moduls';
+import { Component, inject, Input, OnInit } from '@angular/core';
+import { ProductList, ProductListnew } from '../../../models/localDatos.moduls';
 import { RouterLink } from '@angular/router';
+import { ApiStoresService } from '../../../services/api-stores.service';
 
 @Component({
   selector: 'app-stores',
   standalone: true,
   imports: [RouterLink],
   templateUrl: './stores.component.html',
-  styleUrl: './stores.component.css'
+  styleUrl: './stores.component.css',
 })
 export class StoresComponent implements OnInit {
-
-  datos:ProductList[] = ProductListnew;
   @Input() stores?: any[];
-  newdatos?:any
+  newdatos?: any;
 
+  private _API = inject(ApiStoresService);
 
-
-ngOnInit(): void {
-
-if(this.stores == undefined){
-  this.stores = ProductListnew
-}
-
-console.log(this.newdatos)
-
-}
+  ngOnInit(): void {
+    if (this.stores == undefined) {
+      this._API.getAllStores('stores').subscribe(
+        (data) => {
+          this.stores = data;
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
+  }
 }

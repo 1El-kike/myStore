@@ -96,7 +96,7 @@ export const StoreList: Store[] = [
     id: 1,
     namestore: 'Tienda de 5ta y 96',
     image: '/tienda5tay962.jpg',
-    start: '4,5',
+    ratingt: '4,5',
     product: [
       {
         id: 1,
@@ -264,7 +264,7 @@ export const StoreList: Store[] = [
     id: 2,
     namestore: 'Tienda 98',
     image: '/tienda982.jpg',
-    start: '4.3',
+    ratingt: '4.3',
     product: [
       {
         id: 1,
@@ -433,7 +433,7 @@ export const StoreList: Store[] = [
     id: 3,
     namestore: 'MercoCaribe',
     image: '/mercocaribe2.jpg',
-    start: '4.3',
+    ratingt: '4.3',
     product: [
       {
         id: 1,
@@ -602,7 +602,7 @@ export const StoreList: Store[] = [
     id: 4,
     namestore: 'Jardines de 5ta',
     image: '/jardines5ta2.jpg',
-    start: '4.3',
+    ratingt: '4.3',
     product: [
       {
         id: 1,
@@ -771,7 +771,7 @@ export const StoreList: Store[] = [
     id: 5,
     namestore: 'Tienda 98',
     image: '/tienda982.jpg',
-    start: '4.3',
+    ratingt: '4.3',
     product: [
       {
         id: 1,
@@ -940,7 +940,7 @@ export const StoreList: Store[] = [
     id: 6,
     namestore: 'Tienda 98',
     image: '/tienda982.jpg',
-    start: '4.3',
+    ratingt: '4.3',
     product: [
       {
         id: 1,
@@ -1109,7 +1109,7 @@ export const StoreList: Store[] = [
     id: 7,
     namestore: 'Tienda 98',
     image: '/tienda982.jpg',
-    start: '4.3',
+    ratingt: '4.3',
     product: [
       {
         id: 1,
@@ -1278,7 +1278,7 @@ export const StoreList: Store[] = [
     id: 8,
     namestore: 'Tienda 98',
     image: '/tienda982.jpg',
-    start: '4.3',
+    ratingt: '4.3',
     product: [
       {
         id: 1,
@@ -1447,7 +1447,7 @@ export const StoreList: Store[] = [
     id: 9,
     namestore: 'Tienda 98',
     image: '/tienda982.jpg',
-    start: '4.3',
+    ratingt: '4.3',
     product: [
       {
         id: 1,
@@ -1616,7 +1616,7 @@ export const StoreList: Store[] = [
     id: 10,
     namestore: 'Tienda 98',
     image: '/tienda982.jpg',
-    start: '4.3',
+    ratingt: '4.3',
     product: [
       {
         id: 1,
@@ -1785,7 +1785,7 @@ export const StoreList: Store[] = [
     id: 11,
     namestore: 'Tienda 98',
     image: '/tienda982.jpg',
-    start: '4.3',
+    ratingt: '4.3',
     product: [
       {
         id: 1,
@@ -1954,7 +1954,7 @@ export const StoreList: Store[] = [
     id: 12,
     namestore: 'Tienda 98',
     image: '/tienda982.jpg',
-    start: '4.3',
+    ratingt: '4.3',
     product: [
       {
         id: 1,
@@ -2123,7 +2123,7 @@ export const StoreList: Store[] = [
     id: 13,
     namestore: 'Tienda 98',
     image: '/tienda982.jpg',
-    start: '4.3',
+    ratingt: '4.3',
     product: [
       {
         id: 1,
@@ -2292,7 +2292,7 @@ export const StoreList: Store[] = [
     id: 14,
     namestore: 'Tienda 98',
     image: '/tienda982.jpg',
-    start: '4.3',
+    ratingt: '4.3',
     product: [
       {
         id: 1,
@@ -2461,7 +2461,7 @@ export const StoreList: Store[] = [
     id: 15,
     namestore: 'Tienda 98',
     image: '/tienda982.jpg',
-    start: '4.3',
+    ratingt: '4.3',
     product: [
       {
         id: 1,
@@ -2630,7 +2630,7 @@ export const StoreList: Store[] = [
     id: 16,
     namestore: 'Tienda 98',
     image: '/tienda982.jpg',
-    start: '4.3',
+    ratingt: '4.3',
     product: [
       {
         id: 1,
@@ -2800,170 +2800,170 @@ export const ProductListnew: ProductList[] = [
   {
     id: 1,
     name: 'Tienda de 5ta y 96',
-    star: 3.7,
+    rating: 3.7,
     adress: 'Playa',
     url: '/tienda5tay96.jpg',
-    open: false,
+    isOpen: false,
   },
   {
     id: 2,
     name: 'Tienda 98',
-    star: 4.0,
+    rating: 4.0,
     adress: 'Playa',
     url: '/tienda98.jpg',
-    open: true,
+    isOpen: true,
   },
   {
     id: 3,
     name: 'MercoCaribe',
-    star: 4.6,
+    rating: 4.6,
     adress: 'Playa',
     url: '/mercocaribe.jpg',
-    open: true,
+    isOpen: true,
   },
   {
     id: 4,
     name: 'Jardines de 5ta',
-    star: 4.4,
+    rating: 4.4,
     adress: 'Playa',
     url: '/jardines5ta.jpg',
-    open: true,
+    isOpen: true,
   },
   {
     id: 5,
     name: 'Centro Comercial Palco',
-    star: 4.7,
+    rating: 4.7,
     adress: 'Playa',
     url: 'palco/palco1.jpg',
-    open: true,
+    isOpen: true,
   },
   {
     id: 6,
     name: 'Mercado Único Cuatro Camino',
-    star: 4.2,
+    rating: 4.2,
     adress: 'Playa',
     url: '/mercado4camino/Mercado4camino.jpg',
-    open: false,
+    isOpen: false,
   },
   {
     id: 7,
     name: 'Pedregal',
-    star: 4.1,
+    rating: 4.1,
     adress: 'Playa',
     url: '/Pedregal/pedregal.jpg',
-    open: false,
+    isOpen: false,
   },
   {
     id: 8,
     name: 'Carlos III',
-    star: 4.6,
+    rating: 4.6,
     adress: 'Lisa',
     url: '/carlosIII.jpg',
-    open: true,
+    isOpen: true,
   },
   {
     id: 9,
     name: 'Almacenes Ultra',
-    star: 4.5,
+    rating: 4.5,
     adress: 'La Habana',
     url: 'almacenesultra.jpg',
-    open: false,
+    isOpen: false,
   },
   {
     id: 10,
     name: 'Tienda de Gremiio',
-    star: 3.8,
+    rating: 3.8,
     adress: 'Vedado',
     url: '/gremio/gremio.jpg',
-    open: true,
+    isOpen: true,
   },
   {
     id: 5,
     name: 'Regalitos MIAU',
-    star: 3.9,
+    rating: 3.9,
     adress: 'Vedado',
     url: '/Miau/regalito.jpg',
-    open: true,
+    isOpen: true,
   },
   {
     id: 5,
     name: 'Konbini',
-    star: 4.4,
+    rating: 4.4,
     adress: 'Vedado',
     url: '/Konbini/konbini.jpg',
-    open: false,
+    isOpen: false,
   },
   {
     id: 5,
     name: 'CBM',
-    star: 4.2,
+    rating: 4.2,
     adress: 'Habana',
     url: 'CBM.jpg',
-    open: false,
+    isOpen: false,
   },
   {
     id: 5,
     name: 'Élite Boutique',
-    star: 4.1,
+    rating: 4.1,
     adress: 'Marianado',
     url: 'eliteBoutique.jpg',
-    open: true,
+    isOpen: true,
   },
   {
     id: 5,
     name: 'Tienda Roselló',
-    star: 4.8,
+    rating: 4.8,
     adress: 'Vedado',
     url: 'rosello.jpg',
-    open: true,
+    isOpen: true,
   },
   {
     id: 5,
     name: 'Tienda Cimex',
-    star: 4.3,
+    rating: 4.3,
     adress: 'Vedado',
     url: '/cimex.jpg',
-    open: true,
+    isOpen: true,
   },
   {
     id: 5,
     name: 'LINDA HABANA Salon',
-    star: 4.5,
+    rating: 4.5,
     adress: 'Habana',
     url: 'LINDAHABANASalon.jpg',
-    open: false,
+    isOpen: false,
   },
   {
     id: 5,
     name: 'Centro Comercial Altahabana',
-    star: 4.2,
+    rating: 4.2,
     adress: 'Altahabana',
     url: 'CentroComercialAltahabana.jpg',
-    open: true,
+    isOpen: true,
   },
   {
     id: 5,
     name: 'Mango',
-    star: 4.7,
+    rating: 4.7,
     adress: 'Habana',
     url: '/mango.jpg',
-    open: true,
+    isOpen: true,
   },
   {
     id: 5,
     name: 'Cris Cris',
-    star: 4.3,
+    rating: 4.3,
     adress: 'Habana',
     url: '/criscris.jpg',
-    open: true,
+    isOpen: true,
   },
   {
     id: 11,
     name: 'Paúl & Shark Boutique',
-    star: 4.5,
+    rating: 4.5,
     adress: 'Habana',
     url: '/Paúl_& _S_Boutique.jpg',
-    open: false,
+    isOpen: false,
   },
 ];
 
@@ -3610,15 +3610,15 @@ export interface Product {
 export interface ProductList {
   id?: number | string;
   name?: string;
-  star: number;
+  rating: number;
   adress?: string;
   url?: string;
-  open?: boolean;
+  isOpen?: boolean;
 }
 export interface Store {
   id: number;
   namestore: string;
-  start: string;
+  ratingt: string;
   image: string;
   product: productStore[];
 }

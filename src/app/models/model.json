@@ -1,167 +1,376 @@
 [
+  [
+    {
+      "id": 1,
+      "title": "Oil",
+      "description": "Fabricado y distribuido por : MercaSID S.A., Av.Maximo Gómez #182,Samto Domingo,Rep.Dom.",
+      "price": 950,
+      "cantidad": 1,
+      "tipo": "Food",
+      "status": false,
+      "icon": "pi-heart",
+      "id_product": 1,
+      "urlImg": "/products/aceite2.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Detergent",
+      "description": "Detergente Multiusos más limpio y colores más vivos Dirección: Zona A4, ZED Mariel, Artemisa, Cuba Peso",
+      "price": 250,
+      "cantidad": 1,
+      "tipo": "Food",
+      "status": false,
+      "icon": "pi-heart",
+      "id_product": 2,
+      "urlImg": "/products/detergente4.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Rice",
+      "description": ".",
+      "price": 200,
+      "cantidad": 1,
+      "tipo": "Food",
+      "status": false,
+      "icon": "pi-heart",
+      "id_product": 5,
+      "urlImg": "/products/arroz4.png"
+    },
+    {
+      "id": 4,
+      "title": "Milk",
+      "description": "This is a wider card with supporting text below as a natuittle bit longer.",
+      "price": 1020,
+      "cantidad": 1,
+      "tipo": "Food",
+      "status": false,
+      "icon": "pi-heart",
+      "id_product": 12,
+      "urlImg": "/products/milk.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Puppies",
+      "description": "This in to additional content. This content is a little bit longer.",
+      "price": 120,
+      "cantidad": 1,
+      "status": false,
+      "icon": "pi-heart",
+      "id_product": 4,
+      "urlImg": "/products/perros_calientes.jpg",
+      "tipo": "Food"
+    },
+    {
+      "id": 6,
+      "title": "Chicken",
+      "description": "sdasdas",
+      "price": 3100,
+      "cantidad": 1,
+      "status": false,
+      "icon": "pi-heart",
+      "id_product": 8,
+      "urlImg": "/products/carne2.jpg",
+      "tipo": "Food"
+    },
+    {
+      "id": 11,
+      "title": "Spaghetti",
+      "description": "asdsad",
+      "price": 220,
+      "cantidad": 1,
+      "status": false,
+      "icon": "pi-heart",
+      "id_product": 3,
+      "urlImg": "/products/espaguetis.jpg",
+      "tipo": "Food"
+    }
+  ],
 
- [
-  {
-    "id":1,
-    "title":"Oil",
-    "description":"Fabricado y distribuido por : MercaSID S.A., Av.Maximo Gómez #182,Samto Domingo,Rep.Dom.",
-    "price":950,
-    "cantidad":1,
-    "tipo": "Food",
-    "status": false,
-    "icon": "pi-heart",
-    "id_product": 1,
-    "urlImg":"/products/aceite2.jpg"
-
-  },
-  {
-    "id":2,
-    "title":"Detergent",
-    "description":"Detergente Multiusos más limpio y colores más vivos Dirección: Zona A4, ZED Mariel, Artemisa, Cuba Peso",
-    "price":250,
-    "cantidad":1,
-    "tipo":"Food",
-    "status": false,
-    "icon": "pi-heart",
-    "id_product": 2,
-    "urlImg":"/products/detergente4.jpg"
-  },
-  {
-    "id":3,
-    "title":"Rice",
-    "description":".",
-    "price":200,
-    "cantidad":1,
-    "tipo":"Food",
-    "status": false,
-    "icon": "pi-heart",
-    "id_product": 5,
-    "urlImg":"/products/arroz4.png"
-  },
-  {
-    "id":4,
-    "title":"Milk",
-    "description":"This is a wider card with supporting text below as a natuittle bit longer.",
-    "price":1020,
-    "cantidad":1,
-    "tipo":"Food",
-    "status": false,
-    "icon": "pi-heart",
-    "id_product": 12,
-    "urlImg":"/products/milk.jpg"
-  },
-  {
-    "id":5,
-    "title":"Puppies",
-    "description":"This in to additional content. This content is a little bit longer.",
-    "price":120,
-    "cantidad":1,
-    "status": false,
-    "icon": "pi-heart",
-    "id_product": 4,
-    "urlImg":"/products/perros_calientes.jpg",
-    "tipo":"Food"
-  },
-  {
-    "id":6,
-    "title":"Chicken",
-    "description":"sdasdas",
-    "price":3100,
-    "cantidad":1,
-    "status": false,
-    "icon": "pi-heart",
-    "id_product": 8,
-    "urlImg":"/products/carne2.jpg",
-    "tipo":"Food"
-  },
-  {
-    "id":11,
-    "title":"Spaghetti",
-    "description":"asdsad",
-    "price":220,
-    "cantidad":1,
-    "status": false,
-    "icon": "pi-heart",
-    "id_product": 3,
-    "urlImg":"/products/espaguetis.jpg",
-    "tipo":"Food"
-  }
- ],
-
-
-
-
-
- [
-  {
-     "id": 0 ,
-     "id_product":13,
-     "image": "/products/nutella4.jpg",
+  [
+    {
+      "id": 0,
+      "id_product": 13,
+      "image": "/products/nutella4.jpg",
       "name": "Nutella",
       "price": 3500,
       "inventoryStatus": "In Stock",
-      "status":false ,
-      "cantidad":1,
+      "status": false,
+      "cantidad": 1,
       "icon": "pi-heart",
-      "tipo":"Food"
+      "tipo": "Food"
     },
-  {
-     "id": 1 ,
-     "id_product":10,
-     "image": "/products/pure_tomate.jpg",
-     "name": "Tomato Pure",
-     "price": 900,
-     "inventoryStatus": "Out of Stock",
-     "cantidad":1,
-     "status":false,
+    {
+      "id": 1,
+      "id_product": 10,
+      "image": "/products/pure_tomate.jpg",
+      "name": "Tomato Pure",
+      "price": 900,
+      "inventoryStatus": "Out of Stock",
+      "cantidad": 1,
+      "status": false,
       "icon": "pi-heart",
-      "tipo":"Food"
-     },
-  {
-     "id": 2 ,
-     "id_product":7,
-     "image": "/products/pollo4.jpg",
+      "tipo": "Food"
+    },
+    {
+      "id": 2,
+      "id_product": 7,
+      "image": "/products/pollo4.jpg",
       "name": "Meat",
-       "price": 3100,
-        "inventoryStatus": "Out of Stock" ,
-         "status":false,
-          "cantidad":1,
-          "icon": "pi-heart",
-          "tipo":"Food"
-        },
-  { "id": 3,
-  "id_product":6,
-  "image": "/products/jamon.jpg",
-   "name": "Ham",
-    "price": 2050,
-     "inventoryStatus": "In Stock" ,
-      "status":false,
-      "cantidad":1,
-       "icon": "pi-heart",
-       "tipo":"Food"
-      },
-  {
-    "id": 4 ,
-    "id_product":16,
-    "image": "/products/jabon.jpg",
-     "name":"Bath Soap",
+      "price": 3100,
+      "inventoryStatus": "Out of Stock",
+      "status": false,
+      "cantidad": 1,
+      "icon": "pi-heart",
+      "tipo": "Food"
+    },
+    {
+      "id": 3,
+      "id_product": 6,
+      "image": "/products/jamon.jpg",
+      "name": "Ham",
+      "price": 2050,
+      "inventoryStatus": "In Stock",
+      "status": false,
+      "cantidad": 1,
+      "icon": "pi-heart",
+      "tipo": "Food"
+    },
+    {
+      "id": 4,
+      "id_product": 16,
+      "image": "/products/jabon.jpg",
+      "name": "Bath Soap",
       "price": 250,
-       "inventoryStatus": "Out of Stock" ,
-        "status":false,
-        "cantidad":1,
-         "icon": "pi-heart",
-         "tipo":"Food"
-         },
-  {
-    "id": 5 ,
-    "id_product":3,
-    "image": "/products/caldito_pollo2jpg.png",
-    "name": "Chicken broth", "price": 500,
-    "inventoryStatus": "Out of Stock" ,
-    "cantidad":1,
-    "status":false,
-    "icon": "pi-heart",
-    "tipo":"Food"
-   }
- ]
+      "inventoryStatus": "Out of Stock",
+      "status": false,
+      "cantidad": 1,
+      "icon": "pi-heart",
+      "tipo": "Food"
+    },
+    {
+      "id": 5,
+      "id_product": 3,
+      "image": "/products/caldito_pollo2jpg.png",
+      "name": "Chicken broth",
+      "price": 500,
+      "inventoryStatus": "Out of Stock",
+      "cantidad": 1,
+      "status": false,
+      "icon": "pi-heart",
+      "tipo": "Food"
+    }
+  ],
+
+  [
+    {
+      "name": "Tienda 5ta y 96",
+      "code": "0001",
+      "description": "Mercado de Playa",
+      "imgStore": "/tienda5tay96.jpg",
+      "imgPortada": "/tienda5ta7962.jpg",
+      "isOpen": false,
+      "imgfondo": "/tienda5ta7963.jpg",
+      "rating": 4.4
+    },
+    {
+      "name": "Tienda 98",
+      "code": "0002",
+      "description": "Mercado de Playa",
+      "imgStore": "/tienda982.jpg",
+      "imgPortada": "/tienda98.jpg",
+      "isOpen": false,
+      "imgfondo": "/tienda983.jpg",
+      "rating": 4.3
+    },
+    {
+      "name": "MercoCaribe",
+      "imgStore": "/mercocaribe2.jpg",
+      "imgPortada": "/mercocaribe.jpg",
+      "code": "0003",
+      "isOpen": true,
+      "description": "Mercado de Playa",
+      "imgfondo": "/tienda98.jpg",
+      "rating": 4.2
+    },
+    {
+      "name": "Jardines de 5ta",
+      "imgStore": "/jardines5ta2.jpg",
+      "imgPortada": "/jardines5ta.jpg",
+      "code": "0004",
+      "isOpen": true,
+      "description": "Mercado de Playa",
+      "imgfondo": "/tienda98.jpg",
+      "rating": 4.5
+    },
+    {
+      "name": "Centro Comercial Palco",
+      "imgStore": "palco/palco1.jpg",
+      "imgPortada": "palco/palco2.jpg",
+      "code": "0005",
+      "isOpen": true,
+      "description": "Mercado de Playa",
+      "imgfondo": "palco/palco3.jpg",
+      "rating": 4.7
+    },
+    {
+      "name": "Mercado Único Cuatro Camino",
+      "imgStore": "/mercado4camino/Mercado4camino.jpg",
+      "imgPortada": "/mercado4camino/Mercado4camino.jpg",
+      "code": "0006",
+      "isOpen": false,
+      "description": "Mercado de Playa",
+      "imgfondo": "/mercado4camino/Mercado4camino.jpg",
+      "rating": 4.2
+    },
+    {
+      "name": "Pedregal",
+      "imgStore": "/Pedregal/pedregal.jpg",
+      "imgPortada": "/Pedregal/pedregal2.jpg",
+      "code": "0007",
+      "isOpen": true,
+      "description": "Mercado de Playa",
+      "imgfondo": "/Pedregal/pedregal3.jpg",
+      "rating": 4.1
+    },
+    {
+      "name": "Carlos III",
+      "imgStore": "/carlosIII.jpg",
+      "imgPortada": "/carlosIII.jpg",
+      "code": "0008",
+      "isOpen": true,
+      "description": "Mercado de Playa",
+      "imgfondo": "/carlosIII.jpg",
+      "rating": 4.9
+    },
+    {
+      "name": "Almacenes Ultra",
+      "imgStore": "/almacenesultra.jpg",
+      "imgPortada": "/almacenesultra.jpg",
+      "code": "0009",
+      "isOpen": false,
+      "description": "Mercado de La Habana",
+      "imgfondo": "/almacenesultra.jpg",
+      "rating": 4.5
+    },
+    {
+      "name": "Tienda de Gremiio",
+      "imgStore": "/gremio/gremio.jpg",
+      "imgPortada": "/gremio/gremio2.jpg",
+      "code": "0010",
+      "isOpen": false,
+      "description": "Mercado de Vedado",
+      "imgfondo": "/gremio/gremio3.jpg",
+      "rating": 3.8
+    },
+    {
+      "name": "Regalitos MIAU",
+      "imgStore": "/Miau/regalito.jpg",
+      "imgPortada": "/Miau/regalito.jpg",
+      "code": "0011",
+      "isOpen": true,
+      "description": "Mercado de Vedado",
+      "imgfondo": "/gremio/gremio3.jpg",
+      "rating": 3.9
+    },
+    {
+      "name": "Konbini",
+      "imgStore": "/Konbini/konbini.jpg",
+      "imgPortada": "/Konbini/konbini.jpg",
+      "code": "0012",
+      "isOpen": false,
+      "description": "Mercado de Vedado",
+      "imgfondo": "/Konbini/konbini.jpg",
+      "rating": 4.6
+    },
+    {
+      "name": "CBM",
+      "imgStore": "/CBM.jpg",
+      "imgPortada": "/CBM.jpg",
+      "code": "0013",
+      "isOpen": true,
+      "description": "Mercado de Habana",
+      "imgfondo": "/CBM.jpg",
+      "rating": 4.1
+    },
+    {
+      "name": "Élite Boutique",
+      "imgStore": "/eliteBoutique.jpg",
+      "imgPortada": "/eliteBoutique.jpg",
+      "code": "0014",
+      "isOpen": true,
+      "description": "Mercado de Marianado",
+      "imgfondo": "/eliteBoutique.jpg",
+      "rating": 4.7
+    },
+    {
+      "name": "Tienda Roselló",
+      "imgStore": "/rosello.jpg",
+      "imgPortada": "/rosello.jpg",
+      "code": "0015",
+      "isOpen": true,
+      "description": "Mercado de Vedado",
+      "imgfondo": "/rosello.jpg",
+      "rating": 4.9
+    },
+    {
+      "name": "Tienda Cimex",
+      "imgStore": "/cimex.jpg",
+      "imgPortada": "/cimex.jpg",
+      "code": "0016",
+      "isOpen": true,
+      "description": "Mercado de Vedado",
+      "imgfondo": "/cimex.jpg",
+      "rating": 4.5
+    },
+    {
+      "name": "LINDA HABANA Salon",
+      "imgStore": "/LINDAHABANASalon.jpg",
+      "imgPortada": "/LINDAHABANASalon.jpg",
+      "code": "0017",
+      "isOpen": false,
+      "description": "Mercado de Habana",
+      "imgfondo": "/LINDAHABANASalon.jpg",
+      "rating": 4.3
+    },
+    {
+      "name": "Centro Comercial Altahabana",
+      "imgStore": "/CentroComercialAltahabana.jpg",
+      "imgPortada": "/CentroComercialAltahabana.jpg",
+      "code": "0018",
+      "isOpen": true,
+      "description": "Mercado de Altahabana",
+      "imgfondo": "/CentroComercialAltahabana.jpg",
+      "rating": 4.0
+    },
+    {
+      "name": "Mango",
+      "imgStore": "/mango.jpg",
+      "imgPortada": "/mango.jpg",
+      "code": "0019",
+      "isOpen": true,
+      "description": "Mercado de Habana",
+      "imgfondo": "/mango.jpg",
+      "rating": 4.3
+    },
+    {
+      "name": "Cris Cris",
+      "imgStore": "/criscris.jpg",
+      "imgPortada": "/criscris.jpg",
+      "code": "0020",
+      "isOpen": true,
+      "description": "Mercado de Habana",
+      "imgfondo": "/criscris.jpg",
+      "rating": 4.3
+    },
+    {
+      "name": "Paúl & Shark Boutique",
+      "imgStore": "/Paúl_& _S_Boutique.jpg",
+      "imgPortada": "/Paúl_& _S_Boutique.jpg",
+      "code": "0021",
+      "isOpen": false,
+      "description": "Mercado de Habana",
+      "imgfondo": "/Paúl_& _S_Boutique.jpg",
+      "rating": 4.6
+    }
+  ]
 ]
