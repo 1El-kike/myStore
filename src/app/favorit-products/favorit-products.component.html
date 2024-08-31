@@ -1,1 +1,36 @@
-<p>{{datos}}</p>
+<div
+  class="min-h-screen bg-yellow-100 radialGradient overflow-hidden relative after:top-0 after:absolute after:w-full after:h-full"
+>
+  <div
+    class="lineargradiente rotate-45 top-[500px] z-10 relative w-[2000px]"
+  ></div>
+  <img src="/deposit.jpg" class="w-full h-full absolute opacity-20" alt="" />
+
+  @if (datos.length > 0) {
+  <app-favorite [productFavorite]="datos" />
+  } @else {
+  <div class="container">
+    <div class="flex justify-center min-h-screen items-center">
+      <div class="flex justify-between w-5/6 items-center gap-4">
+        <img src="/product.png" class="w-[25rem] z-10 h-[30rem]" alt="" />
+        <div class="w-[20rem] z-20">
+          <p class="text-4xl text-white font-bold">Lo sentimos</p>
+          <p class="text-xl text-white text-r font-bold">
+            No se encontraro productos para mostrar al parecer no tiene ningun
+            producto favorito o aun no se a registrado porfavor valla a
+            registrarce o busque productos para añadir
+          </p>
+          <button
+            [routerLink]="['/']"
+            routerLinkActive="router-link-active"
+            class="btn btn-danger z-20 overflow-auto"
+          >
+            Search Product
+          </button>
+        </div>
+        <p class="text-white">Losdasdsad</p>
+      </div>
+    </div>
+  </div>
+  }
+</div>

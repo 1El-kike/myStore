@@ -1,52 +1,107 @@
 <div class="contenedor">
-  <div class="container ">
-   <app-fondo/>
-   <div class="flex flex-col items-center justify-center min-h-screen bg-background" >
-     <div  class="max-w-md w-full bg-card rounded-2xl shadow-lg p-8" >
-       <h1 class="text-3xl font-bold text-primary text-center">WELCOME TO</h1>
-       <h2 class="text-4xl font-semibold text-primary text-center mt-1">STORE</h2>
-       <p class="text-muted-foreground text-center mt-2">Create your account</p>
-       <form [formGroup]="formularioConct" (ngSubmit)="enviar()"  class="mt-6">
-         <div class="mb-4">
-           <label class="block  text-sm font-medium text-muted-foreground" for="iphone">IHPONE</label>
-           <input class="mt-1 block w-full border border-border rounded-lg p-3 focus:ring-2 focus:ring-primary focus:outline-none form-control"
-           formControlName="iphone"
-           [ngClass]="{'is-invalid': hasErrors('iphone','required') }"
-           [ngClass]="{'is-invalid': hasErrors('iphone','notNumeric') }"
-
-           type="iphone" id="iphone" placeholder="ENTER YOUR IHPONE" required />
-           <div class="text-danger animate-opacityonly" *ngIf="hasErrors('iphone','required')">Please iphone required</div>
-           <div class="text-danger animate-opacityonly" *ngIf="hasErrors('iphone','notNumeric')">Please not sign up letle</div>
-         </div>
-         <div class="mb-4">
-           <label class="block text-sm font-medium text-muted-foreground" for="password">PASSWORD</label>
-           <input
-           class="mt-1 block w-full border border-border rounded-lg p-3 focus:ring-2 focus:ring-primary focus:outline-none form-control"
-           formControlName="password"
-           name="inputPassword"
-           id="inputPassword"
-           placeholder="PASSWORD"
-          formControlName="password"
-          [ngClass]="{'is-invalid': hasErrors('password','required') }"
-          [ngClass]="{'is-invalid': hasErrors('password','minlength') }"
-         />
-         <div class="text-danger animate-opacityonly" *ngIf="hasErrors( 'password','required')">Please password required</div>
-         <div class="text-danger animate-opacityonly" *ngIf="hasErrors('password','minlength')">Tiene que tener mas de 8 letras</div>
-         </div>
-         <div class="flex items-center mb-4">
-           <input type="checkbox" id="terms" class="mr-2" />
-           <label for="terms" class="text-sm text-muted-foreground">By Signing Up, I agree with <a href="#" class="text-primary hover:underline">Terms & Conditions</a></label>
-         </div>
-         @if (mostrarerror) {
-           <p class=" text-red-500">{{messengererror}}</p>
-         }
-         <div class="flex mt-8 justify-between">
-           <button type="submit" class="bg-gradient-to-br font-bold text-white from-blue-400 to-blue-600 hover:bg-gradient-to-tr hover:from-blue-400 hover:to-blue-600 text-primary-foreground hover:bg-primary/80 rounded-2xl px-4 py-2 transition duration-200">Register</button>
-           <button [routerLink]="['/user/logIn']" routerLinkActive="router-link-active"  type="button" class="bg-gradient-to-br font-bold from-yellow-400 to-yellow-600 hover:bg-gradient-to-tr hover:from-yellow-400 hover:to-yellow-600  text-secondary-foreground hover:bg-secondary/80 rounded-2xl  px-4 py-2 transition duration-200">Log In</button>
+  <div class="container">
+    <app-fondo />
+    <div
+      class="flex flex-col items-center justify-center min-h-screen bg-background"
+    >
+      <div class="max-w-md w-full bg-card rounded-2xl shadow-lg p-8">
+        <h1 class="text-3xl font-bold text-primary text-center">WELCOME TO</h1>
+        <h2 class="text-4xl font-semibold text-primary text-center mt-1">
+          STORE
+        </h2>
+        <p class="text-muted-foreground text-center mt-2">
+          Create your account
+        </p>
+        <form [formGroup]="formularioConct" (ngSubmit)="enviar()" class="mt-6">
+          <div class="mb-4">
+            <label
+              class="block text-sm font-medium text-muted-foreground"
+              for="iphone"
+              >IHPONE</label
+            >
+            <input
+              class="mt-1 block w-full border border-border rounded-lg p-3 focus:ring-2 focus:ring-primary focus:outline-none form-control"
+              formControlName="iphone"
+              [ngClass]="{ 'is-invalid': hasErrors('iphone', 'required') }"
+              [ngClass]="{ 'is-invalid': hasErrors('iphone', 'notNumeric') }"
+              type="iphone"
+              id="iphone"
+              placeholder="ENTER YOUR IHPONE"
+              required
+            />
+            <div
+              class="text-danger animate-opacityonly"
+              *ngIf="hasErrors('iphone', 'required')"
+            >
+              Please iphone required
+            </div>
+            <div
+              class="text-danger animate-opacityonly"
+              *ngIf="hasErrors('iphone', 'notNumeric')"
+            >
+              Please not sign up letle
+            </div>
           </div>
-       </form>
-     </div>
-   </div>
- </div>
-
- </div>
+          <div class="mb-4">
+            <label
+              class="block text-sm font-medium text-muted-foreground"
+              for="password"
+              >PASSWORD</label
+            >
+            <input
+              class="mt-1 block w-full border border-border rounded-lg p-3 focus:ring-2 focus:ring-primary focus:outline-none form-control"
+              formControlName="password"
+              name="inputPassword"
+              id="inputPassword"
+              type="password"
+              placeholder="PASSWORD"
+              formControlName="password"
+              [ngClass]="{ 'is-invalid': hasErrors('password', 'required') }"
+              [ngClass]="{ 'is-invalid': hasErrors('password', 'minlength') }"
+            />
+            <div
+              class="text-danger animate-opacityonly"
+              *ngIf="hasErrors('password', 'required')"
+            >
+              Please password required
+            </div>
+            <div
+              class="text-danger animate-opacityonly"
+              *ngIf="hasErrors('password', 'minlength')"
+            >
+              Tiene que tener mas de 8 letras
+            </div>
+          </div>
+          <div class="flex items-center mb-4">
+            <input type="checkbox" id="terms" class="mr-2" />
+            <label for="terms" class="text-sm text-muted-foreground"
+              >By Signing Up, I agree with
+              <a href="#" class="text-primary hover:underline"
+                >Terms & Conditions</a
+              ></label
+            >
+          </div>
+          @if (mostrarerror) {
+          <p class="text-red-500">{{ messengererror }}</p>
+          }
+          <div class="flex mt-8 justify-between">
+            <button
+              type="submit"
+              class="bg-gradient-to-br font-bold text-white from-blue-400 to-blue-600 hover:bg-gradient-to-tr hover:from-blue-400 hover:to-blue-600 text-primary-foreground hover:bg-primary/80 rounded-2xl px-4 py-2 transition duration-200"
+            >
+              Register
+            </button>
+            <button
+              [routerLink]="['/user/logIn']"
+              routerLinkActive="router-link-active"
+              type="button"
+              class="bg-gradient-to-br font-bold from-yellow-400 to-yellow-600 hover:bg-gradient-to-tr hover:from-yellow-400 hover:to-yellow-600 text-secondary-foreground hover:bg-secondary/80 rounded-2xl px-4 py-2 transition duration-200"
+            >
+              Log In
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
