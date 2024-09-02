@@ -1,12 +1,21 @@
 <div class="bg-white">
   <div class="mx-auto max-w-2xl px-4 pt-5 sm:px-6 sm:py-7 lg:max-w-7xl lg:px-8">
-    <h2 class="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
-    <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+    <h2 class="text-2xl font-bold tracking-tight text-gray-900">
+      Customers also purchased
+    </h2>
+    <div
+      class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+    >
       @for (item of productList; track $index) {
       <div class="group relative">
-
-        <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-          <img src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg" alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full">
+        <div
+          class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
+        >
+          <img
+            src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
+            alt="Front of men&#039;s Basic Tee in black."
+            class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+          />
         </div>
         <div class="mt-4 flex justify-between">
           <div>
@@ -24,65 +33,63 @@
         <!-- More products... -->
       </div>
       }
+    </div>
   </div>
-
-  </div>
-
 </div>
 
-<div
-    class="table-responsive-lg ms-5"
->
-    <table
-        class="table table-striped-columns table-hover table-borderless table-primary align-middle"
-    >
-        <thead class="table-light">
-            <caption class="display-4 text-success mb-4">
-                Store
-            </caption>
-            <tr>
-                <th>Products</th>
-                <th>Disponibles</th>
-                <th>Precio</th>
-                <th>Detalles</th>
-            </tr>
-        </thead>
-        <tbody class="table-group-divider">
-          @for (product of productList; track $index) {
-            <tr class="table-secondary">
-              <td  cope="row">{{product.name}}</td>
-              <td [ngClass]="{'red-color': product.cantidad < 40}">{{product.cantidad}}</td>
-              <td>{{product.precio | currency}} </td>
-              <td class="d-flex justify-content-end "><a
-                [routerLink]="['/products', product.id]"
-                class="btn btn-primary "
-                role="button"
-                >
-                Info
-              </a >
-              </td>
-          </tr>
-          }
-            <tr **ngFor="let product of products" class="table-secondary">
-                <th cope="row">{{product.id}}</th>
-                <td >{{product.name}}</td>
-                <td>{{product.cantidad}}</td>
-                <td>{{product.precio | currency}} </td>
-                <td class="d-flex justify-content-end "><a
-                  [routerLink]="['/products', product.id]"
-                  class="btn btn-primary "
-                  role="button"
-                  >
-                  Info
-                </a >
-                </td>
-            </tr>
-        </tbody>
-        <tfoot>
-
-        </tfoot>
-    </table>
+<div class="table-responsive-lg ms-5">
+  <table
+    class="table table-striped-columns table-hover table-borderless table-primary align-middle"
+  >
+    <thead class="table-light">
+      <caption class="display-4 text-success mb-4">
+        Store
+      </caption>
+      <tr>
+        <th>Products</th>
+        <th>Disponibles</th>
+        <th>Precio</th>
+        <th>Detalles</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      @for (product of productList; track $index) {
+      <tr class="table-secondary">
+        <td cope="row">{{ product.name }}</td>
+        <td [ngClass]="{ 'red-color': product.cantidad < 40 }">
+          {{ product.cantidad }}
+        </td>
+        <td>{{ product.precio | currency }}</td>
+        <td class="d-flex justify-content-end">
+          <a
+            [routerLink]="['/products', product.id]"
+            class="btn btn-primary"
+            role="button"
+          >
+            Info
+          </a>
+        </td>
+      </tr>
+      }
+      <tr **ngFor="let product of products" class="table-secondary">
+        <th cope="row">{{ product.id }}</th>
+        <td>{{ product.name }}</td>
+        <td>{{ product.cantidad }}</td>
+        <td>{{ product.precio | currency }}</td>
+        <td class="d-flex justify-content-end">
+          <a
+            [routerLink]="['/products', product.id]"
+            class="btn btn-primary"
+            role="button"
+          >
+            Info
+          </a>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot></tfoot>
+  </table>
 </div>
 <div class="position-absolute fecha">
-  {{fecha | date }}
+  {{ fecha | date }}
 </div>

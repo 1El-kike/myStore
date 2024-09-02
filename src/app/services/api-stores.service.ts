@@ -12,4 +12,10 @@ export class ApiStoresService {
   public getAllStores = (endpoint: string): Observable<any> => {
     return this._http.get(`${this.apiUrlBase}/${endpoint}`);
   };
+  public getStores = (endpoint: string): Observable<any> => {
+    return this._http.get(`${this.apiUrlBase}/${endpoint}`);
+  };
+  public getAllproductStores = (endpoint: string): Observable<any> => {
+    return this._http.get(`${this.apiUrlBase}/${endpoint}`);
+  };
 }

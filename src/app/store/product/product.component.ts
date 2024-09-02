@@ -6,21 +6,15 @@ import { productList } from '../../models/localDatos.moduls';
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [
-    CurrencyPipe,
-    DatePipe,
-    RouterLink,
-    NgClass
-  ],
+  imports: [CurrencyPipe, DatePipe, RouterLink, NgClass],
   templateUrl: './product.component.html',
-  styleUrl: './product.component.css'
+  styleUrl: './product.component.css',
 })
 export class ProductComponent implements OnInit {
-
-  fecha: Date = new Date()
+  fecha: Date = new Date();
   productList = productList;
 
   ngOnInit(): void {
-    console.log(productList)
+    console.log(productList);
   }
 }

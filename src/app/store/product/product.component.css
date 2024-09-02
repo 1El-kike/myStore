@@ -1,9 +1,9 @@
-.fecha{
+.fecha {
   display: flex;
   justify-content: end;
-  width: 95% ;
+  width: 95%;
 }
 
-.red-color{
- color: brown;
+.red-color {
+  color: brown;
 }

@@ -1,39 +1,58 @@
 <div class="bg-transparent">
-
   <div>
-    <div [style.backgroundImage]="bgImage" [style.--posicionFondo]="position" class="h-60 w-ful image" >
-    </div>
-  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-  </div>
-    <h2 class="mx-20 text-4xl font-bold tracking-tight text-gray-900">Store Product</h2>
+    <div
+      [style.backgroundImage]="bgImage"
+      [style.--posicionFondo]="position"
+      class="h-60 w-ful image"
+    ></div>
+    <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8"></div>
+    <h2 class="mx-20 text-4xl font-bold tracking-tight text-gray-900">
+      Store Product
+    </h2>
 
-    <div class="mt-9 mb-9 mx-10 sm:mx-10 md:mx-16 lg:mx-32 grid grid-cols-1 gap-x-6 gap-y-10  sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-      @for (item of data?.product; track $index) {
-      <div [routerLink]="['/products',item.id]"   class="group flex relativen animatevertical">
-        <div class="aspect-h-1 aspect-w-1 lg:h-[120px] lg:w-[120px] md:h-[120px] h-[120px] md:w-[120px] sm:w-[8rem] relative rounded-2xl bg-gray-200 lg:aspect-none group-hover:opacity-75 ">
-          <img src={{item.img}} alt="Front of men&#039;s Basic Tee in black." class="h-full w-full object-cover object-center lg:h-full lg:w-full">
-          <div (click)="addproduct()" class="bg-slate-900 cursor-pointer w-8 h-8 rounded-[50%] top-2 absolute right-2 flex justify-center items-center" ><i class="pi pi-plus"style="color: #fff ;"></i></div>
+    <div
+      class="mt-9 mb-9 mx-10 sm:mx-10 md:mx-16 lg:mx-32 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+    >
+      @for (item of productList; track $index) {
+      <div
+        [routerLink]="['/products', item.product.id]"
+        class="group flex relativen animatevertical"
+      >
+        <div
+          class="aspect-h-1 aspect-w-1 lg:h-[120px] lg:w-[120px] md:h-[120px] h-[120px] md:w-[120px] sm:w-[8rem] relative rounded-2xl bg-gray-200 lg:aspect-none group-hover:opacity-75"
+        >
+          <img
+            src="{{ item.product.image }}"
+            alt="Front of men&#039;s Basic Tee in black."
+            class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+          />
+          <div
+            (click)="addproduct()"
+            class="bg-slate-900 cursor-pointer w-8 h-8 rounded-[50%] top-2 absolute right-2 flex justify-center items-center"
+          >
+            <i class="pi pi-plus" style="color: #fff"></i>
+          </div>
         </div>
         <div class="mt-2 ms-3 flex justify-between">
           <div class="flex flex-col">
             <h3 class="text-sm text-gray-700">
-              <a class="text-lg font-semibold text-slate-800 no-underline" >
+              <a class="text-lg font-semibold text-slate-800 no-underline">
                 <span aria-hidden="true" class="absolute inset-0"></span>
-                {{item.name}}
+                {{ item.product.name }}
               </a>
             </h3>
-            <p class="mt-1 overflow-hidden  border-b-2 h-16  w-32  text-gray-500">{{item.description}}
-
+            <p class="mt-1 overflow-hidden border-b-2 h-16 w-32 text-gray-500">
+              {{ item.product.description }}
             </p>
           </div>
-          <p class="text-md font-semibold text-gray-900">${{ item.price }}</p>
+          <p class="text-md font-semibold text-gray-900">
+            ${{ item.product.price }}
+          </p>
         </div>
 
         <!-- More products... -->
       </div>
       }
+    </div>
   </div>
-
-  </div>
-
 </div>

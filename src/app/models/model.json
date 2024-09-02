@@ -372,5 +372,140 @@
       "imgfondo": "/Paúl_& _S_Boutique.jpg",
       "rating": 4.6
     }
+  ],
+  [
+    {
+      "name": "Oli",
+      "description": "Fabricado y distribuido por : MercaSID S.A., Av.Maximo Gómez #182,Samto Domingo,Rep.Dom.",
+      "price": 950,
+      "cantidad": 1,
+      "inventoryStatus": "In Stock",
+      "tipo": "Food",
+      "status": false,
+      "icon": "pi-heart",
+      "image": "/products/aceite2.jpg"
+    },
+    {
+      "name": "Detergent",
+      "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+      "price": 200,
+      "cantidad": 1,
+      "inventoryStatus": "Out of Stock",
+      "tipo": "Food",
+      "status": false,
+      "icon": "pi-heart",
+      "image": "/products/arroz4.png"
+    },
+    {
+      "name": "Rice",
+      "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+      "price": 250,
+      "cantidad": 1,
+      "inventoryStatus": "In Stock",
+      "tipo": "Food",
+      "status": false,
+      "icon": "pi-heart",
+      "image": "/products/arroz4.png"
+    },
+    {
+      "name": "Milk",
+      "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+      "price": 1020,
+      "cantidad": 1,
+      "inventoryStatus": "In Stock",
+      "tipo": "Food",
+      "status": false,
+      "icon": "pi-heart",
+      "image": "/products/milk.jpg"
+    },
+
+    {
+      "name": "Puppies",
+      "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+      "price": 120,
+      "cantidad": 1,
+      "inventoryStatus": "In Stock",
+      "tipo": "Food",
+      "status": false,
+      "icon": "pi-heart",
+      "image": "/products/perros_calientes.jpg"
+    },
+    {
+      "name": "Chicken",
+      "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+      "price": 3100,
+      "cantidad": 1,
+      "inventoryStatus": "In Stock",
+      "tipo": "Food",
+      "status": false,
+      "icon": "pi-heart",
+      "image": "/products/carne2.jpg"
+    },
+    {
+      "name": "Spaghetti",
+      "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+      "price": 220,
+      "cantidad": 1,
+      "inventoryStatus": "In Stock",
+      "tipo": "Food",
+      "status": false,
+      "icon": "pi-heart",
+      "image": "/products/espaguetis.jpg"
+    },
+    {
+      "name": "Ham",
+      "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+      "price": 2050,
+      "cantidad": 1,
+      "inventoryStatus": "In Stock",
+      "tipo": "Food",
+      "status": false,
+      "icon": "pi-heart",
+      "image": "/products/jamon.jpg"
+    },
+    {
+      "name": "Nutella",
+      "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+      "price": 3500,
+      "cantidad": 1,
+      "inventoryStatus": "In Stock",
+      "tipo": "Food",
+      "status": false,
+      "icon": "pi-heart",
+      "image": "/products/nutella4.jpg"
+    },
+    {
+      "name": "Meat",
+      "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+      "price": 3100,
+      "cantidad": 1,
+      "inventoryStatus": "Out of Stock",
+      "tipo": "Food",
+      "status": false,
+      "icon": "pi-heart",
+      "image": "/products/pollo4.jpg"
+    },
+    {
+      "name": "Bath Soap",
+      "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+      "price": 250,
+      "cantidad": 1,
+      "inventoryStatus": "In Stock",
+      "tipo": "Food",
+      "status": false,
+      "icon": "pi-heart",
+      "image": "/products/jabon.jpg"
+    },
+    {
+      "name": "Chicken broth",
+      "description": "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+      "price": 500,
+      "cantidad": 1,
+      "inventoryStatus": "In Stock",
+      "tipo": "Food",
+      "status": false,
+      "icon": "pi-heart",
+      "image": "/products/caldito_pollo2jpg.png"
+    }
   ]
 ]
