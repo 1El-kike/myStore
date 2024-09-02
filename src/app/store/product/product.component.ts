@@ -1,7 +1,7 @@
 import { CurrencyPipe, DatePipe, NgClass } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { productList } from '../../models/localDatos.moduls';
+import { ApiStoresService } from '../../services/api-stores.service';
 
 @Component({
   selector: 'app-product',
@@ -12,9 +12,20 @@ import { productList } from '../../models/localDatos.moduls';
 })
 export class ProductComponent implements OnInit {
   fecha: Date = new Date();
-  productList = productList;
+
+  //datos de products
+  products: any = [];
+
+  private _API = inject(ApiStoresService);
 
   ngOnInit(): void {
-    console.log(productList);
+    this._API.getAllproducts('allProducts').subscribe(
+      (data) => {
+        this.products = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

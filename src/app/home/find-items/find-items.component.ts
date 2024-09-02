@@ -1,11 +1,6 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { List, LocalstoreService } from '../../services/localstore.service';
 import { FormsModule } from '@angular/forms';
-import {
-  AllElement,
-  allelemnt,
-  DatosLocales,
-} from '../../models/localDatos.moduls';
 import { HomeSecondoryComponent } from '../home-secondory/home-secondory.component';
 import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
 import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
@@ -54,9 +49,9 @@ export class FindItemsComponent implements OnInit {
   //valor del input de busqueda
   searchElement = '';
   //elementos de busquedas inicial
-  productsfind: AllElement[] = [];
+  productsfind: any[] = [];
   //elementos de busqueda resultado
-  valorfind: AllElement[] = [];
+  valorfind: any[] = [];
   //datos carrito de compra
   datosnew?: List;
   elementFind: string = '';
@@ -76,11 +71,14 @@ export class FindItemsComponent implements OnInit {
 
   //Para buscar los elementos tanto productos como tienda
   filterProducts() {
-    this.productsfind = allelemnt;
-    let filteredProducts: AllElement[] = [];
+    //Todavia tengo que implemetar una Api para obtener todas las tiendas y productos
+    //this.productsfind = ;
+    let filteredProducts: any[] = [];
     if (this.searchElement.trim().length > 0) {
-      filteredProducts = this.productsfind.filter((product) =>
-        product.name.toLowerCase().includes(this.searchElement.toLowerCase())
+      filteredProducts = this.productsfind.filter((productorStore) =>
+        productorStore.name
+          .toLowerCase()
+          .includes(this.searchElement.toLowerCase())
       );
     }
     if (filteredProducts.length > 0 || this.searchElement !== '') {
@@ -282,6 +280,14 @@ export class FindItemsComponent implements OnInit {
     this._API.getAllnewProduct('newProduct').subscribe((data) => {
       this.datosApi = data;
     });
+    this._API.getAllProductandStore('aunnose').subscribe(
+      (data) => {
+        this.productsfind = data;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 }
 

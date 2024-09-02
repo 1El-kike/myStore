@@ -1,70 +1,71 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CurrencyPipe, Location, NgIf, NgStyle } from '@angular/common';
-import { Image, Product, productList } from '../../models/localDatos.moduls';
+import { ApiStoresService } from '../../services/api-stores.service';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CurrencyPipe,NgStyle,NgIf,RouterLink],
+  imports: [CurrencyPipe, NgStyle, NgIf, RouterLink],
   templateUrl: './product-detail.component.html',
-  styleUrl: './product-detail.component.css'
+  styleUrl: './product-detail.component.css',
 })
-export class ProductDetailComponent implements OnInit  {
-
+export class ProductDetailComponent implements OnInit {
+  //id que se pasa por params de la url del product
   productId: string = '';
-  image = "";
+  //datos de todos los products
+  allproducts: any[] = [];
+  // datos del producto actual
+  product: any = [];
+  image = '';
+  loading: boolean = true;
 
-  productList:Product[] = productList;
-  loading : boolean = true;
-  data? :Product;
-  imge?:Image[] =[
-    {valor1:'',valor2:'',valor3:'',valor4:''}
-  ];
-  img1?:any
-  img2 = ''
-  img3 = ''
-  img4 = ''
-  expression = '80%'
-  expression2 = '60%'
-  constructor(private _router : ActivatedRoute, private location: Location){
-
-  }
+  img1?: any;
+  img2 = '';
+  img3 = '';
+  img4 = '';
+  expression = '80%';
+  expression2 = '60%';
+  //services inyect
+  private _API = inject(ApiStoresService);
+  private _router = inject(ActivatedRoute);
+  private location = inject(Location);
 
   goBack(): void {
     this.location.back();
   }
 
-
   ngOnInit(): void {
-    this._router.params.subscribe(params => {
+    this._API.getproducts('/asdada').subscribe(
+      (datos) => {
+        this.allproducts = datos;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    this._router.params.subscribe((params) => {
+      this.productId = params['productId'];
+      this.product = this.allproducts.find(
+        (element) => element.id == params['productId']
+      );
+      this.loading = false;
 
-        this.productId = params['productId']
-        this.data = this.productList.find(element => element.id == params['productId'])
-        this.loading = false;
-
-        if (this.data && this.data.image && this.data.image.length > 0) {
-          const firstImage = this.data.image[0];
-          this.img1 = firstImage.valor1;
-          this.img2 = firstImage.valor2;
-          this.img3 = firstImage.valor3;
-          this.img4 = firstImage.valor4;
-        }
-
-        console.log(this.img1)
-
-      },)
-
-
-      // Este metodo esta viejo
-      /*  for (let index = 0; index < productList.length; index++) {
-        if (this.productId == this.productList[index].id ) {
-          this.data = [this.productList[index] ]
-        } */
-
+      if (this.product && this.product.image && this.product.image.length > 0) {
+        const firstImage = this.product.image[0];
+        this.img1 = firstImage.valor1;
+        this.img2 = firstImage.valor2;
+        this.img3 = firstImage.valor3;
+        this.img4 = firstImage.valor4;
       }
 
+      console.log(this.img1);
+    });
 
-
-
+    // Este metodo esta viejo
+    /*  for (let index = 0; index < allproducts.length; index++) {
+        if (this.productId == this.allproducts[index].id ) {
+          this.product = [this.allproducts[index] ]
+        } */
+  }
 }

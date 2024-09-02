@@ -1,13 +1,9 @@
 import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {
-  Category,
-  DatosCategories,
-  ProductList,
-} from '../../models/localDatos.moduls';
 import { StoresComponent } from './stores/stores.component';
 import { ApiStoresService } from '../../services/api-stores.service';
+import { DatosCategories } from '../../models/localDatos.moduls';
 
 @Component({
   selector: 'app-home-secondory',
@@ -20,7 +16,7 @@ export class HomeSecondoryComponent implements OnInit {
   options = ['$0', '$288', '$576', '$864'];
   selectedValue = 0;
   selectedOptionIndex = 0;
-  category: Category[] = [];
+  category: any[] = [];
   isOpen = false;
   miCheckbox?: boolean;
   toolbar: any[] = [
@@ -29,9 +25,9 @@ export class HomeSecondoryComponent implements OnInit {
   ];
   statusStore: boolean = false;
   //datos almacenados originales de las tiendas
-  storesData?: ProductList[];
+  storesData?: any[];
   //datos que se pasaran al componente Store para los datos de la tiendas
-  newDatos?: ProductList[];
+  newDatos?: any[];
 
   private _API = inject(ApiStoresService);
   //para el estado de el Rating y ordenar por nivel

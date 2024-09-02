@@ -1,5 +1,4 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
-import { ProductList, ProductListnew } from '../../../models/localDatos.moduls';
 import { RouterLink } from '@angular/router';
 import { ApiStoresService } from '../../../services/api-stores.service';
 
