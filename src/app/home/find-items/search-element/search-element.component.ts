@@ -9,7 +9,7 @@ import { DataViewModule } from 'primeng/dataview';
 import { TagModule } from 'primeng/tag';
 import { RatingModule } from 'primeng/rating';
 import { ButtonModule } from 'primeng/button';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { SkeletonModule } from 'primeng/skeleton';
 import { Message } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
@@ -22,6 +22,7 @@ import { MessagesModule } from 'primeng/messages';
     MessagesModule,
     TagModule,
     RatingModule,
+    NgIf,
     ButtonModule,
     CommonModule,
     SkeletonModule,
@@ -33,16 +34,17 @@ export class SearchElementComponent implements OnChanges {
   layout: 'grid' | 'list' = 'list';
   messages: Message[] = [{ severity: 'info', detail: 'Message Content' }];
 
+  // Datos enviados del componente padre de los datos de busquedas
   @Input() searchProduct: any[] = [];
   @Input() input?: string;
-  valor: any[] = [];
+  valor: any = [];
   status = '';
+
   ngOnChanges(changes: SimpleChanges): void {
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
     //Add '${implements OnChanges}' to the class.
     if (changes['searchProduct']) {
       this.valor = changes['searchProduct'].currentValue;
-      // Aquí puedes agregar lógica adicional para manejar el cambio
     }
     if (changes['input']) {
       this.status = changes['input'].currentValue;
@@ -53,7 +55,11 @@ export class SearchElementComponent implements OnChanges {
     return Array(n);
   }
 
-  getSeverity(product: any) {
+  getSeverity(product: any, isopen: any) {
+    if (isopen) {
+      return isopen == 1 ? 'success' : 'danger';
+    }
+
     switch (product.inventoryStatus) {
       case 'INSTOCK':
         return 'success';
@@ -62,6 +68,12 @@ export class SearchElementComponent implements OnChanges {
         return 'warning';
 
       case 'OUTOFSTOCK':
+        return 'danger';
+
+      case 1:
+        return 'success';
+
+      case 0:
         return 'danger';
 
       default:

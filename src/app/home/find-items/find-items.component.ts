@@ -72,7 +72,6 @@ export class FindItemsComponent implements OnInit {
   //Para buscar los elementos tanto productos como tienda
   filterProducts() {
     //Todavia tengo que implemetar una Api para obtener todas las tiendas y productos
-    //this.productsfind = ;
     let filteredProducts: any[] = [];
     if (this.searchElement.trim().length > 0) {
       filteredProducts = this.productsfind.filter((productorStore) =>
@@ -280,7 +279,7 @@ export class FindItemsComponent implements OnInit {
     this._API.getAllnewProduct('newProduct').subscribe((data) => {
       this.datosApi = data;
     });
-    this._API.getAllProductandStore('aunnose').subscribe(
+    this._API.getAllProductandStore('productStore/all/').subscribe(
       (data) => {
         this.productsfind = data;
       },

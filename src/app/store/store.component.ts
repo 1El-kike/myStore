@@ -32,15 +32,17 @@ export class StoreComponent implements OnInit {
       this.storeId = params['storeid'];
       this.loading = false;
     });
-    this._API.getAllproductStores(`productStore/${this.storeId}`).subscribe(
-      (datos) => {
-        this.productList = datos;
-        console.log(this.productList);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    this._API
+      .getAllproductStores(`productStore/store/${this.storeId}`)
+      .subscribe(
+        (datos) => {
+          this.productList = datos;
+          console.log(this.productList);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     this._API.getStores(`stores/${this.storeId}`).subscribe(
       (datos: Stores) => {
         this.store = datos;
