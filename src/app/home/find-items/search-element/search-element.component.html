@@ -43,7 +43,7 @@
                   <div>
                     <span class="font-medium text-secondary text-sm"
                       >{{ item.category ? item.category : "Store"
-                      }}<i class="pi pi-shopping"></i
+                      }}<i class="pi px-1 pi-verified"></i
                     ></span>
                     <div class="text-lg font-medium text-900 mt-2">
                       {{ item.name }}
@@ -66,15 +66,28 @@
                   </div>
                 </div>
                 <div class="flex flex-column md:align-items-end gap-5">
+                  @if (item.price) {
                   <span class="text-xl font-semibold text-900">{{
                     "$" + item.price
                   }}</span>
+                  } @else {
+                  <!-- Hacemos simple lo imposible. -->
+                  <span class="text-center font-bold leading-custom"
+                    ><b class="text-2xl">We make</b>
+                    <hr />
+                    the impossible simple</span
+                  >
+                  }
                   <div class="flex flex-row-reverse md:flex-row gap-2">
+                    @if (!item.price) {
                     <p-button
-                      class="btn btn-primary"
-                      icon="pi pi-heart"
-                      [outlined]="true"
+                      icon="pi pi-plus"
+                      class="btn btn-primary flex-auto md:flex-initial white-space-nowrap"
+                      label="Watch"
                     />
+
+                    }@else {
+                    <p-button class="btn btn-primary" icon="pi pi-heart" />
                     <p-button
                       icon="pi pi-shopping-cart"
                       class="btn btn-primary flex-auto md:flex-initial white-space-nowrap"
@@ -85,6 +98,8 @@
                           : ''
                       "
                     />
+
+                    }
                   </div>
                 </div>
               </div>

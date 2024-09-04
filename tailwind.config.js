@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
+      lineHeight: {
+        custom: "0.22", // Reducirá el espacio entre las letras
+      },
       backgroundImage: {
         "mi-image": "url('')",
       },
@@ -36,6 +39,11 @@ module.exports = {
         sparkle: "sparkle 1s ease ",
         transition: "transition 1s ease ",
       },
+    },
+  },
+  variants: {
+    extend: {
+      lineHeight: ["responsive"],
     },
   },
   plugins: [],
