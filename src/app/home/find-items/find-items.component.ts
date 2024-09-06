@@ -13,7 +13,8 @@ import { MessageService } from 'primeng/api';
 import { RippleModule } from 'primeng/ripple';
 import { SearchElementComponent } from './search-element/search-element.component';
 import { ApiHomeService } from '../../services/api-home.service';
-import { catchError, Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
+import { SkeletonModule } from 'primeng/skeleton';
 
 @Component({
   selector: 'app-find-items',
@@ -32,6 +33,7 @@ import { catchError, Observable, throwError } from 'rxjs';
     ToastModule,
     ButtonModule,
     RippleModule,
+    SkeletonModule,
   ],
   providers: [MessageService],
   templateUrl: './find-items.component.html',
@@ -46,6 +48,8 @@ export class FindItemsComponent implements OnInit {
   //Datos
   //Lista de productos favoritos
   favoriteProduct?: any;
+  //para mostrar los datos si ya estan cargados
+  favoriteProductLoading?: boolean = true;
   //valor del input de busqueda
   searchElement = '';
   //elementos de busquedas inicial
@@ -64,6 +68,8 @@ export class FindItemsComponent implements OnInit {
   listaFavorite: favorite[] = [];
   //datos de la Api de la lista de Productos Nuevos
   datosApi: any[] = [];
+  //para mostrar los datos si ya estan cargados
+  datosApiLoading: boolean = true;
   //mensaje de error
   messageError: any = [];
   //Para activae el error
@@ -273,12 +279,24 @@ export class FindItemsComponent implements OnInit {
         this.listaFavorite = data;
       });
     }
-    this._API.getAllFavoriteProduct('favoriteProduct').subscribe((data) => {
-      this.favoriteProduct = data;
-    });
-    this._API.getAllnewProduct('newProduct').subscribe((data) => {
-      this.datosApi = data;
-    });
+    this._API.getAllFavoriteProduct('favoriteProduct').subscribe(
+      (data) => {
+        this.favoriteProduct = data;
+        this.favoriteProductLoading = false;
+      },
+      (error) => {
+        this.favoriteProductLoading = false;
+      }
+    );
+    this._API.getAllnewProduct('newProduct').subscribe(
+      (data) => {
+        this.datosApi = data;
+        this.datosApiLoading = false;
+      },
+      (error) => {
+        this.datosApiLoading = false;
+      }
+    );
     this._API.getAllProductandStore('productStore/all/').subscribe(
       (data) => {
         this.productsfind = data;

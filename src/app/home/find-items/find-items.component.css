@@ -1,40 +1,38 @@
-.animate{
-  animation: myscroll 1s ease-in-out both ;
+.animate {
+  animation: myscroll 1s ease-in-out both;
   animation-timeline: view(y 2);
   animation-range: 0 80px;
-
 }
 
 @keyframes myscroll {
-  from{
+  from {
     opacity: 0;
     transform: translateX(-20px);
   }
-  to{
+  to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
-
 @keyframes mybutton {
-  from{
+  from {
     opacity: 0;
     transform: scale(1);
   }
-  to{
+  to {
     opacity: 1;
     transform: scale(2);
   }
 }
-.active-button{
+.active-button {
   transition-duration: 2s;
 }
 
-.active-button:hover{
-  scale: 1.2 ;
- color: brown;
- scale: 2;
+.active-button:hover {
+  scale: 1.2;
+  color: brown;
+  scale: 2;
 }
 
 #flip {
@@ -44,7 +42,7 @@
   margin-bottom: 15px;
 }
 
-#flip>div>div {
+#flip > div > div {
   color: #fff;
   padding: 0px 30px 50px 30px;
   border-radius: 20px;
@@ -54,43 +52,41 @@
 }
 
 #flip div:first-child {
-   animation: show 5s linear infinite;
-
+  animation: show 5s linear infinite;
 }
 
 @keyframes show {
   0% {
-      margin-top: -250px;
+    margin-top: -250px;
   }
 
   5% {
-      margin-top: -190px;
+    margin-top: -190px;
   }
 
   33% {
-      margin-top: -190px;
+    margin-top: -190px;
   }
 
   38% {
-      margin-top: -85px;
+    margin-top: -85px;
   }
 
   66% {
-      margin-top: -85px;
+    margin-top: -85px;
   }
 
   71% {
-      margin-top: 10px;
+    margin-top: 10px;
   }
 
   99.99% {
-      margin-top: 10px;
+    margin-top: 10px;
   }
 
   100% {
-      margin-top: -200px;
+    margin-top: -200px;
   }
-
 }
 
 #container {
@@ -99,4 +95,36 @@
   font-size: 36px;
   font-weight: bold;
   display: inline;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  display: grid;
+  -webkit-mask: conic-gradient(from 15deg, #0000, #000);
+  animation: l26 1s infinite steps(12);
+}
+.loader,
+.loader:before,
+.loader:after {
+  background: radial-gradient(closest-side at 50% 12.5%, #f03355 96%, #0000) 50%
+      0/20% 80% repeat-y,
+    radial-gradient(closest-side at 12.5% 50%, #f03355 96%, #0000) 0 50%/80% 20%
+      repeat-x;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  grid-area: 1/1;
+  transform: rotate(30deg);
+}
+.loader:after {
+  transform: rotate(60deg);
+}
+
+@keyframes l26 {
+  100% {
+    transform: rotate(1turn);
+  }
 }
