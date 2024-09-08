@@ -1,6 +1,15 @@
 <p class="text-slate-600 font-bold text-4xl my-4 mx-4">Stores all</p>
 <div class="flex flex-wrap gap-3 my-16 w-full justify-center">
-  @for (item of stores; track $index) {
+  @if (isloadingStores) { @for (item of [1,2,3,4,5,6,7,8,9]; track $index) {
+  <div
+    class="card animate shadow shadow-stone-500 w-[320px] h-[280px] hover:opacity-75 cursor-pointer"
+  >
+    <span class="card-img relative h-[289px] w-full">
+      <div class="loader absolute left-[40%] top-[40%] z-30"></div>
+      <p-skeleton height="18rem" styleClass="mb-4" />
+    </span>
+  </div>
+  } } @else{ @for (item of stores; track $index) {
 
   <a
     [routerLink]="['/store', item.id]"
@@ -30,5 +39,5 @@
       </div>
     </div>
   </a>
-  }
+  } }
 </div>

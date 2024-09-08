@@ -285,7 +285,7 @@ export class FindItemsComponent implements OnInit {
         this.favoriteProductLoading = false;
       },
       (error) => {
-        this.favoriteProductLoading = false;
+        //  this.favoriteProductLoading = false;
       }
     );
     this._API.getAllnewProduct('newProduct').subscribe(
@@ -294,7 +294,7 @@ export class FindItemsComponent implements OnInit {
         this.datosApiLoading = false;
       },
       (error) => {
-        this.datosApiLoading = false;
+        //this.datosApiLoading = false;
       }
     );
     this._API.getAllProductandStore('productStore/all/').subscribe(

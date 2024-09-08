@@ -37,7 +37,6 @@ export class StoreComponent implements OnInit {
       .subscribe(
         (datos) => {
           this.productList = datos;
-          console.log(this.productList);
         },
         (error) => {
           console.log(error);
