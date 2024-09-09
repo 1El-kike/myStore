@@ -16,6 +16,7 @@ import { MessagesModule } from 'primeng/messages';
 @Component({
   selector: 'app-search-element',
   templateUrl: './search-element.component.html',
+  styleUrl: './search-element.component.css',
   standalone: true,
   imports: [
     DataViewModule,
@@ -37,14 +38,19 @@ export class SearchElementComponent implements OnChanges {
   // Datos enviados del componente padre de los datos de busquedas
   @Input() searchProduct: any[] = [];
   @Input() input?: string;
+  status: string = '';
+  //datos que se obtebdran la cambiar el dato del contenedor padre
   valor: any = [];
-  status = '';
+  isLoadingValor: boolean = true;
 
   ngOnChanges(changes: SimpleChanges): void {
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
     //Add '${implements OnChanges}' to the class.
     if (changes['searchProduct']) {
       this.valor = changes['searchProduct'].currentValue;
+      if (this.valor.length > 0) {
+        this.isLoadingValor = false;
+      }
     }
     if (changes['input']) {
       this.status = changes['input'].currentValue;
