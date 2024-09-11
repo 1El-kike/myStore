@@ -47,9 +47,8 @@ export class FavoriteComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.productFavorite[0].producto.name);
     this.newdata = this.productFavorite;
-    console.log(this.newdata);
+
     if (changes['productFavorite']) {
       this.newdata = changes['productFavorite'].currentValue;
     }

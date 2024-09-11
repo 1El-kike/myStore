@@ -28,6 +28,8 @@ export class HomeSecondoryComponent implements OnInit {
   storesData?: any[];
   //datos que se pasaran al componente Store para los datos de la tiendas
   newDatos?: any[];
+  //loading of the page
+  isloadingStores: boolean = true;
 
   private _API = inject(ApiStoresService);
   //para el estado de el Rating y ordenar por nivel
@@ -35,9 +37,10 @@ export class HomeSecondoryComponent implements OnInit {
     if (this.toolbar[1].check) {
       this.newDatos = this.newDatos?.sort((a, b) => b.rating - a.rating);
     } else {
-      this._API
-        .getAllStores('stores')
-        .subscribe((datoInicial) => (this.newDatos = datoInicial));
+      this._API.getAllStores('stores').subscribe((datoInicial) => {
+        this.newDatos = datoInicial;
+        this.isloadingStores = false;
+      });
     }
   };
 
@@ -46,9 +49,10 @@ export class HomeSecondoryComponent implements OnInit {
     if (this.statusStore) {
       this.newDatos = this.newDatos?.filter((elem) => elem.isOpen);
     } else {
-      this._API
-        .getAllStores('stores')
-        .subscribe((datoInicial) => (this.newDatos = datoInicial));
+      this._API.getAllStores('stores').subscribe((datoInicial) => {
+        this.newDatos = datoInicial;
+        this.isloadingStores = false;
+      });
     }
   };
 
@@ -75,9 +79,11 @@ export class HomeSecondoryComponent implements OnInit {
     this._API.getAllStores('stores/').subscribe(
       (storesData) => {
         this.newDatos = storesData;
+        this.isloadingStores = false;
       },
       (error) => {
         console.log(error);
+        this.isloadingStores = false;
       }
     );
     this.category = DatosCategories;
