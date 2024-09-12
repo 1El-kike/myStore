@@ -2,7 +2,7 @@
 <div class="flex w-full justify-center gap-2 items-center">
   <div class="loader"></div>
 </div>
-} @else { @if(valor.length > 0 ){
+} @else { @if(status != '') { @if(valor.length > 0 ){
 <div class="md:px-16 sm:px-3">
   <div class="card">
     <p-dataView #dv [value]="valor" [layout]="layout">
@@ -119,4 +119,4 @@
 <div class="flex justify-center items-center w-full">
   <p-messages [(value)]="messages" [enableService]="false" />
 </div>
-} }
+} } }
