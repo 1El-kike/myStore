@@ -41,6 +41,7 @@ export class SearchElementComponent implements OnChanges {
   status: string = '';
   //datos que se obtebdran la cambiar el dato del contenedor padre
   valor: any = [];
+  //is loading or not
   isLoadingValor: boolean = true;
 
   ngOnChanges(changes: SimpleChanges): void {

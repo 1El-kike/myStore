@@ -79,6 +79,7 @@ export class FindItemsComponent implements OnInit {
   filterProducts() {
     //Todavia tengo que implemetar una Api para obtener todas las tiendas y productos
     let filteredProducts: any[] = [];
+    console.log(this.productsfind);
     if (this.searchElement.trim().length > 0) {
       filteredProducts = this.productsfind.filter((productorStore) =>
         productorStore.name

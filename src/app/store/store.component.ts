@@ -2,10 +2,13 @@ import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FondoComponent } from '../fondo/fondo.component';
 import { ApiStoresService } from '../services/api-stores.service';
+import { SkeletonModule } from 'primeng/skeleton';
+import { NgClass } from '@angular/common';
+
 @Component({
   selector: 'app-store',
   standalone: true,
-  imports: [RouterLink, FondoComponent],
+  imports: [RouterLink, FondoComponent, SkeletonModule, NgClass],
   templateUrl: './store.component.html',
   styleUrl: './store.component.css',
 })
@@ -14,10 +17,16 @@ export class StoreComponent implements OnInit {
   storeId?: string;
   //fondo de pantalla de la tienda
   bgImage = 'url("")';
+  //fondo mientras se carga la imagen
+  bgloading = 'linear-gradient(to left ,rgb(228, 64, 64), rgb(255, 221, 0)';
   //posicion de la foto
   position = 'center';
   //datos de los productos
   productList: any[] = [];
+  //is loading or not products
+  isLoading: boolean = true;
+  //is loading or not stores
+  isloadingStores: boolean = true;
   //datos de la tienda
   store?: Stores;
   loading: boolean = true;
@@ -37,18 +46,22 @@ export class StoreComponent implements OnInit {
       .subscribe(
         (datos) => {
           this.productList = datos;
+          this.isLoading = false;
         },
         (error) => {
           console.log(error);
+          //this.isLoading = false;
         }
       );
     this._API.getStores(`stores/${this.storeId}`).subscribe(
       (datos: Stores) => {
         this.store = datos;
         this.bgImage = `url("${this.store.imgfondo}")`;
+        this.isloadingStores = false;
       },
       (error) => {
         console.log(error);
+        //this.isloadingStores = false;
       }
     );
   }

@@ -1,10 +1,14 @@
 <div class="bg-transparent">
   <div>
     <div
-      [style.backgroundImage]="bgImage"
+      [style.background]="!isloadingStores ? bgImage : bgloading"
       [style.--posicionFondo]="position"
-      class="h-60 w-ful image"
-    ></div>
+      class="h-60 w-ful image overflow-hidden"
+    >
+      @if(isloadingStores){
+      <div class="w-full loaders"></div>
+      }
+    </div>
     <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8"></div>
     <h2 class="mx-20 text-4xl font-bold tracking-tight text-gray-900">
       Store Product
@@ -13,7 +17,30 @@
     <div
       class="mt-9 mb-9 mx-10 sm:mx-10 md:mx-16 lg:mx-32 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
     >
-      @for (item of productList; track $index) {
+      @if (isLoading) { @for(item of
+      [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]; track $index){
+
+      <div class="group flex gap-6 relativen animatevertical">
+        <div
+          class="aspect-h-1 aspect-w-1 lg:h-[120px] lg:w-[120px] md:h-[120px] h-[120px] md:w-[120px] sm:w-[8rem] relative rounded-2xl bg-gray-200 lg:aspect-none group-hover:opacity-75"
+        >
+          <div class="flex h-full w-full">
+            <div class="loader m-auto"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex gap-2">
+            <p-skeleton width="5rem" height="1.6rem" styleClass="mb-4" />
+            <p-skeleton width="3rem" height="1.6rem" styleClass="mb-4" />
+          </div>
+          <div>
+            <p-skeleton width="8rem" height="1rem" styleClass="mb-2" />
+            <p-skeleton width="9rem" height="1rem" styleClass="mb-2" />
+            <p-skeleton width="7rem" height="1rem" styleClass="mb-2" />
+          </div>
+        </div>
+      </div>
+      } }@else{ @for (item of productList; track $index) {
       <div
         [routerLink]="['/products', item.product.id]"
         class="group flex relativen animatevertical"
@@ -52,7 +79,7 @@
 
         <!-- More products... -->
       </div>
-      }
+      } }
     </div>
   </div>
 </div>
