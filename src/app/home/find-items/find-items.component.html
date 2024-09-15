@@ -168,7 +168,9 @@
                     <i class="pi pi-shopping-cart"></i>
                   </button>
                   <button
-                    (click)="changleproperty(item.status, item.id_product, 2)"
+                    (click)="
+                      changlefavoritProduct(item.status, item.id_product)
+                    "
                     [ngClass]="{ 'text-red-600': item.status }"
                     class="btn btn-outline-success active:scale-125"
                   >
@@ -259,9 +261,7 @@
                 <p-button
                   icon="pi {{ product.icon }}"
                   [ngClass]="{ 'text-red-600': product.status }"
-                  (click)="
-                    changleproperty(product.status, product.id_product, 1)
-                  "
+                  (click)="changleproperty(product.status, product.id_product)"
                   class=""
                   severity="secondary"
                   [outlined]="true"
