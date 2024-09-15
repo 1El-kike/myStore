@@ -223,24 +223,23 @@ export class FindItemsComponent implements OnInit {
         }
       );
       console.log(data);
-      if (status) {
-        (
-          this._API.updateNewProduct(
-            'favoriteProduct/update',
-            data
-          ) as Observable<any>
-        ).subscribe(
-          (response) => {
-            this.statusmessage = false;
-            console.log(response);
-          },
-          (error) => {
-            this.messageError = error.error.error;
-            this.statusmessage = true;
-            console.log(error);
-          }
-        );
-      } else {
+      (
+        this._API.updateNewProduct(
+          'favoriteProduct/update',
+          data
+        ) as Observable<any>
+      ).subscribe(
+        (response) => {
+          this.statusmessage = false;
+          console.log(response);
+        },
+        (error) => {
+          this.messageError = error.error.error;
+          this.statusmessage = true;
+          console.log(error);
+        }
+      );
+      if (!status) {
         this._messageService.add({
           severity: 'success',
           summary: 'Favorite',
@@ -264,7 +263,7 @@ export class FindItemsComponent implements OnInit {
       return;
     } else {
       let data = {
-        id: product.id,
+        id: product[0].id,
         status: (product[0].status = !status),
         icon: (product.icon = status ? 'pi-heart' : 'pi-heart-fill'),
       };
@@ -297,23 +296,20 @@ export class FindItemsComponent implements OnInit {
           console.log(error);
         }
       );
-      if (status) {
-        (
-          this._API.updateNewProduct(
-            'newProduct/update',
-            data
-          ) as Observable<any>
-        ).subscribe(
-          (response) => {
-            this.statusmessage = false;
-            console.log(response);
-          },
-          (error) => {
-            this.messageError = error.error.error;
-            this.statusmessage = true;
-          }
-        );
-      } else {
+
+      (
+        this._API.updateNewProduct('newProduct/update', data) as Observable<any>
+      ).subscribe(
+        (response) => {
+          this.statusmessage = false;
+          console.log(response);
+        },
+        (error) => {
+          this.messageError = error.error.error;
+          this.statusmessage = true;
+        }
+      );
+      if (!status) {
         this._messageService.add({
           severity: 'success',
           summary: 'Favorite',
