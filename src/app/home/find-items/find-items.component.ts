@@ -178,10 +178,20 @@ export class FindItemsComponent implements OnInit {
     this.datosLocales = this._servisLocalStore.getList();
   };
   //cambiar estado y color del icono, agregar a la lista de favoritos
-  changleproperty(status: boolean, productIndex: number) {
-    let product = this.datosApi[productIndex - 1];
+  changleproperty(status: boolean, productIndex: number, changeApi: number) {
+    let product: any = [];
+    if (productIndex == 1) {
+      product = this.datosApi.filter(
+        (item) => item[0].id_product == productIndex
+      );
+    } else if (productIndex == 2) {
+      product = this.favoriteProduct.filter(
+        (item: any) => item[0].id_product == productIndex
+      );
+    }
+
+    console.log(productIndex, product, this.favoriteProduct);
     if (this.user == null) {
-      console.log('error no tiene cuenta');
       this._messageService.add({
         severity: 'error',
         summary: 'Favorite',
@@ -194,15 +204,17 @@ export class FindItemsComponent implements OnInit {
         status: (product.status = !status),
         icon: (product.icon = status ? 'pi-heart' : ' pi-heart-fill'),
       };
+
       let myfavor = {
         usuarioId: parseInt(this.user[0][0].id),
         productoId: parseInt(product.id_product),
       };
+
       //enviar los datos para obtener los datos de producto y añadirlo a la lista favorita
       (
         this._API.createMyfavoriteProduct(
           `mylistProductFavorite/createORdelete`,
-          myfavor
+          changeApi == 1 ? myfavor : changeApi == 2 && myfavor
         ) as Observable<any>
       ).subscribe(
         (response) => {
@@ -221,7 +233,7 @@ export class FindItemsComponent implements OnInit {
           console.log(error);
         }
       );
-      if (status) {
+      if (status && changeApi == 1) {
         (
           this._API.updateNewProduct(
             'newProduct/update',
@@ -237,7 +249,7 @@ export class FindItemsComponent implements OnInit {
             this.statusmessage = true;
           }
         );
-      } else {
+      } else if (changeApi == 1) {
         (
           this._API.updateNewProduct(
             'newProduct/update',
@@ -246,7 +258,41 @@ export class FindItemsComponent implements OnInit {
         ).subscribe(
           (response) => {
             this.statusmessage = false;
-            console.log(response);
+          },
+          (error) => {
+            this.statusmessage = true;
+            this.messageError = error.error.error;
+          }
+        );
+        this._messageService.add({
+          severity: 'success',
+          summary: 'Favorite',
+          detail: 'Added purchase of ' + product.name,
+        });
+      } else if (status && changeApi == 2) {
+        (
+          this._API.updateNewProduct(
+            'favoriteProduct/update',
+            data
+          ) as Observable<any>
+        ).subscribe(
+          (response) => {
+            this.statusmessage = false;
+          },
+          (error) => {
+            this.messageError = error.error.error;
+            this.statusmessage = true;
+          }
+        );
+      } else if (changeApi == 2) {
+        (
+          this._API.updateNewProduct(
+            'favoriteProduct/update',
+            data
+          ) as Observable<any>
+        ).subscribe(
+          (response) => {
+            this.statusmessage = false;
           },
           (error) => {
             this.statusmessage = true;
@@ -306,6 +352,7 @@ export class FindItemsComponent implements OnInit {
         console.log(err);
       }
     );
+    console.log(this.favoriteProduct);
   }
 }
 
