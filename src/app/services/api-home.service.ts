@@ -70,7 +70,6 @@ export class ApiHomeService {
         Authorization: `Bearer ${token}`,
       }),
     };
-    console.log(`${this.apiUrlBase}/${endpoint}`, httpOptions);
     return this._http.get(`${this.apiUrlBase}/${endpoint}`, httpOptions);
   };
   //Api para agregar los productos a favoritos de los usuarios

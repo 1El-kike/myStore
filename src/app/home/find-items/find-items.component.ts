@@ -6,14 +6,14 @@ import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
 import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass, NgIf, AsyncPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { RippleModule } from 'primeng/ripple';
 import { SearchElementComponent } from './search-element/search-element.component';
 import { ApiHomeService } from '../../services/api-home.service';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { SkeletonModule } from 'primeng/skeleton';
 
 @Component({
@@ -34,6 +34,7 @@ import { SkeletonModule } from 'primeng/skeleton';
     ButtonModule,
     RippleModule,
     SkeletonModule,
+    AsyncPipe,
   ],
   providers: [MessageService],
   templateUrl: './find-items.component.html',
@@ -65,7 +66,7 @@ export class FindItemsComponent implements OnInit {
   //lista de Productos mas vendidos - Productos favoritos
   datosLocales: List[] = [];
   //datos de los productos que se van agregar a mis favoritos
-  listaFavorite: favorite[] = [];
+  listaFavorite: any[] = [];
   //datos de la Api de la lista de Productos Nuevos
   datosApi: any[] = [];
   //para mostrar los datos si ya estan cargados
@@ -74,6 +75,10 @@ export class FindItemsComponent implements OnInit {
   messageError: any = [];
   //Para activae el error
   statusmessage: boolean = false;
+
+  private _messageService = inject(MessageService);
+  private _servisLocalStore = inject(LocalstoreService);
+  private _API = inject(ApiHomeService);
 
   //Para buscar los elementos tanto productos como tienda
   filterProducts() {
@@ -116,9 +121,6 @@ export class FindItemsComponent implements OnInit {
       numScroll: 1,
     },
   ];
-  private _messageService = inject(MessageService);
-  private _servisLocalStore = inject(LocalstoreService);
-  private _API = inject(ApiHomeService);
 
   //eliminar usuario
   delituser() {
@@ -177,7 +179,7 @@ export class FindItemsComponent implements OnInit {
     this._servisLocalStore.eliminarList(index);
     this.datosLocales = this._servisLocalStore.getList();
   };
-
+  //cambiar estado y color del icono de favoritos del mercado y agregar a la lista de favoritos
   changlefavoritProduct(status: boolean, productIndex: number) {
     let product: any = this.favoriteProduct.filter(
       (item: favorite) => item.id_product == productIndex
@@ -208,6 +210,16 @@ export class FindItemsComponent implements OnInit {
       ).subscribe(
         (response) => {
           this.statusmessage = false;
+          this.favoriteProduct.forEach((item: any, index: number) => {
+            if (this.favoriteProduct[index].id_product == productIndex) {
+              this.favoriteProduct[index].status =
+                !this.favoriteProduct[index].status;
+              this.favoriteProduct[index].icon = this.favoriteProduct[index]
+                .status
+                ? 'pi-heart-fill'
+                : 'pi-heart';
+            }
+          });
           (
             this._API.getMyfavoriteProduct(
               `mylistProductFavorite/${this.user[0][0].id}`
@@ -222,23 +234,7 @@ export class FindItemsComponent implements OnInit {
           console.log(error);
         }
       );
-      console.log(data);
-      (
-        this._API.updateNewProduct(
-          'favoriteProduct/update',
-          data
-        ) as Observable<any>
-      ).subscribe(
-        (response) => {
-          this.statusmessage = false;
-          console.log(response);
-        },
-        (error) => {
-          this.messageError = error.error.error;
-          this.statusmessage = true;
-          console.log(error);
-        }
-      );
+
       if (!status) {
         this._messageService.add({
           severity: 'success',
@@ -248,7 +244,7 @@ export class FindItemsComponent implements OnInit {
       }
     }
   }
-  //cambiar estado y color del icono, agregar a la lista de favoritos
+  //cambiar estado y color del icono de nuevos productos y  agregar a la lista de favoritos
   changleproperty(status: boolean, productIndex: number) {
     let product: any = this.datosApi.filter(
       (item) => item.id_product == productIndex
@@ -262,17 +258,10 @@ export class FindItemsComponent implements OnInit {
       });
       return;
     } else {
-      let data = {
-        id: product[0].id,
-        status: (product[0].status = !status),
-        icon: (product.icon = status ? 'pi-heart' : 'pi-heart-fill'),
-      };
-
       let myfavor = {
         usuarioId: parseInt(this.user[0][0].id),
         productoId: parseInt(product[0].id_product),
       };
-      console.log('test', data, myfavor);
       //enviar los datos para obtener los datos de producto y añadirlo a la lista favorita
       (
         this._API.createMyfavoriteProduct(
@@ -281,34 +270,33 @@ export class FindItemsComponent implements OnInit {
         ) as Observable<any>
       ).subscribe(
         (response) => {
-          this.statusmessage = false;
           (
             this._API.getMyfavoriteProduct(
               `mylistProductFavorite/${this.user[0][0].id}`
             ) as Observable<any>
           ).subscribe((res) => {
             this.listaFavorite = res;
+            this.datosApi.forEach((item, index) => {
+              if (this.datosApi[index].id_product == productIndex) {
+                this.datosApi[index].status = !this.datosApi[index].status;
+                this.datosApi[index].icon = this.datosApi[index].status
+                  ? 'pi-heart-fill'
+                  : 'pi-heart';
+              }
+            });
+            // this.datosApi[productIndex].status
           });
         },
         (error) => {
-          this.messageError = error.error.error;
-          this.statusmessage = true;
+          this._messageService.add({
+            severity: 'error',
+            summary: 'New Error',
+            detail: error.error.error,
+          });
           console.log(error);
         }
       );
-
-      (
-        this._API.updateNewProduct('newProduct/update', data) as Observable<any>
-      ).subscribe(
-        (response) => {
-          this.statusmessage = false;
-          console.log(response);
-        },
-        (error) => {
-          this.messageError = error.error.error;
-          this.statusmessage = true;
-        }
-      );
+      // mensaje si ya el producto esta agregado a la lista de favorito
       if (!status) {
         this._messageService.add({
           severity: 'success',
@@ -329,6 +317,7 @@ export class FindItemsComponent implements OnInit {
     if (this.user.length == 0) {
       this.user = null;
     } else {
+      //obtener los prodctos favoritos del usuario
       (
         this._API.getMyfavoriteProduct(
           `mylistProductFavorite/${this.user[0][0].id}`
@@ -337,24 +326,86 @@ export class FindItemsComponent implements OnInit {
         this.listaFavorite = data;
       });
     }
-    this._API.getAllFavoriteProduct('favoriteProduct').subscribe(
-      (data) => {
-        this.favoriteProduct = data;
-        this.favoriteProductLoading = false;
-      },
-      (error) => {
-        //  this.favoriteProductLoading = false;
-      }
-    );
-    this._API.getAllnewProduct('newProduct').subscribe(
-      (data) => {
-        this.datosApi = data;
-        this.datosApiLoading = false;
-      },
-      (error) => {
-        //this.datosApiLoading = false;
-      }
-    );
+    //obteber la lista  productos favoritos
+    this._API
+      .getAllFavoriteProduct('favoriteProduct')
+      .pipe(
+        map((items) => {
+          const results = [];
+          for (let index = 0; index < items.length; index++) {
+            var element = items[index];
+            if (this.listaFavorite.length > 0 && this.listaFavorite) {
+              let modifiedItem = { ...element };
+              for (
+                let favIndex = 0;
+                favIndex < this.listaFavorite.length;
+                favIndex++
+              ) {
+                var favoriteElement = this.listaFavorite[favIndex];
+                if (favoriteElement.productoId == element.id_product) {
+                  modifiedItem.status = true;
+                  modifiedItem.icon = 'pi-heart-fill';
+                  break; // Salimos del bucle interno después de encontrar una coincidencia
+                }
+              }
+              results.push(modifiedItem);
+            } else {
+              console.log('error');
+              results.push(element);
+            }
+          }
+          return results;
+        })
+      )
+      .subscribe(
+        (data) => {
+          this.favoriteProduct = data;
+          this.favoriteProductLoading = false;
+        },
+        (error) => {
+          //  this.favoriteProductLoading = false;
+        }
+      );
+    //obtener lista de productos nuevos
+    this._API
+      .getAllnewProduct('newProduct')
+      .pipe(
+        map((items) => {
+          const results = [];
+          for (let index = 0; index < items.length; index++) {
+            var element = items[index];
+            if (this.listaFavorite.length > 0 && this.listaFavorite) {
+              let modifiedItem = { ...element };
+              for (
+                let favIndex = 0;
+                favIndex < this.listaFavorite.length;
+                favIndex++
+              ) {
+                var favoriteElement = this.listaFavorite[favIndex];
+                if (favoriteElement.productoId == element.id_product) {
+                  modifiedItem.status = true;
+                  modifiedItem.icon = 'pi-heart-fill';
+                  break; // Salimos del bucle interno después de encontrar una coincidencia
+                }
+              }
+              results.push(modifiedItem);
+            } else {
+              console.log('error');
+              results.push(element);
+            }
+          }
+          return results;
+        })
+      )
+      .subscribe(
+        (data) => {
+          this.datosApi = data;
+          this.datosApiLoading = false;
+        },
+        (error) => {
+          //this.datosApiLoading = false;
+        }
+      );
     this._API.getAllProductandStore('productStore/all/').subscribe(
       (data) => {
         this.productsfind = data;
@@ -363,7 +414,6 @@ export class FindItemsComponent implements OnInit {
         console.log(err);
       }
     );
-    console.log(this.favoriteProduct);
   }
 }
 

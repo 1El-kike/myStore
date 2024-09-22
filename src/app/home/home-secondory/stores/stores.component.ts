@@ -47,7 +47,6 @@ export class StoresComponent implements OnInit {
         }
       );
     } else if (this.stores.length > 0) {
-      console.log(this.stores);
       this.isloadingStores = false;
     }
   }
