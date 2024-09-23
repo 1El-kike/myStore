@@ -1,3 +1,5 @@
+const { transform } = require("typescript");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{html,ts}"],
@@ -29,8 +31,17 @@ module.exports = {
           "100%": { transform: "scale(1) translateX(0)", opacity: 1 },
         },
         sparkle: {
-          "0%": { scale: 0.2 },
-          "100%": { scale: 1 },
+          "0%": {
+            rotate: "10deg",
+            transform: "translateY(100px)",
+            background: "red",
+          },
+          "50%": { background: "yellow" },
+          "100%": {
+            rotate: "-45deg",
+            transform: "scale(1) translateX(0)",
+            background: "linear-gradient(to left #CFD8E3, #E9EEF4)",
+          },
         },
       },
       animation: {

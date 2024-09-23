@@ -6,4 +6,10 @@
 
 .red-color {
   color: brown;
+  background: linear-gradient(to left #a5a4a4, #eeecec);
 }
+
+/* .image {
+  -webkit-clip-path: ellipse(90% at 50%);
+  clip-path: ellipse(70% 50% at 50% 30%);
+} */

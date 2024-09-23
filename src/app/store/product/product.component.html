@@ -1,95 +1,45 @@
-<div class="bg-white">
-  <div class="mx-auto max-w-2xl px-4 pt-5 sm:px-6 sm:py-7 lg:max-w-7xl lg:px-8">
-    <h2 class="text-2xl font-bold tracking-tight text-gray-900">
-      Customers also purchased
-    </h2>
+<div class="w-full">
+  <div
+    class="relative bg-gradient-to-l overflow-hidden from-yellow-600 via-yellow-500 to-red-500 w-full shadow-2xl shadow-yellow-600 h-[620px]"
+  >
     <div
-      class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+      class="absolute rounded-full animate-sparkle shadow-2xl shadow-red-500 md:-right-36 -right-24 z-0 -rotate-45 md:w-[800px] w-[300px] md:-top-56 -top-10 md:h-[700px] h-[250px] bg-gradient-to-l from-slate-100 to-slate-300"
+    ></div>
+    <div
+      class="absolute z-0 animate-transition md:right-96 right-20 md:top-56 top-24 md:w-[400px] w-40 md:h-[300px] h-32"
     >
-      @for (item of products; track $index) {
-      <div class="group relative">
+      <img class="w-full z-0 h-full" src="/products.png" alt="image" />
+    </div>
+    <div class="w-full h-full flex">
+      <div class="flex h-full mx-7 flex-col md:justify-center md:items-start">
         <div
-          class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
+          class="flex h-1/6 md:h-1/5 justify-start ml-24 gap-3 md:gap-9 mx-24 items-center"
         >
-          <img
-            src="https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-            alt="Front of men&#039;s Basic Tee in black."
-            class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-          />
-        </div>
-        <div class="mt-4 flex justify-between">
-          <div>
-            <h3 class="text-sm text-gray-700">
-              <a href="#">
-                <span aria-hidden="true" class="absolute inset-0"></span>
-                Basic Tee
-              </a>
-            </h3>
-            <p class="mt-1 text-sm text-gray-500">Black</p>
+          @for(item of menus; track $index){
+          <div
+            class="md:text-2xl font-bold border-b cursor-pointer text-rose-950 hover:text-blue-900 hover:transition-all hover:scale-125 animate-opacity"
+          >
+            {{ item.name }}
           </div>
-          <p class="text-sm font-medium text-gray-900">$35</p>
+          }
         </div>
-
-        <!-- More products... -->
+        <p
+          class="flex flex-col justify-start animate-opacity text-rose-950 font-black font-serif items-start md:text-7xl mx-8"
+        >
+          Store and <br /><span class="text-violet-700">product</span>
+          for but any job
+          <br />
+        </p>
+        <button
+          class="btn bg-gradient-to-tr ml-7 from-rose-800 to-black animate-opacityonly btn-danger mt-4 text-3xl py-3 px-2"
+        >
+          <span class="text-2xl uppercase">SEARCH Product</span
+          ><i class="pi px-3 text-2xl animate-opacity pi-home"></i>
+        </button>
       </div>
-      }
     </div>
   </div>
-</div>
-
-<div class="table-responsive-lg ms-5">
-  <table
-    class="table table-striped-columns table-hover table-borderless table-primary align-middle"
-  >
-    <thead class="table-light">
-      <caption class="display-4 text-success mb-4">
-        Store
-      </caption>
-      <tr>
-        <th>Products</th>
-        <th>Disponibles</th>
-        <th>Precio</th>
-        <th>Detalles</th>
-      </tr>
-    </thead>
-    <tbody class="table-group-divider">
-      @for (product of products ; track $index) {
-      <tr class="table-secondary">
-        <td cope="row">{{ product.name }}</td>
-        <td [ngClass]="{ 'red-color': product.cantidad < 40 }">
-          {{ product.cantidad }}
-        </td>
-        <td>{{ product.price | currency }}</td>
-        <td class="d-flex justify-content-end">
-          <a
-            [routerLink]="['/products', product.id]"
-            class="btn btn-primary"
-            role="button"
-          >
-            Info
-          </a>
-        </td>
-      </tr>
-      }
-      <tr **ngFor="let product of products" class="table-secondary">
-        <th cope="row">{{ product.id }}</th>
-        <td>{{ product.name }}</td>
-        <td>{{ product.cantidad }}</td>
-        <td>{{ product.precio | currency }}</td>
-        <td class="d-flex justify-content-end">
-          <a
-            [routerLink]="['/products', product.id]"
-            class="btn btn-primary"
-            role="button"
-          >
-            Info
-          </a>
-        </td>
-      </tr>
-    </tbody>
-    <tfoot></tfoot>
-  </table>
-</div>
-<div class="position-absolute fecha">
-  {{ fecha | date }}
+  @for (item of products$ | async; track $index) {
+  <p>{{ item.name }}</p>
+  }
 </div>
