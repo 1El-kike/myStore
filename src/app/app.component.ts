@@ -1,12 +1,12 @@
 import { Component, EventEmitter } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { ProductComponent } from './store/product/product.component';
-import { ProductDetailComponent } from '../app/store/product-detail/product-detail.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProductComponent } from './components/store/product/product.component';
+import { ProductDetailComponent } from '../app/components/store/product-detail/product-detail.component';
 import { NgClass } from '@angular/common';
-import { MenuComponent } from './menu/menu.component';
-import { FooterComponent } from './footer/footer.component';
-import { FondoComponent } from "./fondo/fondo.component";
+import { MenuComponent } from './components/menu/menu.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { FondoComponent } from './components/fondo/fondo.component';
 
 @Component({
   selector: 'app-root',
@@ -21,18 +21,16 @@ import { FondoComponent } from "./fondo/fondo.component";
     MenuComponent,
     FooterComponent,
     FondoComponent,
-    FondoComponent
-],
+    FondoComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
-
   title: string = 'Store';
   menuOption = '';
 
-  onOption(option: string){
-this.menuOption =option;
+  onOption(option: string) {
+    this.menuOption = option;
   }
-
 }

@@ -1,4 +1,4 @@
-import { Todos } from './../cliente-api.service';
+import { Todos } from '../../cliente-api.service';
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FindItemsComponent } from './find-items/find-items.component';
