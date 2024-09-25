@@ -11,15 +11,15 @@
       <img class="w-full z-0 h-full" src="/products.png" alt="image" />
     </div>
     <div class="w-full h-full flex">
-      <div class="flex h-full mx-7 flex-col md:justify-center md:items-start">
+      <div class="flex h-full mx-7 flex-col md:justify-start md:items-start">
         <div
-          class="flex h-1/6 md:h-1/5 justify-start ml-24 gap-3 md:gap-9 mx-24 items-center"
+          class="flex h-1/6 md:h-1/5 justify-start ml-10 gap-8 md:gap-9 mx-24 items-center"
         >
           @for(item of menus; track $index){
           <div
-            class="md:text-2xl font-bold border-b cursor-pointer text-rose-950 hover:text-blue-900 hover:transition-all hover:scale-125 animate-opacity"
+            class="md:text-2xl flex font-bold bg-gradient-to-tr from-transparent  via-transparent p-2 rounded-2xl to-red-700 cursor-pointer text-rose-950 transition-colors duration-time ease-in-out hover:text-blue-900 hover:bg-gradient-to-tr hover:from-red-700 hover:via-transparent hover:duration-300   hover:to-transparent hover:transition-all hover:scale-125 animate-opacity"
           >
-            {{ item.name }}
+            {{ item.name }}<img class="w-8 ml-1   " src='{{item.icon}}' />
           </div>
           }
         </div>
@@ -31,7 +31,7 @@
           <br />
         </p>
         <button
-          class="btn bg-gradient-to-tr ml-7 from-rose-800 to-black animate-opacityonly btn-danger mt-4 text-3xl py-3 px-2"
+          class="bg-gradient-to-tr ml-7 btn btn-danger from-rose-800 via-rose-950 custom-gradient to-black hover:bg-gradient-to-tr hover:from-slate-900 hoverto-rose-950 animate-opacityonly mt-4 text-3xl py-3 px-2"
         >
           <span class="text-2xl uppercase">SEARCH Product</span
           ><i class="pi px-3 text-2xl animate-opacity pi-home"></i>

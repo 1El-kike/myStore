@@ -11,6 +11,9 @@ module.exports = {
       backgroundImage: {
         "mi-image": "url('')",
       },
+      transitionDuration: {
+        time: "2s",
+      },
       boxShadow: {
         custom:
           "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
@@ -45,9 +48,9 @@ module.exports = {
         },
       },
       animation: {
-        opacity: "opacity 1s ease ",
-        opacityonly: "opacityonly 200ms ease-out ",
-        sparkle: "sparkle 1s ease ",
+        opacity: "opacity 500ms ease ",
+        opacityonly: "opacityonly 500ms ease-out ",
+        sparkle: "sparkle 500ms ease ",
         transition: "transition 1s ease ",
       },
     },

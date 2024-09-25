@@ -18,27 +18,37 @@ export class ProductComponent implements OnInit {
   products$?: Observable<any>;
   products: any = [];
   menus: any = [
-    {
-      name: 'Food',
-      address: '',
-    },
-    {
-      name: 'Choping',
-      address: '',
-    },
-    {
-      name: 'Closet',
-      address: '',
-    },
-    {
-      name: 'Tools',
-      address: '',
-    },
+
   ];
 
   private _API = inject(ApiStoresService);
   // hora de trabajara aqui
   ngOnInit(): void {
     this.products$ = this._API.getAllproducts('allProducts');
+    this.menus = [
+      {
+        name: 'Food',
+        address: '',
+        icon:'/food.png'
+      },
+      {
+        name: 'Choping',
+        address: '',
+        icon:'shoe.png'
+
+      },
+      {
+        name: 'Closet',
+        address: '',
+        icon:'bienes.png'
+
+      },
+      {
+        name: 'Tools',
+        address: '',
+        icon:'food.png'
+
+      },
+    ]
   }
 }
