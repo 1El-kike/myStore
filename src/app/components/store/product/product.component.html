@@ -1,23 +1,27 @@
 <div class="w-full">
   <div
-    class="relative bg-gradient-to-l overflow-hidden from-yellow-600 via-yellow-500 to-red-500 w-full shadow-2xl shadow-yellow-600 h-[620px]"
+    class="relative bg-gradient-to-l overflow-hidden from-yellow-600 via-yellow-500 to-red-500 w-full shadow-2xl shadow-yellow-600 h-[670px]"
   >
     <div
       class="absolute rounded-full animate-sparkle shadow-2xl shadow-red-500 md:-right-36 -right-24 z-0 -rotate-45 md:w-[800px] w-[300px] md:-top-56 -top-10 md:h-[700px] h-[250px] bg-gradient-to-l from-slate-100 to-slate-300"
     ></div>
+    <img src="CBM.jpg" class="absolute w-full h-full opacity-10" />
+    <img class="w-32 absolute animate-rotatecircle top-10 right-[540px]" src="/shoe.png" alt="image" />
+    <img class="w-32 absolute animate-rotatecircle top-[440px] right-[130px]" src="/food.png" alt="image" />
+    <img class="w-32 absolute animate-rotatecircle top-[99px] right-[130px]" src="/anillo.png" alt="image" />
     <div
       class="absolute z-0 animate-transition md:right-96 right-20 md:top-56 top-24 md:w-[400px] w-40 md:h-[300px] h-32"
     >
       <img class="w-full z-0 h-full" src="/products.png" alt="image" />
     </div>
-    <div class="w-full h-full flex">
-      <div class="flex h-full mx-7 flex-col md:justify-start md:items-start">
+    <div class="w-full h-full ">
+      <div class="flex h-5/6 mx-7 flex-col md:justify-start md:items-start">
         <div
           class="flex h-1/6 md:h-1/5 justify-start ml-10 gap-8 md:gap-9 mx-24 items-center"
         >
-          @for(item of menus; track $index){
+          @for(item of optionProduts; track $index){
           <div
-            class="md:text-2xl flex font-bold bg-gradient-to-tr from-transparent  via-transparent p-2 rounded-2xl to-red-700 cursor-pointer text-rose-950 transition-colors duration-time ease-in-out hover:text-blue-900 hover:bg-gradient-to-tr hover:from-red-700 hover:via-transparent hover:duration-300   hover:to-transparent hover:transition-all hover:scale-125 animate-opacity"
+            class="md:text-xl uppercase flex font-bold bg-gradient-to-tr from-transparent  via-transparent p-2 rounded-2xl to-red-700 cursor-pointer text-rose-950 transition-colors duration-time ease-in-out hover:text-blue-900 hover:bg-gradient-to-tr hover:from-red-700 hover:via-transparent hover:duration-300   hover:to-transparent hover:transition-all hover:scale-125 animate-opacity"
           >
             {{ item.name }}<img class="w-8 ml-1   " src='{{item.icon}}' />
           </div>
@@ -26,8 +30,8 @@
         <p
           class="flex flex-col justify-start animate-opacity text-rose-950 font-black font-serif items-start md:text-7xl mx-8"
         >
-          Store and <br /><span class="text-violet-700">product</span>
-          for but any job
+        All Products <br /><span class="text-violet-700">at your </span>
+        service
           <br />
         </p>
         <button
@@ -37,9 +41,28 @@
           ><i class="pi px-3 text-2xl animate-opacity pi-home"></i>
         </button>
       </div>
+      <div class="w-full flex h-1/6 justify-center  z-50">
+        <div class="w-full md:w-2/3 flex">
+          @for (item of infoHeader; track $index) {
+            <div class="flex-grow opacity-85 justify-center items-center flex" >
+              <div class="flex items-center px-3 mb-6 opacity-80 mx-2 bg-opacity-75 bg-gradient-to-t to-transparent via-transparent rounded-2xl from-rose-800 relative gap-1">
+                <img src="{{item.image}}"/>
+                <div class="leading-custom text-end ">
+                    <p class="font-bold">{{item.text}}</p>
+                    <p>{{item.info}}</p>
+                    @if(item.text != infoHeader[2].text){
+                      <span class=" flex-none w-[80px]  absolute bottom-12 border-rose-700  -right-[88px]  border-b-2"></span>
+                    }
+                </div>
+              </div>
+
+               </div>
+          }
+        </div>
+      </div>
     </div>
+    <div class="flex-none absolute bottom-0 right-0 mx-10 rotate-90 animate-pulse text-rose-900 my-4" ><i class="pi text-2xl pi-angle-double-right"></i></div>
   </div>
-  @for (item of products$ | async; track $index) {
-  <p>{{ item.name }}</p>
-  }
+  <app-product-main/>
+
 </div>

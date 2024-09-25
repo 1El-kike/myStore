@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       lineHeight: {
-        custom: "0.22", // Reducirá el espacio entre las letras
+        custom: "0.22", // Reducirá el espacio entre las letras class = leading-custom
       },
       backgroundImage: {
         "mi-image": "url('')",
@@ -19,6 +19,10 @@ module.exports = {
           "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
       },
       keyframes: {
+        rotatecircle:{
+          "0%":{transform:"translateY(-460px)" },
+          "100%":{transform:"translateY(0px)" }
+        },
         opacity: {
           "0%": { transform: "scale(1) translateY(0)", opacity: 1 },
           "50%": { transform: "scale(1.2) translateY(-10px)", opacity: 0.5 },
@@ -52,6 +56,7 @@ module.exports = {
         opacityonly: "opacityonly 500ms ease-out ",
         sparkle: "sparkle 500ms ease ",
         transition: "transition 1s ease ",
+        rotatecircle:"rotatecircle 900ms ease-in-out"
       },
     },
   },
