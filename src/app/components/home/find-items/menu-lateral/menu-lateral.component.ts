@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { AsyncPipe, CurrencyPipe, NgIf } from '@angular/common';
+import { AsyncPipe, NgIf } from '@angular/common';
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { List, LocalstoreService } from '../../../services/localstore.service';
 import { ButtonModule } from 'primeng/button';
@@ -12,7 +12,6 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [
     NgIf,
-    CurrencyPipe,
     ButtonModule,
     RouterLink,
     OrderListModule,

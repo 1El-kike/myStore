@@ -1,4 +1,4 @@
-import { AsyncPipe, CurrencyPipe, DatePipe, NgClass } from '@angular/common';
+import { AsyncPipe, DatePipe, NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ApiStoresService } from '../../services/api-stores.service';
@@ -8,7 +8,7 @@ import { ProductMainComponent } from './product-main/product-main.component';
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CurrencyPipe, DatePipe, RouterLink, AsyncPipe,ProductMainComponent, NgClass],
+  imports: [ DatePipe, RouterLink, AsyncPipe,ProductMainComponent, NgClass],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
 })

@@ -19,6 +19,10 @@ module.exports = {
           "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
       },
       keyframes: {
+        customScroll:{
+          "0%":{transform:"translateX(-160px)" },
+          "100%":{transform:"translateX(0px)" }
+        },
         rotatecircle:{
           "0%":{transform:"translateY(-460px)" },
           "100%":{transform:"translateY(0px)" }
@@ -56,7 +60,8 @@ module.exports = {
         opacityonly: "opacityonly 500ms ease-out ",
         sparkle: "sparkle 500ms ease ",
         transition: "transition 1s ease ",
-        rotatecircle:"rotatecircle 900ms ease-in-out"
+        rotatecircle:"rotatecircle 900ms ease-in-out",
+        customScroll:"customScroll 0.5s ease-in-out infinite alternate"
       },
     },
   },

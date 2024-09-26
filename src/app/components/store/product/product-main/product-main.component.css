@@ -1,0 +1,28 @@
+.animate {
+  animation-name: myscroll;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 200ms;
+  animation-range: 0 120px;
+  animation-timeline: view(y);
+}
+.animatevertical {
+  animation-name: myscroll;
+  animation-timing-function: linear;
+  animation-delay: 200ms;
+  animation-range: 0 520px;
+  animation-timeline: view(y 0);
+}
+
+@keyframes myscroll {
+  from {
+    opacity: 0;
+    scale: 0.3;
+    transform: translateX(400px);
+  }
+  to {
+    opacity: 0.6;
+    scale: 1;
+    transform: translateX(0);
+  }
+}
