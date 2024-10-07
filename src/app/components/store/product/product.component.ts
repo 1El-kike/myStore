@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { ApiStoresService } from '../../services/api-stores.service';
 import { Observable } from 'rxjs';
 import { ProductMainComponent } from './product-main/product-main.component';
+import { optionProduts } from './product-main/product-main.models';
 
 @Component({
   selector: 'app-product',
@@ -24,31 +25,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.optionProduts = [
-      {
-        name: 'Food',
-        address: '',
-        icon:'/food.png'
-      },
-      {
-        name: 'Clothes',
-        address: '',
-        icon:'shoe.png'
-
-      },
-      {
-        name: 'provisions',
-        address: '',
-        icon:'bienes.png'
-
-      },
-      {
-        name: "jeweler's",
-        address: '',
-        icon:'anillo.png'
-
-      },
-    ]
+    this.optionProduts = optionProduts
     this.infoHeader = [
       {image:'icons8-casa-96.png',text:"Fast Get start",info:"Time full"},
       {image:'product.png',text:"Good Calidad",info:"More very "},

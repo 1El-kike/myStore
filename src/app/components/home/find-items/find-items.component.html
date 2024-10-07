@@ -13,7 +13,7 @@
       class="mb-10 flex flex-col sm:flex-col lg:flex-row md:flex-row xl:gap-28 md:gap-2 sm:gap-2 z-20 justify-around sm:items-start items-start md:items-center lg:items-center w-full"
     >
       <div
-        class="fle sm:scale-100 md:scale-100 lg:scale-75 scale-75 ml-0 gap-1"
+        class="flex sm:scale-100 md:scale-100 lg:scale-75 scale-75 ml-0 gap-1"
       >
         <div id="container" class="">
           <div
@@ -44,28 +44,8 @@
           </div>
         </div>
       </div>
-      <div class="mx-4 flex">
-        <span
-          class="input-group-text px-3 bg-gradient-to-tl from-red-600 via-red-500 to-red-700 shadow-md shadow-amber-400 h-8 sm:h-8 md:h-14 lg:h-14"
-        >
-          <i class="pi pi-shop"></i>
-        </span>
-        <input
-          type="text"
-          title="find"
-          [(ngModel)]="searchElement"
-          (keyup)="filterProducts()"
-          class="lg:w-[30rem] h-8 sm:h-8 md:h-14 lg:h-14 min-w-0 flex-auto border-2 bg-white/5 px-3.5 py-2 text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:outline-none focus:ring-inset focus:border-blue-500 sm:text-sm sm:leading-6"
-        />
-        <button
-          class="rounded-r-3xl px-3 bg-gradient-to-t hover:bg-gradient-to-b hover:shadow-red-200 shadow-red-400 shadow-md hover:from-yellow-700 hover:via-yellow-500 hover:to-yellow-300 from-yellow-300 via-yellow-500 to-yellow-600 h-8 sm:h-8 md:h-14 lg:h-14 flex justify-center items-center"
-          (click)="filterProducts()"
-        >
-          <i
-            class="pi justify-center flex items-center pi-search text-base sm:text-base md:text-xl lg:text-2xl"
-          ></i>
-        </button>
-      </div>
+      <!-- component of search -->
+      <app-search-component [Element]="searchElement" [productsEnviados]="productsfind" (changefind)="changefind($event)" />
       <div
         class="logo flex w-[7rem] sm:w-[10rem] md:w-[12rem] lg:w-[16rem] items-center justify-between text-secondary text-5xl font-extrabold absolute sm:absolute ml-52 mb-12 sm:ml-52 md:m-0 lg:m-0 sm:mb-14 md:relative lg:relative"
       >

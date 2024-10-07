@@ -1,69 +1,93 @@
-<div class="flex flex-col justify-center  w-full h-full items-center">
-
+<div class="flex flex-col justify-center w-full h-full items-center">
   <div class="mt-20 relative justify-center flex flex-col items-center">
     <h1 class="mb-5 uppercase">Types of calification Products</h1>
-    <div class="absolute -z-10 w-80 animatevertical h-[500px] left-32 opacity-65 top-20" >
-      <img src="/CBM2.jpg" class="h-full rounded-2xl" alt="">
+    <div
+      class="absolute -z-10 w-80 animatevertical h-[500px] left-16 opacity-65 top-[460px]"
+    >
+      <img src="/CBM2-Photoroom.png" class="h-[300px] rounded-2xl" alt="" />
     </div>
-    <div class="absolute -z-10 w-80 animatevertical flex  h-[500px] opacity-65 right-32 top-20" >
-      <img src="/prueba1.jpg" class="h-full w-80 rounded-2xl" alt="">
+    <div
+      class="absolute -z-10 w-80 animatevertical flex h-[500px] opacity-65 right-0 top-[600px]"
+    >
+      <img src="/prueba1.jpg" class="h-[300px] w-80 rounded-2xl" alt="" />
     </div>
-    <div class="flex gap-20 ">
+    <div class="flex gap-20">
       @for (item of typeproduct; track $index) {
 
-        <div class="card my-2 px-4">
-          <img
-            class="card-img-top"
-            src="{{item.img}}"
-            alt="Card image cap"
-          />
-          <div class="card-body">
-            <h4 class="card-title py-2 text-center">{{item.type}}</h4>
+        <div class="rounded-3xl overflow-hidden">
 
-            <span  class="m-2">Card link</span>
-            <button href="#" class="ml-2 btn btn-danger">Another link</button>
-          </div>
+      <div class=" bg-gradient-to-b h-full from-orange-200 to-red-300  my-2 py-4 rounded-3xl rounded-tl-full px-2">
+        <div class="w-[270px] h-[200px]">
+
+          <img class="card-img-top min-h-[90%] max-h-[70%] w-full " src="{{ item.img }}" alt="Card image cap" />
         </div>
-      }
+        <div class="card-body">
+          <h4 class="card-title py-2 text-center">{{ item.type }}</h4>
+
+          <span class="m-2 shadow-lg">Card link</span>
+          <button
+            href="#"
+            (click)="changeproduct($index)"
+            class="ml-2 bg-rose-500 border-separate text-white font-bold py-3 px-4 rounded-2xl shadow-custom shadow-slate-700  hover:bg-slate-700 hover:shadow-none transition-all duration-500 ease-in-out hover:scale-90 "
+          >
+            Another link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    }
 
     </div>
   </div>
   <div class="my-20 justify-center flex flex-col items-center">
     <h1 class="mb-5 uppercase">Category</h1>
-    <div class="flex gap-3  ">
-      @for (item of typeproduct[0].category; track $index) {
-        <div class="flex-grow group relative overflow-hidden transition-all hover:shadow-2xl  hover:shadow-rose-500 rounded-3xl ease-out duration-500 hover:scale-150 ">
-          <img
-          class="h-[100px] w-[100px] rounded-3xl  cursor-pointer"
-          src="{{item.img}}"
+    <div class="flex gap-3">
+      @for (item of typecategory; track $index) {
+      <div
+        class="flex-grow group {{item.color}}  relative overflow-hidden transition-all hover:shadow-2xl hover:shadow-rose-500 rounded-3xl ease-out duration-500 hover:scale-150"
+      >
+        <img
+          class="h-[100px] w-[100px] {{item.size}}  rounded-3xl cursor-pointer"
+          src="{{ item.img }}"
           alt=""
-          />
-          <p class="absolute text-white font-bold w-full pb-2 bg-gradient-to-t from-rose-900  to-transparent group-hover:-translate-y-8 transition-all px-2 ease-out duration-500">{{item.name}}</p>
-        </div>
+        />
+        <p
+          class="absolute text-white font-bold w-full pb-2 bg-gradient-to-t from-rose-900 to-transparent group-hover:-translate-y-8 transition-all px-2 ease-out duration-500"
+        >
+          {{ item.name }}
+        </p>
+      </div>
 
       }
-
     </div>
   </div>
   <h1 class="uppercase">Products</h1>
-  <div class="flex my-10 flex-wrap gap-10 w-full justify-center items-center md:px-2">
+  <div
+    class="flex my-10 flex-wrap gap-10 w-full justify-center items-center md:px-2"
+  >
     @for (item of products$ | async; track $index) {
-      <div class="w-[30%] leading-4 md:w-[250px] flex flex-col items-center md:[240px] border shadow-lg rounded-3xl py-2 px-4 max-h-[35%]" >
-        <img class="max-w-[80%] h-[80%] md:h-[170px]" src="{{item.image}}"/>
-        <p class="font-bold">{{ item.name }}</p>
-        <p class="line-clamp-2">{{ item.description }}</p>
-        <div class="flex w-full justify-between">
-          <div>{{item.price | currency:"USD":true}} CUP</div>
-          <div class="flex border-2 gap-2 justify-between items-center  px-3 rounded-2xl border-rose-600 ">
-            <i class="pi text-red-500 pi-minus"></i>
-            <p class="text-red-500 flex justify-center mt-3 items-center h-full">{{item.cantidad}}</p>
-            <i class="pi text-red-500 pi-plus"></i>
+    <div
+      class="w-[30%] leading-4 md:w-[250px] flex flex-col items-center md:[240px] border shadow-lg rounded-3xl py-2 px-4 max-h-[35%]"
+    >
+      <img class="max-w-[80%] h-[80%] md:h-[170px]" src="{{ item.image }}" />
+      <p class="font-bold">{{ item.name }}</p>
+      <p class="line-clamp-2">{{ item.description }}</p>
+      <div class="flex w-full justify-between">
+        <div>{{ item.price | currency : "USD" : true }} CUP</div>
+        <div
+          class="flex border-2 gap-2 justify-between items-center px-3 rounded-2xl border-rose-600"
+        >
+          <i class="pi text-red-500 pi-minus"></i>
+          <p class="text-red-500 flex justify-center mt-3 items-center h-full">
+            {{ item.cantidad }}
+          </p>
+          <i class="pi text-red-500 pi-plus"></i>
 
-              <i class="pi text-red-500 pi-cart-plus"></i>
-
-          </div>
+          <i class="pi text-red-500 pi-cart-plus"></i>
         </div>
       </div>
-      }
+    </div>
+    }
   </div>
 </div>

@@ -1,0 +1,18 @@
+<div
+  class="user my-2 bg-gradient-to-tr div-animation from-transparent via-transparent to-rose-500 relative after:bg-gradient-to-r rounded-2xl after:absolute opacity-80 after:h-full after:w-full after:top-0 after:-z-10 after:via-transparent after:rounded-2xl after:to-transparent flex justify-center items-center"
+>
+  <div
+    class="flex flex-row justify-center items-center gap-2 bg-transparent flex-wrap"
+  >
+    <p class="text-3xl text text-rose-950 text-opacity-85 shadow-black  font-mono mt-1 font-bold">Welcome to site web</p>
+    <p-chip
+      label="{{ user[0][0].name }}"
+      image="/perfil.png"
+      alt="Avatar image"
+    />
+    <div class="bg-white py-1 cursor-pointer px-2 rounded-3xl">
+      <i class="pi pi-bell text-2xl" pBadge value="2"></i>
+    </div>
+  </div>
+  <div class="card flex justify-content-center"></div>
+</div>

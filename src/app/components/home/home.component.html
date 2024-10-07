@@ -1,5 +1,5 @@
 <div class="  ">
-  <div id="Title" class="w-full relative flex flex-col justify-center items-center">
+  <div  id="Title" class="w-full relative flex flex-col justify-center items-center">
     <img src={{image}} alt="Fondo" class="absolute inset-0 w-full h-full object-cover"/>
     <div class="absolute inset-0 bg-gradient-to-r  via-transparent to-yellow-400 from-yellow-200  "></div>
     <div class="z-10 mt-4">
@@ -8,24 +8,7 @@
         <span class=" text-xl lg:text-4xl md:text-3xl sm:text-2xl text-red-400"><p>Web<span class="font-bold   lg:text-5xl md:text-4xl sm:text-3xl text-2xl text-blue-500">X</span></p></span>
       </div>
       @if (user) {
-        <div class="user my-2 bg-gradient-to-t  from-transparent via-red-500 to-transparent
-         relative after:bg-gradient-to-r rounded-2xl after:absolute  opacity-80 after:h-full after:w-full
-         after:top-0 after:-z-10 after:via-transparent after:rounded-2xl after:to-transparent
-         flex justify-center items-center">
-          <div class="flex flex-row justify-center items-center gap-2 bg-transparent flex-wrap">
-            <p class="text-3xl text-white mt-1 font-bold">Welcome to site web </p>
-            <p-chip
-                label="{{user[0][0].name}}"
-                image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png"
-                alt="Avatar image" />
-                <div class="bg-white py-1 cursor-pointer px-2 rounded-3xl" >
-                  <i class="pi pi-bell text-2xl" pBadge value="2"></i>
-                </div>
-
-             </div>
-            <div class="card flex justify-content-center">
-          </div>
-        </div>
+        <app-avatar [user]="user"/>
       }
       @else{
         <div class="LogIn">

@@ -1,0 +1,23 @@
+.text{
+  text-shadow: 3px 5px 5px rgb(255, 162, 0);
+}
+.div-animation{
+ /* animation: div duration timing-function delay iteration-count direction fill-mode;*/
+  animation-name: div;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 200ms;
+  animation-range: 0 25vh;
+  animation-timeline: scroll(block);
+  animation-fill-mode: forwards;
+}
+
+@keyframes div {
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(100%);
+
+  }
+}

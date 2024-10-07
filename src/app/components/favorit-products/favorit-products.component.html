@@ -1,10 +1,45 @@
-<div
-  class="min-h-screen bg-yellow-100 radialGradient overflow-hidden relative after:top-0 after:absolute after:w-full after:h-full"
->
+<div class="flex flex-col justify-center overflow-hidden items-center">
   <div
-    class="lineargradiente rotate-45 top-[500px] z-10 relative w-[2000px]"
-  ></div>
-  <img src="/deposit.jpg" class="w-full h-full absolute opacity-20" alt="" />
+    class="relative bg-gradient-to-bl from-blue-500 via-violet-500 to-fuchsia-500 w-full shadow-2xl shadow-blue-600 sm:h-[300px] h-[160px] md:h-[670px]"
+  >
+    <img
+      [src]="imageFondo"
+      class="absolute top-10  right-10 animate-transition w-[50%] h-[70%]"
+    />
+    <img
+      [src]="imageSecondary"
+      class="absolute top-[450px] left-0 z-30 animate-opacity w-[40%] h-[60%]"
+    />
+    <div
+      class="flex flex-col animate-opacityonly pl-20 pt-40 absolute text-white top-0 left-0 w-full h-full z-10"
+    >
+      <p class="uppercase font-mono text-3xl">Homeware category</p>
+
+      <h1 class="uppercase text-8xl font-mono font-bold">Lucky Shop</h1>
+      <span class="w-2/5">
+        <hr />
+      </span>
+      <div class="flex gap-10 text-white">
+        <button
+          class="py-3 rounded-2xl px-10 hover:scale-110 hover:bg-violet-500 transition-all ease-in-out duration-1000 bg-white text-xl text-rose-950"
+        >
+          Shouw Store
+        </button>
+        <button
+          class="rounded-2xl px-10 py-3 text-xl border-2 hover:bg-rose-950 hover:scale-110 ease-in-out duration-1000 transition-all"
+        >
+          Shop Now
+        </button>
+      </div>
+      <div class="flex gap-2">
+        <i class="pi pi-star animate-delay1 pt-7"></i>
+        <i class="pi pi-star animate-delay2 pt-7"></i>
+        <i class="pi pi-star animate-delay3 pt-7"></i>
+        <i class="pi pi-star animate-delay4 pt-7"></i>
+        <i class="pi pi-star animate-delay5 pt-7"></i>
+      </div>
+    </div>
+  </div>
 
   @if (datos.length > 0) {
   <app-favorite [productFavorite]="datos" />
@@ -28,7 +63,7 @@
             Search Product
           </button>
         </div>
-        <p class="text-white">Losdasdsad</p>
+        <p class="text-white"></p>
       </div>
     </div>
   </div>

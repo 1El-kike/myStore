@@ -40,6 +40,7 @@ export class MenuComponent implements OnDestroy {
     this.unsubcribe = this._router.events.subscribe((event: any) => {
       if (event instanceof NavigationEnd) {
         this.isOpenMenu = false;
+        this.isOpenDrow = false;
       }
     });
   }

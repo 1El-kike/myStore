@@ -15,6 +15,8 @@ import { FavoriteComponent } from './favorite/favorite.component';
 })
 export class FavoritProductsComponent implements OnInit {
   datos: favorite[] = [];
+  imageFondo = "/fondos/store.png"
+  imageSecondary = "/fondos/productStore.png"
   //datos de usuario
   user?: any;
 

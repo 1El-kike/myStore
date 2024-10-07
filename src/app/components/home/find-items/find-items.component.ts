@@ -15,7 +15,8 @@ import { SearchElementComponent } from './search-element/search-element.componen
 import { ApiHomeService } from '../../services/api-home.service';
 import { map, Observable } from 'rxjs';
 import { SkeletonModule } from 'primeng/skeleton';
-
+import * as AOS from 'aos'
+import { SearchComponentComponent } from './search-component/search-component.component';
 @Component({
   selector: 'app-find-items',
   standalone: true,
@@ -35,6 +36,7 @@ import { SkeletonModule } from 'primeng/skeleton';
     RippleModule,
     SkeletonModule,
     AsyncPipe,
+    SearchComponentComponent
   ],
   providers: [MessageService],
   templateUrl: './find-items.component.html',
@@ -81,10 +83,10 @@ export class FindItemsComponent implements OnInit {
   private _API = inject(ApiHomeService);
 
   //Para buscar los elementos tanto productos como tienda
-  filterProducts() {
-    //Todavia tengo que implemetar una Api para obtener todas las tiendas y productos
+  /* filterProducts() {
+
     let filteredProducts: any[] = [];
-    console.log(this.productsfind);
+
     if (this.searchElement.trim().length > 0) {
       filteredProducts = this.productsfind.filter((productorStore) =>
         productorStore.name
@@ -97,7 +99,11 @@ export class FindItemsComponent implements OnInit {
     } else {
       this.valorfind = [];
     }
-  }
+  } */
+
+    changefind(data:any){
+      this.valorfind = data
+    }
 
   getSeverity(status: string) {
     return status === 'In Stock' ? 'success' : 'danger';
@@ -312,6 +318,9 @@ export class FindItemsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    AOS.init();
+    window.addEventListener('load',AOS.refresh);
+
     this.datosLocales = this._servisLocalStore.getList();
     this.user = this._servisLocalStore.getUser();
     if (this.user.length == 0) {
@@ -350,7 +359,6 @@ export class FindItemsComponent implements OnInit {
               }
               results.push(modifiedItem);
             } else {
-              console.log('error');
               results.push(element);
             }
           }
@@ -390,7 +398,6 @@ export class FindItemsComponent implements OnInit {
               }
               results.push(modifiedItem);
             } else {
-              console.log('error');
               results.push(element);
             }
           }

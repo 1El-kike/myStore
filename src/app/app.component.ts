@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ProductComponent } from './components/store/product/product.component';
@@ -7,6 +7,7 @@ import { NgClass } from '@angular/common';
 import { MenuComponent } from './components/menu/menu.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FondoComponent } from './components/fondo/fondo.component';
+import * as AOS from "aos";
 
 @Component({
   selector: 'app-root',
@@ -26,11 +27,15 @@ import { FondoComponent } from './components/fondo/fondo.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title: string = 'Store';
   menuOption = '';
 
   onOption(option: string) {
     this.menuOption = option;
+  }
+  ngOnInit(): void {
+    AOS.init();
+    window.addEventListener('load',AOS.refresh)
   }
 }

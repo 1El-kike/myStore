@@ -62,10 +62,6 @@ export class ProductDetailComponent implements OnInit {
       console.log(this.img1);
     });
 
-    // Este metodo esta viejo
-    /*  for (let index = 0; index < allproducts.length; index++) {
-        if (this.productId == this.allproducts[index].id ) {
-          this.product = [this.allproducts[index] ]
-        } */
+
   }
 }

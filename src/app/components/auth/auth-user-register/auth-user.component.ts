@@ -71,7 +71,7 @@ export class AuthUserComponent {
       this.mostrarerror = false;
     }
     const userData = this.formularioConct.value;
-    console.log(userData);
+
     this._API.registre('auth/register', userData).subscribe(
       (data) => {
         this.post_User = data.userclient;

@@ -4,6 +4,11 @@
   width: 95%;
 }
 
+.imge{
+  /*  -webkit-clip-path: ellipse(70% 50% at 50% 30%);*/
+  clip-path: ellipse(50% 90% at 20% 100%);
+}
+
 .red-color {
   color: brown;
   background: linear-gradient(to left #a5a4a4, #eeecec);

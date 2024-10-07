@@ -6,7 +6,7 @@ import { NgIf } from '@angular/common';
 import { LocalstoreService } from '../services/localstore.service';
 import { AvatarModule } from 'primeng/avatar';
 import { BadgeModule } from 'primeng/badge';
-import { ChipModule } from 'primeng/chip';
+import { AvatarComponent } from './avatar/avatar.component';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +15,7 @@ import { ChipModule } from 'primeng/chip';
     RouterLink,
     FindItemsComponent,
     NgIf,
-    ChipModule,
+    AvatarComponent,
     AvatarModule,
     BadgeModule,
   ],

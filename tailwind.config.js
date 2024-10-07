@@ -24,8 +24,9 @@ module.exports = {
           "100%":{transform:"translateX(0px)" }
         },
         rotatecircle:{
-          "0%":{transform:"translateY(-460px)" },
-          "100%":{transform:"translateY(0px)" }
+          "0%":{transform:"translateY(-460px) translateX(-1600px) rotate(360deg)", rotate:"360deg" },
+          "80%":{opacity: 0},
+          "100%":{transform:"translateY(0px) translateX(0px) rotate(-45deg) ", rotate:'0',opacity: 1 }
         },
         opacity: {
           "0%": { transform: "scale(1) translateY(0)", opacity: 1 },
@@ -57,10 +58,15 @@ module.exports = {
       },
       animation: {
         opacity: "opacity 500ms ease ",
-        opacityonly: "opacityonly 500ms ease-out ",
+        delay1: "bounce 1s 100ms infinite ",
+        delay2: "bounce 1s 200ms infinite ",
+        delay3: "bounce 1s 300ms infinite ",
+        delay4: "bounce 1s 400ms infinite ",
+        delay5: "bounce 1s 500ms infinite ",
+        opacityonly: "opacityonly 200ms ease-out ",
         sparkle: "sparkle 500ms ease ",
         transition: "transition 1s ease ",
-        rotatecircle:"rotatecircle 900ms ease-in-out",
+        rotatecircle:"rotatecircle 800ms ease-in-out",
         customScroll:"customScroll 0.5s ease-in-out infinite alternate"
       },
     },
