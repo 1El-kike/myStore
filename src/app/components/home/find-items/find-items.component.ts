@@ -77,42 +77,7 @@ export class FindItemsComponent implements OnInit {
   messageError: any = [];
   //Para activae el error
   statusmessage: boolean = false;
-
-  private _messageService = inject(MessageService);
-  private _servisLocalStore = inject(LocalstoreService);
-  private _API = inject(ApiHomeService);
-
-  //Para buscar los elementos tanto productos como tienda
-  /* filterProducts() {
-
-    let filteredProducts: any[] = [];
-
-    if (this.searchElement.trim().length > 0) {
-      filteredProducts = this.productsfind.filter((productorStore) =>
-        productorStore.name
-          .toLowerCase()
-          .includes(this.searchElement.toLowerCase())
-      );
-    }
-    if (filteredProducts.length > 0 || this.searchElement !== '') {
-      this.valorfind = filteredProducts;
-    } else {
-      this.valorfind = [];
-    }
-  } */
-
-    changefind($data:any){
-      this.valorfind = $data;
-    }
-    changetext($data:any){
-      this.searchElement = $data;
-    }
-
-  getSeverity(status: string) {
-    return status === 'In Stock' ? 'success' : 'danger';
-  }
-
-  //ajuste de el componente de new Productos
+  //carrousel de products
   responsiveOptions: CarouselResponsiveOptions[] = [
     {
       breakpoint: '1024px',
@@ -131,6 +96,24 @@ export class FindItemsComponent implements OnInit {
     },
   ];
 
+
+  private _messageService = inject(MessageService);
+  private _servisLocalStore = inject(LocalstoreService);
+  private _API = inject(ApiHomeService);
+
+  //Para buscar los elementos tanto productos como tienda desde el componente hijo
+    changefind($data:any){
+      this.valorfind = $data;
+    }
+  //Para cambiarel texto de searchElement desde el componente hijo
+    changetext($data:any){
+      this.searchElement = $data;
+    }
+
+  getSeverity(status: string) {
+    return status === 'In Stock' ? 'success' : 'danger';
+  }
+
   //eliminar usuario
   delituser() {
     Promise.all([
@@ -144,7 +127,6 @@ export class FindItemsComponent implements OnInit {
         console.error('Error al eliminar usuario y token:', error);
       });
   }
-
   //añadir al carrito de compra
   addbuy(
     id: number,
