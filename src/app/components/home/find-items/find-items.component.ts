@@ -1,4 +1,4 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit, signal } from '@angular/core';
 import { List, LocalstoreService } from '../../services/localstore.service';
 import { FormsModule } from '@angular/forms';
 import { HomeSecondoryComponent } from '../home-secondory/home-secondory.component';
@@ -56,7 +56,7 @@ export class FindItemsComponent implements OnInit {
   //valor del input de busqueda
   searchElement = '';
   //elementos de busquedas inicial
-  productsfind: any[] = [];
+  productsfind = signal([]);
   //elementos de busqueda resultado
   valorfind: any[] = [];
   //datos carrito de compra
@@ -101,8 +101,11 @@ export class FindItemsComponent implements OnInit {
     }
   } */
 
-    changefind(data:any){
-      this.valorfind = data
+    changefind($data:any){
+      this.valorfind = $data;
+    }
+    changetext($data:any){
+      this.searchElement = $data;
     }
 
   getSeverity(status: string) {
@@ -415,7 +418,8 @@ export class FindItemsComponent implements OnInit {
       );
     this._API.getAllProductandStore('productStore/all/').subscribe(
       (data) => {
-        this.productsfind = data;
+        this.productsfind.set(data);
+
       },
       (err) => {
         console.log(err);

@@ -37,7 +37,7 @@ export class SearchElementComponent implements OnChanges {
 
   // Datos enviados del componente padre de los datos de busquedas
   @Input() searchProduct: any[] = [];
-  @Input() input?: string;
+  @Input() letersend?: string;
   status: string = '';
   //datos que se obtebdran la cambiar el dato del contenedor padre
   valor: any = [];
@@ -53,8 +53,8 @@ export class SearchElementComponent implements OnChanges {
         this.isLoadingValor = false;
       }
     }
-    if (changes['input']) {
-      this.status = changes['input'].currentValue;
+    if (changes['letersend']) {
+      this.status = changes['letersend'].currentValue;
     }
   }
 

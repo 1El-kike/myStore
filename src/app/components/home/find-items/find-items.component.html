@@ -45,7 +45,7 @@
         </div>
       </div>
       <!-- component of search -->
-      <app-search-component [Element]="searchElement" [productsEnviados]="productsfind" (changefind)="changefind($event)" />
+      <app-search-component (Element)="changetext($event)" [productsEnviados]="productsfind()" (changefind)="changefind($event)" />
       <div
         class="logo flex w-[7rem] sm:w-[10rem] md:w-[12rem] lg:w-[16rem] items-center justify-between text-secondary text-5xl font-extrabold absolute sm:absolute ml-52 mb-12 sm:ml-52 md:m-0 lg:m-0 sm:mb-14 md:relative lg:relative"
       >
@@ -98,7 +98,7 @@
       </div>
       <app-menu-lateral [isOpenMenu]="isOpenMenu" />
     </div>
-    <app-search-element [input]="searchElement" [searchProduct]="valorfind" />
+    <app-search-element [letersend]="searchElement" [searchProduct]="valorfind" />
     <p class="my-3 text-2xl uppercase font-bold text-slate-700">
       Favorite product
     </p>

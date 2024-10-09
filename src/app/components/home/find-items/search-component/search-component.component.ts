@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, output, InputSignal, effect } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -8,32 +8,39 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './search-component.component.html',
   styleUrl: './search-component.component.css',
 })
-export class SearchComponentComponent {
+export class SearchComponentComponent  {
   //valor del input de busqueda
-  Element = input<string>();
-  searchElement: string = this.Element() as string;
+  searchElement: string = '';
 
   //elementos de busquedas inicial
-  productsEnviados = input<any[]>();
-  productsfind: any[] = this.productsEnviados() as any[];
+  productsEnviados :InputSignal<any> = input<any>();
+  productsfind:any = []
 
   //elementos de busqueda resultado
   valorfind: any[] = [];
+  Element = output<string>();
   changefind = output<any[]>();
 
-  update() {
-    this.changefind.emit(this.valorfind);
-  }
+constructor(){
+  effect(()=>{
+    this.productsfind = this.productsEnviados();
+  })
+}
+
+update(data:any,letle:string) {
+  this.changefind.emit(data);
+  this.Element.emit(letle)
+}
+
 
   filterProducts() {
-    console.log(this.searchElement, 'test', this.productsfind);
     let filteredProducts: any[] = [];
 
     if (
       this.searchElement.trim().length > 0 ||
       this.productsfind != undefined
     ) {
-      filteredProducts = this.productsfind.filter((productorStore) =>
+      filteredProducts = this.productsfind.filter((productorStore:any) =>
         productorStore.name
           .toLowerCase()
           .includes(this.searchElement.toLowerCase())
@@ -48,6 +55,7 @@ export class SearchComponentComponent {
     } else {
       this.valorfind = [];
     }
-    this.update();
+    this.update(this.valorfind,this.searchElement);
   }
+
 }
