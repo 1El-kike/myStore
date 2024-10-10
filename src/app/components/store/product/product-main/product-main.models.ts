@@ -7,6 +7,7 @@ interface Type {
 interface Category {
   name: string;
   img: string;
+  activate:boolean,
   color?: string;
   size?: string;
 }
@@ -23,7 +24,7 @@ interface Option {
   icon: string;
 }
 
-export const typeproduct: Type[] = [
+export const typeproducts: Type[] = [
   {
     type: 'Food',
     img: '/category/foods.png',
@@ -31,85 +32,108 @@ export const typeproduct: Type[] = [
       {
         name: 'Bebidas',
         img: '/category/bebidas.jpg',
+        activate:false,
       },
       {
         name: 'Cakes',
         img: '/category/cakes.jpg',
+        activate:false,
       },
       {
-        name: 'Carnes',
+        name: 'Carnicos',
         img: '/category/carne.jpg',
+        activate:false,
       },
       {
-        name: 'vegetales',
+        name: 'Vegetales',
         img: '/category/vegetal.png',
-        color: 'bg-black',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
         name: 'Dulce',
         img: '/category/dulce.png',
-        color: 'bg-black',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
         name: 'Lacteos',
         img: '/category/lacteos.jpg',
-        color: 'bg-black',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
         name: 'Procesado',
         img: '/category/procesado.jpg',
-        color: 'bg-black',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
         name: 'Helados',
         img: '/category/helado.jpg',
-        color: 'bg-black',
+        activate:false,
+
       },
+      {
+        name: 'Ingredientes',
+        img: '/category/helado.jpg',
+        activate:false,
+
+      },
+
     ],
   },
   {
     type: 'Clothes',
-    img: 'shoe.png',
+    img: '/category/shoes.png',
     category: [
       {
         name: 'Shoes',
         img: '/category/shoes.png',
+        activate:false,
         color: 'bg-gradient-to-l from-rose-800 to-rose-950',
       },
       {
         name: 'Shirt',
         img: '/category/shirt.png',
+        activate:false,
         color: 'bg-gradient-to-l from-blue-800 to-violet-800',
       },
       {
         name: 'Pants',
         img: '/category/pants.png',
+        activate:false,
         color: 'bg-gradient-to-l from-amber-700 to-orange-800',
       },
       {
         name: 'hat',
         img: '/category/hat.png',
+        activate:false,
         color: 'bg-gradient-to-l from-gray-300 to-slate-400',
       },
       {
         name: 'calzones',
         img: '/category/calzones.png',
+        activate:false,
         color: 'bg-gradient-to-l from-gray-300 to-slate-400',
       },
       {
-        name: 'Lacteos',
-        img: '/category/lacteos.jpg',
-        color: 'bg-black',
+        name: 'Prendas',
+        img: '/category/.jpg',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
-        name: 'Procesado',
-        img: '/category/procesado.jpg',
-        color: 'bg-black',
+        name: 'Cintos',
+        img: '/category/.jpg',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
-        name: 'Helados',
-        img: '/category/helado.jpg',
-        color: 'bg-black',
+        name: 'Enguatadas',
+        img: '/category/.jpg',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
     ],
   },
@@ -118,44 +142,52 @@ export const typeproduct: Type[] = [
     img: '/category/artesania.png',
     category: [
       {
-        name: 'Shoes',
-        img: '/category/bebidas.jpg',
-        color: 'bg-black',
+        name: 'Name',
+        img: '/category/.jpg',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
-        name: 'Shirt',
-        img: '/category/cakes.jpg',
-        color: 'bg-black',
+        name: 'Name',
+        img: '/category/.jpg',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
-        name: 'Pants',
-        img: '/category/carne.jpg',
-        color: 'bg-black',
+        name: 'Name',
+        img: '/category/.jpg',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
-        name: 'hat',
-        img: '/category/vegetal.png',
-        color: 'bg-black',
+        name: 'Name',
+        img: '/category/.png',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400'
       },
       {
-        name: 'Dulce',
-        img: '/category/dulce.jpg',
-        color: 'bg-black',
+        name: 'Name',
+        img: '/category/.jpg',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
-        name: 'Lacteos',
-        img: '/category/lacteos.jpg',
-        color: 'bg-black',
+        name: 'Name',
+        img: '/category/.jpg',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
-        name: 'Procesado',
-        img: '/category/procesado.jpg',
-        color: 'bg-black',
+        name: 'Name',
+        img: '/category/.jpg',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
-        name: 'Helados',
-        img: '/category/juegoSala.png',
-        color: 'bg-black',
+        name: 'Name',
+        img: '/category/.png',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
     ],
   },
@@ -165,43 +197,51 @@ export const typeproduct: Type[] = [
     category: [
       {
         name: 'Shoes',
-        img: '/category/bebidas.jpg',
-        color: 'bg-black',
+        img: '/category/.jpg',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
         name: 'Shirt',
-        img: '/category/cakes.jpg',
-        color: 'bg-black',
+        img: '/category/.jpg',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
         name: 'Pants',
-        img: '/category/carne.jpg',
-        color: 'bg-black',
+        img: '/category/.jpg',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
         name: 'hat',
-        img: '/category/vegetal.png',
-        color: 'bg-black',
+        img: '/category/.png',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
         name: 'Dulce',
-        img: '/category/dulce.jpg',
-        color: 'bg-black',
+        img: '/category/.jpg',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
         name: 'Lacteos',
-        img: '/category/lacteos.jpg',
-        color: 'bg-black',
+        img: '/category/.jpg',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
         name: 'Procesado',
-        img: '/category/procesado.jpg',
-        color: 'bg-black',
+        img: '/category/.jpg',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
       {
         name: 'Helados',
-        img: '/category/helado.jpg',
-        color: 'bg-black',
+        img: '/category/.jpg',
+        activate:false,
+        color: 'bg-gradient-to-l from-blue-300 to-red-400',
       },
     ],
   },

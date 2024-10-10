@@ -1,9 +1,10 @@
 <div class="w-full">
   <div
-    class="relative bg-gradient-to-l overflow-hidden z-20 from-orange-500 via-orange-600 to-red-500 w-full shadow-2xl shadow-yellow-600 h-[670px]"
+    class="relative bg-gradient-to-l overflow-hidden z-20 from-orange-500 via-orange-600 to-red-500 w-full shadow-2xl shadow-yellow-600 lg:h-[670px]"
   >
+   <!--  <div class="absolute w-full h-48  left-[15%] top-1/2 z-10 bg-gradient-to-b from-transparent rotate-[50deg] via-blue-700 to-transparent"></div> -->
     <div
-      class="absolute overflow-hidden  rounded-full animate-sparkle shadow-2xl shadow-red-500 md:-right-36 -right-24 z-0 -rotate-45 md:w-[800px] w-[300px] md:-top-56 -top-10 md:h-[700px] h-[250px] bg-gradient-to-r from-slate-50  to-yellow-500"
+      class="absolute overflow-hidden rounded-full animate-sparkle shadow-2xl shadow-red-500 lg:-right-36 -right-24 -z-10 -rotate-45 lg:w-[800px] md:w-[460px] w-[300px] lg:-top-56 -top-10 lg:h-[700px] md:h-[400px]  h-[250px] bg-gradient-to-r from-slate-50  to-yellow-500"
     >
     <img class="w-[84%] absolute right-1/3 z-40 top-1/4 rotate-45 " src="/category/carne.png" alt="image" />
     <img class="w-[84%] absolute right-[12%] z-30  top-[35%] rotate-45 " src="/category/artesania.png" alt="image" />
@@ -11,50 +12,50 @@
     <img class="w-[54%] absolute right-[24%] z-10  top-[52%] rotate-45 " src="/category/juegoSala.png" alt="image" />
 
   </div>
-    <img src="CBM.jpg" class="-z-10 absolute imge w-full h-full opacity-10" />
+    <img src="CBM.jpg" class="-z-10 absolute imge w-full h-full opacity-20" />
     <div
-      class="absolute z-0 animate-transition md:right-[30%] right-20 md:top-56 top-24 md:w-[500px] w-40 md:h-[340px] h-32"
+      class="absolute z-20 animate-transition md:right-[30%] right-20 md:top-56 top-24 lg:w-[500px] w-40 lg:h-[340px] h-32"
     >
-      <img class="w-full z-0 h-full" src="/products.png" alt="image" />
+      <img class="w-full h-full" src="/products.png" alt="image" />
     </div>
     <div class="w-full h-full ">
-      <div class="flex h-5/6 mx-7 flex-col md:justify-start md:items-start">
+      <div class="flex lg:m-7 flex-col h-[75%] md:justify-center md:gap-12 lg:gap-14 gap-10 md:items-start">
         <div
-          class="flex h-1/6 md:h-1/5 justify-start ml-10 gap-8 md:gap-9 mx-24 items-center"
+          class="flex py-2 justify-start ml-2 md:ml-10 md:gap-10 lg:gap-16 gap-1 md:mx-24 items-center"
         >
           @for(item of optionProduts; track $index){
           <div
-            class="md:text-xl uppercase flex font-bold bg-gradient-to-tr from-transparent  via-transparent p-2 rounded-2xl to-red-700 cursor-pointer text-rose-950 transition-colors duration-time ease-in-out hover:text-blue-900 hover:bg-gradient-to-tr hover:from-red-700 hover:via-transparent hover:duration-300   hover:to-transparent hover:transition-all hover:scale-125 animate-opacity"
+            class="uppercase text-xs md:text-base lg:text-xl flex justify-center font-bold bg-gradient-to-tr from-transparent  via-transparent md:p-2 px-2 rounded-2xl to-red-700 cursor-pointer text-rose-950 transition-colors duration-time ease-in-out hover:text-blue-900 hover:bg-gradient-to-tr hover:from-red-700 hover:via-transparent hover:duration-300   hover:to-transparent hover:transition-all hover:scale-125 animate-opacity"
           >
-            {{ item.name }}<img class="w-8 ml-1   " src='{{item.icon}}' />
+            {{ item.name }}<img class="md:w-4 lg:w-8 w-3 md:h-5 lg:h-8 h-=full ml-1   " src='{{item.icon}}' />
           </div>
           }
         </div>
         <p
-          class="flex flex-col justify-start animate-opacity text-rose-950 font-black font-serif items-start md:text-7xl mx-8"
+          class="flex flex-col justify-start animate-opacity text-rose-950 font-black font-serif items-start md:text-5xl lg:text-7xl text-3xl mx-8"
         >
         All Products <br /><span class="text-violet-700">at your </span>
         service
           <br />
         </p>
         <button
-          class="bg-gradient-to-tr ml-7 btn btn-danger from-rose-800 via-rose-950 custom-gradient to-black hover:bg-gradient-to-tr hover:from-slate-900 hoverto-rose-950 animate-opacityonly mt-4 text-3xl py-3 px-2"
+          class="py-3 text-xs md:text-lg lg:text-2xl lg:px-2 w-[30%] rounded-3xl min-w-[180px] bg-gradient-to-tr ml-7 from-rose-800 via-rose-950 custom-gradient to-black hover:bg-gradient-to-tr hover:from-slate-900 hoverto-rose-950 animate-opacityonly "
         >
-          <span class="text-2xl uppercase">SEARCH Product</span
-          ><i class="pi px-3 text-2xl animate-opacity pi-home"></i>
+          <span class="text-white uppercase px-1">SEARCH Product</span
+          ><i class="pi px-3 text-white animate-opacity pi-home"></i>
         </button>
       </div>
       <div class="w-full flex h-1/6 justify-center  z-50">
-        <div class="w-full md:w-2/3 flex">
+        <div class="w-full md:w-2/3  flex">
           @for (item of infoHeader; track $index) {
             <div class="flex-grow opacity-85 justify-center items-center flex" >
               <div class="flex items-center px-3 mb-6 opacity-80 mx-2 bg-opacity-75 rounded-2xl relative gap-1">
-                <img src="{{item.image}}"/>
+                <img class="" src="{{item.image}}"/>
                 <div class="leading-custom text-end ">
                     <p class="font-bold">{{item.text}}</p>
                     <p>{{item.info}}</p>
-                    @if(item.text != infoHeader[2].text){
-                      <span class=" flex-none w-[80px]  absolute bottom-12 border-rose-700  -right-[88px]  border-b-2"></span>
+                    @if(item.text != infoHeader[2].text ){
+                      <span class=" w-[80px] absolute bottom-12 border-rose-700  -right-[88px]  border-b-2"></span>
                     }
                 </div>
               </div>
