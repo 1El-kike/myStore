@@ -64,6 +64,7 @@ export class LocalstoreService {
   }
 
   addmoreProduct(index: number) {
+
     const users = [...this._listaSubject.value];
     users.forEach((ele) => {
       ele.id == index

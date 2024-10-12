@@ -3,13 +3,19 @@ import { map, Observable } from 'rxjs';
 import { ApiStoresService } from '../../../services/api-stores.service';
 import { AsyncPipe, CurrencyPipe, NgClass } from '@angular/common';
 import { typeproducts } from './product-main.models';
+import { CarService } from '../../../services/car-buy.service';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-product-main',
   standalone: true,
-  imports: [AsyncPipe, CurrencyPipe, NgClass],
+  imports: [AsyncPipe, ToastModule,CurrencyPipe, NgClass],
   templateUrl: './product-main.component.html',
   styleUrl: './product-main.component.css',
+  providers: [MessageService],
+ // providers: [AddbuyService],
+
 })
 export class ProductMainComponent {
   //datos de products
@@ -22,6 +28,8 @@ export class ProductMainComponent {
   number: number = 0;
 
   private _API = inject(ApiStoresService);
+  private _carServuce = inject(CarService);
+  private _messageService = inject(MessageService)
 
   cancelfind(item: number) {
     event?.stopPropagation();
@@ -34,8 +42,8 @@ export class ProductMainComponent {
     this.number = item;
   }
 
-  sendbuy(){
-
+  sendbuy(id:number,name:string,price:number,num:number,img:string,tipo:string){
+    this._carServuce.buyCar(this._messageService,id,name,price,num,img,tipo)
   }
 
   changecategory(text: string, item: number) {

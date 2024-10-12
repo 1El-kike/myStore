@@ -1,4 +1,5 @@
 <div class="flex flex-col overflow-hidden justify-center w-full h-full items-center">
+  <p-toast />
   <div class="mt-20 relative justify-center flex flex-col items-center">
     <h1 class="mb-5 uppercase">Types of calification Products</h1>
     <div
@@ -87,15 +88,15 @@
           <div class="hover:bg-rose-400 active:bg-orange-500 shadow-custom transition-all duration-300 ease-in-out hover:scale-125 w-full h-full flex justify-center items-center">
             <i class="pi  text-red-900  hover:text-slate-800 cursor-pointer pi-minus"></i>
           </div>
-          <div class="hover:bg-rose-400 active:bg-orange-500 transition-all duration-300 ease-in-out hover:scale-125  hover:shadow-inner hover:shadow-red-400 w-full h-full flex justify-center items-center">
+          <div class="hover:bg-rose-400 active:bg-orange-500 shadow-custom transition-all duration-300 ease-in-out hover:scale-125  hover:shadow-inner hover:shadow-red-400 w-full h-full flex justify-center items-center">
             <p class="text-rose-900 flex justify-center items-center scale-150 m-auto h-full hover:text-slate-800">
               {{ item.cantidad }}
             </p>
           </div>
-          <div class="hover:bg-rose-400  active:bg-orange-500 transition-all duration-300 ease-in-out hover:scale-125  hover:shadow-inner hover:shadow-red-400 w-full h-full cursor-pointer flex justify-center items-center">
+          <div class="hover:bg-rose-400  active:bg-orange-500 shadow-custom transition-all duration-300 ease-in-out hover:scale-125  hover:shadow-inner hover:shadow-red-400 w-full h-full cursor-pointer flex justify-center items-center">
             <i class="pi text-rose-900 hover:text-slate-800 pi-plus"></i>
           </div>
-          <div (click)="sendbuy()" class="hover:bg-rose-400 active:bg-orange-500 transition-all duration-300 ease-in-out hover:scale-125 hover:shadow-inner hover:shadow-red-400 w-full h-full flex justify-center cursor-pointer items-center">
+          <div (click)="sendbuy(item.id,item.name,item.price,item.cantidad,item.image,item.tipo)" class="hover:bg-rose-400 shadow-custom active:bg-orange-500 transition-all duration-300 ease-in-out hover:scale-125 hover:shadow-inner hover:shadow-red-400 w-full h-full flex justify-center cursor-pointer items-center">
             <i class="pi text-rose-900 hover:text-slate-800 px-1 pi-cart-plus"></i>
           </div>
         </div>
