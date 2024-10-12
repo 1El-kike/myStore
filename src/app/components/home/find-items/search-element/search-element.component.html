@@ -1,3 +1,4 @@
+<p-toast />
 @if (isLoadingValor && status != "") {
 <div class="flex w-full justify-center gap-2 items-center">
   <div class="loader"></div>
@@ -96,6 +97,7 @@
                       icon="pi pi-shopping-cart"
                       class="btn btn-primary flex-auto md:flex-initial white-space-nowrap"
                       label="Buy Now"
+                      (onClick)="sendbuy(item.id,item.name,item.price,item.cantidad,item.image,item.tipo)"
                       [disabled]="
                         item.inventoryStatus
                           ? item.inventoryStatus === 'OUTOFSTOCK'

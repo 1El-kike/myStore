@@ -36,12 +36,13 @@ export class ProductMainComponent {
     this.products$ = this._API.getAllproducts('allProducts');
     this.typecategory[item].activate = false;
   }
-
+//cambiar de categorty products
   changeproduct(item: number) {
     this.typecategory = this.typeproduct[item].category;
     this.number = item;
   }
 
+//añadir al carrito de compra
   sendbuy(id:number,name:string,price:number,num:number,img:string,tipo:string){
     this._carServuce.buyCar(this._messageService,id,name,price,num,img,tipo)
   }

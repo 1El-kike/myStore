@@ -5,7 +5,7 @@ export function addbuy(
   datosLocales:any,
   datosnew:any,
   _servisLocalStore:LocalstoreService,
-  _messageService:any,
+  _messageService:MessageService,
   id: number,
   name: string,
   price: number,
@@ -14,7 +14,6 @@ export function addbuy(
   tipo: string
 ) {
   const existingData = datosLocales.find((data:any) => data.id === id);
-  console.log(_messageService)
   if (
     !existingData &&
     (datosLocales.length === 0 ||

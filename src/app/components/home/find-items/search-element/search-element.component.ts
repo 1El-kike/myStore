@@ -4,6 +4,7 @@ import {
   Input,
   SimpleChanges,
   CUSTOM_ELEMENTS_SCHEMA,
+  inject,
 } from '@angular/core';
 import { DataViewModule } from 'primeng/dataview';
 import { TagModule } from 'primeng/tag';
@@ -11,8 +12,10 @@ import { RatingModule } from 'primeng/rating';
 import { ButtonModule } from 'primeng/button';
 import { CommonModule, NgIf } from '@angular/common';
 import { SkeletonModule } from 'primeng/skeleton';
-import { Message } from 'primeng/api';
+import { Message, MessageService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
+import { CarService } from '../../../services/car-buy.service';
+import { ToastModule } from 'primeng/toast';
 @Component({
   selector: 'app-search-element',
   templateUrl: './search-element.component.html',
@@ -22,13 +25,14 @@ import { MessagesModule } from 'primeng/messages';
     DataViewModule,
     MessagesModule,
     TagModule,
+    ToastModule,
     RatingModule,
     NgIf,
     ButtonModule,
     CommonModule,
     SkeletonModule,
   ],
-  providers: [],
+  providers: [MessageService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SearchElementComponent implements OnChanges {
@@ -43,6 +47,10 @@ export class SearchElementComponent implements OnChanges {
   valor: any = [];
   //is loading or not
   isLoadingValor: boolean = true;
+
+  private _carServuce = inject(CarService);
+  private _messageService = inject(MessageService)
+
 
   ngOnChanges(changes: SimpleChanges): void {
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
@@ -60,6 +68,12 @@ export class SearchElementComponent implements OnChanges {
 
   counterArray(n: number): any[] {
     return Array(n);
+  }
+
+  //añadir al carrito de compra
+  sendbuy(id:number,name:string,price:number,num:number,img:string,tipo:string){
+    console.log(id,name,price,num,img,tipo);
+    this._carServuce.buyCar(this._messageService,id,name,price,num,img,tipo)
   }
 
   getSeverity(product: any, isopen: any) {

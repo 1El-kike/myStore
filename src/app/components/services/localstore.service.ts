@@ -14,6 +14,11 @@ export class LocalstoreService {
   //datos de token
   private _tokenKey = 'token';
 
+  private _listaSubject = new BehaviorSubject<List[]>([]);
+  private _totalPriceSubject = new BehaviorSubject<number>(0);
+  public _totalPrice$ = this._totalPriceSubject.asObservable();
+  lista$ = this._listaSubject.asObservable();
+
   setToken(token: string): void {
     localStorage.setItem(this._tokenKey, token);
   }
@@ -43,10 +48,6 @@ export class LocalstoreService {
     localStorage.removeItem(this.user);
   };
 
-  private _listaSubject = new BehaviorSubject<List[]>([]);
-  private _totalPriceSubject = new BehaviorSubject<number>(0);
-  public _totalPrice$ = this._totalPriceSubject.asObservable();
-  lista$ = this._listaSubject.asObservable();
 
   getList(): List[] {
     return this._listaSubject.value;

@@ -35,12 +35,9 @@ export class CarService {
   private _API = inject(ApiHomeService);
 
   public buyCar(
-    _messageService: any,
-    id: number,
-    name: string,
-    price: number,
-    num: number,
-    img: string,
+    _messageService: any, id: number,
+    name: string, price: number,
+    num: number, img: string,
     tipo: string
   ) {
     this.datosLocales = this._servisLocalStore.getList();
@@ -49,14 +46,8 @@ export class CarService {
       this.datosnew,
       this._servisLocalStore,
       _messageService,
-      id,
-      name,
-      price,
-      num,
-      img,
-      tipo
+      id,name, price, num, img, tipo
     );
-    console.log(_messageService)
   }
 
 

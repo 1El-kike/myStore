@@ -17,6 +17,7 @@ import { map, Observable } from 'rxjs';
 import { SkeletonModule } from 'primeng/skeleton';
 import * as AOS from 'aos'
 import { SearchComponentComponent } from './search-component/search-component.component';
+import { CarService } from '../../services/car-buy.service';
 @Component({
   selector: 'app-find-items',
   standalone: true,
@@ -98,6 +99,7 @@ export class FindItemsComponent implements OnInit {
 
 
   private _messageService = inject(MessageService);
+  private _carServuce = inject(CarService);
   private _servisLocalStore = inject(LocalstoreService);
   private _API = inject(ApiHomeService);
 
@@ -128,44 +130,11 @@ export class FindItemsComponent implements OnInit {
       });
   }
   //añadir al carrito de compra
-  addbuy(
-    id: number,
-    name: string,
-    price: number,
-    num: number,
-    img: string,
-    tipo: string
-  ) {
-    const existingData = this.datosLocales.find((data) => data.id === id);
-    if (
-      !existingData &&
-      (this.datosLocales.length === 0 ||
-        !this.datosLocales.some((data) => data.id === id))
-    ) {
-      this.datosnew = {
-        id: id,
-        name: name,
-        precio: price,
-        cantidad: num,
-        img: img,
-        tipo: tipo,
-      };
-      this._servisLocalStore.agregarList(this.datosnew);
-      this.datosLocales = this._servisLocalStore.getList();
-      this._messageService.add({
-        severity: 'success',
-        summary: 'Good',
-        detail: 'Added purchase of ' + name,
-      });
-    } else {
-      this._messageService.add({
-        severity: 'warn',
-        summary: 'Warning',
-        detail: `Purchase is of ${name} already added `,
-      });
-    }
+  addbuy(id:number,name:string,price:number,num:number,img:string,tipo:string){
+    this._carServuce.buyCar(this._messageService,id,name,price,num,img,tipo)
   }
-  //eliminar lista de compra de carrito
+
+    //eliminar lista de compra de carrito
   eliminarlist = (index: number) => {
     this._servisLocalStore.eliminarList(index);
     this.datosLocales = this._servisLocalStore.getList();
@@ -401,6 +370,7 @@ export class FindItemsComponent implements OnInit {
     this._API.getAllProductandStore('productStore/all/').subscribe(
       (data) => {
         this.productsfind.set(data);
+        console.log(this.productsfind);
 
       },
       (err) => {
