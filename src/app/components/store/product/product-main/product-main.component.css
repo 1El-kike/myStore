@@ -6,6 +6,15 @@
   animation-range: 0 120px;
   animation-timeline: view(y);
 }
+
+.animation-scroll{
+  animation-name: session;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-range: 0 220px;
+  animation-timeline: view(y);
+}
+
 .animatevertical {
   animation-name: myscroll;
   animation-timing-function: linear;
@@ -24,5 +33,16 @@
     opacity: 0.6;
     scale: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes session {
+  from {
+   position: relative;;
+  }
+  to {
+   position: absolute;
+   left: 0;
+   top: 100px;
   }
 }

@@ -1,4 +1,4 @@
-<div class="relative h-full">
+<div class="relative overflow-hidden h-full">
   <p-toast />
   <img
     src="{{ image }}"
@@ -8,9 +8,9 @@
   <div
     class="relative w-full h-full bg-gradient-to-br from-yellow-300 bg-red-800"
   ></div>
-  <div class="container z-20">
+  <div class="px-5 md:px-8 z-20">
     <div
-      class="mb-10 flex flex-col sm:flex-col lg:flex-row md:flex-row xl:gap-28 md:gap-2 sm:gap-2 z-20 justify-around sm:items-start items-start md:items-center lg:items-center w-full"
+      class="mb-10 flex flex-col sm:flex-col lg:flex-row flex-wrap md:flex-row xl:gap-28 md:gap-2 sm:gap-2 z-20 justify-around sm:items-start items-start md:items-center lg:items-center w-full"
     >
       <div
         class="flex sm:scale-100 md:scale-100 lg:scale-75 scale-75 ml-0 gap-1"
@@ -46,57 +46,10 @@
       </div>
       <!-- component of search -->
       <app-search-component (Element)="changetext($event)" [productsEnviados]="productsfind()" (changefind)="changefind($event)" />
-      <div
-        class="logo flex w-[7rem] sm:w-[10rem] md:w-[12rem] lg:w-[16rem] items-center justify-between text-secondary text-5xl font-extrabold absolute sm:absolute ml-52 mb-12 sm:ml-52 md:m-0 lg:m-0 sm:mb-14 md:relative lg:relative"
-      >
-        <div class="dropdown open">
-          <button
-            type="button"
-            id="triggerId"
-            data-bs-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <i class="pi pi-cog" style="font-size: 2rem"></i>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="triggerId">
-            <button class="dropdown-item" href="#">Action</button>
-            <button class="dropdown-item" href="#">Disabled action</button>
-          </div>
-        </div>
-        <div class="dropdown open">
-          <button
-            type="button"
-            id="triggerId"
-            data-bs-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <i class="pi pi-user" style="font-size: 2rem"></i>
-          </button>
-          <div class="dropdown-menu" aria-labelledby="triggerId">
-            <button class="dropdown-item" href="#">Action</button>
-            @if (user == null){
-            <button routerLink="/user/logIn" class="dropdown-item">
-              Log In
-            </button>
-            }@else {
-
-            <button (click)="delituser()" class="dropdown-item" href="#">
-              Log out
-            </button>
-            }
-          </div>
-        </div>
-        <button
-          (click)="toggleMenulateral()"
-          role="button"
-          class="cursor-pointer"
-        >
-          <i class="pi pi-cart-minus" style="font-size: 2rem"></i>
-        </button>
+       <!-- session and menu carbuy -->
+      <div class="absolute  md:relative ml-52 mb-8 sm:ml-52 md:m-0 lg:m-0 sm:mb-14">
+        <app-session/>
       </div>
-      <app-menu-lateral [isOpenMenu]="isOpenMenu" />
     </div>
     <app-search-element [letersend]="searchElement" [searchProduct]="valorfind" />
     <p class="my-3 text-2xl uppercase font-bold text-slate-700">

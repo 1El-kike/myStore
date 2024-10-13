@@ -6,16 +6,15 @@ import { typeproducts } from './product-main.models';
 import { CarService } from '../../../services/car-buy.service';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { SessionComponent } from "../../../session/session.component";
 
 @Component({
   selector: 'app-product-main',
   standalone: true,
-  imports: [AsyncPipe, ToastModule,CurrencyPipe, NgClass],
+  imports: [AsyncPipe, ToastModule, CurrencyPipe, SessionComponent,NgClass],
   templateUrl: './product-main.component.html',
   styleUrl: './product-main.component.css',
   providers: [MessageService],
- // providers: [AddbuyService],
-
 })
 export class ProductMainComponent {
   //datos de products
@@ -29,22 +28,66 @@ export class ProductMainComponent {
 
   private _API = inject(ApiStoresService);
   private _carServuce = inject(CarService);
-  private _messageService = inject(MessageService)
+  private _messageService = inject(MessageService);
 
   cancelfind(item: number) {
     event?.stopPropagation();
     this.products$ = this._API.getAllproducts('allProducts');
     this.typecategory[item].activate = false;
   }
-//cambiar de categorty products
+  //cambiar de categorty products
   changeproduct(item: number) {
     this.typecategory = this.typeproduct[item].category;
     this.number = item;
   }
 
-//añadir al carrito de compra
-  sendbuy(id:number,name:string,price:number,num:number,img:string,tipo:string){
-    this._carServuce.buyCar(this._messageService,id,name,price,num,img,tipo)
+  //añadir al carrito de compra
+  sendbuy(
+    id: number,
+    name: string,
+    price: number,
+    num: number,
+    img: string,
+    tipo: string
+  ) {
+    this._carServuce.buyCar(
+      this._messageService,
+      id,
+      name,
+      price,
+      num,
+      img,
+      tipo
+    );
+  }
+  //sumar more product
+  moreProducts(index: number, operation: string) {
+    this.products$
+      ?.pipe(
+        map((data: any) => {
+          let result: any = [];
+          data.map((elemnt: any) => {
+            if (elemnt.cantidad < 99) {
+              if (index == elemnt.id) {
+                operation == 'sum'
+                  ? (elemnt.cantidad += 1)
+                  : operation == 'res' && elemnt.cantidad > 1
+                  ? (elemnt.cantidad -= 1)
+                  : '';
+              }
+            }
+            result.push(elemnt);
+          });
+          return result;
+        })
+      )
+      .subscribe(
+        (datos: any) =>
+          (this.products$ = new Observable((valor) => {
+            valor.next(datos);
+          })),
+        (err) => console.log(err)
+      );
   }
 
   changecategory(text: string, item: number) {

@@ -1,7 +1,12 @@
-<div class="flex flex-col overflow-hidden justify-center w-full h-full items-center">
-  <p-toast />
+<div class="flex flex-col overflow-hidden justify-center relative w-full h-full items-center">
   <div class="mt-20 relative justify-center flex flex-col items-center">
-    <h1 class="mb-5 uppercase">Types of calification Products</h1>
+    <p-toast />
+    <div class="flex justify-around w-full">
+      <h1 class="mb-5 uppercase">Types of calification Products</h1>
+      <div class="animate-scroll">
+        <app-session/>
+      </div>
+    </div>
     <div
       class="absolute -z-10 w-80 animatevertical h-[500px] left-16 opacity-65 top-[460px]"
     >
@@ -74,7 +79,7 @@
   >
     @for (item of products$ | async; track $index) {
     <div
-      class="w-[30%] relative py-3 overflow-hidden animate-transition leading-4 md:w-[250px] flex flex-col items-center md:[240px] border shadow-lg rounded-3xl px-4 max-h-[35%]"
+      class="w-[30%] hover:opacity-90 relative py-3 overflow-hidden animate-transition leading-4 md:w-[250px] flex flex-col items-center md:[240px] border shadow-lg rounded-3xl px-4 max-h-[35%]"
     >
     <div class="bg-gradient-to-bl from-orange-200 to-red-300 absolute w-full h-[70%] rounded-3xl after:absolute after:bottom-0 after:bg-gradient-to-tl after:from-violet-300 after:to-blue-200 after:rounded-tr-full after:w-full after:h-[70%] after:-z-10 bottom-0 -z-20"></div>
       <img class="max-w-[80%] h-[80%] md:h-[170px] rounded-3xl" src="{{ item.image }}" />
@@ -83,21 +88,21 @@
       <div class="flex w-full justify-between">
         <div>{{ item.price | currency : "USD" : true }} CUP</div>
         <div
-          class="flex shadow-custom shadow-rose-300  bg-gradient-to-tr from-rose-300 to-orange-400 border- w-full ml-6 overflow-hidden rounded-2xl border-rose-600"
+          class="flex shadow-custom px-2 shadow-rose-300  bg-gradient-to-tr from-orange-600 via-orange-700 to-red-500 w-full ml-6 overflow-hidden rounded-2xl border-rose-600"
         >
-          <div class="hover:bg-rose-400 active:bg-orange-500 shadow-custom transition-all duration-300 ease-in-out hover:scale-125 w-full h-full flex justify-center items-center">
-            <i class="pi  text-red-900  hover:text-slate-800 cursor-pointer pi-minus"></i>
+          <div (click)="moreProducts(item.id,'res' )" class="active:scale-150 active:opacity-30 shadow-custom transition-all duration-300 ease-in-out hover:scale-125 w-full h-full flex justify-center items-center">
+            <i  style="font-weight: 800" class="pi text-rose-900 font-bold scale-50  hover:text-slate-800 cursor-pointer pi-minus"></i>
           </div>
-          <div class="hover:bg-rose-400 active:bg-orange-500 shadow-custom transition-all duration-300 ease-in-out hover:scale-125  hover:shadow-inner hover:shadow-red-400 w-full h-full flex justify-center items-center">
-            <p class="text-rose-900 flex justify-center items-center scale-150 m-auto h-full hover:text-slate-800">
+          <div class="hover:bg-rose-400  active:scale-150 active:opacity-30 shadow-custom transition-all duration-300 ease-in-out hover:scale-125  hover:shadow-inner hover:shadow-red-400 w-full h-full flex justify-center items-center">
+            <p class="text-rose-900 animate-opacity flex justify-center items-center scale-150 m-auto h-full hover:text-slate-800">
               {{ item.cantidad }}
             </p>
           </div>
-          <div class="hover:bg-rose-400  active:bg-orange-500 shadow-custom transition-all duration-300 ease-in-out hover:scale-125  hover:shadow-inner hover:shadow-red-400 w-full h-full cursor-pointer flex justify-center items-center">
-            <i class="pi text-rose-900 hover:text-slate-800 pi-plus"></i>
+          <div (click)="moreProducts(item.id,'sum' )" class="active:scale-150 active:opacity-30 shadow-custom transition-all duration-300 ease-in-out hover:scale-125  hover:shadow-inner hover:shadow-red-400 w-full h-full cursor-pointer flex justify-center items-center">
+            <i style="font-weight: 800" class="pi text-rose-900 scale-50 font-bold hover:text-slate-800 pi-plus"></i>
           </div>
-          <div (click)="sendbuy(item.id,item.name,item.price,item.cantidad,item.image,item.tipo)" class="hover:bg-rose-400 shadow-custom active:bg-orange-500 transition-all duration-300 ease-in-out hover:scale-125 hover:shadow-inner hover:shadow-red-400 w-full h-full flex justify-center cursor-pointer items-center">
-            <i class="pi text-rose-900 hover:text-slate-800 px-1 pi-cart-plus"></i>
+          <div (click)="sendbuy(item.id,item.name,item.price,item.cantidad,item.image,item.tipo)" class=" shadow-custom active:scale-150 active:opacity-30 transition-all duration-300 ease-in-out hover:scale-125 hover:shadow-inner hover:shadow-red-400 w-full h-full flex justify-center cursor-pointer items-center">
+            <i class="pi text--900 scale-125 text-white font-bold hover:text-slate-800 px-1 pi-cart-plus"></i>
           </div>
         </div>
       </div>

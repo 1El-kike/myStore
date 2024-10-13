@@ -1,0 +1,53 @@
+<div
+        class="flex  w-[7rem] sm:w-[10rem] md:w-[12rem] items-center justify-center sm:gap-1  md:gap-4 lg:gap-6 text-secondary md:text-5xl font-extrabold"
+      >
+        <div class="dropdown open">
+          <button
+            type="button"
+            id="triggerId"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="pi pi-cog text-xl md:text-3xl" ></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="triggerId">
+            <button class="dropdown-item" href="#">Action</button>
+            <button class="dropdown-item" href="#">Disabled action</button>
+          </div>
+        </div>
+        <div class="dropdown open">
+          <button
+            type="button"
+            id="triggerId"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i class="pi pi-user  text-xl md:text-3xl" ></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="triggerId">
+            <button class="dropdown-item" href="#">
+                Acount
+            </button>
+            @if (user == null){
+            <button routerLink="/user/logIn" class="dropdown-item">
+              Log In
+            </button>
+            }@else {
+
+            <button (click)="delituser()" class="dropdown-item" href="#">
+              Log out
+            </button>
+            }
+          </div>
+        </div>
+        <button
+          (click)="toggleMenulateral()"
+          role="button"
+          class="cursor-pointer"
+        >
+          <i class="pi pi-cart-minus  text-xl md:text-3xl"></i>
+        </button>
+      </div>
+      <app-menu-lateral [isOpenMenu]="isOpenMenu" />

@@ -18,6 +18,7 @@ import { SkeletonModule } from 'primeng/skeleton';
 import * as AOS from 'aos'
 import { SearchComponentComponent } from './search-component/search-component.component';
 import { CarService } from '../../services/car-buy.service';
+import { SessionComponent } from "../../session/session.component";
 @Component({
   selector: 'app-find-items',
   standalone: true,
@@ -37,8 +38,9 @@ import { CarService } from '../../services/car-buy.service';
     RippleModule,
     SkeletonModule,
     AsyncPipe,
-    SearchComponentComponent
-  ],
+   SearchComponentComponent,
+   SessionComponent
+],
   providers: [MessageService],
   templateUrl: './find-items.component.html',
   styleUrl: './find-items.component.css',
@@ -63,9 +65,9 @@ export class FindItemsComponent implements OnInit {
   //datos carrito de compra
   datosnew?: List;
   elementFind: string = '';
+
   valor: string[] = [''];
-  //abrir menu de compra
-  isOpenMenu = false;
+
   //lista de Productos mas vendidos - Productos favoritos
   datosLocales: List[] = [];
   //datos de los productos que se van agregar a mis favoritos
@@ -103,11 +105,11 @@ export class FindItemsComponent implements OnInit {
   private _servisLocalStore = inject(LocalstoreService);
   private _API = inject(ApiHomeService);
 
-  //Para buscar los elementos tanto productos como tienda desde el componente hijo
+  //Para actualizar los elementos tanto productos como tienda desde el componente hijo
     changefind($data:any){
       this.valorfind = $data;
     }
-  //Para cambiarel texto de searchElement desde el componente hijo
+  //Para actualizar texto de searchElement desde el componente hijo
     changetext($data:any){
       this.searchElement = $data;
     }
@@ -116,19 +118,6 @@ export class FindItemsComponent implements OnInit {
     return status === 'In Stock' ? 'success' : 'danger';
   }
 
-  //eliminar usuario
-  delituser() {
-    Promise.all([
-      this._servisLocalStore.delitUser(),
-      this._servisLocalStore.removeToken(),
-    ])
-      .then(() => {
-        location.reload();
-      })
-      .catch((error) => {
-        console.error('Error al eliminar usuario y token:', error);
-      });
-  }
   //añadir al carrito de compra
   addbuy(id:number,name:string,price:number,num:number,img:string,tipo:string){
     this._carServuce.buyCar(this._messageService,id,name,price,num,img,tipo)
@@ -267,9 +256,6 @@ export class FindItemsComponent implements OnInit {
     }
   }
 
-  toggleMenulateral() {
-    this.isOpenMenu = !this.isOpenMenu;
-  }
 
   ngOnInit(): void {
     AOS.init();

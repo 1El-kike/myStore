@@ -66,18 +66,18 @@ export class LocalstoreService {
 
   addmoreProduct(index: number) {
 
-    const users = [...this._listaSubject.value];
-    users.forEach((ele) => {
+    const product = [...this._listaSubject.value];
+    product.forEach((ele) => {
       ele.id == index
         ? (ele.cantidad = ele.cantidad + 1)
         : (ele.cantidad = ele.cantidad);
     });
-    const newTotal = users.reduce(
+    const newTotal = product.reduce(
       (acc, next) => acc + next.precio * next.cantidad,
       0
     );
     this._totalPriceSubject.next(newTotal);
-    this._listaSubject.next(users);
+    this._listaSubject.next(product);
   }
 
   delitmoreProduct(index: number) {
