@@ -1,0 +1,18 @@
+<div  id="Title" class="w-full relative flex flex-col justify-center items-center">
+  <img src={{image()}} alt="Fondo" class="absolute inset-0 w-full h-full object-cover"/>
+  <div class="absolute inset-0 bg-gradient-to-r  via-transparent to-yellow-400 from-yellow-200  "></div>
+  <div class="z-10 mt-4">
+    <div class="flex rounded-2xl border px-8 my-1 opacity-75 bg-yellow-400">
+      <h1 class="lg:text-8xl md:text-7xl sm:text-6xl text-5xl font-bold text-gray-700">Market</h1>
+      <span class=" text-xl lg:text-4xl md:text-3xl sm:text-2xl text-red-400"><p>Web<span class="font-bold   lg:text-5xl md:text-4xl sm:text-3xl text-2xl text-blue-500">X</span></p></span>
+    </div>
+    @if (user) {
+      <app-avatar [user]="user"/>
+    }
+    @else{
+      <div class="LogIn">
+          <p class="text-white">Plis Register on the next page <b class="text-green-400 "><a  routerLink="/user/register" class="text-blue-600 hover:bg-gradient-to-b hover:from-transparent hover:to-blue-400 bg-gradient-to-b from-transparent to-blue-200 cursor-pointer" >Touch here</a></b></p>
+        </div>
+    }
+     </div>
+    </div>

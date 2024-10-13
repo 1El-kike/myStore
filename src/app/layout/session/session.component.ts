@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, ElementRef, inject, OnInit, ViewChild, viewChild } from '@angular/core';
-import { LocalstoreService } from '../services/localstore.service';
-import { MenuLateralComponent } from '../home/find-items/menu-lateral/menu-lateral.component';
-import { AvatarComponent } from "../home/avatar/avatar.component";
+import { LocalstoreService } from '../../components/services/localstore.service';
+import { MenuLateralComponent } from '../../components/home/home-sections/menu-lateral/menu-lateral.component';
+import { AvatarComponent } from "../avatar/avatar.component";
 import { RouterLink } from '@angular/router';
 
 @Component({

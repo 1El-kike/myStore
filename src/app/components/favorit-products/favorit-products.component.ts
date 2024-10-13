@@ -1,6 +1,6 @@
 import { RouterLink } from '@angular/router';
 import { Component, inject, OnInit } from '@angular/core';
-import { favorite } from '../home/find-items/find-items.component';
+import { favorite } from '../home/home-sections/sections-component/home-sections.component';
 import { LocalstoreService } from '../services/localstore.service';
 import { ApiHomeService } from '../services/api-home.service';
 import { Observable } from 'rxjs';

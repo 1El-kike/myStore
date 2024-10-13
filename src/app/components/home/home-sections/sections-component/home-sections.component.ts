@@ -1,8 +1,8 @@
 import { Component, inject, Input, OnInit, signal } from '@angular/core';
-import { List, LocalstoreService } from '../../services/localstore.service';
+import { List, LocalstoreService } from '../../../services/localstore.service';
 import { FormsModule } from '@angular/forms';
-import { HomeSecondoryComponent } from '../home-secondory/home-secondory.component';
-import { MenuLateralComponent } from './menu-lateral/menu-lateral.component';
+import { HomeSecondoryComponent } from '../../home-secondory/home-secondory.component';
+import { MenuLateralComponent } from '../menu-lateral/menu-lateral.component';
 import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
@@ -11,16 +11,17 @@ import { RouterLink } from '@angular/router';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { RippleModule } from 'primeng/ripple';
-import { SearchElementComponent } from './search-element/search-element.component';
-import { ApiHomeService } from '../../services/api-home.service';
+import { SearchElementComponent } from '../input-results/search-element.component';
+import { ApiHomeService } from '../../../services/api-home.service';
 import { map, Observable } from 'rxjs';
 import { SkeletonModule } from 'primeng/skeleton';
-import * as AOS from 'aos'
-import { SearchComponentComponent } from './search-component/search-component.component';
-import { CarService } from '../../services/car-buy.service';
-import { SessionComponent } from "../../session/session.component";
+import * as AOS from 'aos';
+import { SearchComponentComponent } from '../search-input/search-component.component';
+import { CarService } from '../../../services/car-buy.service';
+import { SessionComponent } from '../../../../layout/session/session.component';
+import { AddToFavoriteService } from '../../../services/add-to-favorite.service';
 @Component({
-  selector: 'app-find-items',
+  selector: 'app-home-sections',
   standalone: true,
   imports: [
     FormsModule,
@@ -38,20 +39,20 @@ import { SessionComponent } from "../../session/session.component";
     RippleModule,
     SkeletonModule,
     AsyncPipe,
-   SearchComponentComponent,
-   SessionComponent
-],
+    SearchComponentComponent,
+    SessionComponent,
+  ],
   providers: [MessageService],
-  templateUrl: './find-items.component.html',
-  styleUrl: './find-items.component.css',
+  templateUrl: './home-sections.html',
+  styleUrl: './home-sections.css',
 })
-export class FindItemsComponent implements OnInit {
+export class HomeSectionsComponent implements OnInit {
   @Input() image?: string = '';
   @Input() title: string = '';
 
   //Datos de usuario
   user: string | any = '';
-  //Datos
+
   //Lista de productos favoritos
   favoriteProduct?: any;
   //para mostrar los datos si ya estan cargados
@@ -99,167 +100,65 @@ export class FindItemsComponent implements OnInit {
     },
   ];
 
-
+  private _addToFavoriteService = inject(AddToFavoriteService);
   private _messageService = inject(MessageService);
   private _carServuce = inject(CarService);
   private _servisLocalStore = inject(LocalstoreService);
   private _API = inject(ApiHomeService);
 
   //Para actualizar los elementos tanto productos como tienda desde el componente hijo
-    changefind($data:any){
-      this.valorfind = $data;
-    }
+  changefind($data: any) {
+    this.valorfind = $data;
+  }
   //Para actualizar texto de searchElement desde el componente hijo
-    changetext($data:any){
-      this.searchElement = $data;
-    }
+  changetext($data: any) {
+    this.searchElement = $data;
+  }
 
   getSeverity(status: string) {
     return status === 'In Stock' ? 'success' : 'danger';
   }
 
   //añadir al carrito de compra
-  addbuy(id:number,name:string,price:number,num:number,img:string,tipo:string){
-    this._carServuce.buyCar(this._messageService,id,name,price,num,img,tipo)
+  addbuy(
+    id: number,
+    name: string,
+    price: number,
+    num: number,
+    img: string,
+    tipo: string
+  ) {
+    this._carServuce.buyCar(
+      this._messageService,
+      id,
+      name,
+      price,
+      num,
+      img,
+      tipo
+    );
   }
 
-    //eliminar lista de compra de carrito
+  //eliminar lista de compra de carrito
   eliminarlist = (index: number) => {
     this._servisLocalStore.eliminarList(index);
     this.datosLocales = this._servisLocalStore.getList();
   };
-  //cambiar estado y color del icono de favoritos del mercado y agregar a la lista de favoritos
-  changlefavoritProduct(status: boolean, productIndex: number) {
-    let product: any = this.favoriteProduct.filter(
-      (item: favorite) => item.id_product == productIndex
+  //agregar a la lista de favoritos o quitar de la lista
+  addtofavorite(status: boolean, productIndex: number, datos: any[]) {
+    this._addToFavoriteService.addorRemoveToFavorite(
+      this._messageService,
+      this.listaFavorite,
+      status,
+      productIndex,
+      datos
     );
-    if (this.user == null) {
-      this._messageService.add({
-        severity: 'error',
-        summary: 'Favorite',
-        detail: 'Your need start autenticate ',
-      });
-      return;
-    } else {
-      let data = {
-        id: product[0].id,
-        status: (product.status = !status),
-        icon: (product.icon = status ? 'pi-heart' : ' pi-heart-fill'),
-      };
-      let myfavor = {
-        usuarioId: parseInt(this.user[0][0].id),
-        productoId: parseInt(product[0].id_product),
-      };
-
-      (
-        this._API.createMyfavoriteProduct(
-          `mylistProductFavorite/createORdelete`,
-          myfavor
-        ) as Observable<any>
-      ).subscribe(
-        (response) => {
-          this.statusmessage = false;
-          this.favoriteProduct.forEach((item: any, index: number) => {
-            if (this.favoriteProduct[index].id_product == productIndex) {
-              this.favoriteProduct[index].status =
-                !this.favoriteProduct[index].status;
-              this.favoriteProduct[index].icon = this.favoriteProduct[index]
-                .status
-                ? 'pi-heart-fill'
-                : 'pi-heart';
-            }
-          });
-          (
-            this._API.getMyfavoriteProduct(
-              `mylistProductFavorite/${this.user[0][0].id}`
-            ) as Observable<any>
-          ).subscribe((res) => {
-            this.listaFavorite = res;
-          });
-        },
-        (error) => {
-          this.messageError = error.error.error;
-          this.statusmessage = true;
-          console.log(error);
-        }
-      );
-
-      if (!status) {
-        this._messageService.add({
-          severity: 'success',
-          summary: 'Favorite',
-          detail: 'Added purchase of ' + product.name,
-        });
-      }
-    }
   }
-  //cambiar estado y color del icono de nuevos productos y  agregar a la lista de favoritos
-  changleproperty(status: boolean, productIndex: number) {
-    let product: any = this.datosApi.filter(
-      (item) => item.id_product == productIndex
-    );
-
-    if (this.user == null) {
-      this._messageService.add({
-        severity: 'error',
-        summary: 'Favorite',
-        detail: 'Your need start autenticate ',
-      });
-      return;
-    } else {
-      let myfavor = {
-        usuarioId: parseInt(this.user[0][0].id),
-        productoId: parseInt(product[0].id_product),
-      };
-      //enviar los datos para obtener los datos de producto y añadirlo a la lista favorita
-      (
-        this._API.createMyfavoriteProduct(
-          `mylistProductFavorite/createORdelete`,
-          myfavor
-        ) as Observable<any>
-      ).subscribe(
-        (response) => {
-          (
-            this._API.getMyfavoriteProduct(
-              `mylistProductFavorite/${this.user[0][0].id}`
-            ) as Observable<any>
-          ).subscribe((res) => {
-            this.listaFavorite = res;
-            this.datosApi.forEach((item, index) => {
-              if (this.datosApi[index].id_product == productIndex) {
-                this.datosApi[index].status = !this.datosApi[index].status;
-                this.datosApi[index].icon = this.datosApi[index].status
-                  ? 'pi-heart-fill'
-                  : 'pi-heart';
-              }
-            });
-            // this.datosApi[productIndex].status
-          });
-        },
-        (error) => {
-          this._messageService.add({
-            severity: 'error',
-            summary: 'New Error',
-            detail: error.error.error,
-          });
-          console.log(error);
-        }
-      );
-      // mensaje si ya el producto esta agregado a la lista de favorito
-      if (!status) {
-        this._messageService.add({
-          severity: 'success',
-          summary: 'Favorite',
-          detail: 'Added purchase of ' + product.name,
-        });
-      }
-    }
-  }
-
 
   ngOnInit(): void {
+
     AOS.init();
-    window.addEventListener('load',AOS.refresh);
+    window.addEventListener('load', AOS.refresh);
 
     this.datosLocales = this._servisLocalStore.getList();
     this.user = this._servisLocalStore.getUser();
@@ -267,7 +166,7 @@ export class FindItemsComponent implements OnInit {
       this.user = null;
     } else {
       //obtener los prodctos favoritos del usuario
-      (
+       (
         this._API.getMyfavoriteProduct(
           `mylistProductFavorite/${this.user[0][0].id}`
         ) as Observable<any>
@@ -356,8 +255,6 @@ export class FindItemsComponent implements OnInit {
     this._API.getAllProductandStore('productStore/all/').subscribe(
       (data) => {
         this.productsfind.set(data);
-        console.log(this.productsfind);
-
       },
       (err) => {
         console.log(err);

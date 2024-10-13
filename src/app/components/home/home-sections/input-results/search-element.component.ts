@@ -5,6 +5,7 @@ import {
   SimpleChanges,
   CUSTOM_ELEMENTS_SCHEMA,
   inject,
+  input,
 } from '@angular/core';
 import { DataViewModule } from 'primeng/dataview';
 import { TagModule } from 'primeng/tag';
@@ -16,8 +17,9 @@ import { Message, MessageService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
 import { CarService } from '../../../services/car-buy.service';
 import { ToastModule } from 'primeng/toast';
+import { AddToFavoriteService } from '../../../services/add-to-favorite.service';
 @Component({
-  selector: 'app-search-element',
+  selector: 'section-search-results',
   templateUrl: './search-element.component.html',
   styleUrl: './search-element.component.css',
   standalone: true,
@@ -43,18 +45,17 @@ export class SearchElementComponent implements OnChanges {
   @Input() searchProduct: any[] = [];
   @Input() letersend?: string;
   status: string = '';
-  //datos que se obtebdran la cambiar el dato del contenedor padre
+  //datos que se obtendran al cambiar el dato del contenedor padre
   valor: any = [];
   //is loading or not
   isLoadingValor: boolean = true;
+  listaFavorite = input<any>([]);
 
   private _carServuce = inject(CarService);
-  private _messageService = inject(MessageService)
-
+  private _messageService = inject(MessageService);
+  private _addToFavoriteService = inject(AddToFavoriteService);
 
   ngOnChanges(changes: SimpleChanges): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
     if (changes['searchProduct']) {
       this.valor = changes['searchProduct'].currentValue;
       if (this.valor.length > 0) {
@@ -71,9 +72,34 @@ export class SearchElementComponent implements OnChanges {
   }
 
   //añadir al carrito de compra
-  sendbuy(id:number,name:string,price:number,num:number,img:string,tipo:string){
-    console.log(id,name,price,num,img,tipo);
-    this._carServuce.buyCar(this._messageService,id,name,price,num,img,tipo)
+  sendbuy(
+    id: number,
+    name: string,
+    price: number,
+    num: number,
+    img: string,
+    tipo: string
+  ) {
+    this._carServuce.buyCar(
+      this._messageService,
+      id,
+      name,
+      price,
+      num,
+      img,
+      tipo
+    );
+  }
+  //añadir a favoritos
+  addtofavorite(status: boolean, productIndex: number, datos: any[]) {
+    console.log(datos);
+    this._addToFavoriteService.addorRemoveToFavorite(
+      this._messageService,
+      this.listaFavorite,
+      status,
+      productIndex,
+      datos
+    );
   }
 
   getSeverity(product: any, isopen: any) {

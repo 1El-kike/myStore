@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './components/home/home-principal/home.component';
 import { ProductComponent } from './components/store/product/product.component';
 import { ProductDetailComponent } from '../app/components/store/product-detail/product-detail.component';
 import { NgClass } from '@angular/common';

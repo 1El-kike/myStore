@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { favorite } from '../home/find-items/find-items.component';
+import { favorite } from '../home/home-sections/sections-component/home-sections.component';
 @Injectable({
   providedIn: 'root',
 })

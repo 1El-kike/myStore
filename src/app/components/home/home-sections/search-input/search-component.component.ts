@@ -2,7 +2,7 @@ import { Component, input, output, InputSignal, effect } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-search-component',
+  selector: 'section-search-input',
   standalone: true,
   imports: [FormsModule],
   templateUrl: './search-component.component.html',

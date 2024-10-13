@@ -92,12 +92,27 @@
                     />
 
                     }@else {
-                    <p-button class="btn btn-primary" icon="pi pi-heart" />
+                    <p-button
+                      (click)="
+                        addtofavorite(item.status, item.id, valor)
+                      "
+                      class="btn btn-primary"
+                      icon="pi pi-heart"
+                    />
                     <p-button
                       icon="pi pi-shopping-cart"
                       class="btn btn-primary flex-auto md:flex-initial white-space-nowrap"
                       label="Buy Now"
-                      (onClick)="sendbuy(item.id,item.name,item.price,item.cantidad,item.image,item.tipo)"
+                      (onClick)="
+                        sendbuy(
+                          item.id,
+                          item.name,
+                          item.price,
+                          item.cantidad,
+                          item.image,
+                          item.tipo
+                        )
+                      "
                       [disabled]="
                         item.inventoryStatus
                           ? item.inventoryStatus === 'OUTOFSTOCK'

@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './components/home/home-principal/home.component';
 import { ProductComponent } from './components/store/product/product.component';
 import { ProductDetailComponent } from './components/store/product-detail/product-detail.component';
 import { AuthUserComponent } from './components/auth/auth-user-register/auth-user.component';

@@ -6,7 +6,7 @@ import { typeproducts } from './product-main.models';
 import { CarService } from '../../../services/car-buy.service';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
-import { SessionComponent } from "../../../session/session.component";
+import { SessionComponent } from "../../../../layout/session/session.component";
 
 @Component({
   selector: 'app-product-main',

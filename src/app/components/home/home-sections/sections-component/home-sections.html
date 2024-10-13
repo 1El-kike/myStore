@@ -45,13 +45,14 @@
         </div>
       </div>
       <!-- component of search -->
-      <app-search-component (Element)="changetext($event)" [productsEnviados]="productsfind()" (changefind)="changefind($event)" />
-       <!-- session and menu carbuy -->
+      <section-search-input (Element)="changetext($event)" [productsEnviados]="productsfind()" (changefind)="changefind($event)" />
+       <!-- session navbar user -->
       <div class="absolute  md:relative ml-52 mb-8 sm:ml-52 md:m-0 lg:m-0 sm:mb-14">
         <app-session/>
       </div>
     </div>
-    <app-search-element [letersend]="searchElement" [searchProduct]="valorfind" />
+    <!-- Results of search input -->
+    <section-search-results [letersend]="searchElement" [listaFavorite]="listaFavorite" [searchProduct]="valorfind" />
     <p class="my-3 text-2xl uppercase font-bold text-slate-700">
       Favorite product
     </p>
@@ -102,7 +103,7 @@
                   </button>
                   <button
                     (click)="
-                      changlefavoritProduct(item.status, item.id_product)
+                      addtofavorite(item.status, item.id_product,favoriteProduct)
                     "
                     class="btn btn-outline-success active:scale-125"
                   >
@@ -193,7 +194,7 @@
                 <p-button
                   icon="pi {{ !product.icon ? product.icon : product.icon }}"
                   [ngClass]="{ 'text-red-600': product.status }"
-                  (click)="changleproperty(product.status, product.id_product)"
+                  (click)="addtofavorite(product.status, product.id_product,datosApi)"
                   class=""
                   severity="secondary"
                   [outlined]="true"
