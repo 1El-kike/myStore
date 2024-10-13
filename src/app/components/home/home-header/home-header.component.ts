@@ -1,11 +1,12 @@
 import { Component, inject, input, OnInit } from '@angular/core';
 import { LocalstoreService } from '../../services/localstore.service';
 import { AvatarComponent } from '../../../layout/avatar/avatar.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home-header',
   standalone: true,
-  imports: [AvatarComponent],
+  imports: [AvatarComponent,RouterLink],
   templateUrl: './home-header.component.html',
   styleUrl: './home-header.component.css'
 })
