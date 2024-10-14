@@ -1,5 +1,6 @@
 interface Type {
   type: string;
+  status:boolean;
   img: string;
   category: Category[];
 }
@@ -20,13 +21,14 @@ interface Info {
 
 interface Option {
   name: string;
-  address: string;
+  status: boolean;
   icon: string;
 }
 
 export const typeproducts: Type[] = [
   {
     type: 'Food',
+    status:false,
     img: '/category/foods.png',
     category: [
       {
@@ -85,6 +87,7 @@ export const typeproducts: Type[] = [
   },
   {
     type: 'Clothes',
+    status:false,
     img: '/category/shoes.png',
     category: [
       {
@@ -140,6 +143,7 @@ export const typeproducts: Type[] = [
   {
     type: 'Artesanales',
     img: '/category/artesania.png',
+    status:false,
     category: [
       {
         name: 'Name',
@@ -194,6 +198,7 @@ export const typeproducts: Type[] = [
   {
     type: 'Jeweler',
     img: '/category/juegoSala.png',
+    status:false,
     category: [
       {
         name: 'Shoes',
@@ -250,17 +255,17 @@ export const typeproducts: Type[] = [
 export const optionProduts: Option[] = [
   {
     name: 'Food',
-    address: '',
+    status: false,
     icon: '/food.png',
   },
   {
     name: 'Clothes',
-    address: '',
+    status: false,
     icon: 'shoe.png',
   },
   {
     name: 'provisions',
-    address: '',
+    status: false,
     icon: 'bienes.png',
   },
 

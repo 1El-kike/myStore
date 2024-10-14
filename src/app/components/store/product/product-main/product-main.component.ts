@@ -6,12 +6,21 @@ import { typeproducts } from './product-main.models';
 import { CarService } from '../../../services/car-buy.service';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
-import { SessionComponent } from "../../../../layout/session/session.component";
+import { SessionComponent } from '../../../../layout/session/session.component';
+import { IshoveraddclassDirective } from '../../../../directive/ishoveraddclass.directive';
 
 @Component({
   selector: 'app-product-main',
   standalone: true,
-  imports: [AsyncPipe, ToastModule, CurrencyPipe, SessionComponent,NgClass],
+  imports: [
+    AsyncPipe,
+    ToastModule,
+    NgClass,
+    IshoveraddclassDirective,
+    CurrencyPipe,
+    SessionComponent,
+    NgClass,
+  ],
   templateUrl: './product-main.component.html',
   styleUrl: './product-main.component.css',
   providers: [MessageService],
@@ -26,6 +35,8 @@ export class ProductMainComponent {
   //para obtener el item de la categoria actual
   number: number = 0;
 
+  ishover: any = '';
+
   private _API = inject(ApiStoresService);
   private _carServuce = inject(CarService);
   private _messageService = inject(MessageService);
@@ -39,6 +50,17 @@ export class ProductMainComponent {
   changeproduct(item: number) {
     this.typecategory = this.typeproduct[item].category;
     this.number = item;
+  }
+
+  addclass(e: any) {
+    this.typeproduct[e].status
+      ? (this.typeproduct[e].status = !this.typeproduct[e].status)
+      : (this.typeproduct[e].status = !this.typeproduct[e].status);
+  }
+  removeclass(e: any) {
+    this.typeproduct[e].status
+    ? (this.typeproduct[e].status = !this.typeproduct[e].status)
+    : (this.typeproduct[e].status = !this.typeproduct[e].status);
   }
 
   //añadir al carrito de compra
