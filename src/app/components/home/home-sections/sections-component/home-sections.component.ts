@@ -146,9 +146,9 @@ export class HomeSectionsComponent implements OnInit {
   };
   //agregar a la lista de favoritos o quitar de la lista
   addtofavorite(status: boolean, productIndex: number, datos: any[]) {
+    console.log(datos)
     this._addToFavoriteService.addorRemoveToFavorite(
       this._messageService,
-      this.listaFavorite,
       status,
       productIndex,
       datos

@@ -49,7 +49,6 @@ export class SearchElementComponent implements OnChanges {
   valor: any = [];
   //is loading or not
   isLoadingValor: boolean = true;
-  listaFavorite = input<any>([]);
 
   private _carServuce = inject(CarService);
   private _messageService = inject(MessageService);
@@ -95,7 +94,6 @@ export class SearchElementComponent implements OnChanges {
     console.log(datos);
     this._addToFavoriteService.addorRemoveToFavorite(
       this._messageService,
-      this.listaFavorite,
       status,
       productIndex,
       datos

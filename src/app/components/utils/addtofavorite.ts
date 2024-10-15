@@ -6,14 +6,15 @@ export function addtofavorite(
   _API: any,
   _messageService: any,
   messageError: any,
-  listaFavorite: any,
   status: boolean,
   productIndex: number,
   datos: any[]
 ) {
+
   let product: any = datos.filter(
-    (item: favorite) => item.id_product == productIndex
+    (item: favorite) => item.id_product == productIndex || item.id == productIndex
   );
+
   if (user == null) {
     _messageService.add({
       severity: 'error',
@@ -29,7 +30,7 @@ export function addtofavorite(
     };
     let myfavor = {
       usuarioId: parseInt(user[0][0].id),
-      productoId: parseInt(product[0].id_product),
+      productoId: parseInt(product[0].id_product || product[0].id),
     };
 
     (
@@ -41,20 +42,14 @@ export function addtofavorite(
       (response) => {
         //statusmessage = false;
         datos.forEach((item: any, index: number) => {
-          if (datos[index].id_product == productIndex) {
+          if (datos[index].id_product == productIndex || datos[index].id == productIndex) {
             datos[index].status = !datos[index].status;
             datos[index].icon = datos[index].status
               ? 'pi-heart-fill'
               : 'pi-heart';
           }
         });
-        (
-          _API.getMyfavoriteProduct(
-            `mylistProductFavorite/${user[0][0].id}`
-          ) as Observable<any>
-        ).subscribe((res) => {
-          listaFavorite = res;
-        });
+
       },
       (error) => {
         messageError = error.error.error;
