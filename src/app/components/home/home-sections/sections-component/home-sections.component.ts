@@ -20,6 +20,7 @@ import { SearchComponentComponent } from '../search-input/search-component.compo
 import { CarService } from '../../../services/car-buy.service';
 import { SessionComponent } from '../../../../layout/session/session.component';
 import { AddToFavoriteService } from '../../../services/add-to-favorite.service';
+import { SectionsIsvaluezeroComponent } from '../sections-isvaluezero/sections-isvaluezero.component';
 @Component({
   selector: 'app-home-sections',
   standalone: true,
@@ -41,6 +42,7 @@ import { AddToFavoriteService } from '../../../services/add-to-favorite.service'
     AsyncPipe,
     SearchComponentComponent,
     SessionComponent,
+    SectionsIsvaluezeroComponent
   ],
   providers: [MessageService],
   templateUrl: './home-sections.html',
@@ -146,7 +148,6 @@ export class HomeSectionsComponent implements OnInit {
   };
   //agregar a la lista de favoritos o quitar de la lista
   addtofavorite(status: boolean, productIndex: number, datos: any[]) {
-    console.log(datos)
     this._addToFavoriteService.addorRemoveToFavorite(
       this._messageService,
       status,
