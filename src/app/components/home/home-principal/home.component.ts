@@ -28,6 +28,4 @@ export class HomeComponent  {
   imageheader: string = '/fondo.jpg';
   //imagen opacada de fondo
   imagebackground: string = '/fondo.jpg';
-
-
 }

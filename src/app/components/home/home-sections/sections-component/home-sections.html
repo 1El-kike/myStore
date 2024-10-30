@@ -66,14 +66,14 @@
       Favorite product
     </p>
     <!-- This is component of Favorite products -->
-     @if (favoriteProduct) {
+     @if (!favoriteProductLoading) {
       @if( favoriteProduct.length == 0 ){
         <app-sections-isvaluezero title="favorite products"/>
       } @else {
         <div
         class="flex flex-nowrap md:w-full lg:w-full sm:flex-row md:flex-row lg:flex-row overflow-x-auto gap-9"
       >
-        @if (!favoriteProductLoading){ @for (item of favoriteProduct; track
+        @for (item of favoriteProduct; track
         $index) {
         <!-- Mostrar los datos de la Api -->
         <div class="max-w-[40rem] animate">
@@ -134,44 +134,54 @@
             </div>
           </div>
         </div>
-        } } @else { @for (item of [0,1,2]; track $index){
-        <!-- Loading page -->
-        <div class="max-w-[580px] animate">
-          <div
-            class="card mb-3 bg-gradient-to-bl bg-slate-500 from-slate-200 w-[560px]"
-          >
-            <div class="row g-0">
-              <div class="col-md-5">
-                <span
-                  class="h-full bg-gradient-to-r flex justify-center items-center from-transparent opacity-85 rounded-start"
-                  ><div class="loader"></div
-                ></span>
-              </div>
-              <div class="col-md-7">
-                <div class="card-body">
-                  <p-skeleton width="7rem" height="1.5rem" styleClass="mb-4 " />
-                  <p-skeleton width="12rem" styleClass="mb-2" />
-                  <p-skeleton width="11rem" styleClass="mb-2" />
-                  <p-skeleton width="10rem" styleClass="mb-4" />
-                  <p-skeleton width="5rem" styleClass="mb-2" />
-                  <div class="w-full flex gap-1 justify-end">
-                    <p-skeleton width="5rem" height="2rem" styleClass="mb-2" />
-                  </div>
+        } 
+       </div>
+
+       
+      
+     }
+    }  @else { 
+      <div
+      class="flex flex-nowrap md:w-full lg:w-full sm:flex-row md:flex-row lg:flex-row overflow-x-auto gap-9"
+    >
+      @for (item of [0,1,2]; track $index){
+      <!-- Loading page -->
+      <div class="max-w-[580px] animate">
+        <div
+          class="card mb-3 bg-gradient-to-bl bg-slate-500 from-slate-200 w-[560px]"
+        >
+          <div class="row g-0">
+            <div class="col-md-5">
+              <span
+                class="h-full bg-gradient-to-r flex justify-center items-center from-transparent opacity-85 rounded-start"
+                ><div class="loader"></div
+              ></span>
+            </div>
+            <div class="col-md-7">
+              <div class="card-body">
+                <p-skeleton width="7rem" height="1.5rem" styleClass="mb-4 " />
+                <p-skeleton width="12rem" styleClass="mb-2" />
+                <p-skeleton width="11rem" styleClass="mb-2" />
+                <p-skeleton width="10rem" styleClass="mb-4" />
+                <p-skeleton width="5rem" styleClass="mb-2" />
+                <div class="w-full flex gap-1 justify-end">
+                  <p-skeleton width="5rem" height="2rem" styleClass="mb-2" />
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        } }
       </div>
+
       }
-     }
+    </div>
+    }
 
 
     <!-- this is component of New product -->
     <p class="my-3 text-2xl font-bold text-slate-700">New products</p>
-    @if(!datosApiLoading){ @if(datosApi.length == 0){
+    @if(!datosApiLoading){ 
+      @if(datosApi.length == 0){
         <app-sections-isvaluezero title="new products"/>
     } @else {
     <p-carousel
