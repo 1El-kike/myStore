@@ -8,6 +8,7 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { SessionComponent } from '../../../../layout/session/session.component';
 import { IshoveraddclassDirective } from '../../../../directive/ishoveraddclass.directive';
+import { GlobalConstants } from '../../../utils/global-constants';
 
 @Component({
   selector: 'app-product-main',
@@ -36,6 +37,8 @@ export class ProductMainComponent {
   number: number = 0;
 
   ishover: any = '';
+
+  url = GlobalConstants.appURL;
 
   private _API = inject(ApiStoresService);
   private _carServuce = inject(CarService);

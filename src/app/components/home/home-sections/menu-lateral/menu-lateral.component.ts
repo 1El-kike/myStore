@@ -6,6 +6,7 @@ import { ButtonModule } from 'primeng/button';
 import { OrderListModule } from 'primeng/orderlist';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { RouterLink } from '@angular/router';
+import { GlobalConstants } from '../../../utils/global-constants';
 
 @Component({
   selector: 'app-menu-lateral',
@@ -16,50 +17,48 @@ import { RouterLink } from '@angular/router';
     RouterLink,
     OrderListModule,
     DragDropModule,
-    AsyncPipe
-   ],
+    AsyncPipe,
+  ],
   templateUrl: './menu-lateral.component.html',
-  styleUrl: './menu-lateral.component.css'
+  styleUrl: './menu-lateral.component.css',
 })
 export class MenuLateralComponent implements OnInit {
-  @Input() isOpenMenu?:boolean ;
- total$?:Observable<number>
-  datosBuy:List[] = []
+  @Input() isOpenMenu?: boolean;
+  total$?: Observable<number>;
+  datosBuy: List[] = [];
 
+  url = GlobalConstants.appURL;
 
- private _servisLocalStore = inject(LocalstoreService)
+  private _servisLocalStore = inject(LocalstoreService);
 
-
-  exitMenu(){
+  exitMenu() {
     this.isOpenMenu = false;
-
   }
 
   /* restarList(id:number){
   this._servisLocalStore
   } */
 
-   eliminarlist=(index :number)=>{
+  eliminarlist = (index: number) => {
     this._servisLocalStore.eliminarList(index);
     this.datosBuy = this._servisLocalStore.getList();
-
+  };
+  addproduct(index: number) {
+    this._servisLocalStore.addmoreProduct(index);
+    this.datosBuy = this._servisLocalStore.getList();
   }
-  addproduct(index:number){
-  this._servisLocalStore.addmoreProduct(index);
-  this.datosBuy = this._servisLocalStore.getList();
-  }
-  delitproduct(index: number){
+  delitproduct(index: number) {
     this._servisLocalStore.delitmoreProduct(index);
     this.datosBuy = this._servisLocalStore.getList();
   }
 
   ngOnInit(): void {
-    this._servisLocalStore.lista$.subscribe(datosBuy => {
+    this._servisLocalStore.lista$.subscribe((datosBuy) => {
       this.datosBuy = datosBuy;
     });
-  /*   this.total = this.datosBuy.reduce((acumulador, precioActual) => {
+    /*   this.total = this.datosBuy.reduce((acumulador, precioActual) => {
       return acumulador + precioActual.precio;
     }, 0); */
-    this.total$ = this._servisLocalStore._totalPrice$
+    this.total$ = this._servisLocalStore._totalPrice$;
   }
 }

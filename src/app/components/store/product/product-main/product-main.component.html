@@ -84,7 +84,7 @@
       class="w-[30%] hover:opacity-90 relative py-3 overflow-hidden animate-transition leading-4 md:w-[250px] flex flex-col items-center md:[240px] border shadow-lg rounded-3xl px-4 max-h-[35%]"
     >
     <div class="bg-gradient-to-bl from-orange-200 to-red-300 absolute w-full h-[70%] rounded-3xl after:absolute after:bottom-0 after:bg-gradient-to-tl after:from-violet-300 after:to-blue-200 after:rounded-tr-full after:w-full after:h-[70%] after:-z-10 bottom-0 -z-20"></div>
-      <img class="max-w-[80%] h-[80%] md:h-[170px] rounded-3xl" [src]="'http://localhost:3450/' +  item.image" />
+      <img class="max-w-[80%] h-[80%] md:h-[170px] rounded-3xl" [src]="url + item.image" />
       <p class="font-bold pt-2">{{ item.name }}</p>
       <p class="line-clamp-2">{{ item.description }}</p>
       <div class="flex w-full justify-between">

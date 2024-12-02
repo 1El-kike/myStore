@@ -33,7 +33,7 @@
                 <ng-template let-product class="bg-slate-600" pTemplate="item">
                     <div class="flex flex-wrap p-2 gap-3">
                         <img
-                            src="{{ product.img }}"
+                            [src]="url + product.img "
                             [alt]="product.name"
                             class="w-[4rem] h-[3rem] shadow-md rounded-lg shadow-slate-300  flex-shrink-0 border-round" />
                             <div class="flex-1 flex flex-column gap-2">
