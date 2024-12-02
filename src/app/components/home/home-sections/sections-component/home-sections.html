@@ -94,7 +94,7 @@
                   <p class="card-text">{{ item.description }}</p>
                   <p class="card-text">
                     <small class="text-muted"
-                      >Quantity available : {{ item.cantidad }}</small
+                      >Quantity available : {{ item.quantity_user }}</small
                     >
                   </p>
 
@@ -105,7 +105,7 @@
                           item.id,
                           item.title,
                           item.price,
-                          item.cantidad,
+                          item.quantity_user,
                           item.urlImg,
                           item.tipo
                         )
@@ -134,13 +134,13 @@
             </div>
           </div>
         </div>
-        } 
+        }
        </div>
 
-       
-      
+
+
      }
-    }  @else { 
+    }  @else {
       <div
       class="flex flex-nowrap md:w-full lg:w-full sm:flex-row md:flex-row lg:flex-row overflow-x-auto gap-9"
     >
@@ -180,7 +180,7 @@
 
     <!-- this is component of New product -->
     <p class="my-3 text-2xl font-bold text-slate-700">New products</p>
-    @if(!datosApiLoading){ 
+    @if(!datosApiLoading){
       @if(datosApi.length == 0){
         <app-sections-isvaluezero title="new products"/>
     } @else {
@@ -233,7 +233,7 @@
                       product.id_product,
                       product.name,
                       product.price,
-                      product.cantidad,
+                      product.quantity_user,
                       product.image,
                       product.tipo
                     )

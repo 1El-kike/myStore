@@ -89,12 +89,12 @@ export class ProductMainComponent {
         map((data: any) => {
           let result: any = [];
           data.map((elemnt: any) => {
-            if (elemnt.cantidad < 99) {
+            if (elemnt.quantity_user < 99) {
               if (index == elemnt.id) {
                 operation == 'sum'
-                  ? (elemnt.cantidad += 1)
-                  : operation == 'res' && elemnt.cantidad > 1
-                  ? (elemnt.cantidad -= 1)
+                  ? (elemnt.quantity_user += 1)
+                  : operation == 'res' && elemnt.quantity_user > 1
+                  ? (elemnt.quantity_user -= 1)
                   : '';
               }
             }

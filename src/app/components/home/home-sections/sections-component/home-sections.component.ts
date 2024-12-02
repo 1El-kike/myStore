@@ -30,16 +30,13 @@ import { SectionsIsvaluezeroComponent } from '../sections-isvaluezero/sections-i
     HomeSecondoryComponent,
     TagModule,
     SearchElementComponent,
-    NgIf,
     NgClass,
     ButtonModule,
-    MenuLateralComponent,
     CarouselModule,
     ToastModule,
     ButtonModule,
     RippleModule,
     SkeletonModule,
-    AsyncPipe,
     SearchComponentComponent,
     SessionComponent,
     SectionsIsvaluezeroComponent
@@ -272,7 +269,7 @@ export interface favorite {
   price: number;
   inventoryStatus: string;
   status: boolean;
-  cantidad: number;
+  quantity_user: number;
   icon: string;
   tipo: string;
 }

@@ -23,7 +23,7 @@ export function addbuy(
       id: id,
       name: name,
       precio: price,
-      cantidad: num,
+      quantity_user: num,
       img: img,
       tipo: tipo,
     };

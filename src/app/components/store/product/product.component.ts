@@ -9,7 +9,7 @@ import { optionProduts } from './product-main/product-main.models';
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [ DatePipe, RouterLink, AsyncPipe,ProductMainComponent, NgClass],
+  imports: [ ProductMainComponent],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
 })

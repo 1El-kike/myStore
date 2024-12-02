@@ -69,11 +69,11 @@ export class LocalstoreService {
     const product = [...this._listaSubject.value];
     product.forEach((ele) => {
       ele.id == index
-        ? (ele.cantidad = ele.cantidad + 1)
-        : (ele.cantidad = ele.cantidad);
+        ? (ele.quantity_user = ele.quantity_user + 1)
+        : (ele.quantity_user = ele.quantity_user);
     });
     const newTotal = product.reduce(
-      (acc, next) => acc + next.precio * next.cantidad,
+      (acc, next) => acc + next.precio * next.quantity_user,
       0
     );
     this._totalPriceSubject.next(newTotal);
@@ -84,13 +84,13 @@ export class LocalstoreService {
     const users = [...this._listaSubject.value];
     users.forEach((ele) => {
       if (ele.id == index) {
-        if (ele.cantidad > 1) {
-          ele.cantidad = ele.cantidad - 1;
+        if (ele.quantity_user > 1) {
+          ele.quantity_user = ele.quantity_user - 1;
         }
       }
     });
     const newTotal = users.reduce(
-      (acc, next) => acc + next.precio * next.cantidad,
+      (acc, next) => acc + next.precio * next.quantity_user,
       0
     );
     this._totalPriceSubject.next(newTotal);
@@ -119,7 +119,7 @@ export interface List {
   id: number;
   name: string;
   precio: number;
-  cantidad: number;
+  quantity_user: number;
   img: string;
   tipo: string;
 }
