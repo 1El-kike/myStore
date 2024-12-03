@@ -83,7 +83,7 @@
             <div class="row h-[15rem] g-0">
               <div class="col-md-5 h-full">
                 <img
-                  src="{{ item.urlImg }}"
+                  [src]="url + item.urlImg"
                   class="h-full bg-gradient-to-r from-transparent bg-slate-500 opacity-85 rounded-start"
                   alt="..."
                 />
@@ -200,7 +200,7 @@
             <div class="mb-3">
               <div class="relative mx-auto">
                 <img
-                  src="{{ product.image }}"
+                  [src]="url + product.image "
                   [alt]="product.name"
                   class="w-full border-round"
                 />

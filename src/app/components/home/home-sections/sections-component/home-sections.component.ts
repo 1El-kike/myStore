@@ -21,6 +21,7 @@ import { CarService } from '../../../services/car-buy.service';
 import { SessionComponent } from '../../../../layout/session/session.component';
 import { AddToFavoriteService } from '../../../services/add-to-favorite.service';
 import { SectionsIsvaluezeroComponent } from '../sections-isvaluezero/sections-isvaluezero.component';
+import { GlobalConstants } from '../../../utils/global-constants';
 @Component({
   selector: 'app-home-sections',
   standalone: true,
@@ -51,7 +52,8 @@ export class HomeSectionsComponent implements OnInit {
 
   //Datos de usuario
   user: string | any = '';
-
+  //Datos de la url de la app backend
+  url:string = GlobalConstants.appURL;
   //Lista de productos favoritos
   favoriteProduct?: any;
   //para mostrar los datos si ya estan cargados
