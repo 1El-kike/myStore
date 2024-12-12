@@ -9,6 +9,7 @@ import {
 import { RouterLink } from '@angular/router';
 import { ApiStoresService } from '../../../services/api-stores.service';
 import { SkeletonModule } from 'primeng/skeleton';
+import { GlobalConstants } from '../../../utils/global-constants';
 
 @Component({
   selector: 'app-stores',
@@ -22,6 +23,10 @@ export class StoresComponent implements OnInit {
   @Input() isloading: boolean = true;
   newdatos?: any;
   isloadingStores: boolean = true;
+
+  //Datos de la url de la app backend
+  url:string = GlobalConstants.appURL;
+
 
   private _API = inject(ApiStoresService);
 

@@ -4,6 +4,7 @@ import { FondoComponent } from '../fondo/fondo.component';
 import { ApiStoresService } from '../services/api-stores.service';
 import { SkeletonModule } from 'primeng/skeleton';
 import { NgClass } from '@angular/common';
+import { GlobalConstants } from '../utils/global-constants';
 
 @Component({
   selector: 'app-store',
@@ -30,6 +31,8 @@ export class StoreComponent implements OnInit {
   //datos de la tienda
   store?: Stores;
   loading: boolean = true;
+  //Datos de la url de la app backend
+  url:string = GlobalConstants.appURL;
 
   private _router = inject(ActivatedRoute);
   private _API = inject(ApiStoresService);
@@ -37,6 +40,7 @@ export class StoreComponent implements OnInit {
   addproduct() {}
 
   ngOnInit(): void {
+    console.log(this.url,"holaaa")
     this._router.params.subscribe((params) => {
       this.storeId = params['storeid'];
       this.loading = false;
@@ -56,7 +60,7 @@ export class StoreComponent implements OnInit {
     this._API.getStores(`stores/${this.storeId}`).subscribe(
       (datos: Stores) => {
         this.store = datos;
-        this.bgImage = `url("${this.store.imgfondo}")`;
+        this.bgImage = `url("${this.url + this.store.imgfondo}")`;
         this.isloadingStores = false;
       },
       (error) => {
