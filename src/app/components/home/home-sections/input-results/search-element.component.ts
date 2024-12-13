@@ -18,6 +18,7 @@ import { MessagesModule } from 'primeng/messages';
 import { CarService } from '../../../services/car-buy.service';
 import { ToastModule } from 'primeng/toast';
 import { AddToFavoriteService } from '../../../services/add-to-favorite.service';
+import { GlobalConstants } from '../../../utils/global-constants';
 @Component({
   selector: 'section-search-results',
   templateUrl: './search-element.component.html',
@@ -29,7 +30,6 @@ import { AddToFavoriteService } from '../../../services/add-to-favorite.service'
     TagModule,
     ToastModule,
     RatingModule,
-    NgIf,
     ButtonModule,
     CommonModule,
     SkeletonModule,
@@ -49,6 +49,8 @@ export class SearchElementComponent implements OnChanges {
   valor: any = [];
   //is loading or not
   isLoadingValor: boolean = true;
+  //url del backend
+  url = GlobalConstants.appURL;
 
   private _carServuce = inject(CarService);
   private _messageService = inject(MessageService);
