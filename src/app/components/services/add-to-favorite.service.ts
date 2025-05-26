@@ -2,7 +2,6 @@ import { inject, Injectable } from '@angular/core';
 import { ApiHomeService } from './api-home.service';
 import { addtofavorite } from '../utils/addtofavorite';
 import { LocalstoreService } from './localstore.service';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +13,6 @@ export class AddToFavoriteService {
   messageError: any = [];
   //Lista de productos favoritos
   productsfind?: any;
-
 
   private _API = inject(ApiHomeService);
   private _servisLocalStore = inject(LocalstoreService);

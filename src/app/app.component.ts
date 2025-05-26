@@ -7,23 +7,12 @@ import { NgClass } from '@angular/common';
 import { MenuComponent } from './components/menu/menu.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FondoComponent } from './components/fondo/fondo.component';
-import * as AOS from "aos";
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    HomeComponent,
-    ProductComponent,
-    ProductDetailComponent,
-    RouterModule,
-    NgClass,
-    MenuComponent,
-    FooterComponent,
-    FondoComponent,
-    FondoComponent,
-  ],
+  imports: [RouterOutlet, RouterModule, MenuComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -36,6 +25,6 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(): void {
     AOS.init();
-    window.addEventListener('load',AOS.refresh)
+    window.addEventListener('load', AOS.refresh);
   }
 }

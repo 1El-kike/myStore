@@ -6,7 +6,7 @@ import { Router, NavigationEnd, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [NgClass, NgIf, RouterLink],
+  imports: [NgIf, RouterLink],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css',
   animations: [

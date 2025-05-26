@@ -15,8 +15,8 @@ import { FavoriteComponent } from './favorite/favorite.component';
 })
 export class FavoritProductsComponent implements OnInit {
   datos: favorite[] = [];
-  imageFondo = "/fondos/store.png"
-  imageSecondary = "/fondos/productStore.png"
+  imageFondo = '/fondos/store.png';
+  imageSecondary = '/fondos/productStore.png';
   //datos de usuario
   user?: any;
 
@@ -25,7 +25,6 @@ export class FavoritProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this._servisLocalStore.getUser();
-    console.log(this.datos);
     if (this.user.length == 0) {
       this.user = null;
     } else {
