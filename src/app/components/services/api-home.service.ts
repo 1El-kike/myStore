@@ -7,7 +7,7 @@ import { LocalstoreService } from './localstore.service';
   providedIn: 'root',
 })
 export class ApiHomeService {
-  private apiUrlBase = 'http://localhost:3450';
+  private apiUrlBase = 'http://localhost:8080';
 
   private _http = inject(HttpClient);
   private _localStore = inject(LocalstoreService);

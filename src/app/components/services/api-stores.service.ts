@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiStoresService {
   private _http = inject(HttpClient);
-  private apiUrlBase = 'http://localhost:3450';
+  private apiUrlBase = 'http://localhost:8080';
 
   //observable para obtener datos de todas las tiendas
   public getAllStores = (endpoint: string): Observable<any> => {
