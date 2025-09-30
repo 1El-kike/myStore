@@ -6,7 +6,7 @@ import { ApiStoresService } from '../../services/api-stores.service';
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CurrencyPipe, NgStyle, NgIf, RouterLink],
+  imports: [RouterLink],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css',
 })
@@ -61,7 +61,5 @@ export class ProductDetailComponent implements OnInit {
 
       console.log(this.img1);
     });
-
-
   }
 }

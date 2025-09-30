@@ -12,12 +12,12 @@
     <div
       class="absolute -z-10 w-80 animatevertical h-[500px] left-16 opacity-65 top-[460px]"
     >
-      <img src="/CBM2-Photoroom.png" class="h-[300px] rounded-2xl" alt="" />
+      <img src="CBM2-Photoroom.png" class="h-[300px] rounded-2xl" alt="" />
     </div>
     <div
       class="absolute -z-10 w-80 animatevertical flex h-[500px] opacity-65 right-0 top-[600px]"
     >
-      <img src="/prueba1.jpg" class="h-[300px] w-80 rounded-2xl" alt="" />
+      <img src="prueba1.jpg" class="h-[300px] w-80 rounded-2xl" alt="" />
     </div>
     <div class="flex gap-20">
       @for (item of typeproduct; track $index) {
@@ -108,7 +108,7 @@
       <img
         title="ok"
         class="max-w-[80%] h-[80%] md:h-[170px] rounded-3xl"
-        [src]="url + item.image"
+        [src]="url + '/' + item.image"
       />
       <p class="font-bold pt-2">{{ item.name }}</p>
       <p class="line-clamp-2">{{ item.description }}</p>

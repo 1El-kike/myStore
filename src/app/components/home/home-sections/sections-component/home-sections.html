@@ -84,7 +84,7 @@
                 class="w-2/5 relative overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100"
               >
                 <img
-                  [src]="url + item.urlImg"
+                  [src]="url + '/' + item.urlImg"
                   alt="{{ item.title }}"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -211,7 +211,7 @@
             <div class="mb-3">
               <div class="relative mx-auto">
                 <img
-                  [src]="url + product.image "
+                  [src]="url + '/' + product.image "
                   [alt]="product.name"
                   class="w-full h-full object-fit-cover min-h-[254px] aspect-square rounded-xl group-hover:scale-105 transition-transform duration-500"
                 />
