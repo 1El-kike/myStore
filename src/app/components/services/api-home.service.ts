@@ -2,12 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 import { LocalstoreService } from './localstore.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiHomeService {
-  private apiUrlBase = 'http://localhost:8080';
+  private apiUrlBase = environment.apiUrlBase;
 
   private _http = inject(HttpClient);
   private _localStore = inject(LocalstoreService);

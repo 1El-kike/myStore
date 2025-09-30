@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -8,12 +9,12 @@ import { Observable } from 'rxjs';
 export class ApiAuthServiceService {
   private _http = inject(HttpClient);
 
-  private urlhttpBase = 'http://localhost:8080';
+  private apiUrlBase = environment.apiUrlBase;
 
   public registre = (endpoint: string, data: any): Observable<any> => {
-    return this._http.post(`${this.urlhttpBase}/${endpoint}`, data);
+    return this._http.post(`${this.apiUrlBase}/${endpoint}`, data);
   };
   public logIn = (endpoint: string, data: any): Observable<any> => {
-    return this._http.post(`${this.urlhttpBase}/${endpoint}`, data);
+    return this._http.post(`${this.apiUrlBase}/${endpoint}`, data);
   };
 }
