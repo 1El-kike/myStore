@@ -1,9 +1,11 @@
 <div class="bg-transparent">
   <div>
     <div
-      [style.background]="!isloadingStores ? bgImage : bgloading"
-      [style.--posicionFondo]="position"
-      class="h-60 w-ful image overflow-hidden"
+      [style.background-image]="!isloadingStores ? bgImage : bgloading"
+      [style.background-position]="position"
+      [style.background-size]="'cover'"
+      [style.background-repeat]="'no-repeat'"
+      class="h-60 w-full object-cover image overflow-hidden"
     >
       @if(isloadingStores){
       <div class="w-full loaders"></div>
@@ -51,7 +53,7 @@
           <img
             [src]="url + '/' + item.product.image"
             alt="Front of men&#039;s Basic Tee in black."
-            class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+            class="h-full group-hover:scale-105 duration-300 ease-in-out w-full object-cover object-center lg:h-full lg:w-full"
           />
           <div
             (click)="addproduct()"
@@ -76,8 +78,6 @@
             ${{ item.product.price }}
           </p>
         </div>
-
-        <!-- More products... -->
       </div>
       } }
     </div>

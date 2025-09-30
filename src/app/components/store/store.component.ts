@@ -9,7 +9,7 @@ import { GlobalConstants } from '../utils/global-constants';
 @Component({
   selector: 'app-store',
   standalone: true,
-  imports: [RouterLink, FondoComponent, SkeletonModule, NgClass],
+  imports: [RouterLink, SkeletonModule],
   templateUrl: './store.component.html',
   styleUrl: './store.component.css',
 })
@@ -59,7 +59,7 @@ export class StoreComponent implements OnInit {
     this._API.getStores(`stores/${this.storeId}`).subscribe(
       (datos: Stores) => {
         this.store = datos;
-        this.bgImage = `url("${this.url + this.store.imgfondo}")`;
+        this.bgImage = `url("${this.url + '/' + this.store.imgfondo}")`;
         this.isloadingStores = false;
       },
       (error) => {
