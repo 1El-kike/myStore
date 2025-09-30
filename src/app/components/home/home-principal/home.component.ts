@@ -6,26 +6,23 @@ import { NgIf } from '@angular/common';
 import { AvatarModule } from 'primeng/avatar';
 import { BadgeModule } from 'primeng/badge';
 import { AvatarComponent } from '../../../layout/avatar/avatar.component';
-import { HomeHeaderComponent } from "../home-header/home-header.component";
+import { HomeHeaderComponent } from '../home-header/home-header.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    RouterLink,
-    NgIf,
-    AvatarComponent,
     AvatarModule,
     BadgeModule,
     HomeHeaderComponent,
-    HomeSectionsComponent
-],
+    HomeSectionsComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
-export class HomeComponent  {
+export class HomeComponent {
   //imagen de fondo de header
-  imageheader: string = '/fondo.jpg';
+  imageheader: string = 'fondo.jpg';
   //imagen opacada de fondo
-  imagebackground: string = '/fondo.jpg';
+  imagebackground: string = 'fondo.jpg';
 }
