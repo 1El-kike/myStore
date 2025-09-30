@@ -1,10 +1,12 @@
-<div class="flex flex-col overflow-clip justify-center relative w-full h-full items-center">
+<div
+  class="flex flex-col overflow-clip justify-center relative w-full h-full items-center"
+>
   <div class="mt-20 relative justify-center flex flex-col items-center">
     <p-toast />
     <div class="flex justify-around w-full">
       <h1 class="mb-5 uppercase">Types of calification Products</h1>
       <div class="animate-scroll">
-        <app-session/>
+        <app-session />
       </div>
     </div>
     <div
@@ -20,32 +22,40 @@
     <div class="flex gap-20">
       @for (item of typeproduct; track $index) {
 
-        <div class="rounded-3xl overflow-hidden">
+      <div class="rounded-3xl overflow-hidden">
+        <div
+          class="bg-gradient-to-b hover:xxx h-full from-orange-200 to-red-300 my-2 py-4 rounded-3xl rounded-tl-full px-2"
+        >
+          <div class="w-[270px] h-[200px]">
+            <img
+              appIshoveraddclass
+              [ngClass]="{
+                ' scale-125 transition-all duration-800 ease-in-out':
+                  item.status
+              }"
+              class="card-img-top min-h-[90%] max-h-[70%] w-full"
+              src="{{ item.img }}"
+              alt="Card image cap"
+            />
+          </div>
+          <div class="card-body">
+            <h4 class="card-title py-2 text-center">{{ item.type }}</h4>
 
-      <div class=" bg-gradient-to-b hover:xxx h-full from-orange-200 to-red-300  my-2 py-4 rounded-3xl rounded-tl-full px-2">
-        <div class="w-[270px] h-[200px]">
-
-          <img appIshoveraddclass [ngClass]="{' scale-125 transition-all duration-800 ease-in-out': item.status}" class="card-img-top min-h-[90%] max-h-[70%] w-full " src="{{ item.img }}" alt="Card image cap" />
-        </div>
-        <div class="card-body">
-          <h4 class="card-title py-2 text-center">{{ item.type }}</h4>
-
-          <span class="m-2 shadow-lg">Card link</span>
-          <button
-            href="#"
-            (mouseenter)="addclass($index)"
-            (mouseleave)="removeclass($index)"
-            (click)="changeproduct($index)"
-            class="ml-2 bg-rose-500 border-separate text-white font-bold py-3 px-4 rounded-2xl shadow-custom shadow-slate-700  hover:bg-slate-700 hover:shadow-none transition-all duration-500 ease-in-out hover:scale-90 "
-          >
-            Another link
-          </button>
+            <span class="m-2 shadow-lg">Card link</span>
+            <button
+              href="#"
+              (mouseenter)="addclass($index)"
+              (mouseleave)="removeclass($index)"
+              (click)="changeproduct($index)"
+              class="ml-2 bg-rose-500 border-separate text-white font-bold py-3 px-4 rounded-2xl shadow-custom shadow-slate-700 hover:bg-slate-700 hover:shadow-none transition-all duration-500 ease-in-out hover:scale-90"
+            >
+              Another link
+            </button>
+          </div>
         </div>
       </div>
-    </div>
 
-    }
-
+      }
     </div>
   </div>
   <div class="my-20 justify-center flex flex-col items-center">
@@ -53,17 +63,26 @@
     <div class="flex flex-wrap gap-3">
       @for (item of typecategory; track $index) {
       <div
-        class="flex-grow group {{item.color}} active:scale-150 active:shadow-2xl active:shadow-red-800 active:border-blue-300  relative overflow-hidden transition-all hover:shadow-2xl hover:shadow-rose-500 rounded-3xl ease-out duration-500 hover:scale-125"
-        (click)="changecategory(item.name,$index)"
-        [ngClass]="{'scale-125': item.active}"
-        >
+        class="flex-grow group {{
+          item.color
+        }} active:scale-150 active:shadow-2xl active:shadow-red-800 active:border-blue-300  relative overflow-hidden transition-all hover:shadow-2xl hover:shadow-rose-500 rounded-3xl ease-out duration-500 hover:scale-125"
+        (click)="changecategory(item.name, $index)"
+        [ngClass]="{ 'scale-125': item.active }"
+      >
         <img
-          class="h-[100px] w-[100px] {{item.size}}  rounded-3xl cursor-pointer"
+          class="h-[100px] w-[100px] {{
+            item.size
+          }}  rounded-3xl cursor-pointer"
           src="{{ item.img }}"
           alt=""
         />
         @if (item.activate) {
-          <button (click)="cancelfind($index)" class="absolute animate-opacityonly z-10 bg-slate-300 rounded-3xl py-1 px-2 top-0 right-1 hover:bg-black hover:text-white hover:scale-125 transition-all ease-out duration-300"><i class="pi pi-times"></i></button>
+        <button
+          (click)="cancelfind($index)"
+          class="absolute animate-opacityonly z-10 bg-slate-300 rounded-3xl py-1 px-2 top-0 right-1 hover:bg-black hover:text-white hover:scale-125 transition-all ease-out duration-300"
+        >
+          <i class="pi pi-times"></i>
+        </button>
         }
         <p
           class="absolute text-white font-bold w-full pb-2 bg-gradient-to-t from-rose-900 to-transparent group-hover:-translate-y-8 transition-all px-2 ease-out duration-500"
@@ -83,28 +102,64 @@
     <div
       class="w-[30%] hover:opacity-90 relative py-3 overflow-hidden animate-transition leading-4 md:w-[250px] flex flex-col items-center md:[240px] border shadow-lg rounded-3xl px-4 max-h-[35%]"
     >
-    <div class="bg-gradient-to-bl from-orange-200 to-red-300 absolute w-full h-[70%] rounded-3xl after:absolute after:bottom-0 after:bg-gradient-to-tl after:from-violet-300 after:to-blue-200 after:rounded-tr-full after:w-full after:h-[70%] after:-z-10 bottom-0 -z-20"></div>
-      <img class="max-w-[80%] h-[80%] md:h-[170px] rounded-3xl" [src]="url + item.image" />
+      <div
+        class="bg-gradient-to-bl from-orange-200 to-red-300 absolute w-full h-[70%] rounded-3xl after:absolute after:bottom-0 after:bg-gradient-to-tl after:from-violet-300 after:to-blue-200 after:rounded-tr-full after:w-full after:h-[70%] after:-z-10 bottom-0 -z-20"
+      ></div>
+      <img
+        title="ok"
+        class="max-w-[80%] h-[80%] md:h-[170px] rounded-3xl"
+        [src]="url + item.image"
+      />
       <p class="font-bold pt-2">{{ item.name }}</p>
       <p class="line-clamp-2">{{ item.description }}</p>
       <div class="flex w-full justify-between">
         <div>{{ item.price | currency : "USD" : true }} CUP</div>
         <div
-          class="flex shadow-custom px-2 shadow-rose-300  bg-gradient-to-tr from-orange-600 via-orange-700 to-red-500 w-full ml-6 overflow-hidden rounded-2xl border-rose-600"
+          class="flex shadow-custom px-2 shadow-rose-300 bg-gradient-to-tr from-orange-600 via-orange-700 to-red-500 w-full ml-6 overflow-hidden rounded-2xl border-rose-600"
         >
-          <div (click)="moreProducts(item.id,'res' )" class="active:scale-150 active:opacity-30 shadow-custom transition-all duration-300 ease-in-out hover:scale-125 w-full h-full flex justify-center items-center">
-            <i  style="font-weight: 800" class="pi text-rose-900 font-bold scale-50  hover:text-slate-800 cursor-pointer pi-minus"></i>
+          <div
+            (click)="moreProducts(item.id, 'res')"
+            class="active:scale-150 active:opacity-30 shadow-custom transition-all duration-300 ease-in-out hover:scale-125 w-full h-full flex justify-center items-center"
+          >
+            <i
+              style="font-weight: 800"
+              class="pi text-rose-900 font-bold scale-50 hover:text-slate-800 cursor-pointer pi-minus"
+            ></i>
           </div>
-          <div class="hover:bg-rose-400  active:scale-150 active:opacity-30 shadow-custom transition-all duration-300 ease-in-out hover:scale-125  hover:shadow-inner hover:shadow-red-400 w-full h-full flex justify-center items-center">
-            <p class="text-rose-900 animate-opacity flex justify-center items-center scale-150 m-auto h-full hover:text-slate-800">
+          <div
+            class="hover:bg-rose-400 active:scale-150 active:opacity-30 shadow-custom transition-all duration-300 ease-in-out hover:scale-125 hover:shadow-inner hover:shadow-red-400 w-full h-full flex justify-center items-center"
+          >
+            <p
+              class="text-rose-900 animate-opacity flex justify-center items-center scale-150 m-auto h-full hover:text-slate-800"
+            >
               {{ item.quantity_user }}
             </p>
           </div>
-          <div (click)="moreProducts(item.id,'sum' )" class="active:scale-150 active:opacity-30 shadow-custom transition-all duration-300 ease-in-out hover:scale-125  hover:shadow-inner hover:shadow-red-400 w-full h-full cursor-pointer flex justify-center items-center">
-            <i style="font-weight: 800" class="pi text-rose-900 scale-50 font-bold hover:text-slate-800 pi-plus"></i>
+          <div
+            (click)="moreProducts(item.id, 'sum')"
+            class="active:scale-150 active:opacity-30 shadow-custom transition-all duration-300 ease-in-out hover:scale-125 hover:shadow-inner hover:shadow-red-400 w-full h-full cursor-pointer flex justify-center items-center"
+          >
+            <i
+              style="font-weight: 800"
+              class="pi text-rose-900 scale-50 font-bold hover:text-slate-800 pi-plus"
+            ></i>
           </div>
-          <div (click)="sendbuy(item.id,item.name,item.price,item.quantity_user,item.image,item.tipo)" class=" shadow-custom active:scale-150 active:opacity-30 transition-all duration-300 ease-in-out hover:scale-125 hover:shadow-inner hover:shadow-red-400 w-full h-full flex justify-center cursor-pointer items-center">
-            <i class="pi text--900 scale-125 text-white font-bold hover:text-slate-800 px-1 pi-cart-plus"></i>
+          <div
+            (click)="
+              sendbuy(
+                item.id,
+                item.name,
+                item.price,
+                item.quantity_user,
+                item.image,
+                item.tipo
+              )
+            "
+            class="shadow-custom active:scale-150 active:opacity-30 transition-all duration-300 ease-in-out hover:scale-125 hover:shadow-inner hover:shadow-red-400 w-full h-full flex justify-center cursor-pointer items-center"
+          >
+            <i
+              class="pi text--900 scale-125 text-white font-bold hover:text-slate-800 px-1 pi-cart-plus"
+            ></i>
           </div>
         </div>
       </div>

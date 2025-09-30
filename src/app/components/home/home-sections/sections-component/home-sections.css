@@ -42,6 +42,27 @@
   margin-bottom: 15px;
 }
 
+.scroll-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  scroll-behavior: smooth;
+}
+
+scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Efecto de desenfoque en los bordes opcional */
+.scroll-container {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 90%,
+    transparent 100%
+  );
+}
+
 #flip > div > div {
   color: #fff;
   padding: 0px 30px 50px 30px;

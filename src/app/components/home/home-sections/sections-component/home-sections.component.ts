@@ -2,7 +2,6 @@ import { Component, inject, Input, OnInit, signal } from '@angular/core';
 import { List, LocalstoreService } from '../../../services/localstore.service';
 import { FormsModule } from '@angular/forms';
 import { HomeSecondoryComponent } from '../../home-secondory/home-secondory.component';
-import { MenuLateralComponent } from '../menu-lateral/menu-lateral.component';
 import { CarouselModule, CarouselResponsiveOptions } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
@@ -40,7 +39,7 @@ import { GlobalConstants } from '../../../utils/global-constants';
     SkeletonModule,
     SearchComponentComponent,
     SessionComponent,
-    SectionsIsvaluezeroComponent
+    SectionsIsvaluezeroComponent,
   ],
   providers: [MessageService],
   templateUrl: './home-sections.html',
@@ -53,7 +52,7 @@ export class HomeSectionsComponent implements OnInit {
   //Datos de usuario
   user: string | any = '';
   //Datos de la url de la app backend
-  url:string = GlobalConstants.appURL;
+  url: string = GlobalConstants.appURL;
   //Lista de productos favoritos
   favoriteProduct?: any;
   //para mostrar los datos si ya estan cargados
@@ -156,7 +155,6 @@ export class HomeSectionsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     AOS.init();
     window.addEventListener('load', AOS.refresh);
 
@@ -166,7 +164,7 @@ export class HomeSectionsComponent implements OnInit {
       this.user = null;
     } else {
       //obtener los prodctos favoritos del usuario
-       (
+      (
         this._API.getMyfavoriteProduct(
           `mylistProductFavorite/${this.user[0][0].id}`
         ) as Observable<any>

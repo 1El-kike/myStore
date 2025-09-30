@@ -67,7 +67,7 @@ export class AuthUserLogInComponent {
       this.mostrarerror = false;
     }
     const userData = this.formularioConct.value;
-    this._API.logIn('auth/login', userData).subscribe(
+    this._API.logIn('auth/login/customer', userData).subscribe(
       (data) => {
         this._localStore.setToken(data.token);
         this.post_User = data.userclient;

@@ -46,7 +46,7 @@ export class ProductMainComponent {
 
   cancelfind(item: number) {
     event?.stopPropagation();
-    this.products$ = this._API.getAllproducts('allProducts');
+    this.products$ = this._API.getAllproducts('allProducts/customer');
     this.typecategory[item].activate = false;
   }
   //cambiar de categorty products
@@ -62,8 +62,8 @@ export class ProductMainComponent {
   }
   removeclass(e: any) {
     this.typeproduct[e].status
-    ? (this.typeproduct[e].status = !this.typeproduct[e].status)
-    : (this.typeproduct[e].status = !this.typeproduct[e].status);
+      ? (this.typeproduct[e].status = !this.typeproduct[e].status)
+      : (this.typeproduct[e].status = !this.typeproduct[e].status);
   }
 
   //añadir al carrito de compra
@@ -125,34 +125,20 @@ export class ProductMainComponent {
     });
     this.typecategory[item].activate = true;
 
-    this.products$ = this._API.getAllproducts('allProducts');
-    this.products$
-      ?.pipe(
-        map((datanew) => {
-          let result: any = [];
-          datanew.map((data: any) => {
-            let textArray: string = data.category;
-            let text1 = textArray.toLowerCase() + 's';
-            let text2 = text.toLowerCase();
-
-            if (text1.includes(text2)) {
-              result.push(data);
-            }
-          });
-          return result;
-        })
-      )
-      .subscribe(
-        (datos: any) =>
-          (this.products$ = new Observable((valor) => {
-            valor.next(datos);
-          })),
-        (err) => console.log(err)
-      );
+    this.products$ = this._API.getAllproducts(
+      `allProducts/customer/?tipo=${text}`
+    );
+    this.products$?.subscribe(
+      (datos: any) =>
+        (this.products$ = new Observable((valor) => {
+          valor.next(datos);
+        })),
+      (err) => console.log(err)
+    );
   }
 
   ngOnInit(): void {
-    this.products$ = this._API.getAllproducts('allProducts');
+    this.products$ = this._API.getAllproducts('allProducts/customer/');
     this.typeproduct = typeproducts;
     this.typecategory = this.typeproduct[0].category;
     //typeproduct[0].category

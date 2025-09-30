@@ -32,7 +32,7 @@ export class StoreComponent implements OnInit {
   store?: Stores;
   loading: boolean = true;
   //Datos de la url de la app backend
-  url:string = GlobalConstants.appURL;
+  url: string = GlobalConstants.appURL;
 
   private _router = inject(ActivatedRoute);
   private _API = inject(ApiStoresService);
@@ -40,7 +40,6 @@ export class StoreComponent implements OnInit {
   addproduct() {}
 
   ngOnInit(): void {
-    console.log(this.url,"holaaa")
     this._router.params.subscribe((params) => {
       this.storeId = params['storeid'];
       this.loading = false;

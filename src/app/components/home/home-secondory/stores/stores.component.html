@@ -11,7 +11,7 @@
   </div>
   } } @else{ @for (item of stores; track $index) {
 
-  <a
+  <!-- <a
     [routerLink]="['/store', item.id]"
     role="button"
     class="card animate shadow-custom shadow-stone-500 w-[320px] h-[280px] hover:opacity-75 cursor-pointer"
@@ -22,22 +22,132 @@
       alt="Imagen no encontrada"
     />
     <div
-      class="card-img-overlay bg-gradient-to-t from-yellow-200 flex flex-col justify-end opacity-95"
+      class="card-img-overlay p-0 bg-gradient-to-t from-rose-200/30 flex flex-col justify-end opacity-95"
     >
-      <h5 class="text-green-900 text-2xl font-black">{{ item.name }}</h5>
-      <div class="flex justify-between">
-        <p class="card-text">
-          <small>
-            {{ item.rating }} <i class="pi pi-star-fill text-amber-400"></i
-          ></small>
-        </p>
-        @if (item.isOpen) {
-        <p class="text-green-400">OPEN</p>
-        } @else {
-        <p class="text-red-500">CLOSED</p>
-        }
+      <div class="w-full px-2 py-4 h-1/2">
+        <div
+          class="w-full h-1/2 absolute blur-xl left-0 -z-10 bg-gray-100"
+        ></div>
+        <div class="flex justify-between items-center">
+          <h5 class="text-green-900 text-2xl font-black">{{ item.name }}</h5>
+          <div
+            class="bg-gradient-to-br from-gray-600 to-gray-900 px-2 p-1 rounded-xl flex"
+          >
+            @if (item.isOpen) {
+            <p class="text-green-400 m-auto">OPEN</p>
+            } @else {
+            <p class="text-red-500 m-auto">CLOSED</p>
+            }
+          </div>
+        </div>
+        <div class="flex justify-between">
+          <p class="card-text">
+            <small>
+              {{ item.rating }} <i class="pi pi-star-fill text-amber-400"></i
+            ></small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </a> -->
+  <a
+    [routerLink]="['/store', item.id]"
+    role="button"
+    class="card animate shadow-lg hover:shadow-xl transition-all duration-300 w-[320px] cursor-pointer overflow-hidden rounded-2xl group bg-white"
+  >
+    <!-- Contenedor principal -->
+    <div class="flex flex-col h-full">
+      <!-- Imagen cuadrada -->
+      <div class="relative w-full aspect-square overflow-hidden">
+        <img
+          [src]="url + item.imgStore"
+          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          alt="Imagen no encontrada"
+        />
+
+        <!-- Badge de estado en esquina -->
+        <div
+          class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 flex rounded-full border shadow-sm"
+        >
+          @if (item.isOpen) {
+          <p
+            class="text-green-600 m-auto font-semibold text-sm flex items-center gap-1"
+          >
+            <i class="pi pi-circle-fill text-[8px] animate-pulse"></i>
+            ABIERTO
+          </p>
+          } @else {
+          <p
+            class="text-red-600 m-auto font-semibold text-sm flex items-center gap-1"
+          >
+            <i class="pi pi-circle-fill text-[8px]"></i>
+            CERRADO
+          </p>
+          }
+        </div>
+      </div>
+
+      <!-- Sección inferior con diseño especial -->
+      <div
+        class="flex-1 p-4 bg-gradient-to-br from-rose-50 via-white to-cyan-50 border-t border-gray-100"
+      >
+        <!-- Nombre de la tienda -->
+        <h5
+          class="text-gray-800 text-lg font-bold mb-3 line-clamp-2 leading-tight"
+        >
+          {{ item.name }}
+        </h5>
+
+        <!-- Rating con estrellas -->
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-1">
+            @for (star of [1,2,3,4,5]; track star) {
+            <i
+              class="pi text-lg"
+              [ngClass]="{
+                'pi-star-fill text-amber-400': star <= item.rating,
+                'pi-star text-gray-300': star > item.rating
+              }"
+            ></i>
+            }
+            <span class="text-amber-600 font-bold ml-2 text-sm">
+              {{ item.rating }}/5
+            </span>
+          </div>
+
+          <!-- Contador de reseñas (opcional) -->
+          <span class="text-gray-500 text-sm">
+            ({{ item.reviewCount || "0" }} reseñas)
+          </span>
+        </div>
+
+        <!-- Información adicional -->
+        <div class="flex items-center justify-between text-sm text-gray-600">
+          <div class="flex items-center gap-1">
+            <i class="pi pi-map-marker text-green-500"></i>
+            <span>Cercana</span>
+          </div>
+
+          <!-- Indicador de hover -->
+          <div
+            class="flex items-center gap-1 text-green-600 font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+            Visitar tienda
+            <i class="pi pi-arrow-right text-xs"></i>
+          </div>
+        </div>
+
+        <!-- Línea decorativa -->
+        <div class="mt-3 pt-3 border-t border-gray-200/50">
+          <div class="flex justify-between text-xs text-gray-500">
+            <span>• Envío gratis</span>
+            <span>• 24/7</span>
+            <span>• Calidad</span>
+          </div>
+        </div>
       </div>
     </div>
   </a>
+
   } }
 </div>

@@ -10,11 +10,12 @@ import { RouterLink } from '@angular/router';
 import { ApiStoresService } from '../../../services/api-stores.service';
 import { SkeletonModule } from 'primeng/skeleton';
 import { GlobalConstants } from '../../../utils/global-constants';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-stores',
   standalone: true,
-  imports: [RouterLink, SkeletonModule],
+  imports: [RouterLink, NgClass, SkeletonModule],
   templateUrl: './stores.component.html',
   styleUrl: './stores.component.css',
 })
@@ -25,8 +26,7 @@ export class StoresComponent implements OnInit {
   isloadingStores: boolean = true;
 
   //Datos de la url de la app backend
-  url:string = GlobalConstants.appURL;
-
+  url: string = GlobalConstants.appURL;
 
   private _API = inject(ApiStoresService);
 
@@ -38,10 +38,12 @@ export class StoresComponent implements OnInit {
     }
   } */
 
+  fullStars = Math.floor(3.2); // Estrellas completas
+  hasHalfStar = 4 % 1 >= 0.5; // Verifica si hay media estrella
+
   ngOnInit(): void {
     if (this.stores == undefined) {
-      console.log(this.stores);
-      this._API.getAllStores('stores').subscribe(
+      this._API.getAllStores('stores/customer/').subscribe(
         (data) => {
           this.stores = data;
           this.isloadingStores = false;

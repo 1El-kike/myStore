@@ -12,7 +12,13 @@ import * as AOS from 'aos';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterModule, MenuComponent, FooterComponent],
+  imports: [
+    RouterOutlet,
+    RouterModule,
+    MenuComponent,
+    FooterComponent,
+    FondoComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
