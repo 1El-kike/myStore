@@ -1,73 +1,77 @@
-<div class="relative h-full">
+<div
+  class="relative min-h-screen bg-gradient-to-br from-neutral-50 via-white to-neutral-100"
+>
   <p-toast />
-  <!-- <img
-    src="{{ image }}"
-    alt="Fondo"
-    class="absolute inset-0 -z-10 opacity-5 w-full h-full object-cover"
-  /> -->
-  <div
-    class="relative w-full h-full bg-gradient-to-br from-yellow-300 bg-red-800"
-  ></div>
-  <div class="md:px-8 z-20">
+
+  <!-- Background decoration -->
+  <div class="absolute inset-0 overflow-hidden">
     <div
-      class="mb-10 flex flex-col sm:flex-col lg:flex-row flex-wrap md:flex-row xl:gap-28 md:gap-2 sm:gap-2 z-20 justify-around sm:items-start items-start md:items-center lg:items-center w-full"
-    >
-      <div
-        class="flex sm:scale-100 md:scale-100 lg:scale-75 scale-75 ml-0 gap-1"
-      >
-        <div id="container" class="">
-          <div
-            id="flip"
-            class="justify-center scale-50 sm:scale-50 md:scale-75 lg:scale-125 text-center"
+      class="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-primary-200 to-secondary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"
+    ></div>
+    <div
+      class="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-accent-200 to-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-2000"
+    ></div>
+  </div>
+
+  <div class="relative z-10 px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero section with search and user session -->
+    <div class="mb-16">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2
+            class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 animate-fadeInUp"
           >
-            <div>
-              <div
-                class="bg-gradient-to-tl from-green-500 via-green-500 to-green-500"
-              >
-                wOrK
-              </div>
-            </div>
-            <div>
-              <div
-                class="bg-gradient-to-tl from-cyan-400 via-cyan-300 to-cyan-400"
-              >
-                lifeStyle
-              </div>
-            </div>
-            <div>
-              <div
-                class="bg-gradient-to-tl from-red-600 via-red-500 to-red-700"
-              >
-                Everything
-              </div>
-            </div>
+            Encuentra lo que
+            <span class="text-primary-600">buscas</span>
+          </h2>
+          <p
+            class="text-xl text-gray-600 max-w-2xl mx-auto animate-fadeInUp animation-delay-200"
+          >
+            Explora miles de productos de las mejores tiendas locales
+          </p>
+        </div>
+
+        <div
+          class="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12"
+        >
+          <!-- Search component -->
+          <div class="w-full max-w-2xl animate-slide-in-left">
+            <section-search-input
+              (Element)="changetext($event)"
+              [productsEnviados]="productsfind()"
+              (changefind)="changefind($event)"
+            />
+          </div>
+
+          <!-- User session -->
+          <div class="animate-slide-in-right">
+            <app-session />
           </div>
         </div>
       </div>
-      <!-- component of search -->
-      <section-search-input
-        (Element)="changetext($event)"
-        [productsEnviados]="productsfind()"
-        (changefind)="changefind($event)"
-      />
-      <!-- session navbar user -->
-      <div
-        class="absolute md:relative ml-52 mb-8 sm:ml-52 md:m-0 lg:m-0 sm:mb-14"
-      >
-        <app-session />
-      </div>
     </div>
-    <!-- Results of search input -->
+    <!-- Search results -->
     <section-search-results
       [letersend]="searchElement"
       [searchProduct]="valorfind"
     />
-    <p class="my-3 text-2xl uppercase font-bold text-slate-700">
-      Favorite product
-    </p>
-    <!-- This is component of Favorite products -->
-    @if (!favoriteProductLoading) { @if( favoriteProduct.length == 0 ){
-    <app-sections-isvaluezero title="favorite products" />
+
+    <!-- Favorite products section -->
+    <section class="mb-20">
+      <div class="text-center mb-12">
+        <h3
+          class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 animate-fadeInUp"
+        >
+          Productos <span class="text-accent-600">Favoritos</span>
+        </h3>
+        <p class="text-lg text-gray-600 animate-fadeInUp animation-delay-200">
+          Los más populares entre nuestros usuarios
+        </p>
+      </div>
+    </section>
+    <!-- Favorite products content -->
+    @if (!favoriteProductLoading) { @if(favoriteProduct.length == 0) {
+    <app-sections-isvaluezero title="productos favoritos" />
     } @else {
     <div class="w-full max-w-[95rem] mx-auto pt-6">
       <!-- Contenedor con scroll horizontal -->

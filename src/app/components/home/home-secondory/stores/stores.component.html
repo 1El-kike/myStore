@@ -1,153 +1,233 @@
-<p class="text-slate-600 font-bold text-4xl my-4 mx-4">Stores all</p>
-<div class="flex flex-wrap gap-3 my-16 w-full justify-center">
-  @if (isloadingStores) { @for (item of [1,2,3,4,5,6,7,8,9]; track $index) {
-  <div
-    class="card animate shadow shadow-stone-500 w-[320px] h-[280px] hover:opacity-75 cursor-pointer"
-  >
-    <span class="card-img relative h-[289px] w-full">
-      <div class="loader absolute left-[40%] top-[40%] z-30"></div>
-      <p-skeleton height="18rem" styleClass="mb-4" />
-    </span>
-  </div>
-  } } @else{ @for (item of stores; track $index) {
-
-  <!-- <a
-    [routerLink]="['/store', item.id]"
-    role="button"
-    class="card animate shadow-custom shadow-stone-500 w-[320px] h-[280px] hover:opacity-75 cursor-pointer"
-  >
-    <img
-      [src]="url + item.imgStore"
-      class="card-img h-[289px] w-full"
-      alt="Imagen no encontrada"
-    />
+<!-- Hero Section con diseño impactante -->
+<div
+  class="relative bg-gradient-to-br from-primary-50 via-white to-secondary-50 py-16 lg:py-24 overflow-hidden"
+>
+  <!-- Background decorations -->
+  <div class="absolute inset-0">
     <div
-      class="card-img-overlay p-0 bg-gradient-to-t from-rose-200/30 flex flex-col justify-end opacity-95"
-    >
-      <div class="w-full px-2 py-4 h-1/2">
-        <div
-          class="w-full h-1/2 absolute blur-xl left-0 -z-10 bg-gray-100"
-        ></div>
-        <div class="flex justify-between items-center">
-          <h5 class="text-green-900 text-2xl font-black">{{ item.name }}</h5>
-          <div
-            class="bg-gradient-to-br from-gray-600 to-gray-900 px-2 p-1 rounded-xl flex"
-          >
-            @if (item.isOpen) {
-            <p class="text-green-400 m-auto">OPEN</p>
-            } @else {
-            <p class="text-red-500 m-auto">CLOSED</p>
-            }
+      class="absolute top-0 left-1/4 w-96 h-96 bg-primary-200/30 rounded-full blur-3xl animate-pulse"
+    ></div>
+    <div
+      class="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary-200/30 rounded-full blur-3xl animate-pulse animation-delay-2000"
+    ></div>
+    <div
+      class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-conic from-accent-200/20 via-transparent to-primary-200/20 rounded-full animate-spin animation-duration-20s"
+    ></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header section -->
+    <div class="text-center mb-16">
+      <div
+        class="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-800 rounded-full text-sm font-medium mb-6 animate-fadeInUp"
+      >
+        <span
+          class="w-2 h-2 bg-primary-500 rounded-full mr-2 animate-pulse"
+        ></span>
+        Descubre las mejores tiendas
+      </div>
+
+      <h1
+        class="text-4xl lg:text-6xl font-black text-gray-900 mb-6 animate-fadeInUp animation-delay-200"
+      >
+        <span
+          class="bg-gradient-to-r from-primary-600 via-secondary-600 to-accent-600 bg-clip-text text-transparent"
+        >
+          Tiendas
+        </span>
+        <br />
+        <span class="text-gray-700">Excepcionales</span>
+      </h1>
+
+      <p
+        class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed animate-fadeInUp animation-delay-400"
+      >
+        Explora una selección curada de las mejores tiendas locales. Cada tienda
+        ofrece productos únicos, calidad garantizada y una experiencia de compra
+        excepcional.
+      </p>
+
+      <!-- Stats -->
+      <div
+        class="flex justify-center space-x-8 mt-12 animate-fadeInUp animation-delay-600"
+      >
+        <div class="text-center">
+          <div class="text-3xl font-bold text-primary-600">
+            {{ stores?.length || 0 }}
           </div>
+          <div class="text-sm text-gray-500">Tiendas Activas</div>
         </div>
-        <div class="flex justify-between">
-          <p class="card-text">
-            <small>
-              {{ item.rating }} <i class="pi pi-star-fill text-amber-400"></i
-            ></small>
-          </p>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-secondary-600">4.8</div>
+          <div class="text-sm text-gray-500">Calificación Promedio</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-accent-600">24/7</div>
+          <div class="text-sm text-gray-500">Disponibilidad</div>
         </div>
       </div>
     </div>
-  </a> -->
-  <a
-    [routerLink]="['/store', item.id]"
-    role="button"
-    class="card animate shadow-lg hover:shadow-xl transition-all duration-300 w-[320px] cursor-pointer overflow-hidden rounded-2xl group bg-white"
-  >
-    <!-- Contenedor principal -->
-    <div class="flex flex-col h-full">
-      <!-- Imagen cuadrada -->
-      <div class="relative w-full aspect-square overflow-hidden">
-        <img
-          [src]="url + '/' + item.imgStore"
-          class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-          alt="Imagen no encontrada"
-        />
 
-        <!-- Badge de estado en esquina -->
+    <!-- Stores Grid -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+    >
+      @if (isloadingStores) { @for (item of [1,2,3,4,5,6,7,8]; track $index) {
+      <!-- Loading skeleton -->
+      <div
+        class="group bg-white rounded-3xl shadow-lg overflow-hidden animate-pulse"
+      >
         <div
-          class="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 flex rounded-full border shadow-sm"
-        >
-          @if (item.isOpen) {
-          <p
-            class="text-green-600 m-auto font-semibold text-sm flex items-center gap-1"
-          >
-            <i class="pi pi-circle-fill text-[8px] animate-pulse"></i>
-            ABIERTO
-          </p>
-          } @else {
-          <p
-            class="text-red-600 m-auto font-semibold text-sm flex items-center gap-1"
-          >
-            <i class="pi pi-circle-fill text-[8px]"></i>
-            CERRADO
-          </p>
-          }
+          class="aspect-square bg-gradient-to-br from-gray-200 to-gray-300"
+        ></div>
+        <div class="p-6">
+          <div class="h-6 bg-gray-200 rounded-lg mb-3"></div>
+          <div class="h-4 bg-gray-200 rounded w-3/4 mb-4"></div>
+          <div class="flex justify-between items-center">
+            <div class="h-4 bg-gray-200 rounded w-1/2"></div>
+            <div class="h-8 w-8 bg-gray-200 rounded-full"></div>
+          </div>
         </div>
       </div>
-
-      <!-- Sección inferior con diseño especial -->
+      } } @else { @for (item of stores; track $index) {
+      <!-- Store Card -->
       <div
-        class="flex-1 p-4 bg-gradient-to-br from-rose-50 via-white to-cyan-50 border-t border-gray-100"
+        class="group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:-translate-y-2 animate-fadeInUp"
+        [style.animation-delay.ms]="$index * 100"
       >
-        <!-- Nombre de la tienda -->
-        <h5
-          class="text-gray-800 text-lg font-bold mb-3 line-clamp-2 leading-tight"
-        >
-          {{ item.name }}
-        </h5>
+        <!-- Background gradient overlay -->
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-transparent to-secondary-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        ></div>
 
-        <!-- Rating con estrellas -->
-        <div class="flex items-center justify-between mb-3">
-          <div class="flex items-center gap-1">
-            @for (star of [1,2,3,4,5]; track star) {
-            <i
-              class="pi text-lg"
-              [ngClass]="{
-                'pi-star-fill text-amber-400': star <= item.rating,
-                'pi-star text-gray-300': star > item.rating
-              }"
-            ></i>
+        <!-- Image section -->
+        <div class="relative aspect-square overflow-hidden">
+          <img
+            [src]="url + '/' + item.imgStore"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+            alt="Imagen de tienda"
+            loading="lazy"
+          />
+
+          <!-- Status badge -->
+          <div class="absolute top-4 right-4">
+            @if (item.isOpen) {
+            <div
+              class="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg animate-pulse"
+            >
+              <div class="w-2 h-2 bg-white rounded-full"></div>
+              ABIERTO
+            </div>
+            } @else {
+            <div
+              class="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg"
+            >
+              <div class="w-2 h-2 bg-white rounded-full"></div>
+              CERRADO
+            </div>
             }
-            <span class="text-amber-600 font-bold ml-2 text-sm">
-              {{ item.rating }}/5
+          </div>
+
+          <!-- Hover overlay -->
+          <div
+            class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+          >
+            <button
+              [routerLink]="['/store', item.id]"
+              class="bg-white text-gray-900 px-6 py-3 rounded-full font-bold hover:bg-primary-500 hover:text-white transition-all duration-300 transform scale-95 group-hover:scale-100 shadow-lg"
+            >
+              Ver Tienda
+              <i class="pi pi-arrow-right ml-2"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Content section -->
+        <div class="p-6">
+          <!-- Store name -->
+          <h3
+            class="text-xl font-bold text-gray-900 mb-2 line-clamp-2 group-hover:text-primary-600 transition-colors duration-300"
+          >
+            {{ item.name }}
+          </h3>
+
+          <!-- Rating -->
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-1">
+              @for (star of [1,2,3,4,5]; track star) {
+              <i
+                class="pi text-sm"
+                [ngClass]="{
+                  'pi-star-fill text-yellow-400': star <= item.rating,
+                  'pi-star text-gray-300': star > item.rating
+                }"
+              ></i>
+              }
+              <span class="text-yellow-600 font-bold text-sm ml-2">
+                {{ item.rating }}/5
+              </span>
+            </div>
+            <span class="text-gray-500 text-sm">
+              ({{ item.reviewCount || 42 }}
+              reseñas)
             </span>
           </div>
 
-          <!-- Contador de reseñas (opcional) -->
-          <span class="text-gray-500 text-sm">
-            ({{ item.reviewCount || "0" }} reseñas)
-          </span>
-        </div>
-
-        <!-- Información adicional -->
-        <div class="flex items-center justify-between text-sm text-gray-600">
-          <div class="flex items-center gap-1">
-            <i class="pi pi-map-marker text-green-500"></i>
-            <span>Cercana</span>
+          <!-- Features -->
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span
+              class="bg-primary-100 text-primary-800 text-xs px-3 py-1 rounded-full font-medium"
+            >
+              <i class="pi pi-truck mr-1"></i>Envío gratis
+            </span>
+            <span
+              class="bg-secondary-100 text-secondary-800 text-xs px-3 py-1 rounded-full font-medium"
+            >
+              <i class="pi pi-clock mr-1"></i>24/7
+            </span>
+            <span
+              class="bg-accent-100 text-accent-800 text-xs px-3 py-1 rounded-full font-medium"
+            >
+              <i class="pi pi-shield mr-1"></i>Calidad
+            </span>
           </div>
 
-          <!-- Indicador de hover -->
-          <div
-            class="flex items-center gap-1 text-green-600 font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          >
-            Visitar tienda
-            <i class="pi pi-arrow-right text-xs"></i>
+          <!-- Location -->
+          <div class="flex items-center text-gray-600 text-sm">
+            <i class="pi pi-map-marker text-primary-500 mr-2"></i>
+            <span>Tienda cercana • 2.5km</span>
           </div>
         </div>
 
-        <!-- Línea decorativa -->
-        <div class="mt-3 pt-3 border-t border-gray-200/50">
-          <div class="flex justify-between text-xs text-gray-500">
-            <span>• Envío gratis</span>
-            <span>• 24/7</span>
-            <span>• Calidad</span>
-          </div>
-        </div>
+        <!-- Decorative elements -->
+        <div
+          class="absolute top-4 left-4 w-8 h-8 bg-gradient-to-br from-primary-400 to-secondary-400 rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300"
+        ></div>
+        <div
+          class="absolute bottom-4 right-4 w-6 h-6 bg-gradient-to-br from-accent-400 to-primary-400 rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300"
+        ></div>
+      </div>
+      } }
+    </div>
+
+    <!-- Call to action -->
+    @if (!isloadingStores && stores && stores.length > 0) {
+    <div class="text-center mt-16 animate-fadeInUp animation-delay-1000">
+      <div
+        class="bg-gradient-to-r from-primary-500 to-secondary-500 rounded-3xl p-8 text-white shadow-2xl"
+      >
+        <h3 class="text-2xl font-bold mb-4">¿No encuentras lo que buscas?</h3>
+        <p class="text-lg mb-6 opacity-90">
+          Más tiendas se unen cada día a nuestra plataforma
+        </p>
+        <button
+          class="bg-white text-primary-600 px-8 py-4 rounded-full font-bold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+        >
+          Ver Todas las Categorías
+          <i class="pi pi-arrow-right ml-2"></i>
+        </button>
       </div>
     </div>
-  </a>
-
-  } }
+    }
+  </div>
 </div>

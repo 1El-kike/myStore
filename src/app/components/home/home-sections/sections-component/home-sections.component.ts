@@ -30,7 +30,6 @@ import { GlobalConstants } from '../../../utils/global-constants';
     HomeSecondoryComponent,
     TagModule,
     SearchElementComponent,
-    NgClass,
     ButtonModule,
     CarouselModule,
     ToastModule,
